@@ -1,0 +1,23 @@
+$primary:       #3066BE;
+$secondary:     #B4C5E4;
+$success:       #69995D;
+$info:          #832161;
+$warning:       #E2C044;
+$danger:        #E3170A;
+$light:         #F7FFF7;
+$dark:          #160F29;
+
+$theme-colors: (
+	"primary":    $primary,
+	"secondary":  $secondary,
+	"success":    $success,
+	"info":       $info,
+	"warning":    $warning,
+	"danger":     $danger,
+	"light":      $light,
+	"dark":       $dark
+);
+
+// REQUIRED
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
