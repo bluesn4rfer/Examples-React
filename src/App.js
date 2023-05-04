@@ -1,4 +1,4 @@
-import { useLocalStorage } from './components/useLocalStorage';
+import { useLocalStorage } from './components/hooks/useLocalStorage';
 import { useState } from 'react';
 import Menu from './components/Menu.js';
 import ThemeSelector from './components/ThemeSelector';
@@ -8,6 +8,7 @@ import ComponentExample from './ComponentExample';
 import ComponentCode from './ComponentCode';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
 import './style.css';
 
 function App() {

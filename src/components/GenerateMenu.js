@@ -8,7 +8,7 @@ function GenerateMenu(props){
 
 	return (
 			<div>
-				<button className='btn btn-success dropdown-toggle' data-bs-toggle='dropdown'><i className='icon fas fa-bars' /></button>
+				<button className='btn btn-success dropdown-toggle' data-bs-toggle='dropdown'><i className='icon fa fa-bars' /></button>
 				<div className='dropdown-menu theme-success border-0 p-0 m-0'>
 					<div className='d-grid'>
 		{props.menu.map((menuitem, index) => (

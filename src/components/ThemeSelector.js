@@ -20,7 +20,7 @@ function ThemeSelector(props){
         <Modal show={props.show} onHide={hide} centered>
             <Modal.Header className="m-0 px-2 py-0 theme-primary">
                 <Modal.Title>CHOOSE THEME</Modal.Title>
-                <button className='btn btn-secondary' onClick={hide}>CLOSE</button>
+                <button className='btn btn-secondary' onClick={hide}><i className='fa fa-times' aria-hidden="true"></i></button>
             </Modal.Header>
             <Modal.Body className="m-0 p-2">
                 <div className='d-flex flex-wrap justify-content-center'>
