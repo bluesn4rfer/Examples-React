@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-const ValidatedInput = ({ inputName, inputType, validator, ...restProps }) => {
+const validatedInput = ({ inputName, inputType, validator, ...restProps }) => {
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(true);
-
-  const validateInput = (value) => {
-    const isValid = validator(value);
-    setIsValid(isValid);
-  };
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
     setInputValue(inputValue);
     validateInput(inputValue);
+  };
+
+  const validateInput = (value) => {
+    const isValid = validator(value);
+    setIsValid(isValid);
   };
 
   return (
@@ -31,4 +31,4 @@ const ValidatedInput = ({ inputName, inputType, validator, ...restProps }) => {
   );
 };
 
-export default ValidatedInput;
+export default validatedInput;
