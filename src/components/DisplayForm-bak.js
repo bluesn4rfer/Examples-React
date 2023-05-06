@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import FormInput from './FormInput';
+
 const FIELDSET = "fieldset";
 const HIDDEN = "hidden";
 const CHECKBOX = "checkbox";
@@ -14,13 +16,13 @@ const SUBMIT = "submit";
 const RESET = "reset";
 const IMAGE = "image";
 
-function GenerateForm(props){
+function DisplayForm(props){
 	const [state, setState] = useState();
 
         const handleChange = (event) => {
-            console.log('GenerateForm.js handleChange(event): invoked');
+            console.log('DisplayForm.js handleChange(event): invoked');
             if(event.target.type != 'password'){
-                        console.log('GenerateForm.js handleChange() ' + event.target.name + ': ' + event.target.value);
+                        console.log('DisplayForm.js handleChange() ' + event.target.name + ': ' + event.target.value);
             }
 
             setState({...state,...{[event.target.name]: event.target.value}});
@@ -31,29 +33,29 @@ function GenerateForm(props){
         };
 
         const submitForm = (event) => {
-                console.log('GenerateForm.js submitForm(event): invoked');
+                console.log('DisplayForm.js submitForm(event): invoked');
                 event.preventDefault();
-                console.log('GenerateForm.js submitForm() event.preventDefault() finished');
+                console.log('DisplayForm.js submitForm() event.preventDefault() finished');
 
 		if(!props.form.primaryBtn){
-			console.log('GenerateForm.js submitForm() props.form.primaryBtn is null');
+			console.log('DisplayForm.js submitForm() props.form.primaryBtn is null');
 		}
 		else{
 	                if(!props.form.primaryBtn.action){
-				console.log('GenerateForm.js submitForm() props.form.primaryBtn.action is null');
+				console.log('DisplayForm.js submitForm() props.form.primaryBtn.action is null');
 			}
 			else{
-	                        console.log('GenerateForm.js submitForm() state: ' + JSON.stringify(state));
+	                        console.log('DisplayForm.js submitForm() state: ' + JSON.stringify(state));
 	                        props.form.primaryBtn.action(state);
 	                }
 		}
         };
 
-        const GenerateFieldData = (field) => {
+        const DisplayFieldData = (field) => {
                 switch (field.type.toLowerCase()){
                         case FIELDSET:
                                 let field_data = field.fields.map((record,index) => {
-                                        return GenerateFieldData(record);
+                                        return DisplayFieldData(record);
                                 });
 
 				let fieldset_key = 'fieldset_' + field.label.replace(/\W/g, '');
@@ -214,10 +216,10 @@ function GenerateForm(props){
         };
 
 	const primaryBtn = () => {
-		console.log('GenerateForm.js primaryBtn() invoked');
+		console.log('DisplayForm.js primaryBtn() invoked');
 
 		if(!props.form.primaryBtn){
-			console.log('GenerateForm.js primaryBtn() props.form.primaryBtn is null');
+			console.log('DisplayForm.js primaryBtn() props.form.primaryBtn is null');
 			return null;
 		}
 
@@ -237,10 +239,10 @@ function GenerateForm(props){
 	};
 
 	const secondaryBtn = () => {
-		console.log('GenerateForm.js seondaryBtn() invoked');
+		console.log('DisplayForm.js seondaryBtn() invoked');
 
 		if(!props.form.secondaryBtn){
-			console.log('GenerateForm.js secondaryBtn() props.form.secondaryBtn is null');
+			console.log('DisplayForm.js secondaryBtn() props.form.secondaryBtn is null');
 			return null;
 		}
 
@@ -260,7 +262,7 @@ function GenerateForm(props){
 	};
 
         let fields = props.form.fields.map((field, index) => {
-        	return GenerateFieldData(field);
+        	return DisplayFieldData(field);
         });
 
         return(
@@ -279,4 +281,4 @@ function GenerateForm(props){
 	);
 }
 
-export default GenerateForm;
+export default DisplayForm;

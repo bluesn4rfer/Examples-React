@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function validatedRadio() {
+function FormRadioBtn() {
   const [selectedOption, setSelectedOption] = useState('');
 
   function handleOptionChange(event) {
@@ -37,4 +37,4 @@ function validatedRadio() {
   );
 }
 
-export default validatedRadio;
+export default FormRadioBtn;
