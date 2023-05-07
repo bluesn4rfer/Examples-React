@@ -15,12 +15,16 @@ import validateWeek from './utils/validateWeek';
 import FormInput from './views/FormInput';
 import FormSelectBox from './views/FormSelectBox';
 import FormTextarea from './views/FormTextarea';
+import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
-function DisplayForm({ formData }) {
+function DisplayForm({ formData, callback }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState({});
   const [showReview, setShowReview] = useState(false);
+
+  console.log('Forms/Controller.js: formData = '+JSON.stringify(formData));
+  console.log('Forms/Controller.js: currentStep = '+currentStep);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -28,21 +32,29 @@ function DisplayForm({ formData }) {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if (showReview) {
-      // Submit the form data to the server
-      console.log("Submitting form data:", formValues);
-    } else {
-      setShowReview(true);
+    console.log("Forms/Controller.js: formValues = ", JSON.stringify(formValues));
+    if(callback){
+      event.preventDefault();
+      callback(formValues);
     }
   };
 
   const handleNextStep = () => {
-    setCurrentStep((prevStep) => prevStep + 1);
+    if(currentStep == formData.steps.length - 1){
+      setShowReview(true);
+    }
+    else{
+      setCurrentStep((prevStep) => prevStep + 1);
+    }
   };
 
   const handlePrevStep = () => {
-    setCurrentStep((prevStep) => prevStep - 1);
+    if(showReview){
+      setShowReview(false);
+    }
+    else{
+      setCurrentStep((prevStep) => prevStep - 1);
+    }
   };
 
   const currentStepFields = formData.steps[currentStep].fields;
@@ -58,27 +70,24 @@ function DisplayForm({ formData }) {
   return (
     <form onSubmit={handleSubmit}>
        {showReview ? (
+         <>
          <FormReview formData={formData} formValues={formValues} setShowReview={setShowReview} />
+         </>
       ) : (
         <>
       <h2>{formData.steps[currentStep].title}</h2>
       {currentStepFields.map((field, index) => {
         switch (field.type) {
           case "text":
+          case "password":
           case "email":
             return <FormInput key={index} inputData={field} inputValue={formValues[field.name]} callback={handleInputChange} />;
           case "textarea":
             return <FormTextarea key={index} textareaData={field} textareaValue={formValues[field.name]} callback={handleInputChange} />;
           case "select":
             return <FormSelectBox key={index} selectboxData={field} selectboxValue={formValues[field.name]} callback={handleInputChange} />;
-          case "submit":
-            return (
-              <div key={index}>
-                <button type="submit" className={field.class}>
-                  {field.value}
-                </button>
-              </div>
-            );
+          case "button":
+            return <FormButton buttonData={field} buttonValue={field.value} />;
           default:
             return null;
         }
@@ -86,16 +95,16 @@ function DisplayForm({ formData }) {
         </>
       )}
 
-      {currentStep > 0 && (
-        <button type="button" onClick={handlePrevStep}>
-          Previous
-        </button>
+      {currentStep > 0 && currentStep < formData.steps.length && (
+        <FormButton buttonData={{type: 'button', style: {float: 'left'}}} buttonValue="Previous" callback={handlePrevStep} />
       )}
-      {currentStep < formData.steps.length - 1 && (
-        <button type="button" onClick={handleNextStep}>
-          Next
-        </button>
+      {!showReview && currentStep < formData.steps.length && (
+        <FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
       )}
+      {showReview && (
+        <FormButton buttonData={{type: 'submit', style: {float: 'right'}}} buttonValue={formData.submit.value || "Submit"} callback={handleNextStep} />
+      )}
+
     </form>
   );
 }

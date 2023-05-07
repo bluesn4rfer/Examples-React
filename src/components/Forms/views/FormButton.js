@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
 function FormButton({buttonData, buttonValue, callback}){
+    console.log('FormButton.js: buttonData = '+JSON.stringify(buttonData));
+
     return (
-        <div>
-            <label htmlFor={buttonData.id}>{buttonData.placeholder}</label>
+        <>
+            <label htmlFor={buttonData.id}>{buttonData.label}</label>
             <button
+                type={buttonData.type}
                 name={buttonData.name}
                 id={buttonData.id}
                 className={buttonData.class}
-                placeholder={buttonData.placeholder}
-                required={buttonData.required}
-                value={buttonValue}
-                onChange={callback}
+                onClick={callback}
                 {...buttonData}
-            />
-        </div>
+            >{buttonValue}</button>
+        </>
     );
 };
 

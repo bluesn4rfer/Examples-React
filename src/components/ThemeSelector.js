@@ -1,34 +1,59 @@
-import React, { useState } from 'react';
-import Modal from "react-bootstrap/Modal";
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
 
-function ThemeSelector(props){
-    if(!props.show){ return null; }
+function ThemeSelector(props) {
+  const { show, setShow, setTheme } = props;
+  const themes = require('./themes.json');
 
-    const changeTheme = (theme) => {
-        console.log('ThemeSelector.js changeTheme() theme: '+theme);
-        props.setTheme(theme);
-    }
+  const changeTheme = (theme) => {
+    console.log('ThemeSelector.js changeTheme() theme: ' + theme);
+    setTheme(theme);
+  };
 
-    const themes = require('./themes.json');
+  const handleClose = () => {
+    console.log('ThemeSelector.js hide invoked');
+    setShow(false);
+  };
 
-    const hide = () => {
-        console.log('ThemeSelector.js hide invoked');
-        props.setShow(false);
-    }
+  const renderColorCircle = (theme) => (
+    <div
+      className="m-3 d-flex align-items-center justify-content-center rounded-circle"
+      onClick={() => changeTheme(theme.name)}
+      style={{
+        cursor: 'pointer',
+        width: '10vmin',
+        height: '10vmin',
+        background: `linear-gradient(135deg, ${theme.primary} 50%, ${theme.secondary} 50%)`,
+        color: theme.primary
+      }}
+    >
+      <p style={{
+            background: `linear-gradient(135deg, ${theme.secondary} 50%, ${theme.primary}) 50%`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            display: 'inline-block',
+            padding: '0.1em 0.4em',
+            fontWeight: 'bold'
+        }}
+        >{theme.label}</p>
+    </div>
+  );
 
-    return (
-        <Modal show={props.show} onHide={hide} centered>
-            <Modal.Header className="m-0 px-2 py-0 theme-primary">
-                <Modal.Title>CHOOSE THEME</Modal.Title>
-                <button className='btn btn-secondary' onClick={hide}><i className='fa fa-times' aria-hidden="true"></i></button>
-            </Modal.Header>
-            <Modal.Body className="m-0 p-2">
-                <div className='d-flex flex-wrap justify-content-center'>
-                {themes.map((choice) => <div key={choice.theme} class="m-3 d-flex align-items-center justify-content-center rounded-circle" onClick={() => changeTheme(choice.theme)} style={{cursor: 'pointer', width: '10vmin', height: '10vmin', backgroundColor: choice.primary, color: choice.primary_text}}>{choice.label}</div>)}
-                </div>
-            </Modal.Body>
-        </Modal>
-    );
+  return (
+    <Modal show={props.show} onHide={handleClose} centered>
+      <Modal.Header className="d-flex align-items-center justify-content-between m-0 px-3 py-2 theme-primary">
+        <Modal.Title className="m-0">CHOOSE THEME</Modal.Title>
+        <button className="btn-close" onClick={() => setShow(false)} />
+      </Modal.Header>
+      <Modal.Body className="m-0 p-2">
+        <div className="d-flex flex-wrap justify-content-center">
+          {themes.map((choice, index) => {
+              return renderColorCircle(choice);
+          })}
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
 }
 
 export default ThemeSelector;

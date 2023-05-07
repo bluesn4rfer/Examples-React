@@ -4,17 +4,22 @@ function FormReview({formData, formValues, setShowReview}){
     return (
         <>
         <h2>Review your submission</h2>
-        {Object.entries(formValues).map(([name, value]) => (
-            <div key={name}>
-                <strong>{name}:</strong> {value}
-            </div>
-        ))}
-        <div>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={() => setShowReview(false)}>
-                Edit
-            </button>
-        </div>
+        {
+            formData.steps.map((step, stepIndex) => {
+                console.log('Forms/views/FormReview.js: step = '+JSON.stringify(step));
+
+                return (    
+                    <div key={'step'+stepIndex}>
+                        <h3>{step.title}</h3>
+                        {step.fields.map((field, fieldIndex) => (
+                            <div key={'field'+fieldIndex}>
+                                <strong>{field.label}:</strong> {formValues[field.name]}
+                            </div>
+                        ))}
+                    </div>
+                );
+            })
+        }
         </>
     );
 };

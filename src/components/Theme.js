@@ -7,44 +7,31 @@ function hexToRgb(hex){
 function Theme(props){
     const themes = require('./themes.json');
 
-    let theme_details = themes.find(choice => choice.theme == props.theme);
-    let primary = theme_details.primary;
-    let secondary = theme_details.secondary;
-    let success = theme_details.success;
-    let info = theme_details.info;
-    let warning = theme_details.warning;
-    let danger = theme_details.danger;
-    let light = theme_details.light;
-    let dark = theme_details.dark;
-
-    let primary_rgb = hexToRgb(theme_details.primary);
-    let secondary_rgb = hexToRgb(theme_details.secondary);
-    let success_rgb = hexToRgb(theme_details.success);
-    let info_rgb = hexToRgb(theme_details.info);
-    let warning_rgb = hexToRgb(theme_details.warning);
-    let danger_rgb = hexToRgb(theme_details.danger);
-    let light_rgb = hexToRgb(theme_details.light);
-    let dark_rgb = hexToRgb(theme_details.dark);
+    let themeData = themes.find(choice => choice.name == props.theme);
 
     return (
         <style type='text/css'>
             :root {`{`}
-                --bs-primary:{primary};
-                --bs-secondary:{secondary};
-                --bs-success:{success};
-                --bs-info:{info};
-                --bs-warning:{warning};
-                --bs-danger:{danger};
-                --bs-light:{light};
-                --bs-dark:{dark};
-                --bs-primary-rgb:{primary_rgb};
-                --bs-secondary-rgb:{secondary_rgb};
-                --bs-success-rgb:{success_rgb};
-                --bs-info-rgb:{info_rgb};
-                --bs-warning-rgb:{warning_rgb};
-                --bs-danger-rgb:{danger_rgb};
-                --bs-light-rgb:{light_rgb};
-                --bs-dark-rgb:{dark_rgb};
+                --bs-primary:{themeData.primary};
+                --bs-primary-hover{themeData.primaryHover};
+                --bs-secondary:{themeData.secondary};
+                --bs-secondary-hover:{themeData.secondaryHover};
+                --bs-success:{themeData.success};
+                --bs-info:{themeData.info};
+                --bs-warning:{themeData.warning};
+                --bs-danger:{themeData.danger};
+                --bs-light:{themeData.light};
+                --bs-dark:{themeData.dark};
+                --bs-primary-rgb:{hexToRgb(themeData.primary)};
+                --bs-primary-hover-rgb:{hexToRgb(themeData.primaryHover)};
+                --bs-secondary-rgb:{hexToRgb(themeData.secondary)};
+                --bs-secondary-hover-rgb:{hexToRgb(themeData.secondaryHover)};
+                --bs-success-rgb:{hexToRgb(themeData.success)};
+                --bs-info-rgb:{hexToRgb(themeData.info)};
+                --bs-warning-rgb:{hexToRgb(themeData.warning)};
+                --bs-danger-rgb:{hexToRgb(themeData.danger)};
+                --bs-light-rgb:{hexToRgb(themeData.light)};
+                --bs-dark-rgb:{hexToRgb(themeData.dark)};
                 {`}`}
         </style>
         );
