@@ -6,12 +6,12 @@ function ThemeSelector(props) {
   const themes = require('./themes.json');
 
   const changeTheme = (theme) => {
-    console.log('ThemeSelector.js changeTheme() theme: ' + theme);
+    console.log('Themes/Selector.js changeTheme() theme: ' + theme);
     setTheme(theme);
   };
 
   const handleClose = () => {
-    console.log('ThemeSelector.js hide invoked');
+    console.log('Themes/Selector.js hide invoked');
     setShow(false);
   };
 
@@ -40,7 +40,7 @@ function ThemeSelector(props) {
   );
 
   return (
-    <Modal show={props.show} onHide={handleClose} centered>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header className="d-flex align-items-center justify-content-between m-0 px-3 py-2 theme-primary">
         <Modal.Title className="m-0">CHOOSE THEME</Modal.Title>
         <button className="btn-close" onClick={() => setShow(false)} />

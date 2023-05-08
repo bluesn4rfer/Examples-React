@@ -1,4 +1,4 @@
-export const validateNumber = (number) => {
+export default function validateNumber(number){
     if (isNaN(number)) {
       return false;
     }

@@ -1,4 +1,6 @@
-import SidePanel from './components/SidePanel';
+import React, { useEffect } from 'react';
+import Collapsible from './components/Collapsible/Controller';
+import Resizable from './components/Resizable/Controller';
 
 function ComponentCode() {
 	const code = `<html>
@@ -11,8 +13,21 @@ function ComponentCode() {
 </html>
 	`;
 
+	const handleResize = (newWidth, newHeight) => {
+		console.log(`New width: ${newWidth}, new height: ${newHeight}`);
+	  };
+
 	return (
-		<SidePanel id='code' title='CODE' direction='left' content={<pre className='overflow-hidden' style={{width:'300px'}}>{code}</pre>} />
+		// <Resizable id='code' onResize={handleResize} resizeDirection="both">
+		// 	<Collapsible id='codeHCollapse' direction='left' title='CODE'>
+		// 		<Collapsible id='menuVCollapse' title='CODE'>
+		// 			<pre className='overflow-hidden' style={{width:'300px'}}>{code}</pre>
+		// 		</Collapsible>
+		// 	</Collapsible>
+		// </Resizable>
+		<Resizable onResize={handleResize} resizeDirection="both">
+        <div className="content">Resizable content goes here</div>
+      </Resizable>
 	);
 }
 

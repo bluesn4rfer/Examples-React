@@ -1,4 +1,4 @@
-export const validateRange = (number, min, max) => {
+export default function validateRange(number, min, max){
     if (typeof number !== 'number' || isNaN(number)) {
         return false;
     }
