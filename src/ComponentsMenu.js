@@ -19,99 +19,51 @@ function ComponentsMenu() {
 					items: [
 						{
 							label: 'Contact Us',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Login',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Registration',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Survey',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Newsletter Sign-up',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Payment',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'File Upload',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Feedback',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Comment',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'RSVP',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Password Reset',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						},
 						{
 							label: 'Subscription Cancellation',
-							class: 'd-block',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
+							class: 'd-block'
 						}
 					]
 				} 

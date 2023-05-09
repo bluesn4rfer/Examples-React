@@ -1,18 +1,20 @@
 import React from 'react';
 
 function FormInput ({ inputData, inputValue, callback }){
+  const { id, type, label, class: className, error, ...props} = inputData;
+
   return (
     <div>
-      <label htmlFor={inputData.id}>{inputData.label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
-        type={inputData.type}
-        id={inputData.id}
+        type={type}
+        id={id}
         value={inputValue}
         onChange={callback}
-        className={inputData.class}
-        {...inputData} // spread the rest of the props onto the input element
+        className={className}
+        {...props} // spread the rest of the props onto the input element
       />
-      {inputData.error && <p>{inputData.error}</p>}
+      {error && <p>{error}</p>}
     </div>
   );
 };

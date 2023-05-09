@@ -1,5 +1,7 @@
 import { useLocalStorage } from './components/Hooks/useLocalStorage';
+import { connect } from 'react-redux';
 import { useState } from 'react';
+
 import DisplayMenu from './components/Menus/Controller';
 import ThemeSelector from './components/Themes/Selector';
 import Theme from './components/Themes/Controller';
@@ -12,7 +14,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import './style.css';
 
-function App() {
+const mapStateToProps = state => ({
+	appState: state,
+});
+  
+const mapDispatchToProps = dispatch => ({
+	// increment: () => dispatch({ type: 'INCREMENT' }),
+	// decrement: () => dispatch({ type: 'DECREMENT' }),
+	updateTestPage: () => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: 'UPDATED PAGE'} })
+});
+
+function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
 
@@ -30,6 +42,11 @@ function App() {
 						{
 							label: 'Change Theme',
 							class: 'btn btn-lg btn-secondary my-0',
+							action: props.updatePage
+						},
+						{
+							label: 'Change Theme',
+							class: 'btn btn-lg btn-secondary my-0',
 							callback: {
 								action: "setShowThemeSelector", 
 								params: true
@@ -43,6 +60,9 @@ function App() {
 
 	const handleMenuCallback = (action, ...params) => {
 		switch(action){
+			case 'updatePage': 
+				props.updatePage();
+				break;
 			case 'setShowThemeSelector':
 				console.log('App.js: handleMenuCallback() setShowThemeSelector params = '+JSON.stringify(...params));
 				setShowThemeSelector(...params);
@@ -56,7 +76,7 @@ function App() {
 		<>
 			<Theme theme={theme} />
 			<div className='position-fixed top-0 start-0 container-fluid theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{zIndex:200, height: '55px'}}>
-				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'>BlueGunn.com Examples</div>
+				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'>BlueGunn.com Examples {JSON.stringify(appState)}</div>
 				<div className='d-flex flex-fill justify-content-end align-self-center pe-0'><DisplayMenu menuData={menuData} callback={handleMenuCallback} /></div>
 			</div>
 			<div className='container-fluid theme-secondary d-flex flex-row m-0 p-0 position-absolute' style={{zIndex: 100, top: '60px', bottom: '45px'}}>
@@ -87,4 +107,4 @@ function App() {
 	//   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

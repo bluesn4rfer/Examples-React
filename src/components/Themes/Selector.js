@@ -17,6 +17,7 @@ function ThemeSelector(props) {
 
   const renderColorCircle = (theme) => (
     <div
+      key={theme.name}
       className="m-3 d-flex align-items-center justify-content-center rounded-circle"
       onClick={() => changeTheme(theme.name)}
       style={{
