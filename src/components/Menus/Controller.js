@@ -1,33 +1,39 @@
 import React from 'react';
 
 function DisplayMenu({menuData, callback}) {
+  console.log('Menus/Controller.js: DisplayMenu() invoked');
+
   if (!menuData) {
     console.log('Menu/Controller.js: menuData is null');
     return null;
   }
 
   const parseMenu = (menuData) => {
-    console.log('Menus/Controller.js: parseMenu() menuData = '+JSON.stringify(menuData));
-
     return (
       <ul id={menuData.id} className={menuData.class}>
-        {menuData.items.map((menuItem, index) => (
-          <li
-            key={'menuItem_' + index}
-          >
-            <a 
-              href={menuItem.href}
-              className={menuItem.class}
-              data-bs-toggle={menuItem.toggle}
-              aria-expanded={menuItem.expanded}
-              onClick={menuItem.callback ? () => callback(menuItem.callback.action, menuItem.callback.params) : menuItem.action}
-            >
-            {menuItem.icon && <i className={'icon fa ' + menuItem.icon} />}
-            {menuItem.label}
-            </a>
-            {menuItem.menu && parseMenu(menuItem.menu)}
-          </li>
-        ))}
+        {menuData.items.map((menuItem, index) => {
+            const {id, icon, label, href, class: className, toggle, expanded, menu, ...itemProps} = menuItem;
+            return (
+              <li
+                key={'menuItem_'+index}
+              >
+                <a 
+                  id={id}
+                  href={href||'#'}
+                  className={className}
+                  data-bs-toggle={toggle}
+                  aria-expanded={expanded}
+                  onClick={() => callback(menuItem)}
+                  {...itemProps}
+                >
+                {icon && <i className={'icon fa ' + icon} />}
+                {label}
+                </a>
+                {menu && parseMenu(menu)}
+              </li>
+            );
+          }
+        )}
       </ul>
     );
   };

@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Collapsible from './components/Collapsible/Controller';
 import DisplayMenu from './components/Menus/Controller';
 
-function ComponentsMenu() {
+const mapDispatchToProps = dispatch => ({
+	// increment: () => dispatch({ type: 'INCREMENT' }),
+	// decrement: () => dispatch({ type: 'DECREMENT' }),
+	updateTestPage: (page) => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: page} })
+});
+
+function ComponentsMenu(props) {
 	const menuData = {
 		class: 'accordion-menu list-unstyled',
 		items: [
@@ -92,11 +99,19 @@ function ComponentsMenu() {
 		]
 	};
 
+	const handleMenuClick = (menuItem) => {
+		console.log('handleMenuClick() menuItem = '+JSON.stringify(menuItem));
+		if(!menuItem.href){
+			props.updateTestPage(menuItem.label);
+		}
+	}
+
 	return (
 		<Collapsible id='menuHCollapse' direction='right' title='COMPONENTS'>
-			<DisplayMenu menuData={menuData} />
+			<DisplayMenu menuData={menuData} callback={handleMenuClick} />
 		</Collapsible>
 	);
 }
 
-export default ComponentsMenu;
+export default connect(null, mapDispatchToProps)(ComponentsMenu);
+
