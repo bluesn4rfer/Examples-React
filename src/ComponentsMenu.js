@@ -25,22 +25,27 @@ function ComponentsMenu(props) {
 					class: 'accordion-menu list-unstyled collapse',
 					items: [
 						{
+							id: 'ExampleFormContactUs',
 							label: 'Contact Us',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormLogin',
 							label: 'Login',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormRegistration',
 							label: 'Registration',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormSurvey',
 							label: 'Survey',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormNewsletter',
 							label: 'Newsletter Sign-up',
 							class: 'd-block'
 						},
@@ -102,7 +107,7 @@ function ComponentsMenu(props) {
 	const handleMenuClick = (menuItem) => {
 		console.log('handleMenuClick() menuItem = '+JSON.stringify(menuItem));
 		if(!menuItem.href){
-			props.updateTestPage(menuItem.label);
+			props.updateTestPage(menuItem.id);
 		}
 	}
 
