@@ -7,8 +7,8 @@ import ThemeSelector from './components/Themes/Selector';
 import Theme from './components/Themes/Controller';
 import ComponentsMenu from './ComponentsMenu';
 import ComponentExample from './ComponentExample';
-import ComponentCode from './ComponentCode';
-import Resizable from './components/Resizable/Controller';
+//import ComponentCode from './ComponentCode';
+//import Resizable from './components/Resizable/Controller';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	// increment: () => dispatch({ type: 'INCREMENT' }),
 	// decrement: () => dispatch({ type: 'DECREMENT' }),
-	updateTestPage: () => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: 'UPDATED PAGE'} })
+	updatePage: (page) => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: page} })
 });
 
 function App({appState, ...props}) {
@@ -40,17 +40,9 @@ function App({appState, ...props}) {
 					class: 'dropdown-menu  theme-secondary border-0 p-0 m-0',
 					items: [
 						{
+							id: 'ShowThemeSelector',
 							label: 'Change Theme',
 							class: 'btn btn-lg btn-secondary my-0',
-							action: props.updatePage
-						},
-						{
-							label: 'Change Theme',
-							class: 'btn btn-lg btn-secondary my-0',
-							callback: {
-								action: "setShowThemeSelector", 
-								params: true
-							}
 						}
 					]
 				} 
@@ -58,17 +50,19 @@ function App({appState, ...props}) {
 		]
 	};
 
-	const handleMenuCallback = (action, ...params) => {
-		switch(action){
-			case 'updatePage': 
-				props.updatePage();
-				break;
-			case 'setShowThemeSelector':
-				console.log('App.js: handleMenuCallback() setShowThemeSelector params = '+JSON.stringify(...params));
-				setShowThemeSelector(...params);
-				break;
-			default:
-				return null;
+	const handleMenuClick = (menuItem) => {
+		console.log('handleMenuClick() menuItem = '+JSON.stringify(menuItem));
+		if(!menuItem.href){
+			switch(menuItem.id){
+				case 'ShowThemeSelector':
+					setShowThemeSelector(true);
+					break;
+				case menuItem.id:
+					props.updatePage(menuItem.id);
+					break;
+				default:
+					return null;			
+			}
 		}
 	}
 
@@ -76,11 +70,11 @@ function App({appState, ...props}) {
 		<>
 			<Theme theme={theme} />
 			<div className='position-fixed top-0 start-0 container-fluid theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{zIndex:200, height: '55px'}}>
-				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'>BlueGunn.com Examples {JSON.stringify(appState)}</div>
-				<div className='d-flex flex-fill justify-content-end align-self-center pe-0'><DisplayMenu menuData={menuData} callback={handleMenuCallback} /></div>
+				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'>Examples.BlueGunn.com</div>
+				<div className='d-flex flex-fill justify-content-end align-self-center pe-0'><DisplayMenu menuData={menuData} callback={handleMenuClick} /></div>
 			</div>
 			<div className='container-fluid theme-secondary d-flex flex-row m-0 p-0 position-absolute' style={{zIndex: 100, top: '60px', bottom: '45px'}}>
-				<div className='h-100 overflow-hidden'><ComponentsMenu /></div>
+				<div className='h-100 overflow-hidden'><ComponentsMenu callback={handleMenuClick} /></div>
 				<div className='h-100 d-flex flex-fill justify-content-center align-items-center'><ComponentExample /></div>
 				<div className='h-100 overflow-hidden'>{/*<ComponentCode />*/}</div>
 			</div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Collapsible from './components/Collapsible/Controller';
 import DisplayMenu from './components/Menus/Controller';
@@ -6,10 +6,10 @@ import DisplayMenu from './components/Menus/Controller';
 const mapDispatchToProps = dispatch => ({
 	// increment: () => dispatch({ type: 'INCREMENT' }),
 	// decrement: () => dispatch({ type: 'DECREMENT' }),
-	updateTestPage: (page) => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: page} })
+	updatePage: (page) => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: page} })
 });
 
-function ComponentsMenu(props) {
+function ComponentsMenu({callback, ...props}) {
 	const menuData = {
 		class: 'accordion-menu list-unstyled',
 		items: [
@@ -50,30 +50,37 @@ function ComponentsMenu(props) {
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormPayment',
 							label: 'Payment',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormFileUpload',
 							label: 'File Upload',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormFeedback',
 							label: 'Feedback',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormComment',
 							label: 'Comment',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormRSVP',
 							label: 'RSVP',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormPasswordReset',
 							label: 'Password Reset',
 							class: 'd-block'
 						},
 						{
+							id: 'ExampleFormSubscriptionCancellation',
 							label: 'Subscription Cancellation',
 							class: 'd-block'
 						}
@@ -105,9 +112,9 @@ function ComponentsMenu(props) {
 	};
 
 	const handleMenuClick = (menuItem) => {
-		console.log('handleMenuClick() menuItem = '+JSON.stringify(menuItem));
-		if(!menuItem.href){
-			props.updateTestPage(menuItem.id);
+		console.log('ComponentsMenu.js: handleMenuClick() invoked');
+		if(callback){
+			callback(menuItem);
 		}
 	}
 
