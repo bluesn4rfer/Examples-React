@@ -1,0 +1,40 @@
+{
+  "name": "white",
+  "label": "White",
+  "colors": {
+    "background": {
+      "base": "#FFFFFF",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#FFFFFF",
+      "hover": "#F0F0F0",
+      "text": "#333333"
+    },
+    "secondary": {
+      "base": "#F5F5F5",
+      "hover": "#ECECEC",
+      "text": "#333333"
+    },
+    "success": {
+      "base": "#28A745",
+      "hover": "#1F8134",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#17A2B8",
+      "hover": "#13707C",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#FFC107",
+      "hover": "#E0A800",
+      "text": "#333333"
+    },
+    "danger": {
+      "base": "#DC3545",
+      "hover": "#AC2E38",
+      "text": "#FFFFFF"
+    }
+  }
+}

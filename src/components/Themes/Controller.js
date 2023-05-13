@@ -1,33 +1,45 @@
 import hexToRgb from './utils/hexToRgb';
+import { themes } from './Themes';
 
 function Theme(props){
-    const themes = require('./themes.json');
-
-    let themeData = themes.find(choice => choice.name === props.theme);
+    let theme = themes.find(choice => choice.name === props.theme);
 
     return (
         <style type='text/css'>
             :root {`{`}
-                --bs-primary:{themeData.primary};
-                --bs-primary-hover{themeData.primaryHover};
-                --bs-secondary:{themeData.secondary};
-                --bs-secondary-hover:{themeData.secondaryHover};
-                --bs-success:{themeData.success};
-                --bs-info:{themeData.info};
-                --bs-warning:{themeData.warning};
-                --bs-danger:{themeData.danger};
-                --bs-light:{themeData.light};
-                --bs-dark:{themeData.dark};
-                --bs-primary-rgb:{hexToRgb(themeData.primary)};
-                --bs-primary-hover-rgb:{hexToRgb(themeData.primaryHover)};
-                --bs-secondary-rgb:{hexToRgb(themeData.secondary)};
-                --bs-secondary-hover-rgb:{hexToRgb(themeData.secondaryHover)};
-                --bs-success-rgb:{hexToRgb(themeData.success)};
-                --bs-info-rgb:{hexToRgb(themeData.info)};
-                --bs-warning-rgb:{hexToRgb(themeData.warning)};
-                --bs-danger-rgb:{hexToRgb(themeData.danger)};
-                --bs-light-rgb:{hexToRgb(themeData.light)};
-                --bs-dark-rgb:{hexToRgb(themeData.dark)};
+                --bs-body-bg: {theme.colors.background.base};
+                --bs-body-color: {theme.colors.background.text};
+
+                --bs-primary: {theme.colors.primary.base};
+                --bs-primary-hover: {theme.colors.primary.hover};
+                --bs-primary-text: {theme.colors.primary.text};
+                --bs-secondary: {theme.colors.secondary.base};
+                --bs-secondary-hover: {theme.colors.secondary.hover};
+                --bs-secondary-text: {theme.colors.secondary.text};
+                --bs-success: {theme.colors.success.base};
+                --bs-success-hover: {theme.colors.success.hover};
+                --bs-success-text: {theme.colors.success.text};
+                --bs-info: {theme.colors.info.base};
+                --bs-info-hover: {theme.colors.info.hover};
+                --bs-info-text: {theme.colors.info.text};
+                --bs-warning: {theme.colors.warning.base};
+                --bs-warning-hover: {theme.colors.warning.hover};
+                --bs-warning-text: {theme.colors.warning.text};
+                --bs-danger: {theme.colors.danger.base};
+                --bs-danger-hover: {theme.colors.danger.hover};
+                --bs-danger-text: {theme.colors.danger.text};
+        
+                --bs-primary-rgb: {hexToRgb(theme.colors.primary.base)};
+                --bs-primary-hover-rgb: {hexToRgb(theme.colors.primary.hover)};
+                --bs-secondary-rgb: {hexToRgb(theme.colors.secondary.base)};
+                --bs-secondary-hover-rgb: {hexToRgb(theme.colors.secondary.hover)};
+                --bs-success-rgb: {hexToRgb(theme.colors.success.base)};
+                --bs-info-rgb: {hexToRgb(theme.colors.info.base)};
+                --bs-warning-rgb: {hexToRgb(theme.colors.warning.base)};
+                --bs-danger-rgb: {hexToRgb(theme.colors.danger.base)};
+                {`}`}
+            .modal {`{`}
+                --bs-modal-bg: {theme.colors.background.base};
                 {`}`}
         </style>
         );

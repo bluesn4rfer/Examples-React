@@ -1,0 +1,40 @@
+{
+  "name": "brown",
+  "label": "Brown",
+  "colors": {
+    "background": {
+      "base": "#D2B48C",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#8B4513",
+      "hover": "#703b17",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "base": "#A0522D",
+      "hover": "#80461f",
+      "text": "#FFFFFF"
+    },
+    "success": {
+      "base": "#228B22",
+      "hover": "#196d19",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#2E8B57",
+      "hover": "#226d41",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#FFA500",
+      "hover": "#cc8400",
+      "text": "#333333"
+    },
+    "danger": {
+      "base": "#8B0000",
+      "hover": "#660000",
+      "text": "#FFFFFF"
+    }
+  }
+}

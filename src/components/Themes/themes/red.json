@@ -1,0 +1,40 @@
+{
+  "name": "red",
+  "label": "Red",
+  "colors": {
+    "background": {
+      "base": "#FFEBEE",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#FF0000",
+      "hover": "#CC0000",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "base": "#FF5757",
+      "hover": "#E04C4C",
+      "text": "#333333"
+    },
+    "success": {
+      "base": "#28A745",
+      "hover": "#1F8134",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#17A2B8",
+      "hover": "#13707C",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#FFC107",
+      "hover": "#E0A800",
+      "text": "#333333"
+    },
+    "danger": {
+      "base": "#DC3545",
+      "hover": "#AC2E38",
+      "text": "#FFFFFF"
+    }
+  }
+}

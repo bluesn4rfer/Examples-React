@@ -17,12 +17,12 @@ function ComponentsMenu({callback, ...props}) {
 				label: 'Forms',
 				icon: 'fa-bars',
 				href: '#forms-menu',
-				class: 'd-block list-unstyled collapsed',
+				class: 'theme-secondary d-block list-unstyled',
 				toggle: 'collapse',
-				expanded: 'false',
+				expanded: 'true',
 				menu: {
 					id: 'forms-menu',
-					class: 'accordion-menu list-unstyled collapse',
+					class: 'accordion-menu list-unstyled collapse show',
 					items: [
 						{
 							id: 'ExampleFormContactUs',
@@ -90,7 +90,7 @@ function ComponentsMenu({callback, ...props}) {
 			{
 				label: 'Menus',
 				href: '#menus-menu',
-				class: 'd-block list-unstyled collapsed',
+				class: 'theme-secondary d-block list-unstyled collapsed',
 				toggle: 'collapse',
 				expanded: 'false',				
 				menu: {

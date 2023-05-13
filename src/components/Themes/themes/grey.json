@@ -1,0 +1,40 @@
+{
+  "name": "grey",
+  "label": "Grey",
+  "colors": {
+    "background": {
+      "base": "#F8F9FA",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#333333",
+      "hover": "#555555",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "base": "#808080",
+      "hover": "#A0A0A0",
+      "text": "#FFFFFF"
+    },
+    "success": {
+      "base": "#28A745",
+      "hover": "#1F8134",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#17A2B8",
+      "hover": "#13707C",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#F39C12",
+      "hover": "#CC7A0B",
+      "text": "#333333"
+    },
+    "danger": {
+      "base": "#DC3545",
+      "hover": "#AC2E38",
+      "text": "#FFFFFF"
+    }
+  }
+}

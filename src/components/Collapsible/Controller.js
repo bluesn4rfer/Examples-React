@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 
-function Collapsible({ children, direction = 'up', id, title }) {
+function Collapsible({ children, direction = 'up', id, title, titleClassName, className }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const handleTitleClick = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const titleClassName = 'p-1 fs-3 text-decoration-none text-light text-uppercase';
-
   return (
     <div
-      className={`bg-primary p-0 d-flex flex-${
+      className={`${className} d-flex flex-${
         direction === 'left' ? 'row' : direction === 'right' ? 'row-reverse' : 'column'
       }`}
     >

@@ -1,0 +1,40 @@
+{
+  "name": "green",
+  "label": "Green",
+  "colors": {
+    "background": {
+      "base": "#C3E6CB",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#008000",
+      "hover": "#006400",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "base": "#00B050",
+      "hover": "#008040",
+      "text": "#FFFFFF"
+    },
+    "success": {
+      "base": "#28A745",
+      "hover": "#1F8134",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#17A2B8",
+      "hover": "#13707C",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#F39C12",
+      "hover": "#CC7A0B",
+      "text": "#333333"
+    },
+    "danger": {
+      "base": "#DC3545",
+      "hover": "#AC2E38",
+      "text": "#FFFFFF"
+    }
+  }
+}

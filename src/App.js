@@ -5,6 +5,7 @@ import { useState } from 'react';
 import DisplayMenu from './components/Menus/Controller';
 import ThemeSelector from './components/Themes/Selector';
 import Theme from './components/Themes/Controller';
+import './components/Themes/theme.css';
 import ComponentsMenu from './ComponentsMenu';
 import ComponentExample from './ComponentExample';
 //import ComponentCode from './ComponentCode';
@@ -12,6 +13,7 @@ import ComponentExample from './ComponentExample';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
+
 import './style.css';
 
 const mapStateToProps = state => ({
@@ -70,10 +72,10 @@ function App({appState, ...props}) {
 		<>
 			<Theme theme={theme} />
 			<div className='position-fixed top-0 start-0 container-fluid theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{zIndex:200, height: '55px'}}>
-				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'>Examples.BlueGunn.com</div>
-				<div className='d-flex flex-fill justify-content-end align-self-center pe-0'><DisplayMenu menuData={menuData} callback={handleMenuClick} /></div>
+				<div className='d-flex flex-fill justify-content-start align-self-center ps-3'><h1>Examples.BlueGunn.com</h1></div>
+				<div className='d-flex flex-fill justify-content-end align-self-center pe-2'><DisplayMenu menuData={menuData} callback={handleMenuClick} /></div>
 			</div>
-			<div className='container-fluid theme-secondary d-flex flex-row m-0 p-0 position-absolute' style={{zIndex: 100, top: '60px', bottom: '45px'}}>
+			<div className='container-fluid d-flex flex-row m-0 p-0 position-absolute' style={{zIndex: 100, top: '60px', bottom: '45px'}}>
 				<div className='h-100 overflow-hidden'><ComponentsMenu callback={handleMenuClick} /></div>
 				<div className='h-100 d-flex flex-fill justify-content-center align-items-center'><ComponentExample /></div>
 				<div className='h-100 overflow-hidden'>{/*<ComponentCode />*/}</div>

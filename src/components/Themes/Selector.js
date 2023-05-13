@@ -1,9 +1,9 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { themes } from './Themes';
 
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
-  const themes = require('./themes.json');
 
   const changeTheme = (theme) => {
     console.log('Themes/Selector.js changeTheme() theme: ' + theme);
@@ -15,7 +15,11 @@ function ThemeSelector(props) {
     setShow(false);
   };
 
-  const renderColorCircle = (theme) => (
+  const renderColorCircle = (theme) => {
+    console.log('Themes/Selector.js renderColorCircle() invoked');
+    console.log('Themes/Selector.js renderColorCircle theme = ' + JSON.stringify(theme));
+
+    return (
     <div
       key={theme.name}
       className="m-3 d-flex align-items-center justify-content-center rounded-circle"
@@ -24,27 +28,21 @@ function ThemeSelector(props) {
         cursor: 'pointer',
         width: '10vmin',
         height: '10vmin',
-        background: `linear-gradient(135deg, ${theme.primary} 50%, ${theme.secondary} 50%)`,
-        color: theme.primary
+        border: `.5vmin solid ${theme.colors.primary.base}`,
+        background: `linear-gradient(135deg, ${theme.colors.primary.base} 50%, ${theme.colors.secondary.base} 50%)`,
+        fontWeight: 'bold',
+        color: theme.colors.primary.text
       }}
-    >
-      <p style={{
-            background: `linear-gradient(135deg, ${theme.secondary} 50%, ${theme.primary}) 50%`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            display: 'inline-block',
-            padding: '0.1em 0.4em',
-            fontWeight: 'bold'
-        }}
-        >{theme.label}</p>
+    >{theme.label}
     </div>
-  );
+    );
+  }
 
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header className="d-flex align-items-center justify-content-between m-0 px-3 py-2 theme-primary">
         <Modal.Title className="m-0">CHOOSE THEME</Modal.Title>
-        <button className="btn-close" onClick={() => setShow(false)} />
+        <button className='btn btn-secondary' onClick={() => setShow(false)}><i className='icon fa fa-close' /></button>
       </Modal.Header>
       <Modal.Body className="m-0 p-2">
         <div className="d-flex flex-wrap justify-content-center">

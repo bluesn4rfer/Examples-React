@@ -1,0 +1,40 @@
+{
+  "name": "blue",
+  "label": "Blue",
+  "colors": {
+    "background": {
+      "base": "#F8F9FA",
+      "text": "#333333"
+    },
+    "primary": {
+      "base": "#0074D9",
+      "hover": "#0056b3",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "base": "#AED6F1",
+      "hover": "#8FC2E7",
+      "text": "#333333"
+    },
+    "success": {
+      "base": "#48C774",
+      "hover": "#3DA96C",
+      "text": "#FFFFFF"
+    },
+    "info": {
+      "base": "#5BC0DE",
+      "hover": "#46A6C9",
+      "text": "#FFFFFF"
+    },
+    "warning": {
+      "base": "#F2C94C",
+      "hover": "#D9B53B",
+      "text": "#FFFFFF"
+    },
+    "danger": {
+      "base": "#FF3B3F",
+      "hover": "#D93236",
+      "text": "#FFFFFF"
+    }
+  }
+}
