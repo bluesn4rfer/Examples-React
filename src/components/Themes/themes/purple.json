@@ -3,7 +3,7 @@
   "label": "Purple",
   "colors": {
     "background": {
-      "base": "#E6E6FA",
+      "base": "#D7D4F7",
       "text": "#333333"
     },
     "primary": {
@@ -12,8 +12,8 @@
       "text": "#FFFFFF"
     },
     "secondary": {
-      "base": "#C18FFF",
-      "hover": "#A871E6",
+      "base": "#D8BBFF",
+      "hover": "#C79DFF",
       "text": "#333333"
     },
     "success": {

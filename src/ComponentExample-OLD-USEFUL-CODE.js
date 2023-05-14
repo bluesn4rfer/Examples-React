@@ -11,6 +11,7 @@ import ExampleFormComment from './components/Forms/examples/Comment';
 import ExampleFormRSVP from './components/Forms/examples/RSVP';
 import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
 import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
+import FontAwesomeIcons from './FontAwesomeIcons';
 
 const mapStateToProps = state => ({
 	appState: state.App,
@@ -31,15 +32,14 @@ function ComponentExample({appState, ...props}) {
 		ExampleFormComment,
 		ExampleFormRSVP,
 		ExampleFormPasswordReset,
-		ExampleFormSubscriptionCancellation
+		ExampleFormSubscriptionCancellation,
+		FontAwesomeIcons
 	};
 
 	const Component = componentMap[appState.page] ? componentMap[appState.page] : componentMap[defaultComponent];
 
  	return (
-		<div>
-			<Component />
-		</div>
+		<Component />
 	);
 }
 

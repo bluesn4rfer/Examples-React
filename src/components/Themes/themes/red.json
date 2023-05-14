@@ -3,17 +3,17 @@
   "label": "Red",
   "colors": {
     "background": {
-      "base": "#FFEBEE",
+      "base": "#FFC6C6",
       "text": "#333333"
     },
     "primary": {
-      "base": "#FF0000",
-      "hover": "#CC0000",
+      "base": "#CC0000",
+      "hover": "#990000",
       "text": "#FFFFFF"
     },
     "secondary": {
-      "base": "#FF5757",
-      "hover": "#E04C4C",
+      "base": "#FF8484",
+      "hover": "#FF6666",
       "text": "#333333"
     },
     "success": {

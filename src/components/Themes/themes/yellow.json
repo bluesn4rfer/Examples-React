@@ -3,7 +3,7 @@
   "label": "Yellow",
   "colors": {
     "background": {
-      "base": "#FFFFE0",
+      "base": "#FFF4D7",
       "text": "#333333"
     },
     "primary": {
@@ -12,8 +12,8 @@
       "text": "#333333"
     },
     "secondary": {
-      "base": "#FFE066",
-      "hover": "#E6D35D",
+      "base": "#FFEB99",
+      "hover": "#E6E07F",
       "text": "#333333"
     },
     "success": {

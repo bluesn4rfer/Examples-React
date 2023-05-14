@@ -7,28 +7,28 @@
       "text": "#333333"
     },
     "primary": {
-      "base": "#8B4513",
-      "hover": "#703b17",
+      "base": "#734922",
+      "hover": "#5B3A1A",
       "text": "#FFFFFF"
     },
     "secondary": {
-      "base": "#A0522D",
-      "hover": "#80461f",
+      "base": "#A38667",
+      "hover": "#876C50",
       "text": "#FFFFFF"
     },
     "success": {
       "base": "#228B22",
-      "hover": "#196d19",
+      "hover": "#196D19",
       "text": "#FFFFFF"
     },
     "info": {
       "base": "#2E8B57",
-      "hover": "#226d41",
+      "hover": "#226D41",
       "text": "#FFFFFF"
     },
     "warning": {
       "base": "#FFA500",
-      "hover": "#cc8400",
+      "hover": "#CC8400",
       "text": "#333333"
     },
     "danger": {

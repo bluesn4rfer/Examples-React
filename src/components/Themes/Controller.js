@@ -29,14 +29,14 @@ function Theme(props){
                 --bs-danger-hover: {theme.colors.danger.hover};
                 --bs-danger-text: {theme.colors.danger.text};
         
-                --bs-primary-rgb: {hexToRgb(theme.colors.primary.base)};
-                --bs-primary-hover-rgb: {hexToRgb(theme.colors.primary.hover)};
-                --bs-secondary-rgb: {hexToRgb(theme.colors.secondary.base)};
-                --bs-secondary-hover-rgb: {hexToRgb(theme.colors.secondary.hover)};
-                --bs-success-rgb: {hexToRgb(theme.colors.success.base)};
-                --bs-info-rgb: {hexToRgb(theme.colors.info.base)};
-                --bs-warning-rgb: {hexToRgb(theme.colors.warning.base)};
-                --bs-danger-rgb: {hexToRgb(theme.colors.danger.base)};
+                --bs-primary-rgb: rgb({hexToRgb(theme.colors.primary.base)});
+                --bs-primary-hover-rgb: rgb({hexToRgb(theme.colors.primary.hover)});
+                --bs-secondary-rgb: rgb({hexToRgb(theme.colors.secondary.base)});
+                --bs-secondary-hover-rgb: rgb({hexToRgb(theme.colors.secondary.hover)});
+                --bs-success-rgb: rgb({hexToRgb(theme.colors.success.base)});
+                --bs-info-rgb: rgb({hexToRgb(theme.colors.info.base)});
+                --bs-warning-rgb: rgb({hexToRgb(theme.colors.warning.base)});
+                --bs-danger-rgb: rgb({hexToRgb(theme.colors.danger.base)});
                 {`}`}
             .modal {`{`}
                 --bs-modal-bg: {theme.colors.background.base};

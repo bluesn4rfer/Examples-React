@@ -12,8 +12,8 @@
       "text": "#FFFFFF"
     },
     "secondary": {
-      "base": "#00B050",
-      "hover": "#008040",
+      "base": "#83BFA3",
+      "hover": "#6FA28B",
       "text": "#FFFFFF"
     },
     "success": {

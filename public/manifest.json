@@ -2,8 +2,13 @@
   "short_name": "Examples",
   "name": "Examples",
   "icons": [
+    {
+      "src": "Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ],
-  "start_url": ".",
+  "start_url": "https://examples.bluegunn.com",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

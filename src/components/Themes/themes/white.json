@@ -7,13 +7,13 @@
       "text": "#333333"
     },
     "primary": {
-      "base": "#FFFFFF",
-      "hover": "#F0F0F0",
+      "base": "#F5F5F5",
+      "hover": "#ECECEC",
       "text": "#333333"
     },
     "secondary": {
-      "base": "#F5F5F5",
-      "hover": "#ECECEC",
+      "base": "#F9F9F9",
+      "hover": "#F2F2F2",
       "text": "#333333"
     },
     "success": {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DisplayMenu({menuData, callback}) {
+function DisplayMenu({menuData}) {
   console.log('Menus/Controller.js: DisplayMenu() invoked');
 
   if (!menuData) {
@@ -10,25 +10,15 @@ function DisplayMenu({menuData, callback}) {
 
   const parseMenu = (menuData) => {
     return (
-      <ul id={menuData.id} className={menuData.class}>
-        {menuData.items.map((menuItem, index) => {
-            const {id, icon, label, href, class: className, toggle, expanded, menu, ...itemProps} = menuItem;
+      <ul {...menuData.props}>
+        {menuData.links.map((menuLink, index) => {
+            const {link, menu} = menuLink;
             return (
               <li
-                key={'menuItem_'+index}
+                key={'menuLink_'+index}
               >
-                <a 
-                  id={id}
-                  href={href||'#'}
-                  className={className}
-                  data-bs-toggle={toggle}
-                  aria-expanded={expanded}
-                  onClick={() => callback(menuItem)}
-                  {...itemProps}
-                >
-                {icon && <i className={'icon fa ' + icon} />}
-                {label}
-                </a>
+                {link}
+
                 {menu && parseMenu(menu)}
               </li>
             );
