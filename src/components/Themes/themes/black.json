@@ -3,7 +3,7 @@
   "label": "Black",
   "colors": {
     "background": {
-      "base": "#333333",
+      "base": "#1a1a1a",
       "text": "#FFFFFF"
     },
     "primary": {

@@ -20,6 +20,8 @@ import ExampleFormComment from './components/Forms/examples/Comment';
 import ExampleFormRSVP from './components/Forms/examples/RSVP';
 import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
 import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
+import ExampleMenuDropDown from './components/Menus/examples/DropDown';
+import ExampleMenuAccordion from './components/Menus/examples/Accordion';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
 //import ComponentCode from './ComponentCode';
@@ -55,7 +57,7 @@ function App({appState, ...props}) {
 		},
 		links: [
 			{
-				link: (<a className='dropdown-toggle btn btn btn-lg btn-secondary my-0' data-bs-toggle="dropdown"><i className='icon fa fa-bars' /></a>),
+				link: (<a className='dropdown-toggle fs-5 btn-secondary rounded-bottom px-3 py-2 my-0' data-bs-toggle="dropdown"><i className='icon fa fa-bars' /></a>),
 				menu: {
 					props: {
 						className: 'dropdown-menu theme-secondary border-0 p-0 m-0'
@@ -76,7 +78,7 @@ function App({appState, ...props}) {
 		},
 		links: [
 			{
-				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true">Menus</a>),			
+				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Menus</a>),			
 				menu: {
 					props: {
 						id: 'menus-menu',
@@ -84,63 +86,99 @@ function App({appState, ...props}) {
 					},
 					links: [
 						{
-							link: (<Link to="/examples/menus/DropDown" className='d-block btn-secondary text-decoration-none'>Drop down</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/menus/DropDown" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Drop down</Link>)
 						},
 						{
-							link: (<Link to='/examples/menus/Accordion' className='d-block btn-secondary text-decoration-none'>Accordion</Link>)
+							link: (<Link to='/examples/menus/Accordion' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Accordion</Link>)
 						}
 					]
 				}
 			},
 			{
-				link: (<a href='#forms-menu' className='btn-primary d-block list-unstyled text-decoration-none' data-bs-toggle="collapse" aria-expanded="true">Forms</a>),
+				link: (<a href='#forms-menu' className='btn-primary d-block list-unstyled text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-pencil' />Forms</a>),
 				menu: {
 					props: {
 						id: 'forms-menu',
 						className: 'list-unstyled collapse show',
 					},
 					links: [
-						{
-							link: (<Link to='/examples/forms/ContactUs' className='d-block btn-secondary text-decoration-none'>Contact Us</Link>)
+						{ 
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/ContactUs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Contact Us</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Login' className='d-block btn-secondary text-decoration-none'>Login</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Login' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Login</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Registration' className='d-block btn-secondary text-decoration-none'>Registration</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Registration' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Registration</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Survey' className='d-block btn-secondary text-decoration-none'>Survey</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Survey' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Survey</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Newsletter' className='d-block btn-secondary text-decoration-none'>Newsletter Sign-up</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Newsletter' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Newsletter Sign-up</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Payment' className='d-block btn-secondary text-decoration-none'>Payment</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Payment' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Payment</Link>)
 						},
 						{
-							link: (<Link to='/examples/formsFileUpload' className='d-block btn-secondary text-decoration-none'>File Upload</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/formsFileUpload' className='d-block py-1 px-2 btn-secondary text-decoration-none'>File Upload</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Feedback' className='d-block btn-secondary text-decoration-none'>Feedback</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Feedback' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Feedback</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/Comment' className='d-block btn-secondary text-decoration-none'>Comment</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/Comment' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Comment</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/RSVP' className='d-block btn-secondary text-decoration-none'>RSVP</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/RSVP' className='d-block py-1 px-2 btn-secondary text-decoration-none'>RSVP</Link>)
 						},						
 						{
-							link: (<Link to='/examples/forms/PasswordReset' className='d-block btn-secondary text-decoration-none'>Password Reset</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/forms/PasswordReset' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Password Reset</Link>)
 						},
 						{
-							link: (<Link to='/examples/forms/SubscriptionCancellation' className='d-block btn-secondary text-decoration-none'>Subscription Cancellation</Link>)
+							link: (<Link to='/examples/forms/SubscriptionCancellation' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Subscription Cancellation</Link>)
 						}
 					]
 				} 
 			},
 			{
-				link: (<a href='#icons-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true">Icons</a>),			
+				link: (<a href='#icons-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-magic' />Icons</a>),			
 				menu: {
 					props: {
 						id: 'icons-menu',
@@ -148,7 +186,10 @@ function App({appState, ...props}) {
 					},
 					links: [
 						{
-							link: (<Link to="/icons/FontAwesome" className='d-block btn-secondary text-decoration-none'>Font Awesome</Link>)
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/icons/FontAwesome" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Font Awesome</Link>)
 						}
 					]
 				}
@@ -181,8 +222,8 @@ function App({appState, ...props}) {
 						<Route path="/examples/forms/RSVP" element={<ExampleFormRSVP />} />
 						<Route path="/examples/forms/PasswordReset" element={<ExampleFormPasswordReset />} />
 						<Route path="/examples/forms/SubscriptionCancellation" element={<ExampleFormSubscriptionCancellation />} />
-						{/* <Route path="/examples/menus/DropDown" element={<FontAwesomeIcons />} />
-						<Route path="/examples/menus/Accordion" element={<FontAwesomeIcons />} /> */}
+						<Route path="/examples/menus/DropDown" element={<ExampleMenuDropDown />} />
+						<Route path="/examples/menus/Accordion" element={<ExampleMenuAccordion />} />
 						<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 						<Route path="*" element={<PageNotFound />} />
 					</Routes>				

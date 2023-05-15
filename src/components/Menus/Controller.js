@@ -12,10 +12,11 @@ function DisplayMenu({menuData}) {
     return (
       <ul {...menuData.props}>
         {menuData.links.map((menuLink, index) => {
-            const {link, menu} = menuLink;
+            const {link, menu, ...props} = menuLink;
             return (
               <li
                 key={'menuLink_'+index}
+                {...props}
               >
                 {link}
 
