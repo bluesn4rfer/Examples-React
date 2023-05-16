@@ -56,7 +56,7 @@ const Content = ({ children }) => {
 	return (
 		<div
 			id={`${id}Details`}
-			className={`h-100 flex-fill p-0 collapse ${
+			className={`h-100 p-0 collapse ${
 			direction === 'left' || direction === 'right' ? 'collapse-horizontal' : ''
 			} ${isCollapsed ? 'collapsed' : ''}`}
 		>
