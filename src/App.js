@@ -3,12 +3,9 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
-import {Controlled as CodeMirror} from 'react-codemirror2-react-17'
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
-
 import DisplayMenu from './components/Menus/Controller';
 import ComponentsMenu from './ComponentsMenu';
+import CodeEditor from './components/CodeEditor/Controller';
 
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
@@ -54,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
 function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
-	const [code, setCode] = useState('');
+	const [code, setCode] = useState('<h1>I ♥ react-codemirror2</h1>');
 
 	const topMenu = {
 		props: {
@@ -215,12 +212,21 @@ function App({appState, ...props}) {
 				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
 					<Routes>
 						<Route path="/" element={<ExampleFormLogin />} />
-						<Route path="/test" element={<CodeMirror value='<h1>I ♥ react-codemirror2</h1>'
-  options={{
-    mode: 'xml',
-    theme: 'material',
-    lineNumbers: true
-  }}/>} />
+						<Route path="/test" element={<><div dangerouslySetInnerHTML={{ __html: code }} /><CodeEditor value={code}
+//   options={{
+//     mode: 'xml',
+//     theme: 'material',
+//     lineNumbers: true
+//   }}
+//   onBeforeChange={(editor, data, value) => {
+// 	console.log('CodeMirror onBeforeChange() invoked')
+//     setCode(value);
+//   }}
+  onChange={(value) => {
+	setCode(value);
+  }}
+  />
+  </>} />
 						<Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
 						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
 						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />
