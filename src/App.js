@@ -5,6 +5,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 import DisplayMenu from './components/Menus/Controller';
 import ComponentsMenu from './ComponentsMenu';
+import ComponentPreview from './ComponentPreview';
+import CodePreview from './components/CodePreview/Controller';
 import CodeEditor from './components/CodeEditor/Controller';
 
 import PageNotFound from './PageNotFound';
@@ -51,7 +53,7 @@ const mapDispatchToProps = dispatch => ({
 function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
-	const [code, setCode] = useState('<h1>I ♥ react-codemirror2</h1>');
+	const [code, setCode] = useState('<h1>Fucking Code Editor & Preview</h1>');
 
 	const topMenu = {
 		props: {
@@ -200,6 +202,11 @@ function App({appState, ...props}) {
 		]
 	};
 
+	const handleCodeChange = (value) => {
+		console.log('App.js handleCodeChange() invoked');
+		setCode(value);
+	}
+
 	return (
 		<>
 			<Theme theme={theme} />
@@ -212,21 +219,7 @@ function App({appState, ...props}) {
 				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
 					<Routes>
 						<Route path="/" element={<ExampleFormLogin />} />
-						<Route path="/test" element={<><div dangerouslySetInnerHTML={{ __html: code }} /><CodeEditor value={code}
-//   options={{
-//     mode: 'xml',
-//     theme: 'material',
-//     lineNumbers: true
-//   }}
-//   onBeforeChange={(editor, data, value) => {
-// 	console.log('CodeMirror onBeforeChange() invoked')
-//     setCode(value);
-//   }}
-  onChange={(value) => {
-	setCode(value);
-  }}
-  />
-  </>} />
+						<Route path="/test" element={<><CodePreview code={code} /><CodeEditor code={code} onChange={handleCodeChange} /></>} />
 						<Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
 						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
 						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />

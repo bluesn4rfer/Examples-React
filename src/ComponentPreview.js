@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import ExampleFormContactUs from './components/Forms/examples/ContactUs';
 import ExampleFormRegistration from './components/Forms/examples/Registration';
 import ExampleFormLogin from './components/Forms/examples/Login';
@@ -13,13 +12,8 @@ import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset'
 import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
-const mapStateToProps = state => ({
-	appState: state.App,
-});
 
-function ComponentExample({appState, ...props}) {
-	const defaultComponent = 'ExampleFormLogin';
-
+function ComponentPreview({code}) {
 	const componentMap = {
 		ExampleFormContactUs,
 		ExampleFormRegistration,
@@ -36,12 +30,45 @@ function ComponentExample({appState, ...props}) {
 		FontAwesomeIcons
 	};
 
-	const Component = componentMap[appState.page] ? componentMap[appState.page] : componentMap[defaultComponent];
+	const replaceComponentTagsWithComponents = (input) => {
+		const componentRegex = /<([A-Za-z0-9]+)([^/>]*)\/?>/g;
+	
+		// Replace component tags with corresponding React components
+		const replacedInput = input.replace(componentRegex, (match, tagName, attributes) => {
+			const Component = componentMap[tagName];
+			if (Component) {
+			return <Component {...extractAttributes(attributes)} />;
+			} else {
+			return match; // Return the original tag if component not found in component map
+			}
+		});
+	
+		return replacedInput;
+	}
+	  
+	const extractAttributes = (attributeString) => {
+		const attributeRegex = /([A-Za-z0-9]+)=["']([^"']+)["']/g;
+		const attributes = {};
+	
+		let match;
+		while ((match = attributeRegex.exec(attributeString))) {
+			const [, attributeName, attributeValue] = match;
+			attributes[attributeName] = attributeValue;
+		}
+	
+		return attributes;
+	}
+
+	//const Component = componentMap[component];
+// Example usage
+const input = '<div><div><ExampleFormContactUs /></div><div><Component2 style="test"><h1>Title</h1></Component2></div></div>';
+const output = replaceComponentTagsWithComponents(input);
+console.log(output);
 
  	return (
-		<Component />
+		<div dangerouslySetInnerHTML={{ __html: replaceComponentTagsWithComponents(input) }} />
 	);
 }
 
-export default connect(mapStateToProps, null)(ComponentExample);
+export default ComponentPreview;
 

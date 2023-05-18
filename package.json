@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://examples.bluegunn.com/",
   "dependencies": {
+    "@babel/standalone": "^7.21.8",
     "@codemirror/lang-javascript": "^6.1.8",
     "@codemirror/state": "^6.2.0",
     "@testing-library/jest-dom": "^5.16.1",

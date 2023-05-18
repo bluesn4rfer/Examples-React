@@ -6,27 +6,31 @@ import { keymap } from '@codemirror/view';
 import { defaultKeymap } from '@codemirror/commands';
 
 function CodeEditor(props) {
-  const { value, onChange } = props;
+  const { code, onChange } = props;
  
   const editor = useRef(null);
-  // const valueRef = useRef(value);
+  const codeRef = useRef(code);
+  const onChangeRef = useRef(onChange);
 
-  // useEffect(() => {
-  //   console.log('CodeEditor useEffect()');
-  //   valueRef.current = value;
-  // }, [value]);
+  useEffect(() => {
+    codeRef.current = code;
+  }, [code]);
+
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
 
   useEffect(() => {
     // CodeMirror Extension: update code in store
     const onUpdate = EditorView.updateListener.of((view) => {
-        onChange(view.state.doc.toString());
+        onChangeRef.current(view.state.doc.toString());
     });
     
     const editorTheme = EditorView.theme({}, { dark: true });
 
     const codeMirrorOptions = {
-      // doc: valueRef.current,
-      doc: value,
+      doc: codeRef.current,
       lineNumbers: true,
       lineWrapping: true,
       width: '300px',
