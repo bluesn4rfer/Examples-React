@@ -1,36 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import Babel from '@babel/standalone';
+import React, { useState, useEffect, useRef } from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { transform } from '@babel/standalone';
 
-function CodePreview({ code }) {
-    const [error, setError] = useState(null);
-    const [preview, setPreview] = useState(null);
+function CodePreview({ componentName, component, code }) {
+  const [preview, setPreview] = useState('');
 
-    useEffect(() => {
-        try {
-        //   const evalFunc = new Function('React', code);
-        //   const evaluated = evalFunc(React);
-            const transformedCode = Babel.transform(code, {
-                presets: ['es2015', 'react']
-            }).code;
-            setPreview(transformedCode);
-        } catch (e) {
-          setError(e.toString());
-        }
-    }, [code]);
+  const previewRef = useRef(null);
 
-  
-    return (
-      <div>
-        {error ? (
-          <div>{error}</div>
-        ) : (
-          <div>
-            <h2>Preview</h2>
-            <div dangerouslySetInnerHTML={{ __html: preview }} />
-          </div>
-        )}
-      </div>
-    );
-  }
+  useEffect(() => {
+    try {
+      //const transformedCode = transform("console.log('CodePreview/Controller.js from transformed code')", {
+      const transformedCode = transform(code, {
+        presets: ['react']
+      }).code;
+      console.log('CodePreview/Controller.js transformedCode = '+transformedCode);
 
-  export default CodePreview;
+      //const evalFunc = new Function('React', transformedCode);
+      const evalFunc = new Function ('React',componentName,`return ${transformedCode}`);
+      console.log('CodePreview/Controller.js evalFunc = '+evalFunc);
+
+ //     const evaluatedCode = evalFunc(React);
+ //     console.log('CodePreview/Controller.js evaluatedCode = '+evaluatedCode);
+
+//       const evalCode = `(React, ReactDOMServer) => {
+//         return ${transformedCode}
+//       }`;
+// console.log('CodePreview/Controller.js evalCode = '+evalCode);
+//       const evaluatedCode = evalCode(React,ReactDOMServer);
+
+      //const script = document.createElement('script');
+      const evaluatedCode = evalFunc(React,component);
+      const previewHtml = ReactDOMServer.renderToString(evaluatedCode);
+      //script.text = previewHtml;
+
+      if (previewRef.current) {
+        previewRef.current.innerHTML = previewHtml;
+        //previewRef.current.appendChild(script);
+      }
+
+      setPreview(transformedCode);
+    } catch (e) {
+      console.log('CodePreview/Controller.js error = '+e.toString());
+      setPreview(e.toString());
+    }
+  }, [code]);
+
+  return (
+    <div>
+      <h2>Preview</h2>
+      <div ref={previewRef} />
+    </div>
+  );
+}
+
+export default CodePreview;

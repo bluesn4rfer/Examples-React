@@ -219,7 +219,7 @@ function App({appState, ...props}) {
 				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
 					<Routes>
 						<Route path="/" element={<ExampleFormLogin />} />
-						<Route path="/test" element={<><CodePreview code={code} /><CodeEditor code={code} onChange={handleCodeChange} /></>} />
+						<Route path="/test" element={<><CodePreview componentName='ExampleFormContactUs' component={ExampleFormContactUs} code={code} /><CodeEditor code={code} onChange={handleCodeChange} /></>} />
 						<Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
 						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
 						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />
