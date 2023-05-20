@@ -16,7 +16,8 @@ function CodePreview({ componentName, component, code }) {
       console.log('CodePreview/Controller.js transformedCode = '+transformedCode);
 
       //const evalFunc = new Function('React', transformedCode);
-      const evalFunc = new Function ('React',componentName,`return ${transformedCode}`);
+      //const evalFunc = new Function ('React','component',`return ${transformedCode}()`);
+      const evalFunc = new Function ('React',componentName,`return ${transformedCode}()`);
       console.log('CodePreview/Controller.js evalFunc = '+evalFunc);
 
  //     const evaluatedCode = evalFunc(React);
@@ -30,15 +31,19 @@ function CodePreview({ componentName, component, code }) {
 
       //const script = document.createElement('script');
       const evaluatedCode = evalFunc(React,component);
+      console.log('CodePreview/Controller.js evaluatedCode = '+JSON.stringify(evaluatedCode));
       const previewHtml = ReactDOMServer.renderToString(evaluatedCode);
+      console.log('CodePreview/Controller.js previewHtml = '+previewHtml);
+      //script.text = evaluatedCode;
       //script.text = previewHtml;
 
       if (previewRef.current) {
         previewRef.current.innerHTML = previewHtml;
+        //previewRef.current.innerHTML = evaluatedCode;
         //previewRef.current.appendChild(script);
       }
 
-      setPreview(transformedCode);
+      //setPreview(transformedCode);
     } catch (e) {
       console.log('CodePreview/Controller.js error = '+e.toString());
       setPreview(e.toString());

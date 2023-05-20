@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 import DisplayMenu from './components/Menus/Controller';
+import DisplayForm from './components/Forms/Controller';
+
 import ComponentsMenu from './ComponentsMenu';
 import ComponentPreview from './ComponentPreview';
 import CodePreview from './components/CodePreview/Controller';
@@ -53,7 +55,19 @@ const mapDispatchToProps = dispatch => ({
 function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
-	const [code, setCode] = useState('<h1>Fucking Code Editor & Preview</h1>');
+	const [code, setCode] = useState(`function Test(){
+		const handleClick = () => {
+			console.log('Hello World');
+			alert('Hello World');
+		};
+
+		return (
+			<div>
+			<h1>Hello World</h1>
+			<button onClick={handleClick}>Hello World</button>
+			</div>
+		);
+	}`);
 
 	const topMenu = {
 		props: {
@@ -219,7 +233,9 @@ function App({appState, ...props}) {
 				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
 					<Routes>
 						<Route path="/" element={<ExampleFormLogin />} />
-						<Route path="/test" element={<><CodePreview componentName='ExampleFormContactUs' component={ExampleFormContactUs} code={code} /><CodeEditor code={code} onChange={handleCodeChange} /></>} />
+						<Route path="/test" element={<><CodePreview componentName='DisplayForm' component={DisplayForm} code={code} />
+							{/* <CodeEditor code={code} onChange={handleCodeChange} /> */}
+							</>} />
 						<Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
 						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
 						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />

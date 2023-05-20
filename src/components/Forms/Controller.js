@@ -40,6 +40,7 @@ function DisplayForm({ formData, callback }) {
   };
 
   const handleNextStep = () => {
+    console.log('Forms/Controller.js handleNextStep() invoked');
     if(currentStep == formData.steps.length - 1){
       setShowReview(true);
     }
@@ -49,6 +50,7 @@ function DisplayForm({ formData, callback }) {
   };
 
   const handlePrevStep = () => {
+    console.log('Forms/Controller.js handlePrevStep() invoked');
     if(showReview){
       setShowReview(false);
     }
