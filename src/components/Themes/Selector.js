@@ -5,6 +5,10 @@ import { themes } from './Themes';
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
 
+  if(show === false){
+    return null;
+  }
+  
   const changeTheme = (theme) => {
     console.log('Themes/Selector.js changeTheme() theme: ' + theme);
     setTheme(theme);

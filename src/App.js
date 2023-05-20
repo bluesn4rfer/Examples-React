@@ -7,27 +7,27 @@ import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 
 import ComponentsMenu from './ComponentsMenu';
-import ComponentPreview from './ComponentPreview';
+// import ComponentPreview from './ComponentPreview';
 import CodePreview from './components/CodePreview/Controller';
 import CodeEditor from './components/CodeEditor/Controller';
 
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
-import ExampleFormContactUs from './components/Forms/examples/ContactUs';
-import ExampleFormRegistration from './components/Forms/examples/Registration';
-import ExampleFormLogin from './components/Forms/examples/Login';
-import ExampleFormSurvey from './components/Forms/examples/Survey';
-import ExampleFormNewsletter from './components/Forms/examples/Newsletter';
-import ExampleFormPayment from './components/Forms/examples/Payment';
-import ExampleFormFileUpload from './components/Forms/examples/FileUpload';
-import ExampleFormFeedback from './components/Forms/examples/Feedback';
-import ExampleFormComment from './components/Forms/examples/Comment';
-import ExampleFormRSVP from './components/Forms/examples/RSVP';
-import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
-import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
-import ExampleMenuDropDown from './components/Menus/examples/DropDown';
-import ExampleMenuAccordion from './components/Menus/examples/Accordion';
+// import ExampleFormContactUs from './components/Forms/examples/ContactUs';
+// import ExampleFormRegistration from './components/Forms/examples/Registration';
+// import ExampleFormLogin from './components/Forms/examples/Login';
+// import ExampleFormSurvey from './components/Forms/examples/Survey';
+// import ExampleFormNewsletter from './components/Forms/examples/Newsletter';
+// import ExampleFormPayment from './components/Forms/examples/Payment';
+// import ExampleFormFileUpload from './components/Forms/examples/FileUpload';
+// import ExampleFormFeedback from './components/Forms/examples/Feedback';
+// import ExampleFormComment from './components/Forms/examples/Comment';
+// import ExampleFormRSVP from './components/Forms/examples/RSVP';
+// import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
+// import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
+// import ExampleMenuDropDown from './components/Menus/examples/DropDown';
+// import ExampleMenuAccordion from './components/Menus/examples/Accordion';
 
 //import ComponentCode from './ComponentCode';
 //import Resizable from './components/Resizable/Controller';
@@ -55,18 +55,42 @@ const mapDispatchToProps = dispatch => ({
 function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
-	const [code, setCode] = useState(`function Test(){
-		const handleClick = () => {
-			console.log('Hello World');
-			alert('Hello World');
-		};
-
-		return (
-			<div>
-			<h1>Hello World</h1>
-			<button onClick={handleClick}>Hello World</button>
-			</div>
-		);
+	const [code, setCode] = useState(`function ExampleFormLogin() {
+		let formData = {
+			"steps": [
+				{
+					"title": "Login Form",
+					"fields": [
+						{
+							"type": "text",
+							"name": "username",
+							"id": "username",
+							"class": "form-control",
+							"placeholder": "Enter your username",
+							"required": true,
+							"label": "Username"
+						},
+						{
+							"type": "password",
+							"name": "password",
+							"id": "password",
+							"class": "form-control",
+							"placeholder": "Enter your password",
+							"required": true,
+							"label": "Password"
+						}
+					]
+				}
+			],
+			"submit": {
+			  "value": "Login",
+			  "id": "login-button",
+			  "class": "btn btn-primary"
+			}
+		  };
+		  
+	
+		return <DisplayForm formData={formData}/>;
 	}`);
 
 	const topMenu = {
@@ -232,11 +256,12 @@ function App({appState, ...props}) {
 				<div className='h-100 overflow-hidden'><ComponentsMenu menuData={componentsMenu} /></div>
 				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
 					<Routes>
-						<Route path="/" element={<ExampleFormLogin />} />
+						{/* <Route path="/" element={<ExampleFormLogin />} /> */}
+						<Route path="/" element={<CodePreview componentName='DisplayForm' component={DisplayForm} code={code} />} />
 						<Route path="/test" element={<><CodePreview componentName='DisplayForm' component={DisplayForm} code={code} />
-							{/* <CodeEditor code={code} onChange={handleCodeChange} /> */}
+							<CodeEditor code={code} onChange={handleCodeChange} />
 							</>} />
-						<Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
+						{/* <Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
 						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
 						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />
 						<Route path="/examples/forms/Survey" element={<ExampleFormSurvey />} />
@@ -249,7 +274,7 @@ function App({appState, ...props}) {
 						<Route path="/examples/forms/PasswordReset" element={<ExampleFormPasswordReset />} />
 						<Route path="/examples/forms/SubscriptionCancellation" element={<ExampleFormSubscriptionCancellation />} />
 						<Route path="/examples/menus/DropDown" element={<ExampleMenuDropDown />} />
-						<Route path="/examples/menus/Accordion" element={<ExampleMenuAccordion />} />
+						<Route path="/examples/menus/Accordion" element={<ExampleMenuAccordion />} /> */}
 						<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 						<Route path="*" element={<PageNotFound />} />
 					</Routes>				

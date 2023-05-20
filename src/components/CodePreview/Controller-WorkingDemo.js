@@ -2,8 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { transform } from '@babel/standalone';
 
-function CodePreview({ componentName, component, code }) {
+function CodePreview() {
   const previewRef = useRef(null);
+  const [code] = useState(`function Test(){
+    const handleClick = () => {
+      console.log('Hello World');
+      alert('Hello World');
+    };
+
+    return (
+      <div>
+        <h1>Hello World</h1>
+        <button onClick={handleClick}>Hello World</button>
+      </div>
+    );
+  }`);
 
   useEffect(() => {
     try {
@@ -11,8 +24,8 @@ function CodePreview({ componentName, component, code }) {
         presets: ['react']
       }).code;
 
-      const evalFunc = new Function('React', componentName, `return (${transformedCode})()`);
-      const evaluatedCode = evalFunc(React, component);
+      const evalFunc = new Function('React', `return (${transformedCode})()`);
+      const evaluatedCode = evalFunc(React);
 
       if (previewRef.current) {
         ReactDOM.render(evaluatedCode, previewRef.current);
