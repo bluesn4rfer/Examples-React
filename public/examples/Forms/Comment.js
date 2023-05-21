@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormComment() {
 	let formData = {
 		"steps": [
@@ -46,5 +44,3 @@ function ExampleFormComment() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormComment;

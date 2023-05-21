@@ -1,5 +1,3 @@
-import DisplayMenu from '../Controller';
-
 function ExampleMenuAccordion(){
     const accordionMenu = {
         props: {
@@ -109,5 +107,3 @@ function ExampleMenuAccordion(){
       
     return (<DisplayMenu menuData={accordionMenu} />);
 }
-
-export default ExampleMenuAccordion;

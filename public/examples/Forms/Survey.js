@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormSurvey() {
 	let formData = {
 		"steps": [
@@ -86,5 +84,3 @@ function ExampleFormSurvey() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormSurvey;

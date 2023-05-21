@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormPasswordReset() {
 	let formData = {
 		"steps": [
@@ -46,5 +44,3 @@ function ExampleFormPasswordReset() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormPasswordReset;

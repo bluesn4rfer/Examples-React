@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 import DisplayMenu from './components/Menus/Controller';
-import DisplayForm from './components/Forms/Controller';
+// import DisplayForm from './components/Forms/Controller';
 
 import ComponentsMenu from './ComponentsMenu';
-// import ComponentPreview from './ComponentPreview';
-import CodePreview from './components/CodePreview/Controller';
-import CodeEditor from './components/CodeEditor/Controller';
+import ComponentPreview from './ComponentPreview';
+// import CodePreview from './components/CodePreview/Controller';
+// import CodeEditor from './components/CodeEditor/Controller';
 
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
@@ -247,45 +247,41 @@ function App({appState, ...props}) {
 
 	return (
 		<>
-			<Theme theme={theme} />
-			<div className='position-fixed top-0 start-0 container-fluid theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{zIndex:200, height: '55px'}}>
-				<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'><h2>Examples.BlueGunn.com</h2></div>
-				<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><DisplayMenu menuData={topMenu} /></div>
+		<Theme theme={theme} />
+		<div className='container-fluid position-absolute top-0 start-0 end-0 theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '55px' }}>
+			<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'><h2 className='m-0'>Examples.BlueGunn.com</h2></div>
+			<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><DisplayMenu menuData={topMenu} /></div>
+		</div>
+		<div className='d-flex flex-shrink-1 position-absolute left-0 py-1 overflow-hidden' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu menuData={componentsMenu} /></div>
+		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex justify-content-center align-items-center p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
+			<div className='position-absolute top-0 start-0 w-100' style={{paddingLeft: '75px'}}>
+			<Routes>
+				<Route path="/" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/test" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Survey" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Survey.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Newsletter" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Newsletter.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Payment" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Payment.js' setCode={setCode} />} />
+				<Route path="/examples/formsFileUpload" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/FileUpload.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Feedback" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Feedback.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Comment" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Comment.js' setCode={setCode} />} />
+				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/RSVP.js' setCode={setCode} />} />
+				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} />} />
+				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} />} />
+				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
+				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
+				<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
+				<Route path="*" element={<PageNotFound />} />
+			</Routes>
 			</div>
-			<div className='container-fluid d-flex flex-row m-0 p-0 position-absolute' style={{zIndex: 100, top: '60px', bottom: '45px'}}>
-				<div className='h-100 overflow-hidden'><ComponentsMenu menuData={componentsMenu} /></div>
-				<div className='h-100 overflow-auto position-relative d-flex flex-fill justify-content-center align-items-center'>
-					<Routes>
-						{/* <Route path="/" element={<ExampleFormLogin />} /> */}
-						<Route path="/" element={<CodePreview componentName='DisplayForm' component={DisplayForm} code={code} />} />
-						<Route path="/test" element={<><CodePreview componentName='DisplayForm' component={DisplayForm} code={code} />
-							<CodeEditor code={code} onChange={handleCodeChange} />
-							</>} />
-						{/* <Route path="/examples/forms/ContactUs" element={<ExampleFormContactUs />} />
-						<Route path="/examples/forms/Login" element={<ExampleFormLogin />} />
-						<Route path="/examples/forms/Registration" element={<ExampleFormRegistration />} />
-						<Route path="/examples/forms/Survey" element={<ExampleFormSurvey />} />
-						<Route path="/examples/forms/Newsletter" element={<ExampleFormNewsletter />} />
-						<Route path="/examples/forms/Payment" element={<ExampleFormPayment />} />
-						<Route path="/examples/formsFileUpload" element={<ExampleFormFileUpload />} />
-						<Route path="/examples/forms/Feedback" element={<ExampleFormFeedback />} />
-						<Route path="/examples/forms/Comment" element={<ExampleFormComment />} />
-						<Route path="/examples/forms/RSVP" element={<ExampleFormRSVP />} />
-						<Route path="/examples/forms/PasswordReset" element={<ExampleFormPasswordReset />} />
-						<Route path="/examples/forms/SubscriptionCancellation" element={<ExampleFormSubscriptionCancellation />} />
-						<Route path="/examples/menus/DropDown" element={<ExampleMenuDropDown />} />
-						<Route path="/examples/menus/Accordion" element={<ExampleMenuAccordion />} /> */}
-						<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
-						<Route path="*" element={<PageNotFound />} />
-					</Routes>				
-				</div>
-				<div className='h-100 overflow-hidden'>{/*<ComponentCode />*/}</div>
-			</div>
-			<div className='position-absolute bottom-0 start-0 container-fluid border-top border-primary border-4 d-flex flex-row m-0 p-0' style={{height: '40px'}}>
-				<div className='d-flex flex-fill justify-content-center align-self-center ps-3'>&copy; BlueGunn.com</div>
-			</div>
-			<ThemeSelector show={showThemeSelector} setShow={setShowThemeSelector} setTheme={setTheme} />
-			<button id="installButton" style={{ display: 'none' }}>Install</button>
+		</div>
+		<div className='container-fluid position-absolute bottom-0 start-0 end-0 theme-secondary border-top border-primary border-4 d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '40px' }}>
+			<div className='d-flex flex-fill justify-content-center align-self-center ps-3'>&copy; BlueGunn.com</div>
+		</div>
+		<ThemeSelector show={showThemeSelector} setShow={setShowThemeSelector} setTheme={setTheme} />
+		<button id="installButton" style={{ display: 'none' }}>Install</button>
 		</>
   	);
 

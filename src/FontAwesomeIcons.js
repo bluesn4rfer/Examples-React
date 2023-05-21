@@ -788,9 +788,9 @@ const faIcons = [
 
 function FontAwesomeIcons(){
     return (
-        <div className='w-100 position-absolute top-0 start-0 p-3' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gridGap: '10px'}}>
+        <div className='w-100 p-3' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gridGap: '10px'}}>
         {faIcons.sort().map((icon,index) => (
-                <div className='d-flex flex-nowrap'>
+                <div key={icon} className='d-flex flex-nowrap'>
                     <div className='w-25 d-flex justify-content-center'><i className={'icon fs-1 fa '+icon} /></div>
                     <div className='d-flex flex-grow-1 align-items-center'>{icon}</div>
                 </div>

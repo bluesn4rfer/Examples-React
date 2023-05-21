@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormRSVP() {
 	let formData = {
 		"steps": [
@@ -64,5 +62,3 @@ function ExampleFormRSVP() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormRSVP;

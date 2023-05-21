@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormContactUs() {
 	let formData = {
 		"steps": [
@@ -96,5 +94,3 @@ function ExampleFormContactUs() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormContactUs;

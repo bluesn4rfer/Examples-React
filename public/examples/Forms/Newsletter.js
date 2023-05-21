@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormNewsletter() {
 	let formData = {
 		"steps": [
@@ -71,5 +69,3 @@ function ExampleFormNewsletter() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormNewsletter;

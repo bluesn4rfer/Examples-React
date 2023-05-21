@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormSubscriptionCancellation() {
 	let formData = {
 		"steps": [
@@ -46,5 +44,3 @@ function ExampleFormSubscriptionCancellation() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormSubscriptionCancellation;

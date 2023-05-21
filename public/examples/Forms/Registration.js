@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormRegistration() {
 	let formData = {
 		"steps": [
@@ -101,5 +99,3 @@ function ExampleFormRegistration() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormRegistration;

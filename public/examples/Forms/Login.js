@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormLogin() {
 	let formData = {
 		"steps": [
@@ -37,5 +35,3 @@ function ExampleFormLogin() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormLogin;

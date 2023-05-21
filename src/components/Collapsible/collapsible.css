@@ -1,0 +1,14 @@
+.collapse {
+    transition: height 5s ease, width 5s ease !important;
+}
+
+.show {
+    display: block !important;    
+  }
+
+.collapsed {
+    display: block !important;
+    height: 0px !important;
+    width: 0px !important;
+}
+

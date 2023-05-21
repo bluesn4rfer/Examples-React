@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormFileUpload() {
 	let formData = {
 		"steps": [
@@ -36,5 +34,3 @@ function ExampleFormFileUpload() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormFileUpload;

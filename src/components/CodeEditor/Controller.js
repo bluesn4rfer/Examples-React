@@ -6,9 +6,10 @@ import { keymap } from '@codemirror/view';
 import { defaultKeymap } from '@codemirror/commands';
 
 function CodeEditor(props) {
-  const { code, onChange } = props;
+  const { code, onChange, updateCode } = props;
  
   const editor = useRef(null);
+  const editorViewRef = useRef(null);
   const codeRef = useRef(code);
   const onChangeRef = useRef(onChange);
 
@@ -50,15 +51,30 @@ function CodeEditor(props) {
 
     const startState = EditorState.create(codeMirrorOptions);
 
-    const editorView = new EditorView({
+    editorViewRef.current = new EditorView({
       state: startState,
       parent: editor.current,
     });
 
     return () => {
-      editorView.destroy();
+      editorViewRef.current.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    const editorView = editorViewRef.current;
+    if(editorView.state && editorView.state.doc && updateCode){
+      console.log('CodeEditor/Controller.js updateCode = '+updateCode);
+      editorView.dispatch({
+        changes: {
+            from: 0,
+            to: editorView.state.doc.length,
+            insert: updateCode
+        }
+      });
+    }
+
+  }, [updateCode]);
 
   return <div ref={editor} />;
 };

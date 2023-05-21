@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormFeedback() {
 	let formData = {
 		"steps": [
@@ -76,5 +74,3 @@ function ExampleFormFeedback() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormFeedback;

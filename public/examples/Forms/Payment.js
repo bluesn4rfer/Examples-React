@@ -1,5 +1,3 @@
-import DisplayForm from '../Controller';
-
 function ExampleFormPayment() {
 	let formData = {
 		"steps": [
@@ -56,5 +54,3 @@ function ExampleFormPayment() {
 
 	return <DisplayForm formData={formData}/>;
 }
-
-export default ExampleFormPayment;

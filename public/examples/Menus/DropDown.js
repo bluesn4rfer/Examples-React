@@ -1,5 +1,3 @@
-import DisplayMenu from '../Controller';
-
 function ExampleMenuDropDown(){
     const dropDownMenu = {
         props: {
@@ -105,5 +103,3 @@ function ExampleMenuDropDown(){
 
     return(<DisplayMenu menuData={dropDownMenu} />);
 }
-
-export default ExampleMenuDropDown;

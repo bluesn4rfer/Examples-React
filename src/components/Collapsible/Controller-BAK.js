@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState, createContext, useContext } from 'react';
-//import './collapsible.css';
 
 // Create a context to hold the parent properties
 const ParentContext = createContext();
@@ -65,8 +64,8 @@ const Title = ({ children, className }) => {
 				} text-light`}
 				href={`#${id}Details`}
 				role="button"
-				// data-bs-toggle="collapse"
-				// aria-expanded={!isCollapsed}
+				data-bs-toggle="collapse"
+				aria-expanded={!isCollapsed}
 				aria-controls={`${id}Details`}
 			>{children}</a>
 		</div>
@@ -82,7 +81,7 @@ const Content = ({ children }) => {
 			id={`${id}Details`}
 			className={`h-100 p-0 collapse ${
 			direction === 'left' || direction === 'right' ? 'collapse-horizontal' : ''
-			} ${isCollapsed ? 'collapsed' : 'show'}`}
+			} ${isCollapsed ? 'collapsed' : ''}`}
 		>
 		{children}
 		</div>

@@ -1,72 +1,57 @@
-import ExampleFormContactUs from './components/Forms/examples/ContactUs';
-import ExampleFormRegistration from './components/Forms/examples/Registration';
-import ExampleFormLogin from './components/Forms/examples/Login';
-import ExampleFormSurvey from './components/Forms/examples/Survey';
-import ExampleFormNewsletter from './components/Forms/examples/Newsletter';
-import ExampleFormPayment from './components/Forms/examples/Payment';
-import ExampleFormFileUpload from './components/Forms/examples/FileUpload';
-import ExampleFormFeedback from './components/Forms/examples/Feedback';
-import ExampleFormComment from './components/Forms/examples/Comment';
-import ExampleFormRSVP from './components/Forms/examples/RSVP';
-import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
-import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
-import FontAwesomeIcons from './FontAwesomeIcons';
+import { useEffect, useState } from 'react';
 
+import CodeEditor from './components/CodeEditor/Controller';
+import CodePreview from './components/CodePreview/Controller';
 
-function ComponentPreview({code}) {
+import DisplayMenu from './components/Menus/Controller';
+import DisplayForm from './components/Forms/Controller';
+
+function ComponentPreview({component, code, file, setCode}) {
 	const componentMap = {
-		ExampleFormContactUs,
-		ExampleFormRegistration,
-		ExampleFormLogin,
-		ExampleFormSurvey,
-		ExampleFormNewsletter,
-		ExampleFormPayment,
-		ExampleFormFileUpload,
-		ExampleFormFeedback,
-		ExampleFormComment,
-		ExampleFormRSVP,
-		ExampleFormPasswordReset,
-		ExampleFormSubscriptionCancellation,
-		FontAwesomeIcons
+		DisplayMenu,
+		DisplayForm
 	};
 
-	const replaceComponentTagsWithComponents = (input) => {
-		const componentRegex = /<([A-Za-z0-9]+)([^/>]*)\/?>/g;
-	
-		// Replace component tags with corresponding React components
-		const replacedInput = input.replace(componentRegex, (match, tagName, attributes) => {
-			const Component = componentMap[tagName];
-			if (Component) {
-			return <Component {...extractAttributes(attributes)} />;
-			} else {
-			return match; // Return the original tag if component not found in component map
-			}
-		});
-	
-		return replacedInput;
-	}
-	  
-	const extractAttributes = (attributeString) => {
-		const attributeRegex = /([A-Za-z0-9]+)=["']([^"']+)["']/g;
-		const attributes = {};
-	
-		let match;
-		while ((match = attributeRegex.exec(attributeString))) {
-			const [, attributeName, attributeValue] = match;
-			attributes[attributeName] = attributeValue;
-		}
-	
-		return attributes;
-	}
+	const [updateCode, setUpdateCode] = useState(code);
 
-	//const Component = componentMap[component];
-// Example usage
-const input = '<div><div><ExampleFormContactUs /></div><div><Component2 style="test"><h1>Title</h1></Component2></div></div>';
-const output = replaceComponentTagsWithComponents(input);
-console.log(output);
+	useEffect(() => {
+		const fetchCode = () => {
+			console.log('ComponentPreview.js fetchCode() file = '+file);
+		  fetch(file)
+			.then((response) => {
+			  if (response.ok) {
+				return response.text();
+			  } else {
+				throw new Error(`Failed to fetch code: ${response.status} ${response.statusText}`);
+			  }
+			})
+			.then((code) => {
+				console.log('ComponentPreview.js fetchCode updating code & updateCode');
+				setCode(code);
+			  	setUpdateCode(code);
+			})
+			.catch((error) => {
+			  console.error('Error fetching code:', error);
+			  // Handle error condition if desired
+			});
+		};
+	
+		if (setCode && file) {
+		  fetchCode();
+		}
+	  }, [setUpdateCode, file]);
+
+	const handleCodeChange = (code) => {
+		console.log('ComponentPreview.js handleCodeChange() invoked');
+		console.log('ComponentPreview.js handleCodeChange() code = '+code);
+		setCode(code);
+	}
 
  	return (
-		<div dangerouslySetInnerHTML={{ __html: replaceComponentTagsWithComponents(input) }} />
+		<div className='d-flex flex-row flex-grow-1'>
+			<div className='d-flex col'><CodePreview componentName={component} component={componentMap[component]} code={code} /></div>
+			<div className='d-flex col'><CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} /></div>
+		</div>
 	);
 }
 
