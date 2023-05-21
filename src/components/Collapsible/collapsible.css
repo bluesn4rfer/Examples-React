@@ -1,8 +1,20 @@
+.show {
+    width: 300px !important;
+}
+
 .collapse {
+    overflow: hidden;
     transition: height 5s ease, width 5s ease !important;
 }
 
-.show {
+.collapse:not(.show) {
+    display: block !important;
+    width: 0px !important;
+}
+
+
+
+/* .show {
     display: block !important;    
   }
 
@@ -10,5 +22,5 @@
     display: block !important;
     height: 0px !important;
     width: 0px !important;
-}
+} */
 

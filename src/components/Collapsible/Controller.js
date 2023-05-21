@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, createContext, useContext } from 'react';
-//import './collapsible.css';
+import './collapsible.css';
 
 // Create a context to hold the parent properties
 const ParentContext = createContext();
