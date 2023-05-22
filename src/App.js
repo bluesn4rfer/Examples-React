@@ -116,11 +116,12 @@ function App({appState, ...props}) {
 
 	const componentsMenu = {
 		props: {
-			className: 'border-primary list-unstyled'
+			className: 'border-primary list-unstyled',
+			style: { width: '250px' }
 		},
 		links: [
 			{
-				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Menus</a>),			
+				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Menus</a>),			
 				menu: {
 					props: {
 						id: 'menus-menu',
@@ -140,7 +141,39 @@ function App({appState, ...props}) {
 				}
 			},
 			{
-				link: (<a href='#forms-menu' className='btn-primary d-block list-unstyled text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-pencil' />Forms</a>),
+				link: (<a href='#views-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-eye' />Views</a>),			
+				menu: {
+					props: {
+						id: 'views-menu',
+						className: 'list-unstyled collapse show'
+					},
+					links: [
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/views/CollapsibleTop" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Top</Link>)
+						},
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/views/CollapsibleBottom' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Bottom</Link>)
+						},
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/views/CollapsibleStart" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Start</Link>)
+						},
+						{
+							link: (<Link to='/examples/views/CollapsibleEnd' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible End</Link>)
+						}						
+					]
+				}
+			},			
+			{
+				link: (<a href='#forms-menu' className='btn-primary d-block list-unstyled text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-pencil' />Forms</a>),
 				menu: {
 					props: {
 						id: 'forms-menu',
@@ -220,7 +253,7 @@ function App({appState, ...props}) {
 				} 
 			},
 			{
-				link: (<a href='#icons-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-magic' />Icons</a>),			
+				link: (<a href='#icons-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-magic' />Icons</a>),			
 				menu: {
 					props: {
 						id: 'icons-menu',
@@ -257,6 +290,12 @@ function App({appState, ...props}) {
 			<div className='position-absolute top-0 start-0 w-100' style={{paddingLeft: '75px'}}>
 			<Routes>
 				<Route path="/" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
+				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
+				<Route path="/examples/views/CollapsibleTop" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleTop.js' setCode={setCode} />} />
+				<Route path="/examples/views/CollapsibleBottom" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleBottom.js' setCode={setCode} />} />
+				<Route path="/examples/views/CollapsibleStart" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleStart.js' setCode={setCode} />} />
+				<Route path="/examples/views/CollapsibleEnd" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleEnd.js' setCode={setCode} />} />
 				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
 				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
 				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
@@ -269,8 +308,6 @@ function App({appState, ...props}) {
 				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/RSVP.js' setCode={setCode} />} />
 				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} />} />
 				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} />} />
-				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
-				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
 				<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>

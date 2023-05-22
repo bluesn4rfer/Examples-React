@@ -5,11 +5,13 @@ import CodePreview from './components/CodePreview/Controller';
 
 import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
+import Collapsible from './components/Collapsible/Controller';
 
 function ComponentPreview({component, code, file, setCode}) {
 	const componentMap = {
-		DisplayMenu,
-		DisplayForm
+		Collapsible,
+		DisplayForm,
+		DisplayMenu
 	};
 
 	const [updateCode, setUpdateCode] = useState(code);
