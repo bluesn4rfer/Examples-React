@@ -1,8 +1,10 @@
 function ExampleViewCollapsibleStart(){
     return (
-        <Collapsible id="collapsibleStart" direction="start">
-            <Collapsible.Title>Collapsible Start</Collapsible.Title>
-            <Collapsible.Content>Content Here</Collapsible.Content>
+<div className="position-relative">
+        <Collapsible id="collapsibleStart" direction="start" autoClose={false} className="position-absolute start-0">
+            <Collapsible.Title className='theme-primary'>Collapsible Start</Collapsible.Title>
+            <Collapsible.Content className='theme-secondary' style={{width: '100px'}}>Content Here</Collapsible.Content>
         </Collapsible>
+</div>
     )
 }

@@ -51,8 +51,8 @@ function ComponentPreview({component, code, file, setCode}) {
 
  	return (
 		<div className='d-flex flex-row flex-grow-1'>
-			<div className='d-flex col'><CodePreview componentName={component} component={componentMap[component]} code={code} /></div>
-			<div className='d-flex col'><CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} /></div>
+			<div className='d-flex col w-50'><CodePreview componentName={component} component={componentMap[component]} code={code} /></div>
+			<div className='d-flex col w-50'><CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} /></div>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import './collapsible.css';
 // Create a context to hold the parent properties
 const ParentContext = createContext();
 
-function Collapsible({ children, direction = 'up', id, className, autoClose = true }) {
+function Collapsible({ children, direction = 'up', id, className = '', autoClose = true }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
 	const handleClickOutside = (event) => {
@@ -22,8 +22,8 @@ function Collapsible({ children, direction = 'up', id, className, autoClose = tr
   const parentProps = { id, direction, isCollapsed, setIsCollapsed, handleTitleClick };
 
   const directionClass = {
-	top: 'column-reverse',
-	bottom: 'column',
+	top: 'flex-column-reverse',
+	bottom: 'flex-column',
 	start: 'flex-row-reverse',
 	end: 'flex-row',
   };
@@ -41,7 +41,7 @@ function Collapsible({ children, direction = 'up', id, className, autoClose = tr
 }
 
 // Title component
-const Title = ({ children, className = ''}) => {
+const Title = ({ children, className = '', style = {}, ...props}) => {
 	const { id, direction, handleTitleClick } = useContext(ParentContext);
 
 	const handleClick = (event) => {
@@ -54,11 +54,12 @@ const Title = ({ children, className = ''}) => {
 	return (
 		<div
 			onClick={handleClick}
-			style={{ width: 'auto', cursor: 'pointer' }}
+			className={`${className} ${direction === 'start' || direction === 'end' ? 'vtext' : ''}`}
+			style={{ ...style, cursor: 'pointer' }}
+			{...props}
 		>
 			<a
 				id={`${id}Title`}
-				className={`${className} pt-${direction === 'top' ? '3' : '0'} ${direction === 'start' || direction === 'end' ? 'vtext' : ''} text-light`}
 				href={`#${id}Details`}
 				role="button"
 			>{children}</a>
@@ -67,7 +68,7 @@ const Title = ({ children, className = ''}) => {
 }
 
 // Content component
-const Content = ({ children, className = '', ...props}) => {
+const Content = ({ children, className = '', height = 'auto', width = 'auto', ...props}) => {
 	const {id, direction, isCollapsed, setIsCollapsed } = useContext(ParentContext);
 
 	const directionClass = {
@@ -116,8 +117,9 @@ const Content = ({ children, className = '', ...props}) => {
 			onMouseDown={handleMouseDown}
 			className={`${className} ${directionClass[direction] ? directionClass[direction] : ''} ${isCollapsed ? 'collapsed' : 'show'}`}
 			{...props}
+			style={{width: width, height: height}}
 		>
-		{children}
+			<div style={{width: width, height: height}}>{children}</div>
 		</div>
 	);
 }

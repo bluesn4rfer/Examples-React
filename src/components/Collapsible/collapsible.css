@@ -1,29 +1,29 @@
 .collapse-top {
     display: block !important;
     overflow: hidden;
-    transition: height 1s ease, width 1s ease !important;
+    transition: height 1s ease !important;
 }
 
 .collapse-top:not(.show) {
     display: block !important;
-    width: 0px !important;
+    height: 0px !important;
 }
 
 .collapse-bottom {
     display: block !important; 
     overflow: hidden;
-    transition: height 1s ease, width 1s ease !important;
+    transition: height 1s ease !important;
 }
 
 .collapse-bottom:not(.show) {
     display: block !important;
-    width: 0px !important;
+    height: 0px !important;
 }
 
 .collapse-start {
     display: block !important;   
     overflow: hidden;
-    transition: height 1s ease, width 1s ease !important;
+    transition: width 1s ease !important;
 }
 
 .collapse-start:not(.show) {
@@ -34,7 +34,7 @@
 .collapse-end {
     display: block !important;   
     overflow: hidden;
-    transition: height 1s ease, width 1s ease !important;
+    transition: width 1s ease !important;
 }
 
 .collapse-end:not(.show) {
