@@ -23,9 +23,9 @@ function CodePreview({ componentName, component, code }) {
   }, [code]);
 
   return (
-    <div className="w-100 px-3">
-      <h2>Preview</h2>
-      <div ref={previewRef} />
+    <div className="w-100 h-100 px-3">
+      <div><h2>Preview</h2></div>
+      <div ref={previewRef} className='w-100 h-100'/>
     </div>
   );
 }

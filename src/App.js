@@ -152,22 +152,7 @@ function App({appState, ...props}) {
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
-							link: (<Link to="/examples/views/CollapsibleTop" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Top</Link>)
-						},
-						{
-							style: {
-								borderBottom: '2px solid var(--bs-secondary-hover)'
-							},
-							link: (<Link to='/examples/views/CollapsibleBottom' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Bottom</Link>)
-						},
-						{
-							style: {
-								borderBottom: '2px solid var(--bs-secondary-hover)'
-							},
-							link: (<Link to="/examples/views/CollapsibleStart" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible Start</Link>)
-						},
-						{
-							link: (<Link to='/examples/views/CollapsibleEnd' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible End</Link>)
+							link: (<Link to="/examples/views/Collapsible" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible</Link>)
 						}						
 					]
 				}
@@ -287,15 +272,12 @@ function App({appState, ...props}) {
 		</div>
 		<div className='d-flex flex-shrink-1 position-absolute left-0 py-1 overflow-hidden' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu menuData={componentsMenu} /></div>
 		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex justify-content-center align-items-center p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
-			<div className='position-absolute top-0 start-0 w-100' style={{paddingLeft: '75px'}}>
+			<div className='position-absolute top-0 start-0 w-100 h-100' style={{paddingLeft: '75px'}}>
 			<Routes>
 				<Route path="/" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
 				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
 				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
-				<Route path="/examples/views/CollapsibleTop" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleTop.js' setCode={setCode} />} />
-				<Route path="/examples/views/CollapsibleBottom" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleBottom.js' setCode={setCode} />} />
-				<Route path="/examples/views/CollapsibleStart" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleStart.js' setCode={setCode} />} />
-				<Route path="/examples/views/CollapsibleEnd" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/CollapsibleEnd.js' setCode={setCode} />} />
+				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/Collapsible.js' setCode={setCode} />} />
 				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
 				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
 				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
