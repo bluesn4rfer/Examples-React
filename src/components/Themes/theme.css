@@ -211,3 +211,7 @@ div {
 	height: auto;
 	transition: width 1s ease;
 }
+
+a {
+	color: inherit;
+}

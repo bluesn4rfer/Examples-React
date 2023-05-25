@@ -31,6 +31,7 @@ function Collapsible({ children, direction = 'up', id, className = '', autoClose
   return (
 	<ParentContext.Provider value={parentProps}>
     <div
+		id={`${id}`}
 		onBlur={handleClickOutside}
       	className={`${className} d-flex ${directionClass[direction] ? directionClass[direction] : ''}`}
     >
@@ -41,8 +42,8 @@ function Collapsible({ children, direction = 'up', id, className = '', autoClose
 }
 
 // Title component
-const Title = ({ children, className = '', style = {}, ...props}) => {
-	const { id, direction, handleTitleClick } = useContext(ParentContext);
+const Title = ({ id, children, className = '', style = {}, ...props}) => {
+	const { id: parentId, handleTitleClick } = useContext(ParentContext);
 
 	const handleClick = (event) => {
 		console.log('Collapsible/Controller.js Title handleClick() invoked');
@@ -53,23 +54,19 @@ const Title = ({ children, className = '', style = {}, ...props}) => {
 
 	return (
 		<div
+			id={`${parentId}Title`}
 			onClick={handleClick}
-			className={`${className} ${direction === 'start' || direction === 'end' ? 'vtext' : ''}`}
-			style={{ ...style, cursor: 'pointer' }}
+			className={className}
+			style={{ ...style, cursor: 'pointer', userSelect: 'none' }}
 			{...props}
-		>
-			<a
-				id={`${id}Title`}
-				href={`#${id}Details`}
-				role="button"
-			>{children}</a>
+		>{children}
 		</div>
 	);
 }
 
 // Content component
-const Content = ({ children, className = '', height = 'auto', width = 'auto', ...props}) => {
-	const {id, direction, isCollapsed, setIsCollapsed } = useContext(ParentContext);
+const Content = ({ id, children, className = '', height = 'auto', width = 'auto', ...props}) => {
+	const {id: parentId, direction, isCollapsed, setIsCollapsed } = useContext(ParentContext);
 
 	const directionClass = {
 		top: 'collapse-top',
@@ -88,7 +85,7 @@ const Content = ({ children, className = '', height = 'auto', width = 'auto', ..
 	
 	  // Attach click event listeners to the links
 	  useEffect(() => {
-		const linkElements = document.querySelectorAll(`#${id}Details a`);
+		const linkElements = document.querySelectorAll(`#${parentId}Details a`);
 		linkElements.forEach((linkElement) => {
 			if (linkElement.classList.contains('exclude-collapse')) {
 				return;
@@ -103,7 +100,7 @@ const Content = ({ children, className = '', height = 'auto', width = 'auto', ..
 			linkElement.removeEventListener('click', () => handleLinkClick(setIsCollapsed));
 		  });
 		};
-	  }, [id, setIsCollapsed]);
+	  }, [parentId, setIsCollapsed]);
 
 	const handleMouseDown = (event) => {
 		console.log('Collapsible/Controller.js Content handleMouseDown() invoked');
@@ -113,7 +110,7 @@ const Content = ({ children, className = '', height = 'auto', width = 'auto', ..
 
 	return (
 		<div
-			id={`${id}Details`}
+			id={`${parentId}Content`}		
 			onMouseDown={handleMouseDown}
 			className={`${className} ${directionClass[direction] ? directionClass[direction] : ''} ${isCollapsed ? 'collapsed' : 'show'}`}
 			{...props}

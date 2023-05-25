@@ -272,7 +272,7 @@ function App({appState, ...props}) {
 		</div>
 		<div className='d-flex flex-shrink-1 position-absolute left-0 py-1 overflow-hidden' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu menuData={componentsMenu} /></div>
 		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex justify-content-center align-items-center p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
-			<div className='position-absolute top-0 start-0 w-100 h-100' style={{paddingLeft: '75px'}}>
+			<div className='position-absolute top-0 start-0 w-100 h-100' style={{marginLeft: '75px', marginBottom: '150px'}}>
 			<Routes>
 				<Route path="/" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
 				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
