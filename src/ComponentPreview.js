@@ -7,7 +7,7 @@ import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 import Collapsible from './components/Collapsible/Controller';
 
-function ComponentPreview({component, code, file, setCode}) {
+function ComponentPreview({mode = 'preview', component, code, file, setCode}) {
 	const componentMap = {
 		Collapsible,
 		DisplayForm,
@@ -41,7 +41,7 @@ function ComponentPreview({component, code, file, setCode}) {
 		if (setCode && file) {
 		  fetchCode();
 		}
-	  }, [setUpdateCode, file]);
+	  }, [setCode, setUpdateCode, file]);
 
 	const handleCodeChange = (code) => {
 		console.log('ComponentPreview.js handleCodeChange() invoked');
@@ -49,10 +49,18 @@ function ComponentPreview({component, code, file, setCode}) {
 		setCode(code);
 	}
 
+	const showView = () => {
+		switch(mode.toLowerCase()){
+			case "editor":
+				return (<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} />);
+			default:
+				return (<CodePreview componentName={component} component={componentMap[component]} code={code} />);
+		}
+	}
+
  	return (
 		<div className='d-flex flex-row flex-grow-1 h-100'>
-			<div className='d-flex col w-50 h-100'><CodePreview componentName={component} component={componentMap[component]} code={code} /></div>
-			<div className='d-flex col w-50 h-100'><CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} /></div>
+			{showView()}
 		</div>
 	);
 }

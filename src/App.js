@@ -55,43 +55,8 @@ const mapDispatchToProps = dispatch => ({
 function App({appState, ...props}) {
 	const [theme, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
-	const [code, setCode] = useState(`function ExampleFormLogin() {
-		let formData = {
-			"steps": [
-				{
-					"title": "Login Form",
-					"fields": [
-						{
-							"type": "text",
-							"name": "username",
-							"id": "username",
-							"class": "form-control",
-							"placeholder": "Enter your username",
-							"required": true,
-							"label": "Username"
-						},
-						{
-							"type": "password",
-							"name": "password",
-							"id": "password",
-							"class": "form-control",
-							"placeholder": "Enter your password",
-							"required": true,
-							"label": "Password"
-						}
-					]
-				}
-			],
-			"submit": {
-			  "value": "Login",
-			  "id": "login-button",
-			  "class": "btn btn-primary"
-			}
-		  };
-		  
-	
-		return <DisplayForm formData={formData}/>;
-	}`);
+	const [mode, setMode] = useState('preview');
+	const [code, setCode] = useState(null);
 
 	const topMenu = {
 		props: {
@@ -106,7 +71,16 @@ function App({appState, ...props}) {
 					},
 					links: [
 						{
-							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
+							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('preview')}>Preview Component</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('editor')}>Code Editor</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('documentation')}>Documentation</a>)
 						}
 					]
 				} 
@@ -274,22 +248,22 @@ function App({appState, ...props}) {
 		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex justify-content-center align-items-center p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
 			<div className='position-absolute top-0 start-0 w-100 h-100' style={{marginLeft: '75px', marginBottom: '150px'}}>
 			<Routes>
-				<Route path="/" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
-				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
-				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
-				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' code={code} file='/examples/Views/Collapsible.js' setCode={setCode} />} />
-				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Survey" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Survey.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Newsletter" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Newsletter.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Payment" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Payment.js' setCode={setCode} />} />
-				<Route path="/examples/formsFileUpload" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/FileUpload.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Feedback" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Feedback.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Comment" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/Comment.js' setCode={setCode} />} />
-				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/RSVP.js' setCode={setCode} />} />
-				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} />} />
-				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} />} />
+				<Route path="/" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
+				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
+				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' mode={mode} code={code} file='/examples/Views/Collapsible.js' setCode={setCode} />} />
+				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Survey" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Survey.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Newsletter" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Newsletter.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Payment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Payment.js' setCode={setCode} />} />
+				<Route path="/examples/formsFileUpload" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/FileUpload.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Feedback" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Feedback.js' setCode={setCode} />} />
+				<Route path="/examples/forms/Comment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Comment.js' setCode={setCode} />} />
+				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/RSVP.js' setCode={setCode} />} />
+				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} />} />
+				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} />} />
 				<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>

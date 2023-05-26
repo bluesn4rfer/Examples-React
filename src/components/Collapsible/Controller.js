@@ -65,7 +65,9 @@ const Title = ({ id, children, className = '', style = {}, ...props}) => {
 }
 
 // Content component
-const Content = ({ id, children, className = '', height = 'auto', width = 'auto', ...props}) => {
+const Content = ({ id, children, className = '', ...props}) => {
+	const { height = 'auto', width = 'auto' } = props.style ? props.style : {};
+
 	const {id: parentId, direction, isCollapsed, setIsCollapsed } = useContext(ParentContext);
 
 	const directionClass = {
