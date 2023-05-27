@@ -87,7 +87,7 @@ const Content = ({ id, children, className = '', ...props}) => {
 	
 	  // Attach click event listeners to the links
 	  useEffect(() => {
-		const linkElements = document.querySelectorAll(`#${parentId}Details a`);
+		const linkElements = document.querySelectorAll(`#${parentId}Content a`);
 		linkElements.forEach((linkElement) => {
 			if (linkElement.classList.contains('exclude-collapse')) {
 				return;

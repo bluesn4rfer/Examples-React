@@ -1,8 +1,6 @@
-function ExampleMenuAccordion(){
+function MenuAccordion(){
     const accordionMenu = {
-        props: {
-          className: 'border-primary list-unstyled'
-        },
+        className: 'border-primary list-unstyled',
         links: [
           {
             link: (
@@ -40,10 +38,8 @@ function ExampleMenuAccordion(){
               </a>
             ),
             menu: {
-              props: {
-                id: 'services',
-                className: 'list-unstyled collapse show'
-              },
+              id: 'services',
+              className: 'list-unstyled collapse show',
               links: [
                 {
                   link: (
@@ -105,5 +101,5 @@ function ExampleMenuAccordion(){
         ]
       };
       
-    return (<DisplayMenu menuData={accordionMenu} />);
+    return (<DisplayMenu menu={accordionMenu} />);
 }

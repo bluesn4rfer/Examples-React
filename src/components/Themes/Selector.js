@@ -32,6 +32,8 @@ function ThemeSelector(props) {
         cursor: 'pointer',
         width: '10vmin',
         height: '10vmin',
+        minWidth: '80px',
+        minHeight: '80px',
         border: `3px solid ${theme.colors.primary.base}`,
         background: `linear-gradient(135deg, ${theme.colors.primary.base} 50%, ${theme.colors.secondary.base} 50%)`,
         fontWeight: 'bold',

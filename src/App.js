@@ -59,16 +59,12 @@ function App({appState, ...props}) {
 	const [code, setCode] = useState(null);
 
 	const topMenu = {
-		props: {
-			className: 'list-unstyled',
-		},
+		className: 'list-unstyled',
 		links: [
 			{
 				link: (<a className='dropdown-toggle fs-5 btn-secondary rounded-bottom px-3 py-2 my-0' data-bs-toggle="dropdown"><i className='icon fa fa-bars' /></a>),
 				menu: {
-					props: {
-						className: 'dropdown-menu theme-secondary border-0 p-0 m-0'
-					},
+					className: 'dropdown-menu theme-secondary border-0 p-0 m-0',
 					links: [
 						{
 							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
@@ -89,19 +85,21 @@ function App({appState, ...props}) {
 	};
 
 	const componentsMenu = {
-		props: {
-			className: 'border-primary list-unstyled',
-			style: { width: '250px' }
-		},
+		className: 'border-primary list-unstyled',
+		style: { width: '250px' },
 		links: [
 			{
 				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Menus</a>),			
 				menu: {
-					props: {
-						id: 'menus-menu',
-						className: 'list-unstyled collapse show'
-					},
+					id: 'menus-menu',
+					className: 'list-unstyled collapse show',
 					links: [
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/menus/Accordion' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Accordion</Link>)
+						},
 						{
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
@@ -109,7 +107,7 @@ function App({appState, ...props}) {
 							link: (<Link to="/examples/menus/DropDown" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Drop down</Link>)
 						},
 						{
-							link: (<Link to='/examples/menus/Accordion' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Accordion</Link>)
+							link: (<Link to='/examples/menus/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
 						}
 					]
 				}
@@ -117,10 +115,8 @@ function App({appState, ...props}) {
 			{
 				link: (<a href='#views-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-eye' />Views</a>),			
 				menu: {
-					props: {
-						id: 'views-menu',
-						className: 'list-unstyled collapse show'
-					},
+					id: 'views-menu',
+					className: 'list-unstyled collapse show',
 					links: [
 						{
 							style: {
@@ -134,10 +130,8 @@ function App({appState, ...props}) {
 			{
 				link: (<a href='#forms-menu' className='btn-primary d-block list-unstyled text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-pencil' />Forms</a>),
 				menu: {
-					props: {
-						id: 'forms-menu',
-						className: 'list-unstyled collapse show',
-					},
+					id: 'forms-menu',
+					className: 'list-unstyled collapse show',
 					links: [
 						{ 
 							style: {
@@ -214,10 +208,8 @@ function App({appState, ...props}) {
 			{
 				link: (<a href='#icons-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-magic' />Icons</a>),			
 				menu: {
-					props: {
-						id: 'icons-menu',
-						className: 'list-unstyled collapse show'
-					},
+					id: 'icons-menu',
+					className: 'list-unstyled collapse show',
 					links: [
 						{
 							style: {
@@ -240,17 +232,18 @@ function App({appState, ...props}) {
 	return (
 		<>
 		<Theme theme={theme} />
-		<div className='container-fluid position-absolute top-0 start-0 end-0 theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '55px' }}>
+		<div className='container-fluid position-fixed top-0 start-0 end-0 theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '55px' }}>
 			<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'><h2 className='m-0'>Examples.BlueGunn.com</h2></div>
-			<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><DisplayMenu menuData={topMenu} /></div>
+			<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><DisplayMenu menu={topMenu} /></div>
 		</div>
-		<div className='d-flex flex-shrink-1 position-absolute left-0 py-1 overflow-hidden' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu menuData={componentsMenu} /></div>
-		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex justify-content-center align-items-center p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
-			<div className='position-absolute top-0 start-0 w-100 h-100' style={{marginLeft: '75px', marginBottom: '150px'}}>
+		<div className='d-flex flex-shrink-1 position-fixed left-0 py-1 overflow-hidden' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu menuData={componentsMenu} /></div>
+		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
+			<div className='d-flex w-100 h-100 pt-1' style={{marginLeft: '60px'}}>
 			<Routes>
 				<Route path="/" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
-				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
 				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
+				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
+				<Route path="/examples/menus/Tabs" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Tabs.js' setCode={setCode} />} />
 				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' mode={mode} code={code} file='/examples/Views/Collapsible.js' setCode={setCode} />} />
 				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
 				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
@@ -269,7 +262,7 @@ function App({appState, ...props}) {
 			</Routes>
 			</div>
 		</div>
-		<div className='container-fluid position-absolute bottom-0 start-0 end-0 theme-secondary border-top border-primary border-4 d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '40px' }}>
+		<div className='container-fluid position-fixed bottom-0 start-0 end-0 theme-secondary border-top border-primary border-4 d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '40px' }}>
 			<div className='d-flex flex-fill justify-content-center align-self-center ps-3'>&copy; BlueGunn.com</div>
 		</div>
 		<ThemeSelector show={showThemeSelector} setShow={setShowThemeSelector} setTheme={setTheme} />

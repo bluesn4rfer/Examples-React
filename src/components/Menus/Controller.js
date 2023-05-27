@@ -1,17 +1,17 @@
 import React from 'react';
 
-function DisplayMenu({menuData}) {
+function DisplayMenu({menu}) {
   console.log('Menus/Controller.js: DisplayMenu() invoked');
 
-  if (!menuData) {
-    console.log('Menu/Controller.js: menuData is null');
+  if (!menu) {
+    console.log('Menu/Controller.js: menu is null');
     return null;
   }
 
-  const parseMenu = (menuData) => {
+  const parseMenu = ({links, ...menuProps}) => {
     return (
-      <ul {...menuData.props}>
-        {menuData.links.map((menuLink, index) => {
+      <ul {...menuProps}>
+        {links.map((menuLink, index) => {
             const {link, menu, ...props} = menuLink;
             return (
               <li
@@ -29,7 +29,7 @@ function DisplayMenu({menuData}) {
     );
   };
 
-  return parseMenu(menuData);
+  return parseMenu(menu);
 }
 
 export default DisplayMenu;

@@ -34,7 +34,7 @@ function CodeEditor(props) {
       doc: codeRef.current,
       lineNumbers: true,
       lineWrapping: true,
-      width: '300px',
+      width: '100%',
       autoCloseBrackets: true,
       cursorScrollMargin: 48,
       indentUnit: 2,
@@ -76,7 +76,7 @@ function CodeEditor(props) {
 
   }, [updateCode]);
 
-  return <div ref={editor} />;
+  return <div ref={editor} className="w-100" />;
 };
 
 export default CodeEditor;

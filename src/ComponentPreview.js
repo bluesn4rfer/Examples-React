@@ -14,6 +14,7 @@ function ComponentPreview({mode = 'preview', component, code, file, setCode}) {
 		DisplayMenu
 	};
 
+	const [activeTab, setActiveTab] = useState(mode);
 	const [updateCode, setUpdateCode] = useState(code);
 
 	useEffect(() => {
@@ -50,7 +51,7 @@ function ComponentPreview({mode = 'preview', component, code, file, setCode}) {
 	}
 
 	const showView = () => {
-		switch(mode.toLowerCase()){
+		switch(activeTab.toLowerCase()){
 			case "editor":
 				return (<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} />);
 			default:
@@ -58,8 +59,63 @@ function ComponentPreview({mode = 'preview', component, code, file, setCode}) {
 		}
 	}
 
+	const tabsMenu = {
+		className: "d-flex border-3 border-bottom border-primary list-unstyled",
+		links: [
+			{
+			className: activeTab === 'preview' ? 'theme-secondary rounded-top' : 'theme-primary rounded-top',
+			link: (
+				<a
+				href="#"
+				className="d-block px-3 text-decoration-none"
+				onClick={() => setActiveTab('preview')}
+				>
+				Preview
+				</a>
+			)
+			},
+			{
+			className: activeTab === 'editor' ? 'theme-secondary rounded-top' : 'theme-primary rounded-top',
+			link: (
+				<a
+				href="#"
+				className="d-block px-3 text-decoration-none"
+				onClick={() => setActiveTab('editor')}
+				>
+				Editor
+				</a>
+			)
+			},
+			{
+			className: activeTab === 'component' ? 'theme-secondary rounded-top' : 'theme-primary rounded-top',
+			link: (
+				<a
+				href="#"
+				className="d-block px-3 text-decoration-none"
+				onClick={() => setActiveTab('component')}
+				>
+				Component
+				</a>
+			)
+			},
+			{
+			className: activeTab === 'docs' ? 'theme-secondary rounded-top' : 'theme-primary rounded-top',
+			link: (
+				<a
+				href="#"
+				className="d-block px-3 text-decoration-none"
+				onClick={() => setActiveTab('docs')}
+				>
+				Documentation
+				</a>
+			)
+			}
+		]
+	};
+
  	return (
-		<div className='d-flex flex-row flex-grow-1 h-100'>
+		<div className='d-flex flex-column w-100'>
+			<div className="d-flex flex-row w-100 justify-content-center"><DisplayMenu menu={tabsMenu} /></div>
 			{showView()}
 		</div>
 	);

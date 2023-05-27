@@ -1,9 +1,7 @@
-function ExampleMenuDropDown(){
+function MenuDropDown(){
     const dropDownMenu = {
-        props: {
-          className: 'theme-primary list-unstyled',
-          style: { display: 'grid', gridAutoFlow: 'column', listStyle: 'none', padding: 0, gap: '10px' }
-        },
+        className: 'theme-primary list-unstyled',
+        style: { display: 'grid', gridAutoFlow: 'column', listStyle: 'none', padding: 0, gap: '10px' },
         links: [
           {
             link: (
@@ -38,10 +36,8 @@ function ExampleMenuDropDown(){
               </a>
             ),
             menu: {
-              props: {
-                id: 'services',
-                className: 'dropdown-menu list-unstyled m-0 p-0'
-              },
+              id: 'services',
+              className: 'dropdown-menu list-unstyled m-0 p-0',
               links: [
                 {
                   link: (
@@ -101,5 +97,5 @@ function ExampleMenuDropDown(){
         ]
       };
 
-    return(<DisplayMenu menuData={dropDownMenu} />);
+    return(<DisplayMenu menu={dropDownMenu} />);
 }

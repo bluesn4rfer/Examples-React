@@ -1,4 +1,4 @@
-function ExampleViewCollapsibles(){
+function ViewCollapsible(){
     return (
         <div className="position-relative h-75" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Collapsible id="collapsibleTop" direction="top" autoClose={false} className="position-absolute top-0 w-50">
