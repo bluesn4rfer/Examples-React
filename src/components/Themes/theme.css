@@ -215,3 +215,7 @@ div {
 a {
 	color: inherit;
 }
+
+a:hover {
+	color: inherit;
+}

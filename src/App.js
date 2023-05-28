@@ -4,33 +4,13 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 import DisplayMenu from './components/Menus/Controller';
-// import DisplayForm from './components/Forms/Controller';
 
 import ComponentsMenu from './ComponentsMenu';
 import ComponentPreview from './ComponentPreview';
-// import CodePreview from './components/CodePreview/Controller';
-// import CodeEditor from './components/CodeEditor/Controller';
 
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
-// import ExampleFormContactUs from './components/Forms/examples/ContactUs';
-// import ExampleFormRegistration from './components/Forms/examples/Registration';
-// import ExampleFormLogin from './components/Forms/examples/Login';
-// import ExampleFormSurvey from './components/Forms/examples/Survey';
-// import ExampleFormNewsletter from './components/Forms/examples/Newsletter';
-// import ExampleFormPayment from './components/Forms/examples/Payment';
-// import ExampleFormFileUpload from './components/Forms/examples/FileUpload';
-// import ExampleFormFeedback from './components/Forms/examples/Feedback';
-// import ExampleFormComment from './components/Forms/examples/Comment';
-// import ExampleFormRSVP from './components/Forms/examples/RSVP';
-// import ExampleFormPasswordReset from './components/Forms/examples/PasswordReset';
-// import ExampleFormSubscriptionCancellation from './components/Forms/examples/SubscriptionCancellation';
-// import ExampleMenuDropDown from './components/Menus/examples/DropDown';
-// import ExampleMenuAccordion from './components/Menus/examples/Accordion';
-
-//import ComponentCode from './ComponentCode';
-//import Resizable from './components/Resizable/Controller';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 // THEME NEEDS TO LOAD AFTER BOOTSTRAP
@@ -68,15 +48,6 @@ function App({appState, ...props}) {
 					links: [
 						{
 							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
-						},
-						{
-							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('preview')}>Preview Component</a>)
-						},
-						{
-							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('editor')}>Code Editor</a>)
-						},
-						{
-							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setMode('documentation')}>Documentation</a>)
 						}
 					]
 				} 
@@ -240,23 +211,23 @@ function App({appState, ...props}) {
 		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
 			<div className='d-flex w-100 h-100 pt-1' style={{marginLeft: '60px'}}>
 			<Routes>
-				<Route path="/" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
-				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Accordion.js' setCode={setCode} />} />
-				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/DropDown.js' setCode={setCode} />} />
-				<Route path="/examples/menus/Tabs" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Tabs.js' setCode={setCode} />} />
-				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' mode={mode} code={code} file='/examples/Views/Collapsible.js' setCode={setCode} />} />
-				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Registration.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Survey" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Survey.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Newsletter" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Newsletter.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Payment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Payment.js' setCode={setCode} />} />
-				<Route path="/examples/formsFileUpload" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/FileUpload.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Feedback" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Feedback.js' setCode={setCode} />} />
-				<Route path="/examples/forms/Comment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Comment.js' setCode={setCode} />} />
-				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/RSVP.js' setCode={setCode} />} />
-				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} />} />
-				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} />} />
+				<Route path="/" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} doc='/docs/DisplayMenu.md' />} />
+				<Route path="/examples/menus/Accordion" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Accordion.js' setCode={setCode} doc='/docs/DisplayMenu.md' />} />
+				<Route path="/examples/menus/DropDown" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/DropDown.js' setCode={setCode} doc='/docs/DisplayMenu.md' />} />
+				<Route path="/examples/menus/Tabs" element={<ComponentPreview component='DisplayMenu' mode={mode} code={code} file='/examples/Menus/Tabs.js' setCode={setCode} doc='/docs/DisplayMenu.md' />} />
+				<Route path="/examples/views/Collapsible" element={<ComponentPreview component='Collapsible' mode={mode} code={code} file='/examples/Views/Collapsible.js' setCode={setCode} doc='/docs/Collapsible.md' />} />
+				<Route path="/examples/forms/ContactUs" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/ContactUs.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Login" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Login.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Registration" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Registration.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Survey" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Survey.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Newsletter" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Newsletter.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Payment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Payment.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/formsFileUpload" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/FileUpload.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Feedback" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Feedback.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/Comment" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/Comment.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/RSVP" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/RSVP.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/PasswordReset" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/PasswordReset.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
+				<Route path="/examples/forms/SubscriptionCancellation" element={<ComponentPreview component='DisplayForm' mode={mode} code={code} file='/examples/Forms/SubscriptionCancellation.js' setCode={setCode} doc='/docs/DisplayForm.md' />} />
 				<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
@@ -269,21 +240,6 @@ function App({appState, ...props}) {
 		<button id="installButton" style={{ display: 'none' }}>Install</button>
 		</>
   	);
-
-	//   const handleResize = (newWidth, newHeight) => {
-	// 	console.log(`New width: ${newWidth}, new height: ${newHeight}`);
-	//   };	  
-
-	//   return (
-	// 	<div className="container mt-3">
-	// 	  <Resizable onResize={handleResize}>
-	// 		<div className="flex-grow-1 text-white p-3">
-	// 		  <h1>Resizable Panel</h1>
-	// 		  <p>Drag the borders to resize me!</p>
-	// 		</div>
-	// 	  </Resizable>
-	// 	</div>
-	//   );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -19,6 +19,7 @@
     "constants": "^0.0.2",
     "font-awesome": "^4.7.0",
     "localStorage": "^1.0.4",
+    "marked": "^5.0.3",
     "query-string": "^7.1.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
