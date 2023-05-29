@@ -43,7 +43,7 @@ function Collapsible({ children, direction = 'up', id, className = '', autoClose
 }
 
 // Title component
-const Title = ({ id, children, className = '', style = {}, ...props}) => {
+const Title = ({ id, children, className = '', style = {}, onClick, ...props}) => {
 	const { id: parentId, handleTitleClick } = useContext(ParentContext);
 
 	const handleClick = (event) => {
@@ -51,6 +51,9 @@ const Title = ({ id, children, className = '', style = {}, ...props}) => {
 		event.preventDefault();
 		event.stopPropagation();
 		handleTitleClick();
+		if(onClick){
+			onClick();
+		}
 	}
 
 	return (
@@ -66,7 +69,7 @@ const Title = ({ id, children, className = '', style = {}, ...props}) => {
 }
 
 // Content component
-const Content = ({ id, children, className = '', ...props}) => {
+const Content = ({ id, children, className = '', onMouseDown, ...props}) => {
 	const { height = 'auto', width = 'auto' } = props.style ? props.style : {};
 
 	const {id: parentId, direction, isCollapsed, setIsCollapsed } = useContext(ParentContext);

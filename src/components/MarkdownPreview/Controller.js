@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { marked } from 'marked';
+import * as marked from 'marked';
 
 function MarkdownPreview({ markdown }){
   const [html,setHtml] = useState('');
@@ -9,13 +9,8 @@ function MarkdownPreview({ markdown }){
       return;
     }
 
-    marked.parse(markdown, (err, html) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      setHtml(html);
-    });
+    const asHtml = marked.parse(markdown, {mangle: false, headerIds: false});
+    setHtml(asHtml);
   }, [setHtml, markdown]);
 
   return <div dangerouslySetInnerHTML={{ __html: html }} />;

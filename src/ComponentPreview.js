@@ -47,18 +47,6 @@ function ComponentPreview({mode = 'preview', component, code, file, doc, setCode
 				</a>
 			)
 			},
-			// {
-			// className: activeTab === 'component' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-			// link: (
-			// 	<a
-			// 	href="#"
-			// 	className="d-block px-3 text-decoration-none"
-			// 	onClick={() => setActiveTab('component')}
-			// 	>
-			// 	Component
-			// 	</a>
-			// )
-			// },
 			{
 			className: activeTab === 'docs' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
 			link: (

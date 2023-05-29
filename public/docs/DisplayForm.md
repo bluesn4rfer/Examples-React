@@ -1,19 +1,17 @@
 # DisplayForm
 
-## Heading 2
+## Overview
 
-### Heading 3
+## Installation
+Copy component directory into your project's source directory.
 
-This is a paragraph of text.
+#### Additional modules
+No additional nodejs modules are required for this component to work.
 
-- List item 1
-- List item 2
-- List item 3
+## Configuration
 
-**Bold text** and *italic text*.
+#### Properties
 
-[Link to website](https://www.example.com)
+## Usage
 
-> This is a blockquote.
-
-![Image description](https://www.example.com/image.jpg)
+#### Output

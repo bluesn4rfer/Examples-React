@@ -1,6 +1,6 @@
 function ViewCollapsible(){
     return (
-        <div className="position-relative h-75" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div className="position-relative" style={{minHeight: '450px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Collapsible id="collapsibleTop" direction="top" autoClose={false} className="position-absolute top-0 w-50">
                 <Collapsible.Title className='btn-primary'>Collapsible Top</Collapsible.Title>
                 <Collapsible.Content className='theme-secondary' style={{height: '100px'}}>Content Here</Collapsible.Content>
