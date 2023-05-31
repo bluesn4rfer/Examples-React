@@ -42,7 +42,14 @@ function DisplayForm({ formData, callback }) {
   const handleNextStep = () => {
     console.log('Forms/Controller.js handleNextStep() invoked');
     if(currentStep == formData.steps.length - 1){
-      setShowReview(true);
+      if(formData.showReview === true){
+        console.log('Forms/Controller.js handleNextStep() setShowReview true');
+        setShowReview(true);
+      }
+      else{
+        console.log('Forms/Controller.js handleNextStep() handleSubmit()');
+        handleSubmit();
+      }
     }
     else{
       setCurrentStep((prevStep) => prevStep + 1);
@@ -100,8 +107,18 @@ function DisplayForm({ formData, callback }) {
       {currentStep > 0 && currentStep < formData.steps.length && (
         <FormButton buttonData={{type: 'button', style: {float: 'left'}}} buttonValue="Previous" callback={handlePrevStep} />
       )}
-      {!showReview && currentStep < formData.steps.length && (
+      {!showReview && currentStep < formData.steps.length - 1 && (
         <FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
+      )}
+      {!showReview && currentStep < formData.steps.length - 1 && (
+        <FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
+      )}      
+      {!showReview && currentStep >= formData.steps.length - 1 && !formData.showReview && (
+        <FormButton
+          buttonData={{ type: 'submit', style: { float: 'right' } }}
+          buttonValue={formData.submit.value || "Submit"}
+          callback={handleSubmit}
+        />
       )}
       {showReview && (
         <FormButton buttonData={{type: 'submit', style: {float: 'right'}}} buttonValue={formData.submit.value || "Submit"} callback={handleNextStep} />

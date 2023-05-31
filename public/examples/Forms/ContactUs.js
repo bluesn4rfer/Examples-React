@@ -1,5 +1,6 @@
 function ExampleFormContactUs() {
 	let formData = {
+		"showReview": true,
 		"steps": [
 		  {
 			"title": "Step 1: Personal Information",
