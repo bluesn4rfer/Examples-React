@@ -66,6 +66,34 @@ function DisplayForm({ formData, callback }) {
     }
   };
 
+  const showPreviousBtn = () => {
+	if(currentStep > 0){
+		return (
+			<FormButton buttonData={{type: 'button', style: {float: 'left'}}} buttonValue="Previous" callback={handlePrevStep} />
+		  );
+	}
+  }
+
+  const showNextBtn = () => {
+	if((currentStep < formData.steps.length - 1) || ((formData.showReview === true) && !showReview)){
+		return (
+			<FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
+		  );
+	}
+  }
+
+  const showSubmitBtn = () => {
+	if(((currentStep >= formData.steps.length - 1) && formData.showReview !== true) || (formData.showReview === true && showReview)){
+		return (
+			<FormButton
+			  buttonData={{ type: 'submit', style: { float: 'right' } }}
+			  buttonValue={formData.submit.value || "Submit"}
+			  callback={handleSubmit}
+			/>
+		  );
+	}
+  }
+
   const currentStepFields = formData.steps[currentStep].fields;
 
   const isStepValid = () => {
@@ -104,25 +132,9 @@ function DisplayForm({ formData, callback }) {
         </>
       )}
 
-      {currentStep > 0 && currentStep < formData.steps.length && (
-        <FormButton buttonData={{type: 'button', style: {float: 'left'}}} buttonValue="Previous" callback={handlePrevStep} />
-      )}
-      {!showReview && currentStep < formData.steps.length - 1 && (
-        <FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
-      )}
-      {!showReview && currentStep < formData.steps.length - 1 && (
-        <FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
-      )}      
-      {!showReview && currentStep >= formData.steps.length - 1 && !formData.showReview && (
-        <FormButton
-          buttonData={{ type: 'submit', style: { float: 'right' } }}
-          buttonValue={formData.submit.value || "Submit"}
-          callback={handleSubmit}
-        />
-      )}
-      {showReview && (
-        <FormButton buttonData={{type: 'submit', style: {float: 'right'}}} buttonValue={formData.submit.value || "Submit"} callback={handleNextStep} />
-      )}
+	  {showPreviousBtn()}
+	  {showNextBtn()}
+	  {showSubmitBtn()}
 
     </form>
   );
