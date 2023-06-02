@@ -41,7 +41,7 @@ function DisplayForm({ formData, callback }) {
 
   const handleNextStep = () => {
     console.log('Forms/Controller.js handleNextStep() invoked');
-    if(currentStep == formData.steps.length - 1){
+    if(currentStep === formData.steps.length - 1){
       if(formData.showReview === true){
         console.log('Forms/Controller.js handleNextStep() setShowReview true');
         setShowReview(true);
