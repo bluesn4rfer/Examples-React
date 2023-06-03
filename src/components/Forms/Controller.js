@@ -32,8 +32,9 @@ function DisplayForm({ formData, callback }) {
   };
 
   const handleSubmit = (event) => {
-    console.log("Forms/Controller.js: formValues = ", JSON.stringify(formValues));
+    console.log("Forms/Controller.js: handleSubmit() formValues = ", JSON.stringify(formValues));
     if(callback){
+		console.log('Forms/Controller.js handleSubmit() callback');
       event.preventDefault();
       callback(formValues);
     }

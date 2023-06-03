@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -8,12 +9,16 @@ import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 import Collapsible from './components/Collapsible/Controller';
 
-function ComponentPreview({mode = 'preview', component, code, file, doc, setCode}) {
+function ComponentPreview({code, setCode}) {
 	const componentMap = {
 		Collapsible,
 		DisplayForm,
 		DisplayMenu
 	};
+
+	const { mode = 'preview', component = 'DisplayForm', example = 'Login' } = useParams();
+	const [file] = useState('/examples/'+component+'/'+example+'.js');
+	const [doc] = useState('/docs/'+component+'.md');
 
 	const [activeTab, setActiveTab] = useState(mode);
 	const [updateCode, setUpdateCode] = useState(code);
@@ -131,7 +136,7 @@ function ComponentPreview({mode = 'preview', component, code, file, doc, setCode
 			case "editor":
 				return (<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} />);
 			default:
-				return (<CodePreview componentName={component} component={componentMap[component]} code={code} />);
+				return (<CodePreview componentMap={componentMap} code={code} />);
 		}
 	}
 

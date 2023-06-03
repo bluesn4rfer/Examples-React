@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { transform } from '@babel/standalone';
 
-function CodePreview({ componentName, component, code }) {
+function CodePreview({ componentMap, code }) {
   const previewRef = useRef(null);
 
   useEffect(() => {
@@ -11,8 +11,9 @@ function CodePreview({ componentName, component, code }) {
         presets: ['react']
       }).code;
 
-      const evalFunc = new Function('React', componentName, `return (${transformedCode})()`);
-      const evaluatedCode = evalFunc(React, component);
+      const evalFunc = new Function('React', ...Object.keys(componentMap), `return (${transformedCode})()`);
+      console.log('CodePreview/Controller.js evalFunc = '+evalFunc);
+      const evaluatedCode = evalFunc(React, ...Object.values(componentMap));
 
       if (previewRef.current) {
         ReactDOM.render(evaluatedCode, previewRef.current);
@@ -20,7 +21,7 @@ function CodePreview({ componentName, component, code }) {
     } catch (e) {
       console.log('CodePreview/Controller.js error = ' + e.toString());
     }
-  }, [code]);
+  }, [componentMap, code]);
 
   return (
     <div className="w-100 h-100 px-3">
