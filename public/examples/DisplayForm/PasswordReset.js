@@ -34,13 +34,23 @@ function ExampleFormPasswordReset() {
 				]
 			}			  
 		],
-		"submit": {
-			"value": "Reset Password",
-			"id": "reset-button",
-			"class": "btn btn-primary"
-		  }
+		"buttons": {
+			"previous": {
+				"value": "Previous",
+				"className": "btn btn-secondary"
+			},
+			"next": {
+				"value": "Next",
+				"className": "btn btn-primary"
+			},					
+			"submit": {
+				"value": "Reset Password",
+				"id": "reset-button",
+				"className": "btn btn-primary"
+			}
+		}
 	  };
 	  
 
-	return <DisplayForm formData={formData}/>;
+	return <DisplayForm form={formData}/>;
 }

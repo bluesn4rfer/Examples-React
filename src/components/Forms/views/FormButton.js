@@ -1,19 +1,19 @@
 import React from 'react';
 
-function FormButton({buttonData, buttonValue, callback}){
+function FormButton({button: buttonData, callback}){
     console.log('FormButton.js: buttonData = '+JSON.stringify(buttonData));
+
+    const {id, label, type, value, onClick, ...props} = buttonData;
 
     return (
         <>
-            <label htmlFor={buttonData.id}>{buttonData.label}</label>
+            <label htmlFor={id}>{label}</label>
             <button
-                type={buttonData.type}
-                name={buttonData.name}
-                id={buttonData.id}
-                className={buttonData.class}
+                type={type}
+                id={id}
                 onClick={callback}
-                {...buttonData}
-            >{buttonValue}</button>
+                {...props}
+            >{value}</button>
         </>
     );
 };

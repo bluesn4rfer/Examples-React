@@ -21,21 +21,26 @@ All configuration of this component is done through the menu property.
 ```
 import DisplayMenu from './DisplayMenu/Controller.js';
 
-const menuObj = {
-    links: [
-        {
-            link: (<a href="link1">Link1</a>)
-        },
-        {
-            link: (<a href="link2">Link2</a>)
-        },
-        {
-            link: (<a href="link3">Link3</a>)
-        }
-    ]
+function App(){
+    const menuObj = {
+        links: [
+            {
+                link: (<a href="link1">Link1</a>)
+            },
+            {
+                link: (<a href="link2">Link2</a>)
+            },
+            {
+                link: (<a href="link3">Link3</a>)
+            }
+        ]
+    }
+
+    return (
+        <DisplayMenu menu={menuObj} />
+    );
 }
 
-<DisplayMenu menu={menuObj} />
 ```
 
 #### Output

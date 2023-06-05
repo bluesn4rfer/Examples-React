@@ -20,6 +20,9 @@ function CodePreview({ componentMap, code }) {
       }
     } catch (e) {
       console.log('CodePreview/Controller.js error = ' + e.toString());
+      if (previewRef.current) {
+        previewRef.current.innerHTML = '<pre>' + e.toString() + '</pre>';
+      }
     }
   }, [componentMap, code]);
 

@@ -44,6 +44,21 @@ function ExampleFormPayment() {
 			}
 				
 		],
+		"buttons": {
+			"previous": {
+				"value": "Previous",
+				"className": "btn btn-secondary"
+			},
+			"next": {
+				"value": "Next",
+				"className": "btn btn-primary"
+			},					
+			"submit": {
+				"value": "Submit",
+				"id": "submit-button",
+				"className": "btn btn-primary"
+			}
+		}
 		"submit": {
 			"value": "Pay Now",
 			"id": "pay-button",
@@ -52,5 +67,5 @@ function ExampleFormPayment() {
 	  };
 	  
 
-	return <DisplayForm formData={formData}/>;
+	return <DisplayForm form={formData}/>;
 }

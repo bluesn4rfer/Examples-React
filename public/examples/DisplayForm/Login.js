@@ -8,7 +8,7 @@ function ExampleFormLogin() {
 						"type": "text",
 						"name": "username",
 						"id": "username",
-						"class": "form-control",
+						"className": "form-control",
 						"placeholder": "Enter your username",
 						"required": true,
 						"label": "Username"
@@ -17,7 +17,7 @@ function ExampleFormLogin() {
 						"type": "password",
 						"name": "password",
 						"id": "password",
-						"class": "form-control",
+						"className": "form-control",
 						"placeholder": "Enter your password",
 						"required": true,
 						"label": "Password"
@@ -25,13 +25,23 @@ function ExampleFormLogin() {
 				]
 			}
 		],
-		"submit": {
-		  "value": "Login",
-		  "id": "login-button",
-		  "class": "btn btn-primary"
+		"buttons": {
+			"previous": {
+				"value": "Previous",
+				"className": "btn btn-secondary"
+			},
+			"next": {
+				"value": "Next",
+				"className": "btn btn-primary"
+			},					
+			"submit": {
+				"value": "Login",
+				"id": "login-button",
+				"className": "btn btn-primary"
+			}
 		}
 	  };
 	  
 
-	return <DisplayForm formData={formData}/>;
+	return <DisplayForm form={formData}/>;
 }

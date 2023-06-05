@@ -18,7 +18,7 @@ import FormTextarea from './views/FormTextarea';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
-function DisplayForm({ formData, callback }) {
+function DisplayForm({ form: formData, callback }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState({});
   const [showReview, setShowReview] = useState(false);
@@ -31,12 +31,13 @@ function DisplayForm({ formData, callback }) {
     setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
-    console.log("Forms/Controller.js: handleSubmit() formValues = ", JSON.stringify(formValues));
-    if(callback){
-		console.log('Forms/Controller.js handleSubmit() callback');
-      event.preventDefault();
-      callback(formValues);
+  const handlePrevStep = () => {
+    console.log('Forms/Controller.js handlePrevStep() invoked');
+    if(showReview){
+      setShowReview(false);
+    }
+    else{
+      setCurrentStep((prevStep) => prevStep - 1);
     }
   };
 
@@ -57,41 +58,72 @@ function DisplayForm({ formData, callback }) {
     }
   };
 
-  const handlePrevStep = () => {
-    console.log('Forms/Controller.js handlePrevStep() invoked');
-    if(showReview){
-      setShowReview(false);
-    }
-    else{
-      setCurrentStep((prevStep) => prevStep - 1);
+  const handleSubmit = (event) => {
+    console.log("Forms/Controller.js: handleSubmit() formValues = ", JSON.stringify(formValues));
+    if(callback){
+		console.log('Forms/Controller.js handleSubmit() callback');
+      event.preventDefault();
+      callback(formValues);
     }
   };
 
   const showPreviousBtn = () => {
 	if(currentStep > 0){
+    const { value = 'Previous', style = {}, ...props } = formData.buttons?.previous;
+
 		return (
-			<FormButton buttonData={{type: 'button', style: {float: 'left'}}} buttonValue="Previous" callback={handlePrevStep} />
+			<FormButton 
+        button={
+          {
+            type: 'button',
+            value: value, 
+            style: { ...style, float: 'left'},
+            ...props
+          }
+        }
+        callback={handlePrevStep} 
+      />
 		  );
 	}
   }
 
   const showNextBtn = () => {
 	if((currentStep < formData.steps.length - 1) || ((formData.showReview === true) && !showReview)){
+    const { value = 'Next', style = {}, ...props } = formData.buttons?.next;
+
 		return (
-			<FormButton buttonData={{type: 'button', style: {float: 'right'}}} buttonValue="Next" callback={handleNextStep} />
-		  );
+			<FormButton 
+        button={
+          {
+            type: 'button',
+            value: value,
+            style: { ...style, float: 'right'},
+            ...props
+          }
+        }  
+        callback={handleNextStep} 
+      />
+		);
 	}
   }
 
   const showSubmitBtn = () => {
 	if(((currentStep >= formData.steps.length - 1) && formData.showReview !== true) || (formData.showReview === true && showReview)){
+    const { value = 'Submit', style = {}, ...props } = formData.buttons?.submit;
+
 		return (
 			<FormButton
-			  buttonData={{ type: 'submit', style: { float: 'right' } }}
-			  buttonValue={formData.submit.value || "Submit"}
+			  button={
+          { 
+            type: 'submit',
+            value: value,
+            style: { ...style, float: 'right' },
+            ...props
+          }
+        }
 			  callback={handleSubmit}
 			/>
-		  );
+		);
 	}
   }
 
@@ -125,7 +157,7 @@ function DisplayForm({ formData, callback }) {
           case "select":
             return <FormSelectBox key={index} selectboxData={field} selectboxValue={formValues[field.name]} callback={handleInputChange} />;
           case "button":
-            return <FormButton buttonData={field} buttonValue={field.value} />;
+            return <FormButton button={field} buttonValue={field.value} />;
           default:
             return null;
         }

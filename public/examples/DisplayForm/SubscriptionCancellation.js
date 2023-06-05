@@ -34,13 +34,23 @@ function ExampleFormSubscriptionCancellation() {
 				]
 			}			  
 		],
-		"submit": {
-			"value": "Cancel Subscription",
-			"id": "cancel-button",
-			"class": "btn btn-danger"
-		  }
+		"buttons": {
+			"previous": {
+				"value": "Previous",
+				"className": "btn btn-secondary"
+			},
+			"next": {
+				"value": "Next",
+				"className": "btn btn-primary"
+			},					
+			"submit": {
+				"value": "Cancel Subscription",
+				"id": "cancel-button",
+				"class": "btn btn-danger"
+			}
+		}
 	  };
 	  
 
-	return <DisplayForm formData={formData}/>;
+	return <DisplayForm form={formData}/>;
 }

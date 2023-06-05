@@ -23,10 +23,16 @@ Properties set on this component will pass to the content div with the exception
 
 ## Usage
 ```
-<Collapsible id="topCollapsible" direction="top" autoClose={false}>
-    <Collapsible.Title>Collapsible Top</Collapsible.Title>
-    <Collapsible.Content style={{height: '100px'}}>Content Here</Collapsible.Content>
-</Collapsible>
+import Collapsible from './Collapsible/Controller';
+
+function App(){
+    return (
+        <Collapsible id="topCollapsible" direction="top" autoClose={false}>
+            <Collapsible.Title>Collapsible Top</Collapsible.Title>
+            <Collapsible.Content style={{height: '100px'}}>Content Here</Collapsible.Content>
+        </Collapsible>
+    );
+}
 ```
 #### Output
 ```
