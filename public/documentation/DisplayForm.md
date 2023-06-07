@@ -18,7 +18,10 @@ No additional nodejs modules are required for this component to work.
     - **steps** (array of objects): Required.
         - **title** (string): Optional.
         - **fields** (array of objects): Required.
-    - **submit** (object): Required.
+    - **buttons** (object): Optional.
+        - **previous** (object): Optional.
+        - **next** (object): Optional.
+        - **submit** (object): Optional.
 
 ## Usage
 ```
@@ -60,10 +63,12 @@ function App(){
                 ]
             }						
         ],
-        "submit": {
-            "value": "Submit",
-            "id": "submit-button",
-            "class": "btn btn-primary"
+        "buttons": {
+            "submit": {
+                "value": "Comment",
+                "id": "submit-button",
+                "class": "btn btn-primary"
+            }
         }
     };
 

@@ -54,7 +54,9 @@ function DisplayForm({ form: formData, callback }) {
       }
     }
     else{
-      setCurrentStep((prevStep) => prevStep + 1);
+      if(isStepValid()){
+        setCurrentStep((prevStep) => prevStep + 1);
+      }
     }
   };
 
@@ -130,11 +132,14 @@ function DisplayForm({ form: formData, callback }) {
   const currentStepFields = formData.steps[currentStep].fields;
 
   const isStepValid = () => {
-    return currentStepFields.every(
+    console.log('Forms/Controller.js isStepValid() invoked');
+    const isValid = currentStepFields.every(
       (field) =>
         !field.required ||
         (formValues[field.name] !== undefined && formValues[field.name] !== "")
     );
+    console.log('Forms/Controller.js isStepValid() isValid = '+isValid);
+    return isValid;
   };
 
   return (

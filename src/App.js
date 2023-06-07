@@ -40,12 +40,12 @@ function App({appState, ...props}) {
 		className: 'list-unstyled',
 		links: [
 			{
-				link: (<a className='dropdown-toggle fs-5 btn-secondary rounded-bottom px-3 py-2 my-0' data-bs-toggle="dropdown"><i className='icon fa fa-bars' /></a>),
+				link: (<a href="javascript:void(0)" className='dropdown-toggle fs-5 btn-secondary rounded-bottom px-3 py-2 my-0' data-bs-toggle="dropdown"><i className='icon fa fa-bars' /></a>),
 				menu: {
 					className: 'dropdown-menu theme-secondary border-0 p-0 m-0',
 					links: [
 						{
-							link: (<a id='ShowThemeSelector' className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
+							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
 						}
 					]
 				} 
