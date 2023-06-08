@@ -3,14 +3,15 @@ import React from 'react';
 function FormInput ({ inputData, inputValue, callback }){
   const { id, type, label, class: className, error, ...props} = inputData;
 
+  console.log('FormInput.js invoked');
   return (
     <div>
       <label htmlFor={id}>{label}</label>
       <input
         type={type}
         id={id}
-        value={inputValue}
-        onChange={callback}
+        defaultValue={inputValue}
+        onInput={callback}
         className={className}
         {...props} // spread the rest of the props onto the input element
       />

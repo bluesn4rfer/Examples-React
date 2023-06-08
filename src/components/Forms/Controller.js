@@ -22,9 +22,25 @@ function DisplayForm({ form: formData, callback }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState({});
   const [showReview, setShowReview] = useState(false);
+  const [invalidFields, setInvalidFields] = useState([]);
 
   console.log('Forms/Controller.js: formData = '+JSON.stringify(formData));
   console.log('Forms/Controller.js: currentStep = '+currentStep);
+
+  const currentStepFields = formData.steps[currentStep].fields;
+
+  const isStepValid = () => {
+    const invalidFields = currentStepFields
+      .filter(
+        (field) =>
+          field.required &&
+          (formValues[field.name] === undefined || formValues[field.name] === "")
+      )
+      .map((field) => field.name);
+
+    setInvalidFields(invalidFields);
+    return invalidFields.length === 0;
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -55,7 +71,11 @@ function DisplayForm({ form: formData, callback }) {
     }
     else{
       if(isStepValid()){
+        console.log('Forms/Controller.js handleNextStep() isStepValid() true');
         setCurrentStep((prevStep) => prevStep + 1);
+      }
+      else{
+        console.log('Forms/Controller.js handleNextStep() isStepValid() false');
       }
     }
   };
@@ -110,57 +130,49 @@ function DisplayForm({ form: formData, callback }) {
   }
 
   const showSubmitBtn = () => {
-	if(((currentStep >= formData.steps.length - 1) && formData.showReview !== true) || (formData.showReview === true && showReview)){
-    const { value = 'Submit', style = {}, ...props } = formData.buttons?.submit;
+    if(((currentStep >= formData.steps.length - 1) && formData.showReview !== true) || (formData.showReview === true && showReview)){
+      const { value = 'Submit', style = {}, ...props } = formData.buttons?.submit;
 
-		return (
-			<FormButton
-			  button={
-          { 
-            type: 'submit',
-            value: value,
-            style: { ...style, float: 'right' },
-            ...props
+      return (
+        <FormButton
+          button={
+            { 
+              type: 'submit',
+              value: value,
+              style: { ...style, float: 'right' },
+              ...props
+            }
           }
-        }
-			  callback={handleSubmit}
-			/>
-		);
-	}
+          callback={handleSubmit}
+        />
+      );
+    }
   }
-
-  const currentStepFields = formData.steps[currentStep].fields;
-
-  const isStepValid = () => {
-    console.log('Forms/Controller.js isStepValid() invoked');
-    const isValid = currentStepFields.every(
-      (field) =>
-        !field.required ||
-        (formValues[field.name] !== undefined && formValues[field.name] !== "")
-    );
-    console.log('Forms/Controller.js isStepValid() isValid = '+isValid);
-    return isValid;
-  };
 
   return (
     <form onSubmit={handleSubmit}>
        {showReview ? (
-         <>
          <FormReview formData={formData} formValues={formValues} setShowReview={setShowReview} />
-         </>
       ) : (
         <>
       <h2>{formData.steps[currentStep].title}</h2>
+      {invalidFields ? (
+        currentStepFields.map((field, index) => {
+          return (invalidFields.includes(field.name) ? <b>Missing required field: {field.label}<br /></b> : null);
+        })
+      ) : null}
       {currentStepFields.map((field, index) => {
+        const isInvalid = invalidFields.includes(field.name);
+
         switch (field.type) {
           case "text":
           case "password":
           case "email":
-            return <FormInput key={index} inputData={field} inputValue={formValues[field.name]} callback={handleInputChange} />;
+            return <FormInput key={index} inputData={field} inputValue={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "textarea":
-            return <FormTextarea key={index} textareaData={field} textareaValue={formValues[field.name]} callback={handleInputChange} />;
+            return <FormTextarea key={index} textareaData={field} textareaValue={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "select":
-            return <FormSelectBox key={index} selectboxData={field} selectboxValue={formValues[field.name]} callback={handleInputChange} />;
+            return <FormSelectBox key={index} selectboxData={field} selectboxValue={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "button":
             return <FormButton button={field} buttonValue={field.value} />;
           default:
