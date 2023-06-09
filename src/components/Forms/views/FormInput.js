@@ -1,18 +1,18 @@
 import React from 'react';
 
-function FormInput ({ inputData, inputValue, callback }){
-  const { id, type, label, class: className, error, ...props} = inputData;
+function FormInput ({ div, input, value, callback }){
+  const { id, type, label, error, required, ...props} = input;
 
   console.log('FormInput.js invoked');
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>{label}{required ? <span className='required'>*</span> : null}</label>
       <input
         type={type}
         id={id}
-        defaultValue={inputValue}
+        defaultValue={value}
         onInput={callback}
-        className={className}
+        required={required}
         {...props} // spread the rest of the props onto the input element
       />
       {error && <p>{error}</p>}

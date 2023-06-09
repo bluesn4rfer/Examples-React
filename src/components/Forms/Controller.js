@@ -158,7 +158,7 @@ function DisplayForm({ form: formData, callback }) {
       <h2>{formData.steps[currentStep].title}</h2>
       {invalidFields ? (
         currentStepFields.map((field, index) => {
-          return (invalidFields.includes(field.name) ? <b>Missing required field: {field.label}<br /></b> : null);
+          return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label}</div> : null);
         })
       ) : null}
       {currentStepFields.map((field, index) => {
@@ -166,9 +166,11 @@ function DisplayForm({ form: formData, callback }) {
 
         switch (field.type) {
           case "text":
+            return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "password":
+            return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "email":
-            return <FormInput key={index} inputData={field} inputValue={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+            return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "textarea":
             return <FormTextarea key={index} textareaData={field} textareaValue={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
           case "select":
