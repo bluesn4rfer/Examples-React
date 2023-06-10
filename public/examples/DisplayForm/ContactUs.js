@@ -1,6 +1,5 @@
 function ExampleFormContactUs() {
-	let formData = {
-		"showReview": true,
+	let form = {
 		"steps": [
 		  {
 			"title": "Step 1: Personal Information",
@@ -12,7 +11,9 @@ function ExampleFormContactUs() {
 				"class": "form-control",
 				"placeholder": "Enter your first name",
 				"required": true,
-				"label": "First Name"
+				"label": {
+					"text": "First Name"
+				}
 			  },
 			  {
 				"type": "text",
@@ -21,7 +22,9 @@ function ExampleFormContactUs() {
 				"class": "form-control",
 				"placeholder": "Enter your last name",
 				"required": true,
-				"label": "Last Name"
+				"label": {
+					"text": "Last Name"
+				}
 			  },
 			  {
 				"type": "email",
@@ -30,7 +33,9 @@ function ExampleFormContactUs() {
 				"class": "form-control",
 				"placeholder": "Enter your email",
 				"required": true,
-				"label": "Email"
+				"label": {
+					"text": "Email"
+				}
 			  }
 			]
 		  },
@@ -44,16 +49,9 @@ function ExampleFormContactUs() {
 				"class": "form-control",
 				"placeholder": "Enter your phone number",
 				"required": true,
-				"label": "Phone Number"
-			  },
-			  {
-				"type": "textarea",
-				"name": "message",
-				"id": "message",
-				"class": "form-control",
-				"placeholder": "Enter your message",
-				"required": true,
-				"label": "Message"
+				"label": {
+					"text": "Phone Number"
+				}
 			  }
 			]
 		  },
@@ -80,28 +78,30 @@ function ExampleFormContactUs() {
 				  }
 				],
 				"required": true,
-				"label": "Gender"
+				"label": {
+					"text": "Gender"
+				}
 			  }
 			]
 		  }
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Submit",
-				"id": "submit-button",
-				"className": "btn btn-primary"
-			}
-		}
+		]
 	  };
-	  
 
-	return <DisplayForm form={formData}/>;
+	const btnPrevious = {
+		"value": "Previous",
+		"className": "btn btn-secondary"
+	};
+
+	const btnNext = {
+		"value": "Next",
+		"className": "btn btn-primary"
+	};
+
+	const btnSubmit = {
+		"value": "Submit",
+		"id": "submit-button",
+		"className": "btn btn-primary"
+	};
+
+	return <DisplayForm form={form} useReview={true} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

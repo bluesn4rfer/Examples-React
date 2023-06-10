@@ -13,16 +13,17 @@ No additional nodejs modules are required for this component to work.
 
 #### Properties
 
-- **form** (object): Required.  An object representing a menu.
-    - **showReview** (boolean): Optional.  Default is false.
-    - **steps** (array of objects): Required.
-        - **title** (string): Optional.
-        - **fields** (array of objects): Required.
-    - **buttons** (object): Optional.
-        - **previous** (object): Optional.
-        - **next** (object): Optional.
-        - **submit** (object): Optional.
+- **form** (array of objects): Required.  An object representing a menu.
+    - **title** (string): Optional.
+    - **fields** (array of objects): Required.
+- **useReview** (boolean): Optional.  Default is false.
+- **btnPrevious** (object): Optional.
+- **btnNext** (object): Optional.
+- **btnSubmit** (object): Optional.
 
+#### Field Types
+- **text**
+- **email**
 ## Usage
 ```
 import DisplayForm from './DisplayForm/Controller';

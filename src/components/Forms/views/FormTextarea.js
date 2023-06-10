@@ -1,15 +1,17 @@
 import React from 'react';
 
-function FormTextarea({textareaData, textareaValue, callback}){
-    const { class: textareaClass, ...textareaProps } = textareaData;
+function FormTextarea({textarea, value, callback}){
+    const { id, label = {}, required, onChange, ...props } = textarea;
+    const { text: labelText, ...labelProps } = label;
+
     return (
-        <div>
-            <label htmlFor={textareaProps.id}>{textareaProps.placeholder}</label>
+        <div className={required ? 'required' : null}>
+            <label htmlFor={id} {...labelProps}>{labelText}{required ? <span>*</span> : null}</label>
             <textarea
-                className={textareaClass}
-                value={textareaValue}
+                id={id}
+                value={value}
                 onChange={callback}
-                {...textareaProps}
+                {...props}
             />
         </div>
     );

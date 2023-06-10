@@ -11,7 +11,9 @@ function ExampleFormComment() {
 					"class": "form-control",
 					"placeholder": "Enter your name",
 					"required": true,
-					"label": "Name"
+					"label": {
+						"text": "Name"
+					}
 				  },
 				  {
 					"type": "email",
@@ -20,7 +22,9 @@ function ExampleFormComment() {
 					"class": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
-					"label": "Email"
+					"label": {
+						"text": "Email"
+					}
 				  },
 				  {
 					"type": "textarea",
@@ -29,28 +33,31 @@ function ExampleFormComment() {
 					"class": "form-control",
 					"placeholder": "Enter your comment",
 					"required": true,
-					"label": "Comment"
+					"label": {
+						"text": "Comment"
+					}
 				  }
 				]
 			}						
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Submit",
-				"id": "submit-button",
-				"className": "btn btn-primary"
-			}
-		}
+		]
 	};
 	  
 
-	return <DisplayForm form={formData}/>;
+	const btnPrevious = {
+		"value": "Previous",
+		"className": "btn btn-secondary"
+	};
+
+	const btnNext = {
+		"value": "Next",
+		"className": "btn btn-primary"
+	};
+
+	const btnSubmit = {
+		"value": "Submit",
+		"id": "submit-button",
+		"className": "btn btn-primary"
+	}
+
+	return <DisplayForm form={formData} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

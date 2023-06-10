@@ -18,16 +18,16 @@ import FormTextarea from './views/FormTextarea';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
-function DisplayForm({ form: formData, callback }) {
+function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, btnSubmit = {}, callback }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formValues, setFormValues] = useState({});
   const [showReview, setShowReview] = useState(false);
   const [invalidFields, setInvalidFields] = useState([]);
 
-  console.log('Forms/Controller.js: formData = '+JSON.stringify(formData));
+  console.log('Forms/Controller.js: form = '+JSON.stringify(form));
   console.log('Forms/Controller.js: currentStep = '+currentStep);
 
-  const currentStepFields = formData.steps[currentStep].fields;
+  const currentStepFields = form.steps[currentStep].fields;
 
   const isStepValid = () => {
     const invalidFields = currentStepFields
@@ -59,8 +59,8 @@ function DisplayForm({ form: formData, callback }) {
 
   const handleNextStep = () => {
     console.log('Forms/Controller.js handleNextStep() invoked');
-    if(currentStep === formData.steps.length - 1){
-      if(formData.showReview === true){
+    if(currentStep === form.steps.length - 1){
+      if(useReview === true){
         console.log('Forms/Controller.js handleNextStep() setShowReview true');
         setShowReview(true);
       }
@@ -91,7 +91,7 @@ function DisplayForm({ form: formData, callback }) {
 
   const showPreviousBtn = () => {
 	if(currentStep > 0){
-    const { value = 'Previous', style = {}, ...props } = formData.buttons?.previous;
+    const { value = 'Previous', style = {}, ...props } = btnPrevious;
 
 		return (
 			<FormButton 
@@ -110,8 +110,8 @@ function DisplayForm({ form: formData, callback }) {
   }
 
   const showNextBtn = () => {
-	if((currentStep < formData.steps.length - 1) || ((formData.showReview === true) && !showReview)){
-    const { value = 'Next', style = {}, ...props } = formData.buttons?.next;
+	if((currentStep < form.steps.length - 1) || ((form.showReview === true) && !showReview)){
+    const { value = 'Next', style = {}, ...props } = btnNext;
 
 		return (
 			<FormButton 
@@ -130,8 +130,8 @@ function DisplayForm({ form: formData, callback }) {
   }
 
   const showSubmitBtn = () => {
-    if(((currentStep >= formData.steps.length - 1) && formData.showReview !== true) || (formData.showReview === true && showReview)){
-      const { value = 'Submit', style = {}, ...props } = formData.buttons?.submit;
+    if(((currentStep >= form.steps.length - 1) && form.showReview !== true) || (form.showReview === true && showReview)){
+      const { value = 'Submit', style = {}, ...props } = btnSubmit;
 
       return (
         <FormButton
@@ -152,13 +152,13 @@ function DisplayForm({ form: formData, callback }) {
   return (
     <form onSubmit={handleSubmit}>
        {showReview ? (
-         <FormReview formData={formData} formValues={formValues} setShowReview={setShowReview} />
+         <FormReview form={form} formValues={formValues} setShowReview={setShowReview} />
       ) : (
         <>
-      <h2>{formData.steps[currentStep].title}</h2>
+      <h2>{form.steps[currentStep].title}</h2>
       {invalidFields ? (
         currentStepFields.map((field, index) => {
-          return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label}</div> : null);
+          return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
         })
       ) : null}
       {currentStepFields.map((field, index) => {

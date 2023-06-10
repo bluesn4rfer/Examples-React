@@ -1,12 +1,13 @@
 import React from 'react';
 
 function FormInput ({ div, input, value, callback }){
-  const { id, type, label, error, required, ...props} = input;
-
   console.log('FormInput.js invoked');
+  const { id, type, label = {}, error, required, ...props } = input;
+  const { text: labelText, ...labelProps } = label;
+
   return (
-    <div>
-      <label htmlFor={id}>{label}{required ? <span className='required'>*</span> : null}</label>
+    <div className={required ? 'required' : null}>
+      <label htmlFor={id} {...labelProps}>{labelText}{required ? <span>*</span> : null}</label>
       <input
         type={type}
         id={id}

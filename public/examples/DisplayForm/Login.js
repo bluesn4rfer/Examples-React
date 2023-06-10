@@ -11,7 +11,9 @@ function ExampleFormLogin() {
 						"className": "form-control",
 						"placeholder": "Enter your username",
 						"required": true,
-						"label": "Username"
+						"label": {
+							"text": "Username"
+						}
 					},
 					{
 						"type": "password",
@@ -20,28 +22,30 @@ function ExampleFormLogin() {
 						"className": "form-control",
 						"placeholder": "Enter your password",
 						"required": true,
-						"label": "Password"
+						"label": {
+							"text": "Password"
+						}
 					}
 				]
 			}
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Login",
-				"id": "login-button",
-				"className": "btn btn-primary"
-			}
-		}
+		]
 	  };
-	  
 
-	return <DisplayForm form={formData}/>;
+	const btnPrevious = {
+		"value": "Previous",
+		"className": "btn btn-secondary"
+	};
+
+	const btnNext = {
+		"value": "Next",
+		"className": "btn btn-primary"
+	};
+
+	const btnSubmit = {
+		"value": "Login",
+		"id": "login-button",
+		"className": "btn btn-primary"
+	};  
+
+	return <DisplayForm form={formData} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }
