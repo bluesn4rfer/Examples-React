@@ -21,7 +21,7 @@ function ThemeSelector(props) {
 
   const renderColorCircle = (theme) => {
     console.log('Themes/Selector.js renderColorCircle() invoked');
-    console.log('Themes/Selector.js renderColorCircle theme = ' + JSON.stringify(theme));
+    console.debug('Themes/Selector.js renderColorCircle theme = ' + JSON.stringify(theme));
 
     return (
     <div

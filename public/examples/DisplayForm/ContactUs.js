@@ -1,10 +1,9 @@
 function ExampleFormContactUs() {
-	let form = {
-		"steps": [
-		  {
+	let form = [
+		{
 			"title": "Step 1: Personal Information",
 			"fields": [
-			  {
+				{
 				"type": "text",
 				"name": "first-name",
 				"id": "first-name",
@@ -14,8 +13,8 @@ function ExampleFormContactUs() {
 				"label": {
 					"text": "First Name"
 				}
-			  },
-			  {
+				},
+				{
 				"type": "text",
 				"name": "last-name",
 				"id": "last-name",
@@ -25,8 +24,8 @@ function ExampleFormContactUs() {
 				"label": {
 					"text": "Last Name"
 				}
-			  },
-			  {
+				},
+				{
 				"type": "email",
 				"name": "email",
 				"id": "email",
@@ -36,13 +35,13 @@ function ExampleFormContactUs() {
 				"label": {
 					"text": "Email"
 				}
-			  }
+				}
 			]
-		  },
-		  {
+		},
+		{
 			"title": "Step 2: Additional Information",
 			"fields": [
-			  {
+				{
 				"type": "text",
 				"name": "phone",
 				"id": "phone",
@@ -52,40 +51,49 @@ function ExampleFormContactUs() {
 				"label": {
 					"text": "Phone Number"
 				}
-			  }
+				},
+				{
+				"type": "textarea",
+				"name": "message",
+				"id": "message",
+				"class": "form-control",
+				"placeholder": "Enter your message",
+				"label": {
+					"text": "Message"
+				}
+				}
 			]
-		  },
-		  {
+		},
+		{
 			"title": "Step 3: Submit",
 			"fields": [
-			  {
+				{
 				"type": "select",
 				"name": "gender",
 				"id": "gender",
 				"class": "form-control",
 				"options": [
-				  {
+					{
 					"value": "male",
 					"label": "Male"
-				  },
-				  {
+					},
+					{
 					"value": "female",
 					"label": "Female"
-				  },
-				  {
+					},
+					{
 					"value": "other",
 					"label": "Other"
-				  }
+					}
 				],
 				"required": true,
 				"label": {
 					"text": "Gender"
 				}
-			  }
+				}
 			]
-		  }
-		]
-	  };
+		}
+	];
 
 	const btnPrevious = {
 		"value": "Previous",

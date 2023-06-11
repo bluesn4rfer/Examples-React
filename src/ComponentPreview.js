@@ -33,37 +33,37 @@ function ComponentPreview() {
 		className: "d-flex m-0 list-unstyled",
 		links: [
 			{
-			className: !mode || mode.toLowerCase() === 'preview' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-			link: (
-				<Link
-				to={`/examples/${component}/${example}/preview`}
-				className="d-block px-3 text-decoration-none"
-				>
-				Preview
-				</Link>
-			)
+				className: !mode || mode.toLowerCase() === 'preview' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
+				link: (
+					<Link
+					to={`/examples/${component}/${example}/preview`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Preview
+					</Link>
+				)
 			},
 			{
-			className: mode.toLowerCase() === 'editor' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-			link: (
-				<Link
-				to={`/examples/${component}/${example}/editor`}
-				className="d-block px-3 text-decoration-none"
-				>
-				Editor
-				</Link>
-			)
+				className: mode.toLowerCase() === 'editor' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
+				link: (
+					<Link
+					to={`/examples/${component}/${example}/editor`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Editor
+					</Link>
+				)
 			},
 			{
-			className: mode.toLowerCase() === 'documentation' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-			link: (
-				<Link
-				to={`/examples/${component}/${example}/documentation`}
-				className="d-block px-3 text-decoration-none"
-				>
-				Documentation
-				</Link>
-			)
+				className: mode.toLowerCase() === 'documentation' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
+				link: (
+					<Link
+					to={`/examples/${component}/${example}/documentation`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Documentation
+					</Link>
+				)
 			}
 		]
 	};
@@ -97,7 +97,7 @@ function ComponentPreview() {
 
 	const handleCodeChange = (code) => {
 		console.log('ComponentPreview.js handleCodeChange() invoked');
-		console.log('ComponentPreview.js handleCodeChange() code = '+code);
+		console.debug('ComponentPreview.js handleCodeChange() code = '+code);
 		setCode(code);
 	}
 

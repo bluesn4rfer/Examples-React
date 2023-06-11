@@ -1,47 +1,44 @@
 function ExampleFormComment() {
-	let formData = {
-		"steps": [
-			{
-				"title": "Comment Form",
-				"fields": [
-				  {
-					"type": "text",
-					"name": "name",
-					"id": "name",
-					"class": "form-control",
-					"placeholder": "Enter your name",
-					"required": true,
-					"label": {
-						"text": "Name"
-					}
-				  },
-				  {
-					"type": "email",
-					"name": "email",
-					"id": "email",
-					"class": "form-control",
-					"placeholder": "Enter your email",
-					"required": true,
-					"label": {
-						"text": "Email"
-					}
-				  },
-				  {
-					"type": "textarea",
-					"name": "comment",
-					"id": "comment",
-					"class": "form-control",
-					"placeholder": "Enter your comment",
-					"required": true,
-					"label": {
-						"text": "Comment"
-					}
-				  }
-				]
-			}						
-		]
-	};
-	  
+	let form [
+		{
+			"title": "Comment Form",
+			"fields": [
+				{
+				"type": "text",
+				"name": "name",
+				"id": "name",
+				"class": "form-control",
+				"placeholder": "Enter your name",
+				"required": true,
+				"label": {
+					"text": "Name"
+				}
+				},
+				{
+				"type": "email",
+				"name": "email",
+				"id": "email",
+				"class": "form-control",
+				"placeholder": "Enter your email",
+				"required": true,
+				"label": {
+					"text": "Email"
+				}
+				},
+				{
+				"type": "textarea",
+				"name": "comment",
+				"id": "comment",
+				"class": "form-control",
+				"placeholder": "Enter your comment",
+				"required": true,
+				"label": {
+					"text": "Comment"
+				}
+				}
+			]
+		}						
+	];
 
 	const btnPrevious = {
 		"value": "Previous",
@@ -59,5 +56,5 @@ function ExampleFormComment() {
 		"className": "btn btn-primary"
 	}
 
-	return <DisplayForm form={formData} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

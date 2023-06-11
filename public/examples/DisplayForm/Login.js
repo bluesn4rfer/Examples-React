@@ -1,45 +1,36 @@
 function ExampleFormLogin() {
-	let formData = {
-		"steps": [
-			{
-				"title": "Login Form",
-				"fields": [
-					{
-						"type": "text",
-						"name": "username",
-						"id": "username",
-						"className": "form-control",
-						"placeholder": "Enter your username",
-						"required": true,
-						"label": {
-							"text": "Username"
-						}
-					},
-					{
-						"type": "password",
-						"name": "password",
-						"id": "password",
-						"className": "form-control",
-						"placeholder": "Enter your password",
-						"required": true,
-						"label": {
-							"text": "Password"
-						}
+	const useState = React.useState;
+	const [showThankYou, setShowThankYou] = useState(false);
+
+	let form = [
+		{
+			"title": "Login Form",
+			"fields": [
+				{
+					"type": "text",
+					"name": "username",
+					"id": "username",
+					"className": "form-control",
+					"placeholder": "Enter your username",
+					"required": true,
+					"label": {
+						"text": "Username"
 					}
-				]
-			}
-		]
-	  };
-
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
-
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
+				},
+				{
+					"type": "password",
+					"name": "password",
+					"id": "password",
+					"className": "form-control",
+					"placeholder": "Enter your password",
+					"required": true,
+					"label": {
+						"text": "Password"
+					}
+				}
+			]
+		}
+	];
 
 	const btnSubmit = {
 		"value": "Login",
@@ -47,5 +38,16 @@ function ExampleFormLogin() {
 		"className": "btn btn-primary"
 	};  
 
-	return <DisplayForm form={formData} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	const thankYou = (values) => {
+		console.log('thankYou values = ' + JSON.stringify(values));
+
+		setTimeout(() => {
+			setShowThankYou(true);			
+		}, 2000);	  
+	};
+
+	if(showThankYou === true){
+		return <div>Thank You</div>
+	}
+	return <DisplayForm form={form} btnSubmit={btnSubmit} callback={thankYou} />;
 }

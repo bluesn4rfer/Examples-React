@@ -1,71 +1,61 @@
 function ExampleFormPayment() {
-	let formData = {
-		"steps": [
-			{
-				"title": "Payment Form",
-				"fields": [
-				  {
+	let form = [
+		{
+			"title": "Payment Form",
+			"fields": [
+				{
 					"type": "text",
 					"name": "cardholder-name",
 					"id": "cardholder-name",
 					"class": "form-control",
 					"placeholder": "Enter cardholder's name",
 					"required": true,
-					"label": "Cardholder's Name"
-				  },
-				  {
+					"label": {
+						"text": "Cardholder's Name"
+					}
+				},
+				{
 					"type": "text",
 					"name": "card-number",
 					"id": "card-number",
 					"class": "form-control",
 					"placeholder": "Enter card number",
 					"required": true,
-					"label": "Card Number"
-				  },
-				  {
+					"label": {
+						"text": "Card Number"
+					}
+				},
+				{
 					"type": "text",
 					"name": "expiration-date",
 					"id": "expiration-date",
 					"class": "form-control",
 					"placeholder": "MM/YYYY",
 					"required": true,
-					"label": "Expiration Date"
-				  },
-				  {
+					"label": {
+						"text": "Expiration Date"
+					}
+				},
+				{
 					"type": "text",
 					"name": "cvv",
 					"id": "cvv",
 					"class": "form-control",
 					"placeholder": "Enter CVV",
 					"required": true,
-					"label": "CVV"
-				  }
-				]
-			}
-				
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Submit",
-				"id": "submit-button",
-				"className": "btn btn-primary"
-			}
-		}
-		"submit": {
-			"value": "Pay Now",
-			"id": "pay-button",
-			"class": "btn btn-primary"
-		  }
-	  };
+					"label": {
+						"text": "CVV"
+					}
+				}
+			]
+		}		
+	];
 	  
+	const btnSubmit = {
+		"value": "Pay Now",
+		"id": "pay-button",
+		"class": "btn btn-primary"
+	};
 
-	return <DisplayForm form={formData}/>;
+	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
 }

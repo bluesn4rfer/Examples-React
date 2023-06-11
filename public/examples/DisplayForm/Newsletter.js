@@ -1,81 +1,87 @@
 function ExampleFormNewsletter() {
-	let formData = {
-		"steps": [
-			{
-				"title": "Newsletter Sign-Up",
-				"fields": [
-					{
+	let formData = [
+		{
+			"title": "Newsletter Sign-Up",
+			"fields": [
+				{
 					"type": "text",
 					"name": "first-name",
 					"id": "first-name",
 					"class": "form-control",
 					"placeholder": "Enter your first name",
 					"required": true,
-					"label": "First Name"
-					},
-					{
+					"label": {
+						"text": "First Name"
+					}
+				},
+				{
 					"type": "text",
 					"name": "last-name",
 					"id": "last-name",
 					"class": "form-control",
 					"placeholder": "Enter your last name",
 					"required": true,
-					"label": "Last Name"
-					},
-					{
+					"label": {
+						"text": "Last Name"
+					}
+				},
+				{
 					"type": "email",
 					"name": "email",
 					"id": "email",
 					"class": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
-					"label": "Email"
-					},
-					{
-						"type": "checkbox",
-						"name": "preferences",
-						"id": "preferences",
-						"class": "form-check-input",
-						"label": "Newsletter Preferences",
-						"options": [
-							{
-							"value": "technology",
-							"label": "Technology"
-							},
-							{
-							"value": "fashion",
-							"label": "Fashion"
-							},
-							{
-							"value": "sports",
-							"label": "Sports"
-							},
-							{
-							"value": "music",
-							"label": "Music"
-							}
-						]
+					"label": {
+						"text": "Email"
 					}
-				]
-			}
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Subscribe",
-				"id": "subscribe-button",
-				"className": "btn btn-primary"
-			}
+				},
+				{
+					"type": "checkbox",
+					"name": "preferences",
+					"id": "preferences",
+					"class": "form-check-input",
+					"label": {
+						"text": "Newsletter Preferences"
+					},
+					"options": [
+						{
+						"value": "technology",
+						"label": "Technology"
+						},
+						{
+						"value": "fashion",
+						"label": "Fashion"
+						},
+						{
+						"value": "sports",
+						"label": "Sports"
+						},
+						{
+						"value": "music",
+						"label": "Music"
+						}
+					]
+				}
+			]
 		}
-	  };
-	  
+	];
 
-	return <DisplayForm form={formData}/>;
+	const btnPrevious = {
+		"value": "Previous",
+		"className": "btn btn-secondary"
+	};
+
+	const btnNext = {
+		"value": "Next",
+		"className": "btn btn-primary"
+	};
+
+	btnSubmit = {
+		"value": "Subscribe",
+		"id": "subscribe-button",
+		"className": "btn btn-primary"
+	};
+
+	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

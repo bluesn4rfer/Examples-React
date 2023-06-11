@@ -13,68 +13,74 @@ No additional nodejs modules are required for this component to work.
 
 #### Properties
 
-- **form** (array of objects): Required.  An object representing a menu.
-    - **title** (string): Optional.
-    - **fields** (array of objects): Required.
+- **form** (array of objects): Required.  An object representing a form.  Each object in the array represents a step in filling out the form.
+    - **title** (string): Optional.  This is the title of the step.  EG: Contact Information
+    - **fields** (array of objects): Required.  This is array of the field objects used in this step.
 - **useReview** (boolean): Optional.  Default is false.
 - **btnPrevious** (object): Optional.
 - **btnNext** (object): Optional.
 - **btnSubmit** (object): Optional.
 
-#### Field Types
-- **text**
-- **email**
+#### Field Object
+- **type** (string): Possible values are
+    - *text*
+    - *email*
+- **label** (object):
+    - **text** (string):
 ## Usage
 ```
 import DisplayForm from './DisplayForm/Controller';
 
 function App(){
-    let formData = {
-        "steps": [
-            {
-                "title": "Comment Form",
-                "fields": [
-                    {
+    let form = [
+        {
+            "title": "Comment Form",
+            "fields": [
+                {
                     "type": "text",
                     "name": "name",
                     "id": "name",
                     "class": "form-control",
                     "placeholder": "Enter your name",
                     "required": true,
-                    "label": "Name"
-                    },
-                    {
+                    "label": {
+                        "text": "Name"
+                    }
+                },
+                {
                     "type": "email",
                     "name": "email",
                     "id": "email",
                     "class": "form-control",
                     "placeholder": "Enter your email",
                     "required": true,
-                    "label": "Email"
-                    },
-                    {
+                    "label": {
+                        "text": "Email"
+                    }
+                },
+                {
                     "type": "textarea",
                     "name": "comment",
                     "id": "comment",
                     "class": "form-control",
                     "placeholder": "Enter your comment",
                     "required": true,
-                    "label": "Comment"
+                    "label": {
+                        "text": "Comment"
                     }
-                ]
-            }						
-        ],
-        "buttons": {
-            "submit": {
-                "value": "Comment",
-                "id": "submit-button",
-                "class": "btn btn-primary"
-            }
-        }
+                }
+            ]
+        }						
+    ];
+
+    const btnSubmit" = {
+        "value": "Comment",
+        "id": "submit-button",
+        "class": "btn btn-primary"
     };
 
     return(
-        <DisplayForm form={formData}/>
+        <DisplayForm form={formData} btnSubmit={btnSubmit} />
     );
 }
 

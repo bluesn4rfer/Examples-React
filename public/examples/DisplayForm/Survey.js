@@ -1,96 +1,104 @@
 function ExampleFormSurvey() {
-	let formData = {
-		"steps": [
-		  {
+	let formData = [
+		{
 			"title": "Step 1: Personal Information",
 			"fields": [
-			  {
-				"type": "text",
-				"name": "first-name",
-				"id": "first-name",
-				"class": "form-control",
-				"placeholder": "Enter your first name",
-				"required": true,
-				"label": "First Name"
-			  },
-			  {
-				"type": "text",
-				"name": "last-name",
-				"id": "last-name",
-				"class": "form-control",
-				"placeholder": "Enter your last name",
-				"required": true,
-				"label": "Last Name"
-			  },
-			  {
-				"type": "email",
-				"name": "email",
-				"id": "email",
-				"class": "form-control",
-				"placeholder": "Enter your email",
-				"required": true,
-				"label": "Email"
-			  }
+				{
+					"type": "text",
+					"name": "first-name",
+					"id": "first-name",
+					"class": "form-control",
+					"placeholder": "Enter your first name",
+					"required": true,
+					"label": {
+						"text": "First Name"
+					}
+				},
+				{
+					"type": "text",
+					"name": "last-name",
+					"id": "last-name",
+					"class": "form-control",
+					"placeholder": "Enter your last name",
+					"required": true,
+					"label": {
+						"text": "Last Name"
+					}
+				},
+				{
+					"type": "email",
+					"name": "email",
+					"id": "email",
+					"class": "form-control",
+					"placeholder": "Enter your email",
+					"required": true,
+					"label": {
+						"text": "Email"
+					}
+				}
 			]
-		  },
-		  {
+		},
+		{
 			"title": "Step 2: Survey Questions",
 			"fields": [
-			  {
-				"type": "radio",
-				"name": "experience",
-				"id": "experience",
-				"class": "form-control",
-				"label": "How would you rate your experience?",
-				"options": [
-				  {
-					"value": "excellent",
-					"label": "Excellent"
-				  },
-				  {
-					"value": "good",
-					"label": "Good"
-				  },
-				  {
-					"value": "fair",
-					"label": "Fair"
-				  },
-				  {
-					"value": "poor",
-					"label": "Poor"
-				  }
-				],
-				"required": true
-			  },
-			  {
-				"type": "textarea",
-				"name": "feedback",
-				"id": "feedback",
-				"class": "form-control",
-				"placeholder": "Enter your feedback",
-				"required": true,
-				"label": "Feedback"
-			  }
+				{
+					"type": "radio",
+					"name": "experience",
+					"id": "experience",
+					"class": "form-control",
+					"label": {
+						"text": "How would you rate your experience?"
+					},
+					"options": [
+						{
+							"value": "excellent",
+							"label": "Excellent"
+						},
+						{
+							"value": "good",
+							"label": "Good"
+						},
+						{
+							"value": "fair",
+							"label": "Fair"
+						},
+						{
+							"value": "poor",
+							"label": "Poor"
+						}
+					],
+					"required": true
+				},
+				{
+					"type": "textarea",
+					"name": "feedback",
+					"id": "feedback",
+					"class": "form-control",
+					"placeholder": "Enter your feedback",
+					"required": true,
+					"label": {
+						"text": "Feedback"
+					}
+				}
 			]
-		  }
-		],
-		"buttons": {
-			"previous": {
-				"value": "Previous",
-				"className": "btn btn-secondary"
-			},
-			"next": {
-				"value": "Next",
-				"className": "btn btn-primary"
-			},					
-			"submit": {
-				"value": "Submit",
-				"id": "submit-button",
-				"className": "btn btn-primary"
-			}
 		}
-	  };
+	];
 	  
+	const btnPrevious = {
+		"value": "Previous",
+		"className": "btn btn-secondary"
+	};
 
-	return <DisplayForm form={formData}/>;
+	const btnNext = {
+		"value": "Next",
+		"className": "btn btn-primary"
+	};
+
+	const btnSubmit = {
+		"value": "Submit",
+		"id": "submit-button",
+		"className": "btn btn-primary"
+	};
+
+	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

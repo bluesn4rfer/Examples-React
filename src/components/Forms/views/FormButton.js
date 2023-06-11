@@ -1,9 +1,10 @@
 import React from 'react';
 
-function FormButton({button: buttonData, callback}){
-    console.log('FormButton.js: buttonData = '+JSON.stringify(buttonData));
+function FormButton({button, callback}){
+    console.log('Forms/views/FormButton.js FormButton() invoked');
+    console.debug('Forms/views/FormButton.js: FormButton() button = '+JSON.stringify(button));
 
-    const {id, label, type, value, onClick, ...props} = buttonData;
+    const {id, label, type, value, onClick, ...props} = button;
 
     return (
         <>
