@@ -1,5 +1,5 @@
-function ExampleFormPasswordReset() {
-	let formData = [
+function App() {
+	let form = [
 		{
 			"title": "Password Reset Form",
 			"fields": [
@@ -7,7 +7,7 @@ function ExampleFormPasswordReset() {
 					"type": "email",
 					"name": "email",
 					"id": "email",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormPasswordReset() {
 					"type": "password",
 					"name": "new-password",
 					"id": "new-password",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter a new password",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormPasswordReset() {
 					"type": "password",
 					"name": "confirm-password",
 					"id": "confirm-password",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Confirm the new password",
 					"required": true,
 					"label": {
@@ -46,5 +46,5 @@ function ExampleFormPasswordReset() {
 		"className": "btn btn-primary"
 	};
 
-	return <DisplayForm form={formData} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
 }

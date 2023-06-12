@@ -1,4 +1,4 @@
-function ExampleFormFeedback() {
+function App() {
 	let form = [
 		{
 			"title": "Feedback Form",
@@ -7,7 +7,7 @@ function ExampleFormFeedback() {
 				"type": "text",
 				"name": "name",
 				"id": "name",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your name",
 				"required": true,
 				"label": {
@@ -18,7 +18,7 @@ function ExampleFormFeedback() {
 				"type": "email",
 				"name": "email",
 				"id": "email",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your email",
 				"required": true,
 				"label": {
@@ -29,7 +29,7 @@ function ExampleFormFeedback() {
 				"type": "textarea",
 				"name": "message",
 				"id": "message",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your message",
 				"required": true,
 				"label": {
@@ -40,7 +40,7 @@ function ExampleFormFeedback() {
 				"type": "select",
 				"name": "rating",
 				"id": "rating",
-				"class": "form-control",
+				"className": "form-control",
 				"options": [
 					{
 					"value": "5",
@@ -72,21 +72,11 @@ function ExampleFormFeedback() {
 		}		  
 	];
 	  
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
-
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
-
 	const btnSubmit = {
 		"value": "Submit",
 		"id": "submit-button",
 		"className": "btn btn-primary"
 	};
 
-	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit}/>;
+	return <DisplayForm form={form} btnSubmit={btnSubmit}/>;
 }

@@ -1,4 +1,4 @@
-function ExampleFormSubscriptionCancellation() {
+function App() {
 	let form = [
 		{
 			"title": "Subscription Cancellation Form",
@@ -7,7 +7,7 @@ function ExampleFormSubscriptionCancellation() {
 					"type": "text",
 					"name": "name",
 					"id": "name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your name",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormSubscriptionCancellation() {
 					"type": "email",
 					"name": "email",
 					"id": "email",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormSubscriptionCancellation() {
 					"type": "textarea",
 					"name": "reason",
 					"id": "reason",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter the reason for cancellation",
 					"required": true,
 					"label": {
@@ -43,7 +43,7 @@ function ExampleFormSubscriptionCancellation() {
 	const btnSubmit = {
 		"value": "Cancel Subscription",
 		"id": "cancel-button",
-		"class": "btn btn-danger"
+		"className": "btn btn-danger"
 	};
 
 	return <DisplayForm form={form} btnSubmit={btnSubmit} />;

@@ -1,6 +1,7 @@
-function ExampleFormLogin() {
-	const useState = React.useState;
-	const [showThankYou, setShowThankYou] = useState(false);
+const { useState } = React;
+
+function App(){
+	const [showThankYou, setShowThankYou] = useState(null);
 
 	let form = [
 		{
@@ -31,23 +32,22 @@ function ExampleFormLogin() {
 			]
 		}
 	];
-
+	
 	const btnSubmit = {
 		"value": "Login",
 		"id": "login-button",
 		"className": "btn btn-primary"
 	};  
-
-	const thankYou = (values) => {
+	
+	const handleSubmit = (values) => {
 		console.log('thankYou values = ' + JSON.stringify(values));
-
-		setTimeout(() => {
-			setShowThankYou(true);			
-		}, 2000);	  
+		setShowThankYou(true);
 	};
-
-	if(showThankYou === true){
-		return <div>Thank You</div>
+	
+	if(showThankYou){
+		return <div>Thank You</div>;
 	}
-	return <DisplayForm form={form} btnSubmit={btnSubmit} callback={thankYou} />;
+	
+	return <DisplayForm form={form} btnSubmit={btnSubmit} callback={handleSubmit} />;
 }
+

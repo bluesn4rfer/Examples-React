@@ -20,6 +20,7 @@ No additional nodejs modules are required for this component to work.
 - **btnPrevious** (object): Optional.
 - **btnNext** (object): Optional.
 - **btnSubmit** (object): Optional.
+- **callback** (function): Optional.
 
 #### Field Object
 - **type** (string): Possible values are

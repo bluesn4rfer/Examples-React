@@ -21,11 +21,14 @@ function ComponentPreview() {
 	const [doc, setDoc] = useState('/documentation/'+component+'.md');
 
 	useEffect(() => {
-		setFile('/examples/'+component+'/'+example+'.js');
+		if(file !== '/examples/'+component+'/'+example+'.js'){
+			setFile('/examples/'+component+'/'+example+'.js');
+		}
 		setDoc('/documentation/'+component+'.md');
 	}, [component, example]);
 
 	const [code, setCode] = useState(null);
+	const [updateCode, setUpdateCode] = useState(null);
 	const [markdown, setMarkdown] = useState(null);
 
 	/* TOP TABS */
@@ -83,6 +86,7 @@ function ComponentPreview() {
 			.then((code) => {
 				console.log('ComponentPreview.js fetchCode updating code');
 				setCode(code);
+				setUpdateCode(code);
 			})
 			.catch((error) => {
 			  console.error('Error fetching code:', error);
@@ -93,7 +97,7 @@ function ComponentPreview() {
 		if (setCode && file) {
 		  fetchCode();
 		}
-	}, [setCode, file]);
+	}, [setCode, setUpdateCode, file]);
 
 	const handleCodeChange = (code) => {
 		console.log('ComponentPreview.js handleCodeChange() invoked');
@@ -136,7 +140,7 @@ function ComponentPreview() {
 				return (<MarkdownPreview markdown={markdown} />);
 			case "editor":
 				console.log('ComponentPreview.js showView() editor');
-				return (<CodeEditor code={code} onChange={handleCodeChange} />);
+				return (<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} />);
 			default:
 				console.log('ComponentPreview.js showView() preview');
 				return (<CodePreview componentMap={componentMap} code={code} />);

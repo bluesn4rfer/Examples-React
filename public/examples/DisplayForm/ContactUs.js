@@ -1,4 +1,4 @@
-function ExampleFormContactUs() {
+function App() {
 	let form = [
 		{
 			"title": "Step 1: Personal Information",
@@ -7,7 +7,7 @@ function ExampleFormContactUs() {
 				"type": "text",
 				"name": "first-name",
 				"id": "first-name",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your first name",
 				"required": true,
 				"label": {
@@ -18,7 +18,7 @@ function ExampleFormContactUs() {
 				"type": "text",
 				"name": "last-name",
 				"id": "last-name",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your last name",
 				"required": true,
 				"label": {
@@ -29,7 +29,7 @@ function ExampleFormContactUs() {
 				"type": "email",
 				"name": "email",
 				"id": "email",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your email",
 				"required": true,
 				"label": {
@@ -45,7 +45,7 @@ function ExampleFormContactUs() {
 				"type": "text",
 				"name": "phone",
 				"id": "phone",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your phone number",
 				"required": true,
 				"label": {
@@ -56,7 +56,7 @@ function ExampleFormContactUs() {
 				"type": "textarea",
 				"name": "message",
 				"id": "message",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your message",
 				"label": {
 					"text": "Message"
@@ -71,7 +71,7 @@ function ExampleFormContactUs() {
 				"type": "select",
 				"name": "gender",
 				"id": "gender",
-				"class": "form-control",
+				"className": "form-control",
 				"options": [
 					{
 					"value": "male",

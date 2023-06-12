@@ -1,4 +1,4 @@
-function MenuAccordion(){
+function App(){
     const accordionMenu = {
         className: 'border-primary list-unstyled',
         links: [

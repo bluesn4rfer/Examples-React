@@ -1,5 +1,5 @@
-function ExampleFormSurvey() {
-	let formData = [
+function App() {
+	let form = [
 		{
 			"title": "Step 1: Personal Information",
 			"fields": [
@@ -7,7 +7,7 @@ function ExampleFormSurvey() {
 					"type": "text",
 					"name": "first-name",
 					"id": "first-name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your first name",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormSurvey() {
 					"type": "text",
 					"name": "last-name",
 					"id": "last-name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your last name",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormSurvey() {
 					"type": "email",
 					"name": "email",
 					"id": "email",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
 					"label": {
@@ -45,7 +45,7 @@ function ExampleFormSurvey() {
 					"type": "radio",
 					"name": "experience",
 					"id": "experience",
-					"class": "form-control",
+					"className": "form-control",
 					"label": {
 						"text": "How would you rate your experience?"
 					},
@@ -73,7 +73,7 @@ function ExampleFormSurvey() {
 					"type": "textarea",
 					"name": "feedback",
 					"id": "feedback",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your feedback",
 					"required": true,
 					"label": {

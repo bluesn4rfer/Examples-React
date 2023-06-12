@@ -1,5 +1,5 @@
-function ExampleFormComment() {
-	let form [
+function App() {
+	let form = [
 		{
 			"title": "Comment Form",
 			"fields": [
@@ -7,7 +7,7 @@ function ExampleFormComment() {
 				"type": "text",
 				"name": "name",
 				"id": "name",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your name",
 				"required": true,
 				"label": {
@@ -18,7 +18,7 @@ function ExampleFormComment() {
 				"type": "email",
 				"name": "email",
 				"id": "email",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your email",
 				"required": true,
 				"label": {
@@ -29,7 +29,7 @@ function ExampleFormComment() {
 				"type": "textarea",
 				"name": "comment",
 				"id": "comment",
-				"class": "form-control",
+				"className": "form-control",
 				"placeholder": "Enter your comment",
 				"required": true,
 				"label": {
@@ -40,21 +40,11 @@ function ExampleFormComment() {
 		}						
 	];
 
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
-
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
-
 	const btnSubmit = {
 		"value": "Submit",
 		"id": "submit-button",
 		"className": "btn btn-primary"
 	}
 
-	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
 }

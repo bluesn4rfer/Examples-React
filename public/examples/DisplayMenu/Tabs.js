@@ -1,4 +1,4 @@
-function MenuTabs(){
+function App(){
     const tabsMenu = {
         className: "nav nav-tabs border-primary list-unstyled",
         links: [

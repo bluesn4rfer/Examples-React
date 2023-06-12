@@ -25,7 +25,6 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	const [formValues, setFormValues] = useState({});
 	const [showReview, setShowReview] = useState(false);
 	const [invalidFields, setInvalidFields] = useState([]);
-	const [callbackComponent, setCallbackComponent] = useState(null);
 
 	console.debug('Forms/Controller.js: form = '+JSON.stringify(form));
 	console.log('Forms/Controller.js: currentStep = '+currentStep);
@@ -150,10 +149,6 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		);
 		}
 	};
-
-	if(callbackComponent){
-		return callbackComponent;
-	}
 
   return (
     <form onSubmit={handleSubmit}>

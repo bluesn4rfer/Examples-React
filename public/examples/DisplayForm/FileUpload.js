@@ -1,5 +1,5 @@
-function ExampleFormFileUpload() {
-	let formData = [
+function App() {
+	let form = [
 		{
 			"title": "File Upload Form",
 			"fields": [
@@ -7,7 +7,7 @@ function ExampleFormFileUpload() {
 					"type": "file",
 					"name": "file-upload",
 					"id": "file-upload",
-					"class": "form-control-file",
+					"className": "form-control-file",
 					"required": true,
 					"label": {
 						"text": "Choose File"
@@ -17,7 +17,7 @@ function ExampleFormFileUpload() {
 					"type": "textarea",
 					"name": "description",
 					"id": "description",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter a description for the file",
 					"required": false,
 					"label": {
@@ -28,21 +28,11 @@ function ExampleFormFileUpload() {
 		}			
 	];
 
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
-
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
-
 	const btnSubmit = {
 		"value": "Submit",
 		"id": "submit-button",
 		"className": "btn btn-primary"
 	};
 
-	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
 }

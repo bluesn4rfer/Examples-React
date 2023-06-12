@@ -1,4 +1,4 @@
-function ExampleFormPayment() {
+function App() {
 	let form = [
 		{
 			"title": "Payment Form",
@@ -7,7 +7,7 @@ function ExampleFormPayment() {
 					"type": "text",
 					"name": "cardholder-name",
 					"id": "cardholder-name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter cardholder's name",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormPayment() {
 					"type": "text",
 					"name": "card-number",
 					"id": "card-number",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter card number",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormPayment() {
 					"type": "text",
 					"name": "expiration-date",
 					"id": "expiration-date",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "MM/YYYY",
 					"required": true,
 					"label": {
@@ -40,7 +40,7 @@ function ExampleFormPayment() {
 					"type": "text",
 					"name": "cvv",
 					"id": "cvv",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter CVV",
 					"required": true,
 					"label": {
@@ -54,7 +54,7 @@ function ExampleFormPayment() {
 	const btnSubmit = {
 		"value": "Pay Now",
 		"id": "pay-button",
-		"class": "btn btn-primary"
+		"className": "btn btn-primary"
 	};
 
 	return <DisplayForm form={form} btnSubmit={btnSubmit} />;

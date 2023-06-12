@@ -12,17 +12,31 @@ function CodePreview({ componentMap, code }) {
 		}
 
 		try {
-			const transformedCode = transform(code, {
+			const transformedCode = transform(`
+					${code}
+					
+					ReactDOM.render(<App />, document.getElementById('codePreview'));
+				`, {
 				presets: ['react']
 			}).code;
 
-			const evalFunc = new Function('React', ...Object.keys(componentMap), `return (${transformedCode})()`);
-			console.debug('CodePreview/Controller.js evalFunc = '+evalFunc);
-			const evaluatedCode = evalFunc(React, ...Object.values(componentMap));
+			// eval(
+			// 	`(function(React, ReactDOM, ${Object.keys(componentMap).join(
+			// 	  ', '
+			// 	)}) { ${transformedCode} })(React, ReactDOM, ${Object.values(
+			// 	  componentMap
+			// 	).join(', ')})`
+			// );
 
-			if (previewRef.current) {
-				ReactDOM.render(evaluatedCode, previewRef.current);
-			}
+			const evalFunc = new Function(
+				'React',
+				'ReactDOM',
+				...Object.keys(componentMap),
+				transformedCode
+			);
+
+			console.debug('CodePreview/Controller.js evalFunc = ' + evalFunc);
+			evalFunc(React, ReactDOM, ...Object.values(componentMap));
 		} catch (e) {
 			console.error('CodePreview/Controller.js error = ' + e.toString());
 			if (previewRef.current) {
@@ -34,7 +48,7 @@ function CodePreview({ componentMap, code }) {
   return (
     <div className="w-100 h-100 px-3">
       <div><h2>Preview</h2></div>
-      <div ref={previewRef} className='w-100'/>
+      <div ref={previewRef} id="codePreview" className='w-100'/>
     </div>
   );
 }

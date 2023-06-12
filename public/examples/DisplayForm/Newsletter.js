@@ -1,5 +1,5 @@
-function ExampleFormNewsletter() {
-	let formData = [
+function App() {
+	let form = [
 		{
 			"title": "Newsletter Sign-Up",
 			"fields": [
@@ -7,7 +7,7 @@ function ExampleFormNewsletter() {
 					"type": "text",
 					"name": "first-name",
 					"id": "first-name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your first name",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormNewsletter() {
 					"type": "text",
 					"name": "last-name",
 					"id": "last-name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your last name",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormNewsletter() {
 					"type": "email",
 					"name": "email",
 					"id": "email",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
 					"label": {
@@ -40,7 +40,7 @@ function ExampleFormNewsletter() {
 					"type": "checkbox",
 					"name": "preferences",
 					"id": "preferences",
-					"class": "form-check-input",
+					"className": "form-check-input",
 					"label": {
 						"text": "Newsletter Preferences"
 					},
@@ -67,21 +67,11 @@ function ExampleFormNewsletter() {
 		}
 	];
 
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
-
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
-
 	btnSubmit = {
 		"value": "Subscribe",
 		"id": "subscribe-button",
 		"className": "btn btn-primary"
 	};
 
-	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
 }

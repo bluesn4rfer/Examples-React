@@ -1,4 +1,4 @@
-function MenuDropDown(){
+function App(){
     const dropDownMenu = {
         className: 'theme-primary list-unstyled',
         style: { display: 'grid', gridAutoFlow: 'column', listStyle: 'none', padding: 0, gap: '10px' },

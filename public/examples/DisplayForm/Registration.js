@@ -1,34 +1,40 @@
-function ExampleFormRegistration() {
+function App() {
 	let form = [
 		{
 			"title": "Step 1: Personal Information",
 			"fields": [
 				{
-				"type": "text",
-				"name": "first-name",
-				"id": "first-name",
-				"class": "form-control",
-				"placeholder": "Enter your first name",
-				"required": true,
-				"label": "First Name"
+					"type": "text",
+					"name": "first-name",
+					"id": "first-name",
+					"className": "form-control",
+					"placeholder": "Enter your first name",
+					"required": true,
+					"label": {
+						"text": "First Name"
+					}
 				},
 				{
-				"type": "text",
-				"name": "last-name",
-				"id": "last-name",
-				"class": "form-control",
-				"placeholder": "Enter your last name",
-				"required": true,
-				"label": "Last Name"
+					"type": "text",
+					"name": "last-name",
+					"id": "last-name",
+					"className": "form-control",
+					"placeholder": "Enter your last name",
+					"required": true,
+					"label": {
+						"text": "Last Name"
+					}
 				},
 				{
-				"type": "email",
-				"name": "email",
-				"id": "email",
-				"class": "form-control",
-				"placeholder": "Enter your email",
-				"required": true,
-				"label": "Email"
+					"type": "email",
+					"name": "email",
+					"id": "email",
+					"className": "form-control",
+					"placeholder": "Enter your email",
+					"required": true,
+					"label": {
+						"text": "Email"
+					}
 				}
 			]
 		},
@@ -39,7 +45,7 @@ function ExampleFormRegistration() {
 					"type": "text",
 					"name": "username",
 					"id": "username",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your username",
 					"required": true,
 					"label": {
@@ -50,7 +56,7 @@ function ExampleFormRegistration() {
 					"type": "password",
 					"name": "password",
 					"id": "password",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your password",
 					"required": true,
 					"label": {
@@ -61,7 +67,7 @@ function ExampleFormRegistration() {
 					"type": "password",
 					"name": "confirm-password",
 					"id": "confirm-password",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Confirm your password",
 					"required": true,
 					"label": {
@@ -77,7 +83,7 @@ function ExampleFormRegistration() {
 					"type": "text",
 					"name": "phone",
 					"id": "phone",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your phone number",
 					"required": true,
 					"label": {
@@ -88,7 +94,7 @@ function ExampleFormRegistration() {
 					"type": "textarea",
 					"name": "address",
 					"id": "address",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your address",
 					"required": true,
 					"label": {
@@ -115,5 +121,5 @@ function ExampleFormRegistration() {
 		"className": "btn btn-primary"
 	};
 
-	return <DisplayForm form={form}/>;
+	return <DisplayForm form={form} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
 }

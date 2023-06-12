@@ -1,4 +1,4 @@
-function ExampleFormRSVP() {
+function App() {
 	let form = [
 		{
 			"title": "RSVP Form",
@@ -7,7 +7,7 @@ function ExampleFormRSVP() {
 					"type": "text",
 					"name": "name",
 					"id": "name",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your name",
 					"required": true,
 					"label": {
@@ -18,7 +18,7 @@ function ExampleFormRSVP() {
 					"type": "email",
 					"name": "email",
 					"id": "email",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter your email",
 					"required": true,
 					"label": {
@@ -29,7 +29,7 @@ function ExampleFormRSVP() {
 					"type": "select",
 					"name": "attendance",
 					"id": "attendance",
-					"class": "form-control",
+					"className": "form-control",
 					"options": [
 					{
 						"value": "yes",
@@ -49,7 +49,7 @@ function ExampleFormRSVP() {
 					"type": "textarea",
 					"name": "message",
 					"id": "message",
-					"class": "form-control",
+					"className": "form-control",
 					"placeholder": "Enter a message (optional)",
 					"required": false,
 					"label": {

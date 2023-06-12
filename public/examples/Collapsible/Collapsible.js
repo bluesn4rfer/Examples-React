@@ -1,4 +1,4 @@
-function ViewCollapsible(){
+function App(){
     return (
         <div className="position-relative" style={{minHeight: '450px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Collapsible id="collapsibleTop" direction="top" autoClose={false} className="position-absolute top-0 w-50">
