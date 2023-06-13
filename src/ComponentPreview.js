@@ -9,6 +9,8 @@ import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 import Collapsible from './components/Collapsible/Controller';
 
+import './ComponentPreview.css';
+
 function ComponentPreview() {
 	const componentMap = {
 		Collapsible,
@@ -132,25 +134,32 @@ function ComponentPreview() {
 		}		
 	}, [doc, setMarkdown]);
 
-	/* RENDER */
-	const showView = () => {
-		switch(mode.toLowerCase()){
-			case "documentation":
-				console.log('ComponentPreview.js showView() documentation');
-				return (<MarkdownPreview markdown={markdown} />);
-			case "editor":
-				console.log('ComponentPreview.js showView() editor');
-				return (<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} />);
-			default:
-				console.log('ComponentPreview.js showView() preview');
-				return (<CodePreview componentMap={componentMap} code={code} />);
-		}
-	}
-
+	console.log('ComponentPreview.js mode = '+mode.toLowerCase());
  	return (
 		<div key={`${component}-${example}`} className='d-flex flex-column w-100'>
 			<div className="d-flex flex-row w-100 justify-content-center border-3 border-bottom border-primary"><DisplayMenu menu={tabsMenu} /></div>
-			{showView()}
+			{/* {showView()} */}
+			<div className="w-100 h-100 px-3" style={
+				{
+					display: mode.toLowerCase() === '' || mode.toLowerCase() === 'preview' ? 'block' : 'none',
+					animation: mode.toLowerCase() === "" || mode.toLowerCase() === "preview" ? "fade-in 0.5s ease-in-out" : ""
+				}
+			}>
+      			<div><h2>Preview</h2></div>
+				<CodePreview componentMap={componentMap} code={code} className='w-100' />
+			</div>
+			<CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} className='w-100' style={
+				{
+					display: mode.toLowerCase() === 'editor' ? 'block' : 'none',
+					animation: mode.toLowerCase() === "editor" ? "fade-in 0.5s ease-in-out" : ""
+				}
+			} />
+			<MarkdownPreview markdown={markdown} style={
+				{
+					display: mode.toLowerCase() === 'documentation' ? 'block' : 'none',
+					animation: mode.toLowerCase() === "documentation" ? "fade-in 0.5s ease-in-out" : ""
+				}
+			} />
 		</div>
 	);
 }

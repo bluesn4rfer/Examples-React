@@ -5,9 +5,7 @@ import { EditorState } from '@codemirror/state';
 import { keymap } from '@codemirror/view';
 import { defaultKeymap } from '@codemirror/commands';
 
-function CodeEditor(props) {
-  const { code, onChange, updateCode } = props;
- 
+function CodeEditor({code, onChange, updateCode, ...props}) {
   const editor = useRef(null);
   const editorViewRef = useRef(null);
   const codeRef = useRef(code);
@@ -76,7 +74,7 @@ function CodeEditor(props) {
 
   }, [updateCode]);
 
-  return <div ref={editor} className="w-100" />;
+  return <div ref={editor} {...props} />;
 };
 
 export default CodeEditor;

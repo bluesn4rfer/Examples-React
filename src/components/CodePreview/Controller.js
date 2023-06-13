@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { transform } from '@babel/standalone';
 
-function CodePreview({ componentMap, code }) {
+function CodePreview({ componentMap, code, ...props }) {
   	const previewRef = useRef(null);
 
 	useEffect(() => {
@@ -46,10 +46,7 @@ function CodePreview({ componentMap, code }) {
 	}, [componentMap, code]);
 
   return (
-    <div className="w-100 h-100 px-3">
-      <div><h2>Preview</h2></div>
-      <div ref={previewRef} id="codePreview" className='w-100'/>
-    </div>
+      <div ref={previewRef} id="codePreview" {...props} />
   );
 }
 

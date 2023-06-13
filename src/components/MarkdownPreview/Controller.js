@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import * as marked from 'marked';
 
-function MarkdownPreview({ markdown }){
+function MarkdownPreview({ markdown, ...props }){
   const [html,setHtml] = useState('');
   
   useEffect(() => {
@@ -13,7 +13,7 @@ function MarkdownPreview({ markdown }){
     setHtml(asHtml);
   }, [setHtml, markdown]);
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div dangerouslySetInnerHTML={{ __html: html }} {...props} />;
 };
 
 export default MarkdownPreview;
