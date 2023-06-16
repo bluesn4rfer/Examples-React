@@ -25,7 +25,19 @@ No additional nodejs modules are required for this component to work.
 #### Field Object
 - **type** (string): Possible values are
     - *text*
+    - *textarea*
     - *email*
+    - *password*
+    - *checkbox* WIP
+    - *radio* WIP
+    - *select*
+    - *range* WIP
+    - *state* WIP
+    - *file* WIP
+    - *fieldset* WIP
+    - *hidden* WIP
+    - *button*
+    - *image* WIP    
 - **label** (object):
     - **text** (string):
 ## Usage

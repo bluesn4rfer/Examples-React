@@ -142,7 +142,7 @@ function App({appState, ...props}) {
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
-							link: (<Link to='/examples/formsFileUpload' className='d-block py-1 px-2 btn-secondary text-decoration-none'>File Upload</Link>)
+							link: (<Link to='/examples/DisplayForm/FileUpload' className='d-block py-1 px-2 btn-secondary text-decoration-none'>File Upload</Link>)
 						},
 						{
 							style: {

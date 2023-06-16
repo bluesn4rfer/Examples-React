@@ -171,22 +171,22 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
             {form[stepIndex].fields.map((field, index) => {
               const isInvalid = invalidFields.includes(field.name);
       
-              switch (field.type) {
-                case "text":
-                  return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-                case "password":
-                  return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-                case "email":
-                  return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-                case "textarea":
-                  return <FormTextarea key={index} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-                case "select":
-                  return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-                case "button":
-                  return <FormButton key={index} button={field} buttonValue={field.value} />;
-                default:
-                  return null;
-              }
+				switch (field.type) {
+					case "text":
+						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+					case "textarea":
+						return <FormTextarea key={index} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+					case "email":
+						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+					case "password":
+						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+					case "select":
+						return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+					case "button":
+						return <FormButton key={index} button={field} buttonValue={field.value} />;
+					default:
+						return null;
+				}
             })}
 
             </fieldset>

@@ -62,7 +62,7 @@ function CodeEditor({code, onChange, updateCode, ...props}) {
   useEffect(() => {
     const editorView = editorViewRef.current;
     if(editorView.state && editorView.state.doc && updateCode){
-      console.log('CodeEditor/Controller.js updateCode = '+updateCode);
+      console.debug('CodeEditor/Controller.js updateCode = '+updateCode);
       editorView.dispatch({
         changes: {
             from: 0,
