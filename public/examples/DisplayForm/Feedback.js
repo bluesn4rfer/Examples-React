@@ -4,69 +4,69 @@ function App() {
 			"title": "Feedback Form",
 			"fields": [
 				{
-				"type": "text",
-				"name": "name",
-				"id": "name",
-				"className": "form-control",
-				"placeholder": "Enter your name",
-				"required": true,
-				"label": {
-					"text": "Name"
-				}
-				},
-				{
-				"type": "email",
-				"name": "email",
-				"id": "email",
-				"className": "form-control",
-				"placeholder": "Enter your email",
-				"required": true,
-				"label": {
-					"text": "Email"
-				}
-				},
-				{
-				"type": "textarea",
-				"name": "message",
-				"id": "message",
-				"className": "form-control",
-				"placeholder": "Enter your message",
-				"required": true,
-				"label": {
-					"text": "Message"
-				}
-				},
-				{
-				"type": "select",
-				"name": "rating",
-				"id": "rating",
-				"className": "form-control",
-				"options": [
-					{
-					"value": "5",
-					"label": "Excellent"
-					},
-					{
-					"value": "4",
-					"label": "Good"
-					},
-					{
-					"value": "3",
-					"label": "Neutral"
-					},
-					{
-					"value": "2",
-					"label": "Poor"
-					},
-					{
-					"value": "1",
-					"label": "Very Poor"
+					"type": "text",
+					"name": "name",
+					"id": "name",
+					"className": "form-control",
+					"placeholder": "Enter your name",
+					"required": true,
+					"label": {
+						"text": "Name"
 					}
-				],
-				"required": true,
-				"label": {
-					"text": "Rating"
-				}
+				},
+				{
+					"type": "email",
+					"name": "email",
+					"id": "email",
+					"className": "form-control",
+					"placeholder": "Enter your email",
+					"required": true,
+					"label": {
+						"text": "Email"
+					}
+				},
+				{
+					"type": "textarea",
+					"name": "message",
+					"id": "message",
+					"className": "form-control",
+					"placeholder": "Enter your message",
+					"required": true,
+					"label": {
+						"text": "Message"
+					}
+				},
+				{
+					"type": "select",
+					"name": "rating",
+					"id": "rating",
+					"className": "form-control",
+					"options": [
+						{
+						"value": "5",
+						"label": "Excellent"
+						},
+						{
+						"value": "4",
+						"label": "Good"
+						},
+						{
+						"value": "3",
+						"label": "Neutral"
+						},
+						{
+						"value": "2",
+						"label": "Poor"
+						},
+						{
+						"value": "1",
+						"label": "Very Poor"
+						}
+					],
+					"required": true,
+					"label": {
+						"text": "Rating"
+					}
 				}
 			],
 		}		  

@@ -4,11 +4,12 @@ function FormButton({button, callback}){
     console.log('Forms/views/FormButton.js FormButton() invoked');
     console.debug('Forms/views/FormButton.js: FormButton() button = '+JSON.stringify(button));
 
-    const {id, label, type, value, onClick, ...props} = button;
+    const {id, label = {}, type, value, onClick, ...props} = button;
+    const {text: labelText, ...labelProps} = label;
 
     return (
         <>
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id} {...labelProps}>{labelText}</label>
             <button
                 type={type}
                 id={id}

@@ -30,23 +30,74 @@ function App() {
 					"name": "email",
 					"id": "email",
 					"className": "form-control",
-					"placeholder": "Enter your email",
+					"placeholder": "Email Input",
 					"required": true,
 					"label": {
 						"text": "Email"
 					}
 				},
-				// - *email*
-				// - *password*
+				{
+					"type": "password",
+					"name": "password",
+					"id": "password",
+					"className": "form-control",
+					"placeholder": "Password Input",
+					"required": true,
+					"label": {
+						"text": "Password"
+					}
+				},
 				// - *checkbox* WIP
 				// - *radio* WIP
-				// - *select*
+				{
+					"type": "select",
+					"name": "rating",
+					"id": "rating",
+					"className": "form-control",
+					"options": [
+						{
+						"value": "5",
+						"label": "Excellent"
+						},
+						{
+						"value": "4",
+						"label": "Good"
+						},
+						{
+						"value": "3",
+						"label": "Neutral"
+						},
+						{
+						"value": "2",
+						"label": "Poor"
+						},
+						{
+						"value": "1",
+						"label": "Very Poor"
+						}
+					],
+					"required": true,
+					"label": {
+						"text": "Rating"
+					}
+				},
 				// - *range* WIP
 				// - *state* WIP
 				// - *file* WIP
 				// - *fieldset* WIP
 				// - *hidden* WIP
-				// - *button*
+				{
+					"type": "button",
+					"name": "button",
+					"id": "button",
+					"className": "btn btn-secondary",
+					"required": true,
+					"label": {
+						"text": "Button",
+						"style": { "display": "none" }
+					},
+					"value": "Button"
+				}				
 				// - *image* WIP  				
 
 			]

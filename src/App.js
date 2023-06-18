@@ -106,6 +106,12 @@ function App({appState, ...props}) {
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
+							link: (<Link to='/examples/DisplayForm/AllTypes' className='d-block py-1 px-2 btn-secondary text-decoration-none'>All Field Types</Link>)
+						},
+						{ 
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
 							link: (<Link to='/examples/DisplayForm/ContactUs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Contact Us</Link>)
 						},
 						{
