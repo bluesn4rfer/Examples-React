@@ -28,9 +28,9 @@ No additional nodejs modules are required for this component to work.
     - *textarea*
     - *email*
     - *password*
-    - *checkbox* WIP
     - *radio* WIP
     - *select*
+    - *checkbox* WIP
     - *range* WIP
     - *state* WIP
     - *file* WIP

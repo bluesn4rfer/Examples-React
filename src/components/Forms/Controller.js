@@ -13,8 +13,9 @@ import validateWeek from './utils/validateWeek';
 
 // VIEWS
 import FormInput from './views/FormInput';
-import FormSelectBox from './views/FormSelectBox';
 import FormTextarea from './views/FormTextarea';
+import FormSelectBox from './views/FormSelectBox';
+import FormCheckBox from './views/FormCheckbox';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
@@ -171,7 +172,7 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
             {form[stepIndex].fields.map((field, index) => {
               const isInvalid = invalidFields.includes(field.name);
       
-				switch (field.type) {
+				switch (field.type.toLowerCase()) {
 					case "text":
 						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 					case "textarea":
@@ -182,6 +183,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 					case "select":
 						return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+					case "checkbox": 
+						return <FormCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 					case "button":
 						return <FormButton key={index} button={field} buttonValue={field.value} />;
 					default:
