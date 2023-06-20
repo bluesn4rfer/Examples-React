@@ -1,7 +1,7 @@
 import React from 'react';
 
-function FormCheckbox({ checkbox, value, error, onChange }) {
-	const { id, label, required, onChange, options, ...props } = selectbox;
+function FormCheckbox({ checkbox, value, error, onChange: callback }) {
+	const { id, label, required, onChange, options, ...props } = checkbox;
 	const { text: labelText, ...labelProps } = label;
 
 	console.debug('Forms/views/FormCheckbox.js props = '+JSON.stringify(props));
@@ -22,4 +22,4 @@ function FormCheckbox({ checkbox, value, error, onChange }) {
 	);
 }
 
-export default FormSelectBox;
+export default FormCheckbox;
