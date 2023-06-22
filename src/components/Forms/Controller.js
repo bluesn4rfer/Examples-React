@@ -16,6 +16,7 @@ import FormInput from './views/FormInput';
 import FormTextarea from './views/FormTextarea';
 import FormSelectBox from './views/FormSelectBox';
 import FormCheckBox from './views/FormCheckbox';
+import FormRadioBtn from './views/FormRadioBtn';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
@@ -151,56 +152,63 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		}
 	};
 
+	const DisplayField = ({field, isInvalid}) => {
+		switch (field.type.toLowerCase()) {
+			case "text":
+				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+			case "textarea":
+				return <FormTextarea textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+			case "email":
+				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+			case "password":
+				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+			case "select":
+				return <FormSelectBox selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+			case "checkbox": 
+				return <FormCheckBox checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+			case "radiobtn":
+				return <FormRadioBtn radiobtn={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+			case "button":
+				return <FormButton button={field} buttonValue={field.value} />;
+			default:
+				return null;
+		}
+	}
+
+
   return (
     <form onSubmit={handleSubmit}>
-      {showReview ? (
-         <FormReview form={form} values={formValues} setShowReview={setShowReview} />
-      ) : 
-      (
-        <>
-        {
-          form.map((step,stepIndex) => (
-            <fieldset key={stepIndex} style={stepIndex !== currentStep ? {display: 'none'} : null}>
-            <h2>{form[stepIndex].title}</h2>
+      	{showReview ? (
+         	<FormReview form={form} values={formValues} setShowReview={setShowReview} />
+		) : 
+		(
+			<>
+			{
+				form.map((step,stepIndex) => (
+					<fieldset key={stepIndex} style={stepIndex !== currentStep ? {display: 'none'} : null}>
+					<h2>{form[stepIndex].title}</h2>
 
-            {invalidFields ? (
-              form[stepIndex].fields.map((field, index) => {
-                return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
-              })
-            ) : null}
+					{invalidFields ? (
+						form[stepIndex].fields.map((field, index) => {
+							return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
+						})
+					) : null}
 
-            {form[stepIndex].fields.map((field, index) => {
-              const isInvalid = invalidFields.includes(field.name);
-      
-				switch (field.type.toLowerCase()) {
-					case "text":
-						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-					case "textarea":
-						return <FormTextarea key={index} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
-					case "email":
-						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-					case "password":
-						return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-					case "select":
-						return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-					case "checkbox": 
-						return <FormCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
-					case "button":
-						return <FormButton key={index} button={field} buttonValue={field.value} />;
-					default:
-						return null;
-				}
-            })}
+					{form[stepIndex].fields.map((field, index) => {
+						const isInvalid = invalidFields.includes(field.name);
+			
+						return <DisplayField field={field} isInvalid={isInvalid} />;
+					})}
 
-            </fieldset>
-          ))
-        }
-        </>
-      )}
+					</fieldset>
+				))
+			}
+			</>
+		)}
 
-	  {showPreviousBtn()}
-	  {showNextBtn()}
-	  {showSubmitBtn()}
+		{showPreviousBtn()}
+		{showNextBtn()}
+		{showSubmitBtn()}
 
     </form>
   );

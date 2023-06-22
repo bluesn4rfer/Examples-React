@@ -50,8 +50,8 @@ function App() {
 				// - *radio* WIP
 				{
 					"type": "select",
-					"name": "rating",
-					"id": "rating",
+					"name": "select",
+					"id": "select",
 					"className": "form-control",
 					"options": [
 						{
@@ -77,41 +77,41 @@ function App() {
 					],
 					"required": true,
 					"label": {
-						"text": "Rating"
-					}
-				},
-				{
-					"type": "checkbox",
-					"name": "rating",
-					"id": "rating",
-					"className": "form-control",
-					"options": [
-						{
-						"value": "5",
-						"label": "Excellent"
-						},
-						{
-						"value": "4",
-						"label": "Good"
-						},
-						{
-						"value": "3",
-						"label": "Neutral"
-						},
-						{
-						"value": "2",
-						"label": "Poor"
-						},
-						{
-						"value": "1",
-						"label": "Very Poor"
-						}
-					],
-					"required": true,
-					"label": {
-						"text": "Rating"
+						"text": "Select"
 					}
 				},	
+				{
+					"type": "checkbox",
+					"name": "checkbox",
+					"id": "checkbox",
+					"className": "form-control",
+					"options": [
+						{
+						"value": "5",
+						"label": "Excellent"
+						},
+						{
+						"value": "4",
+						"label": "Good"
+						},
+						{
+						"value": "3",
+						"label": "Neutral"
+						},
+						{
+						"value": "2",
+						"label": "Poor"
+						},
+						{
+						"value": "1",
+						"label": "Very Poor"
+						}
+					],
+					"required": true,
+					"label": {
+						"text": "Checkbox"
+					}
+				},
 				// - *range* WIP
 				// - *state* WIP
 				// - *file* WIP

@@ -10,14 +10,12 @@ function FormCheckbox({ checkbox, value, error, onChange: callback }) {
 		<div className={required ? 'required' : null}>
 		<label htmlFor={id} {...labelProps}>{labelText}{required ? <span>*</span> : null}</label>
 
-		<select id={id} value={value} onChange={onChange} required={required} {...props} >
 			{options.map((option, index) => (
 				<div key={index}>
 					<input type="checkbox" id={id} name={name} value={option.value} />
 					<label for={id} >{option.label}</label>
 				</div>
 			))}
-		</select>
 		{error && <p>{error}</p>}
 		</div>
 	);
