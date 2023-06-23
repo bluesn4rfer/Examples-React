@@ -47,7 +47,6 @@ function App() {
 						"text": "Password"
 					}
 				},		
-				// - *radio* WIP
 				{
 					"type": "select",
 					"name": "select",
@@ -112,6 +111,38 @@ function App() {
 						"text": "Checkbox"
 					}
 				},
+				{
+					"type": "radio",
+					"name": "radio",
+					"id": "radio",
+					"className": "form-control",
+					"options": [
+						{
+						"value": "5",
+						"label": "Excellent"
+						},
+						{
+						"value": "4",
+						"label": "Good"
+						},
+						{
+						"value": "3",
+						"label": "Neutral"
+						},
+						{
+						"value": "2",
+						"label": "Poor"
+						},
+						{
+						"value": "1",
+						"label": "Very Poor"
+						}
+					],
+					"required": true,
+					"label": {
+						"text": "Radio"
+					}
+				},				
 				// - *range* WIP
 				// - *state* WIP
 				// - *file* WIP
