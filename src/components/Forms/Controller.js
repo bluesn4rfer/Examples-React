@@ -17,6 +17,7 @@ import FormTextarea from './views/FormTextarea';
 import FormSelectBox from './views/FormSelectBox';
 import FormCheckBox from './views/FormCheckbox';
 import FormRadio from './views/FormRadio';
+import FormFile from './views/FormFile';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
@@ -168,6 +169,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 				return <FormCheckBox checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 			case "radio":
 				return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+			case "file":
+				return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 			case "button":
 				return <FormButton button={field} buttonValue={field.value} />;
 			default:
