@@ -10,12 +10,13 @@ function FormFile({file, callback}){
     return (
         <>
             <label htmlFor={id} {...labelProps}>{labelText}</label>
-            <button
-                type={type}
+            <input
+                type='file'
                 id={id}
                 onClick={callback}
                 {...props}
-            >{value}</button>
+                value={value} 
+            />
         </>
     );
 };
