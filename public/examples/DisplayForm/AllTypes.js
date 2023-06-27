@@ -145,7 +145,16 @@ function App() {
 				},				
 				// - *range* WIP
 				// - *state* WIP
-				// - *file* WIP
+				{
+					"type": "file",
+					"name": "file-upload",
+					"id": "file-upload",
+					"className": "form-control-file",
+					"required": true,
+					"label": {
+						"text": "Choose File"
+					}
+				},
 				// - *fieldset* WIP
 				// - *hidden* WIP
 				{
