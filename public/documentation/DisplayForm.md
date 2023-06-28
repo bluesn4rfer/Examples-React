@@ -35,7 +35,7 @@ No additional nodejs modules are required for this component to work.
     - *state* WIP
     - *file* WIP
     - *fieldset* WIP
-    - *hidden* WIP
+    - *hidden*
     - *button*
     - *image* WIP    
 - **label** (object):

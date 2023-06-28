@@ -18,6 +18,7 @@ import FormSelectBox from './views/FormSelectBox';
 import FormCheckBox from './views/FormCheckbox';
 import FormRadio from './views/FormRadio';
 import FormFile from './views/FormFile';
+import FormHidden from './views/FormHidden';
 import FormButton from './views/FormButton';
 import FormReview from './views/FormReview';
 
@@ -171,8 +172,10 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 				return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 			case "file":
 				return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+			case "hidden":
+				return <FormHidden hidden={field} />;
 			case "button":
-				return <FormButton button={field} buttonValue={field.value} />;
+				return <FormButton button={field} value={field.value} />;
 			default:
 				return null;
 		}
