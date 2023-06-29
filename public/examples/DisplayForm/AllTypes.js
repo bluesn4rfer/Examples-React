@@ -156,7 +156,16 @@ function App() {
 					}
 				},
 				// - *fieldset* WIP
-				// - *hidden* WIP
+				{
+					"type": "hidden",
+					"name": "hidden",
+					"id": "hidden",
+					"className": "form-control-file",
+					"required": true,
+					"label": {
+						"text": "Hidden"
+					}
+				},
 				{
 					"type": "button",
 					"name": "button",
