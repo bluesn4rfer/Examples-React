@@ -33,11 +33,11 @@ No additional nodejs modules are required for this component to work.
     - *radio*
     - *range* WIP
     - *state* WIP
-    - *file* WIP
+    - *file*
     - *fieldset* WIP
     - *hidden*
     - *button*
-    - *image* WIP    
+    - *image*    
 - **label** (object):
     - **text** (string):
 ## Usage

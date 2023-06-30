@@ -20,6 +20,8 @@ import FormRadio from './views/FormRadio';
 import FormFile from './views/FormFile';
 import FormHidden from './views/FormHidden';
 import FormButton from './views/FormButton';
+import FormImage from './views/FormImage';
+
 import FormReview from './views/FormReview';
 
 function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, btnSubmit = {}, callback }) {
@@ -176,6 +178,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 				return <FormHidden hidden={field} />;
 			case "button":
 				return <FormButton button={field} value={field.value} />;
+			case "image":
+				return <FormImage image={field} />
 			default:
 				return null;
 		}
