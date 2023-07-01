@@ -174,6 +174,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 				return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 			case "file":
 				return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+			case "fieldset":
+				return <FormFieldset fieldset={field} />;
 			case "hidden":
 				return <FormHidden hidden={field} />;
 			case "button":
