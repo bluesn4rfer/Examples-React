@@ -175,7 +175,13 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 			case "file":
 				return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 			case "fieldset":
-				return <FormFieldset fieldset={field} />;
+				return (
+					<fieldset>
+						{field.fields.map((fsField) => {
+							return <DisplayField field={fsField} isInvalid={false} />;
+						})}
+					</fieldset>
+				)
 			case "hidden":
 				return <FormHidden hidden={field} />;
 			case "button":
