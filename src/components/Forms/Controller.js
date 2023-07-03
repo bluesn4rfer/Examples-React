@@ -177,6 +177,7 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 			case "fieldset":
 				return (
 					<fieldset>
+						<h3>{field.title}</h3>
 						{field.fields.map((fsField) => {
 							return <DisplayField field={fsField} isInvalid={false} />;
 						})}

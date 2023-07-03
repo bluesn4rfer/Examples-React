@@ -155,7 +155,33 @@ function App() {
 						"text": "Choose File"
 					}
 				},
-				// - *fieldset* WIP
+				{
+					"type": "fieldset",
+					"title": "Fieldset",
+					"fields": [
+						{
+							"type": "file",
+							"name": "file-upload",
+							"id": "file-upload",
+							"className": "form-control-file",
+							"required": true,
+							"label": {
+								"text": "Choose File"
+							}
+						},
+						{
+							"type": "textarea",
+							"name": "textarea",
+							"id": "textarea",
+							"className": "form-control",
+							"placeholder": "Textarea Input",
+							"required": true,
+							"label": {
+								"text": "Textarea"
+							}
+						},
+					]
+				},
 				{
 					"type": "hidden",
 					"name": "hidden",

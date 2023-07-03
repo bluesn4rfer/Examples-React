@@ -34,12 +34,18 @@ No additional nodejs modules are required for this component to work.
     - *range* WIP
     - *state* WIP
     - *file*
-    - *fieldset* WIP
+    - *fieldset*
+        - *title*
+        - *fields*
     - *hidden*
     - *button*
     - *image*    
 - **label** (object):
     - **text** (string):
+#### Field Type Properties
+- *fieldset*
+    - **title**
+    - **fields**
 ## Usage
 ```
 import DisplayForm from './DisplayForm/Controller';
