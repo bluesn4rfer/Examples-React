@@ -35,17 +35,13 @@ No additional nodejs modules are required for this component to work.
     - *state* WIP
     - *file*
     - *fieldset*
-        - *title*
-        - *fields*
+        - **title**
+        - **fields**
     - *hidden*
     - *button*
     - *image*    
 - **label** (object):
     - **text** (string):
-#### Field Type Properties
-- *fieldset*
-    - **title**
-    - **fields**
 ## Usage
 ```
 import DisplayForm from './DisplayForm/Controller';
