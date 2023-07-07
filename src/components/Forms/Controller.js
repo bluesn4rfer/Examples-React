@@ -40,13 +40,22 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		.filter(
 			(field) =>
 			field.required &&
-			(formValues[field.name] === undefined || formValues[field.name] === "")
+			(formValues[field.name] === undefined || formValues[field.name] === "") && validateField(field)
 		)
 		.map((field) => field.name);
 
 		setInvalidFields(invalidFields);
 		return invalidFields.length === 0;
 	};
+
+	const validateField = (field) => {
+		switch (field.type){
+			case "email":
+				return validateEmail(formValues[field.name]);
+			default:
+				return true;
+		}
+	}
 
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
