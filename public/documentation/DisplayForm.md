@@ -15,7 +15,7 @@ No additional nodejs modules are required for this component to work.
 
 - **form** (array of objects): Required.  An object representing a form.  Each object in the array represents a step in filling out the form.
     - **title** (string): Optional.  This is the title of the step.  EG: Contact Information
-    - **fields** (array of objects): Required.  This is array of the field objects used in this step.
+    - **fields** (array of objects): Required.  This is an array of field objects used in this step.
 - **useReview** (boolean): Optional.  Default is false.
 - **btnPrevious** (object): Optional.
 - **btnNext** (object): Optional.
