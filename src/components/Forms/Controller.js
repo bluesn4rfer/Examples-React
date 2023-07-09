@@ -225,7 +225,7 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 					{form[stepIndex].fields.map((field, index) => {
 						const isInvalid = invalidFields.includes(field.name);
 			
-						return <DisplayField field={field} isInvalid={isInvalid} />;
+						return <DisplayField key={index} field={field} isInvalid={isInvalid} />;
 					})}
 
 					</fieldset>
