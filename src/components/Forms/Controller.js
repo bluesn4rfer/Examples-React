@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 // UTILS
 import validateColor from './utils/validateColor';
 import validateDate from './utils/validateDate';
@@ -58,6 +59,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	}
 
 	const handleInputChange = (event) => {
+		console.debug('Forms/Controller.js handleInputChange() invoked');
+
 		const { name, value } = event.target;
 		setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
 	};
@@ -165,45 +168,6 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		}
 	};
 
-	const DisplayField = ({field, isInvalid}) => {
-		switch (field.type.toLowerCase()) {
-			case "text":
-				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-			case "textarea":
-				return <FormTextarea textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
-			case "email":
-				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-			case "password":
-				return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-			case "select":
-				return <FormSelectBox selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
-			case "checkbox": 
-				return <FormCheckBox checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
-			case "radio":
-				return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
-			case "file":
-				return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
-			case "fieldset":
-				return (
-					<fieldset>
-						<h3>{field.title}</h3>
-						{field.fields.map((fsField) => {
-							return <DisplayField field={fsField} isInvalid={false} />;
-						})}
-					</fieldset>
-				)
-			case "hidden":
-				return <FormHidden hidden={field} />;
-			case "button":
-				return <FormButton button={field} value={field.value} />;
-			case "image":
-				return <FormImage image={field} />
-			default:
-				return null;
-		}
-	}
-
-
   return (
     <form onSubmit={handleSubmit}>
       	{showReview ? (
@@ -225,7 +189,32 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 					{form[stepIndex].fields.map((field, index) => {
 						const isInvalid = invalidFields.includes(field.name);
 			
-						return <DisplayField key={index} field={field} isInvalid={isInvalid} />;
+						switch (field.type.toLowerCase()) {
+							case "text":
+								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+							case "textarea":
+								return <FormTextarea textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+							case "email":
+								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+							case "password":
+								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+							case "select":
+								return <FormSelectBox selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+							case "checkbox": 
+								return <FormCheckBox checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+							case "radio":
+								return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+							case "file":
+								return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+							case "hidden":
+								return <FormHidden hidden={field} />;
+							case "button":
+								return <FormButton button={field} value={field.value} />;
+							case "image":
+								return <FormImage image={field} />
+							default:
+								return null;
+						}
 					})}
 
 					</fieldset>

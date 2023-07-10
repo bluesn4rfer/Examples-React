@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { transform } from '@babel/standalone';
 
 function CodePreview({ componentMap, code, ...props }) {
+	console.log('CodePreview/Controller.js CodePreview() invoked');
+
   	const previewRef = useRef(null);
 
 	useEffect(() => {

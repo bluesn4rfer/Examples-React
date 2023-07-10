@@ -34,9 +34,6 @@ No additional nodejs modules are required for this component to work.
     - *range* WIP
     - *state* WIP
     - *file*
-    - *fieldset*
-        - **title** (string): Optional.
-        - **fields** (array of objects): Required. 
     - *hidden*
     - *button*
     - *image*    
