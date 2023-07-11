@@ -53,6 +53,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		switch (field.type){
 			case "email":
 				return validateEmail(formValues[field.name]);
+			case "url":
+				return validateUrl(formValues[field.name]);
 			default:
 				return true;
 		}
