@@ -37,6 +37,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	console.log('Forms/Controller.js: currentStep = '+currentStep);
 
 	const isStepValid = () => {
+		console.log('Forms/Controller.js isStepValid() invoked');
+
 		const invalidFields = form[currentStep].fields
 		.filter(
 			(field) =>
@@ -50,6 +52,7 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	};
 
 	const validateField = (field) => {
+		console.log('Forms/Controller.js validateField() invoked');
 		switch (field.type){
 			case "email":
 				return validateEmail(formValues[field.name]);
@@ -193,27 +196,27 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 			
 						switch (field.type.toLowerCase()) {
 							case "text":
-								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "textarea":
-								return <FormTextarea textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+								return <FormTextarea key={index} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
 							case "email":
-								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "password":
-								return <FormInput input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "select":
-								return <FormSelectBox selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
-								return <FormCheckBox checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <FormCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "radio":
-								return <FormRadio radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <FormRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "file":
-								return <FormFile file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <FormFile key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "hidden":
-								return <FormHidden hidden={field} />;
+								return <FormHidden key={index} hidden={field} />;
 							case "button":
-								return <FormButton button={field} value={field.value} />;
+								return <FormButton key={index} button={field} value={field.value} />;
 							case "image":
-								return <FormImage image={field} />
+								return <FormImage key={index} image={field} />
 							default:
 								return null;
 						}
