@@ -31,6 +31,7 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	const [currentStep, setCurrentStep] = useState(0);
 	const [formValues, setFormValues] = useState({});
 	const [showReview, setShowReview] = useState(false);
+	const [missingFields, setMissingFields] = useState([]);
 	const [invalidFields, setInvalidFields] = useState([]);
 
 	console.debug('Forms/Controller.js: form = '+JSON.stringify(form));
@@ -39,16 +40,24 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	const isStepValid = () => {
 		console.log('Forms/Controller.js isStepValid() invoked');
 
-		const invalidFields = form[currentStep].fields
+		const missingFields = form[currentStep].fields
 		.filter(
 			(field) =>
 			field.required &&
-			(formValues[field.name] === undefined || formValues[field.name] === "") && validateField(field)
+			(formValues[field.name] === undefined || formValues[field.name] === "")
 		)
 		.map((field) => field.name);
 
+		const invalidFields = form[currentStep].fields
+		.filter(
+			(field) =>
+			field.required && !validateField(field)
+		)
+		.map((field) => field.name);
+
+		setMissingFields(missingFields);
 		setInvalidFields(invalidFields);
-		return invalidFields.length === 0;
+		return missingFields.length + invalidFields.length === 0;
 	};
 
 	const validateField = (field) => {
@@ -185,26 +194,27 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 					<fieldset key={stepIndex} style={stepIndex !== currentStep ? {display: 'none'} : null}>
 					<h2>{form[stepIndex].title}</h2>
 
-					{invalidFields ? (
+					{missingFields ? (
 						form[stepIndex].fields.map((field, index) => {
-							return (invalidFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
+							return (missingFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
 						})
 					) : null}
 
-					{form[stepIndex].fields.map((field, index) => {
+					{form[stepIndex].fields.map((data, index) => {
+						const { label, ...field } = data;
 						const isInvalid = invalidFields.includes(field.name);
 			
 						switch (field.type.toLowerCase()) {
 							case "text":
-								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "textarea":
-								return <FormTextarea key={index} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+								return <FormTextarea key={index} label={label} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
 							case "email":
-								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "password":
-								return <FormInput key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "select":
-								return <FormSelectBox key={index} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <FormSelectBox key={index} label={label} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
 								return <FormCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "radio":

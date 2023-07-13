@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FormInput({ div, input, value, callback }) {
+function FormInput({ input = {}, value = '', label = {}, className = '', isInvalid = false, callback = null }) {
 	console.log('Forms/views/FormInput.js FormInput() invoked');
-	const { id, type = 'text', label = {}, error, required, ...props } = input;
+	const { id, type = 'text', error, required, ...props } = input;
 	const { text: labelText, ...labelProps } = label;
 
 	const handleChange = (event) => {
@@ -10,7 +10,7 @@ function FormInput({ div, input, value, callback }) {
 	};
 
 	return (
-		<div className={required ? 'required' : null}>
+		<div className={`'${className} ${required ? 'required' : null} ${isInvalid ? 'invalid' : null}'`}>
 		<label htmlFor={id} {...labelProps}>
 			{labelText}
 			{required ? <span>*</span> : null}

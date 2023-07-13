@@ -1,7 +1,7 @@
 import React from 'react';
 
-function FormSelectBox({ selectbox, value, error, callback }) {
-	const { id, label, required, onChange, options, ...props } = selectbox;
+function FormSelectBox({ label = {}, selectbox = {}, value = '', error = '', callback = null }) {
+	const { id, required, onChange, options, ...props } = selectbox;
 	const { text: labelText, ...labelProps } = label;
 
 	console.debug('Forms/views/FormSelectBox.js selectboxProps = '+JSON.stringify(props));
