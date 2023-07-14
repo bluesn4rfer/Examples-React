@@ -25,6 +25,8 @@ import FormImage from './views/FormImage';
 
 import FormReview from './views/FormReview';
 
+import './forms.css';
+
 function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, btnSubmit = {}, callback }) {
 	console.log('Forms/Controller.js DisplayForm() invoked');
 	

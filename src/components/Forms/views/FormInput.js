@@ -10,7 +10,7 @@ function FormInput({ input = {}, value = '', label = {}, className = '', isInval
 	};
 
 	return (
-		<div className={`'${className} ${required ? 'required' : null} ${isInvalid ? 'invalid' : null}'`}>
+		<div className={`${className} ${required ? 'required' : null} ${isInvalid ? 'invalid' : null}`}>
 		<label htmlFor={id} {...labelProps}>
 			{labelText}
 			{required ? <span>*</span> : null}
