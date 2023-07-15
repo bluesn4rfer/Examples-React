@@ -1,10 +1,10 @@
 import React from 'react';
 
-function FormSelectBox({ label = {}, selectbox = {}, value = '', error = '', callback = null }) {
+function InputSelectBox({ label = {}, selectbox = {}, value = '', error = '', callback = null }) {
 	const { id, required, onChange, options, ...props } = selectbox;
 	const { text: labelText, ...labelProps } = label;
 
-	console.debug('Forms/views/FormSelectBox.js selectboxProps = '+JSON.stringify(props));
+	console.debug('Forms/views/InputSelectBox.js selectboxProps = '+JSON.stringify(props));
 
 	return (
 		<div className={required ? 'required' : null}>
@@ -22,4 +22,4 @@ function FormSelectBox({ label = {}, selectbox = {}, value = '', error = '', cal
 	);
 }
 
-export default FormSelectBox;
+export default InputSelectBox;

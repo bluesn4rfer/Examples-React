@@ -1,7 +1,7 @@
 import React from 'react';
 
-function FormInput({ input = {}, value = '', label = {}, className = '', isInvalid = false, callback = null }) {
-	console.log('Forms/views/FormInput.js FormInput() invoked');
+function InputText({ input = {}, value = '', label = {}, className = '', isInvalid = false, callback = null }) {
+	console.log('Forms/views/InputText.js InputText() invoked');
 	const { id, type = 'text', error, required, ...props } = input;
 	const { text: labelText, ...labelProps } = label;
 
@@ -28,4 +28,4 @@ function FormInput({ input = {}, value = '', label = {}, className = '', isInval
 	);
 }
 
-export default FormInput;
+export default InputText;

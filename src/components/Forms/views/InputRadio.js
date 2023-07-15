@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function FormRadio({ radio, value, error, callback }) {
+function InputRadio({ radio, value, error, callback }) {
 	const { id, label, required, onChange, options, ...props } = radio;
 	const { text: labelText, ...labelProps } = label;
 
@@ -24,4 +24,4 @@ function FormRadio({ radio, value, error, callback }) {
 	);
 }
 
-export default FormRadio;
+export default InputRadio;

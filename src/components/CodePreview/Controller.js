@@ -22,14 +22,6 @@ function CodePreview({ componentMap, code, ...props }) {
 				presets: ['react']
 			}).code;
 
-			// eval(
-			// 	`(function(React, ReactDOM, ${Object.keys(componentMap).join(
-			// 	  ', '
-			// 	)}) { ${transformedCode} })(React, ReactDOM, ${Object.values(
-			// 	  componentMap
-			// 	).join(', ')})`
-			// );
-
 			const evalFunc = new Function(
 				'React',
 				'ReactDOM',

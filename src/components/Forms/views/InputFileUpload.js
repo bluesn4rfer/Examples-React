@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FormFile({file, callback}){
-    console.log('Forms/views/FormFile.js FormFile() invoked');
-    console.debug('Forms/views/FormFile.js: FormFile() button = '+JSON.stringify(file));
+function InputFileUpload({file, callback}){
+    console.log('Forms/views/InputFileUpload.js InputFileUpload() invoked');
+    console.debug('Forms/views/InputFileUpload.js: InputFileUpload() button = '+JSON.stringify(file));
 
     const {id, label = {}, type, value, onClick, error, required, ...props} = file;
     const {text: labelText, ...labelProps} = label;
@@ -22,4 +22,4 @@ function FormFile({file, callback}){
     );
 };
 
-export default FormFile;
+export default InputFileUpload;

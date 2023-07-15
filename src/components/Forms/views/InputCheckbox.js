@@ -1,10 +1,10 @@
 import React from 'react';
 
-function FormCheckbox({ checkbox, value, error, onChange: callback }) {
+function InputCheckbox({ checkbox, value, error, onChange: callback }) {
 	const { id, name, label, required, onChange, options, ...props } = checkbox;
 	const { text: labelText, ...labelProps } = label;
 
-	console.debug('Forms/views/FormCheckbox.js props = '+JSON.stringify(props));
+	console.debug('Forms/views/InputCheckbox.js props = '+JSON.stringify(props));
 
 	return (
 		<div className={required ? 'required' : null}>
@@ -21,4 +21,4 @@ function FormCheckbox({ checkbox, value, error, onChange: callback }) {
 	);
 }
 
-export default FormCheckbox;
+export default InputCheckbox;

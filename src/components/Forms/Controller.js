@@ -13,13 +13,13 @@ import validateUrl from './utils/validateUrl';
 import validateWeek from './utils/validateWeek';
 
 // VIEWS
-import FormInput from './views/FormInput';
-import FormTextarea from './views/FormTextarea';
-import FormSelectBox from './views/FormSelectBox';
-import FormCheckBox from './views/FormCheckbox';
-import FormRadio from './views/FormRadio';
-import FormFile from './views/FormFile';
-import FormHidden from './views/FormHidden';
+import InputText from './views/InputText';
+import InputTextarea from './views/InputTextarea';
+import InputSelectBox from './views/InputSelectBox';
+import InputCheckBox from './views/InputCheckbox';
+import InputRadio from './views/InputRadio';
+import InputFileUpload from './views/InputFileUpload';
+import InputHidden from './views/InputHidden';
 import FormButton from './views/FormButton';
 import FormImage from './views/FormImage';
 
@@ -208,23 +208,23 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 			
 						switch (field.type.toLowerCase()) {
 							case "text":
-								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputText key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "textarea":
-								return <FormTextarea key={index} label={label} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
+								return <InputTextarea key={index} label={label} textarea={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;				  
 							case "email":
-								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputText key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "password":
-								return <FormInput key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputText key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "select":
-								return <FormSelectBox key={index} label={label} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputSelectBox key={index} label={label} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
-								return <FormCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "radio":
-								return <FormRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "file":
-								return <FormFile key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputFileUpload key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
 							case "hidden":
-								return <FormHidden key={index} hidden={field} />;
+								return <InputHidden key={index} hidden={field} />;
 							case "button":
 								return <FormButton key={index} button={field} value={field.value} />;
 							case "image":

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FormTextarea({textarea, value, callback}){
+function InputTextarea({textarea, value, callback}){
     const { id, label = {}, required, onChange, ...props } = textarea;
     const { text: labelText, ...labelProps } = label;
 
@@ -17,4 +17,4 @@ function FormTextarea({textarea, value, callback}){
     );
 };
 
-export default FormTextarea;
+export default InputTextarea;

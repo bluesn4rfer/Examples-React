@@ -1,8 +1,8 @@
 import React from 'react';
 
-function FormHidden({hidden, callback}){
-    console.log('Forms/views/FormHidden.js FormHidden() invoked');
-    console.debug('Forms/views/FormHidden.js: FormHidden() button = '+JSON.stringify(hidden));
+function InputHidden({hidden, callback}){
+    console.log('Forms/views/InputHidden.js InputHidden() invoked');
+    console.debug('Forms/views/InputHidden.js: InputHidden() button = '+JSON.stringify(hidden));
 
     const {id, label = {}, type, value, onClick, ...props} = hidden;
     const {text: labelText, ...labelProps} = label;
@@ -21,4 +21,4 @@ function FormHidden({hidden, callback}){
     );
 };
 
-export default FormHidden;
+export default InputHidden;
