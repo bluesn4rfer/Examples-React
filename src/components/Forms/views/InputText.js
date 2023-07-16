@@ -1,27 +1,33 @@
 import React from 'react';
 
-function InputText({ input = {}, value = '', label = {}, className = '', isInvalid = false, callback = null }) {
-	console.log('Forms/views/InputText.js InputText() invoked');
-	const { id, type = 'text', error, required, ...props } = input;
+function InputText({
+	input = { id: '', type: 'text', error: null, required: false },
+	value = '',
+	label = { text: '', htmlFor: '' },
+	className = '',
+	isInvalid = false,
+	onChange = () => {},
+}) {
+	const { id, type, error, required, ...inputProps } = input;
 	const { text: labelText, ...labelProps } = label;
 
 	const handleChange = (event) => {
-		callback(event); // Call the callback function passed from the parent component
+		onChange(event); // Call the onChange function passed from the parent component
 	};
 
 	return (
-		<div className={`${className} ${required ? 'required' : null} ${isInvalid ? 'invalid' : null}`}>
+		<div className={`${className} ${required ? 'required' : ''} ${isInvalid ? 'invalid' : ''}`}>
 		<label htmlFor={id} {...labelProps}>
 			{labelText}
-			{required ? <span>*</span> : null}
+			{required && <span>*</span>}
 		</label>
 		<input
 			type={type}
 			id={id}
-			defaultValue={value}
-			onInput={handleChange}
+			value={value}
+			onChange={handleChange}
 			required={required}
-			{...props} // spread the rest of the props onto the input element
+			{...inputProps} // Spread the rest of the inputProps onto the input element
 		/>
 		{error && <p>{error}</p>}
 		</div>
