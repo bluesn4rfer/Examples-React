@@ -49,34 +49,40 @@ function App(){
             "title": "Comment Form",
             "fields": [
                 {
-                    "type": "text",
-                    "name": "name",
-                    "id": "name",
-                    "class": "form-control",
-                    "placeholder": "Enter your name",
-                    "required": true,
+                    field: {
+                        "type": "text",
+                        "name": "name",
+                        "id": "name",
+                        "class": "form-control",
+                        "placeholder": "Enter your name",
+                        "required": true
+                    },
                     "label": {
                         "text": "Name"
                     }
                 },
                 {
-                    "type": "email",
-                    "name": "email",
-                    "id": "email",
-                    "class": "form-control",
-                    "placeholder": "Enter your email",
-                    "required": true,
+                    field: {
+                        "type": "email",
+                        "name": "email",
+                        "id": "email",
+                        "class": "form-control",
+                        "placeholder": "Enter your email",
+                        "required": true
+                    },
                     "label": {
                         "text": "Email"
                     }
                 },
                 {
-                    "type": "textarea",
-                    "name": "comment",
-                    "id": "comment",
-                    "class": "form-control",
-                    "placeholder": "Enter your comment",
-                    "required": true,
+                    field:{
+                        "type": "textarea",
+                        "name": "comment",
+                        "id": "comment",
+                        "class": "form-control",
+                        "placeholder": "Enter your comment",
+                        "required": true
+                    },
                     "label": {
                         "text": "Comment"
                     }
