@@ -4,37 +4,43 @@ function App() {
 			"title": "Step 1: Personal Information",
 			"fields": [
 				{
-				"type": "text",
-				"name": "first-name",
-				"id": "first-name",
-				"className": "form-control",
-				"placeholder": "Enter your first name",
-				"required": true,
-				"label": {
-					"text": "First Name"
-				}
+					"type": "text",
+					"input": {
+						"name": "first-name",
+						"id": "first-name",
+						"className": "form-control",
+						"placeholder": "Enter your first name",
+						"required": true
+					},
+					"label": {
+						"text": "First Name"
+					}
 				},
 				{
-				"type": "text",
-				"name": "last-name",
-				"id": "last-name",
-				"className": "form-control",
-				"placeholder": "Enter your last name",
-				"required": true,
-				"label": {
-					"text": "Last Name"
-				}
+					"type": "text",
+					"input": {
+						"name": "last-name",
+						"id": "last-name",
+						"className": "form-control",
+						"placeholder": "Enter your last name",
+						"required": true
+					},
+					"label": {
+						"text": "Last Name"
+					}
 				},
 				{
-				"type": "email",
-				"name": "email",
-				"id": "email",
-				"className": "form-control",
-				"placeholder": "Enter your email",
-				"required": true,
-				"label": {
-					"text": "Email"
-				}
+					"type": "email",
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Enter your email",
+						"required": true
+					},
+					"label": {
+						"text": "Email"
+					}
 				}
 			]
 		},
@@ -42,25 +48,29 @@ function App() {
 			"title": "Step 2: Additional Information",
 			"fields": [
 				{
-				"type": "text",
-				"name": "phone",
-				"id": "phone",
-				"className": "form-control",
-				"placeholder": "Enter your phone number",
-				"required": true,
-				"label": {
-					"text": "Phone Number"
-				}
+					"type": "text",
+					"input": {
+						"name": "phone",
+						"id": "phone",
+						"className": "form-control",
+						"placeholder": "Enter your phone number",
+						"required": true
+					},
+					"label": {
+						"text": "Phone Number"
+					}
 				},
 				{
-				"type": "textarea",
-				"name": "message",
-				"id": "message",
-				"className": "form-control",
-				"placeholder": "Enter your message",
-				"label": {
-					"text": "Message"
-				}
+					"type": "textarea",
+					"textarea": {
+						"name": "message",
+						"id": "message",
+						"className": "form-control",
+						"placeholder": "Enter your message",
+					},
+					"label": {
+						"text": "Message"
+					}
 				}
 			]
 		},
@@ -68,28 +78,30 @@ function App() {
 			"title": "Step 3: Submit",
 			"fields": [
 				{
-				"type": "select",
-				"name": "gender",
-				"id": "gender",
-				"className": "form-control",
-				"options": [
-					{
-					"value": "male",
-					"label": "Male"
-					},
-					{
-					"value": "female",
-					"label": "Female"
-					},
-					{
-					"value": "other",
-					"label": "Other"
+					"type": "select",
+					"select": {
+						"name": "gender",
+						"id": "gender",
+						"className": "form-control",
+						"options": [
+							{
+							"value": "male",
+							"label": "Male"
+							},
+							{
+							"value": "female",
+							"label": "Female"
+							},
+							{
+							"value": "other",
+							"label": "Other"
+							}
+						],
+						"required": true,
 					}
-				],
-				"required": true,
-				"label": {
-					"text": "Gender"
-				}
+					"label": {
+						"text": "Gender"
+					}
 				}
 			]
 		}

@@ -49,8 +49,8 @@ function App(){
             "title": "Comment Form",
             "fields": [
                 {
-                    field: {
-                        "type": "text",
+                    "type": "text",
+                    "input": {
                         "name": "name",
                         "id": "name",
                         "class": "form-control",
@@ -62,8 +62,8 @@ function App(){
                     }
                 },
                 {
-                    field: {
-                        "type": "email",
+                    "type": "email",
+                    "input": {
                         "name": "email",
                         "id": "email",
                         "class": "form-control",
@@ -75,8 +75,8 @@ function App(){
                     }
                 },
                 {
-                    field:{
-                        "type": "textarea",
+                    "type": "textarea",
+                    "textarea":{
                         "name": "comment",
                         "id": "comment",
                         "class": "form-control",
