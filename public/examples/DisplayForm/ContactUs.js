@@ -98,7 +98,7 @@ function App() {
 							}
 						],
 						"required": true,
-					}
+					},
 					"label": {
 						"text": "Gender"
 					}

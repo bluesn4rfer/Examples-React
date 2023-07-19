@@ -197,16 +197,19 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 					<h2>{form[stepIndex].title}</h2>
 
 					{missingFields ? (
-						form[stepIndex].fields.map((field, index) => {
-							return (missingFields.includes(field.name) ? <div key={index}>Missing required field: {field.label?.text}</div> : null);
+						form[stepIndex].fields.map((data, index) => {
+							const { type, label, input, selectbox, checkbox, radio, file, hidden, button, image } = data;
+							const field = input || selectbox || checkbox || radio || file || hidden || button || image;
+							return (missingFields.includes(field.name) ? <div key={index}>Missing required field: {label?.text}</div> : null);
 						})
 					) : null}
 
 					{form[stepIndex].fields.map((data, index) => {
-						const { label, ...field } = data;
+						const { type, label, input, selectbox, checkbox, radio, file, hidden, button, image } = data;
+						const field = input || selectbox || checkbox || radio || file || hidden || button || image;
 						const isInvalid = invalidFields.includes(field.name);
 			
-						switch (field.type.toLowerCase()) {
+						switch (type.toLowerCase()) {
 							case "text":
 								return <InputText key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "textarea":
