@@ -44,18 +44,26 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 
 		const missingFields = form[currentStep].fields
 		.filter(
-			(field) =>
-			field.required &&
-			(formValues[field.name] === undefined || formValues[field.name] === "")
+			(data) => {
+				const field = getFieldFromData(data);
+				return field.required && (formValues[field.name] === undefined || formValues[field.name] === "");
+			}
 		)
-		.map((field) => field.name);
+		.map((data) => {
+			const field = getFieldFromData(data);
+			return field.name;
+		});
+		console.debug('Forms/Controller.js isStepValid() missingFields = '+missingFields);
 
 		const invalidFields = form[currentStep].fields
 		.filter(
-			(field) =>
-			field.required && !validateField(field)
+			(data) => {
+				const field = getFieldFromData(data);
+				return field.required && !validateField(field);
+			}
 		)
 		.map((field) => field.name);
+		console.debug('Forms/Controller.js isStepValid() invalidFields = '+invalidFields);
 
 		setMissingFields(missingFields);
 		setInvalidFields(invalidFields);
@@ -184,6 +192,15 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 		}
 	};
 
+	const getFieldFromData = (data) => {
+		console.log('Forms/Controller.js getFieldFromData() invoked');
+		console.debug('Forms/Controller.js getFieldFromData() data = '+JSON.stringify(data));
+		const { input, textarea, select, checkbox, radio, file, hidden, button, image } = data;
+		return input || textarea || select || checkbox || radio || file || hidden || button || image || null;
+	}
+
+	console.debug('Forms/Controller.js missingFields = '+JSON.stringify(missingFields));
+	console.debug('Forms/Controller.js invalidFields = '+JSON.stringify(invalidFields));
   return (
     <form onSubmit={handleSubmit}>
       	{showReview ? (
@@ -198,15 +215,21 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 
 					{missingFields ? (
 						form[stepIndex].fields.map((data, index) => {
-							const { type, label, input, selectbox, checkbox, radio, file, hidden, button, image } = data;
-							const field = input || selectbox || checkbox || radio || file || hidden || button || image;
-							return (missingFields.includes(field.name) ? <div key={index}>Missing required field: {label?.text}</div> : null);
+							const { type, label } = data;
+							const field = getFieldFromData(data);
+							switch (type.toLowerCase()){
+								case "button":
+								case "image":
+									return null;
+								default:
+									return (missingFields.includes(field.name) ? <div key={index}>Missing required field: {label?.text}</div> : null);
+							}
 						})
 					) : null}
 
 					{form[stepIndex].fields.map((data, index) => {
-						const { type, label, input, selectbox, checkbox, radio, file, hidden, button, image } = data;
-						const field = input || selectbox || checkbox || radio || file || hidden || button || image;
+						const { type, label } = data;
+						const field = getFieldFromData(data);
 						const isInvalid = invalidFields.includes(field.name);
 			
 						switch (type.toLowerCase()) {
@@ -221,11 +244,11 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 							case "select":
 								return <InputSelectBox key={index} label={label} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
-								return <InputCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "radio":
-								return <InputRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "file":
-								return <InputFileUpload key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} onChange={handleInputChange} />;
+								return <InputFileUpload key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "hidden":
 								return <InputHidden key={index} hidden={field} />;
 							case "button":

@@ -1,18 +1,22 @@
 import React from 'react';
 
 function InputText({
-	input = { id: '', type: 'text', error: null, required: false },
+	input = { id: '', type: 'text', error: null, required: false, onChange: () => {} },
 	value = '',
 	label = { text: '', htmlFor: '' },
 	className = '',
 	isInvalid = false,
-	onChange = () => {},
+	callback = () => {},
 }) {
-	const { id, type, error, required, ...inputProps } = input;
+	console.log('Forms/views/InputText.js InputText() invoked');
+	const { id, type, error, required, onChange, ...inputProps } = input;
 	const { text: labelText, ...labelProps } = label;
 
 	const handleChange = (event) => {
-		onChange(event); // Call the onChange function passed from the parent component
+		callback(event); // Call the callback function passed from the parent property
+		if (onChange && typeof onChange === 'function') {
+			onChange(event); // Call the onChange function passed from the input property
+		}
 	};
 
 	return (
