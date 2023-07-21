@@ -5,140 +5,154 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "text",
-					"id": "text",
-					"className": "form-control",
-					"placeholder": "Text Input",
-					"required": true,
+					"input": {
+						"name": "text",
+						"id": "text",
+						"className": "form-control",
+						"placeholder": "Text Input",
+						"required": true
+					},
 					"label": {
 						"text": "Text"
 					}
 				},
 				{
 					"type": "textarea",
-					"name": "textarea",
-					"id": "textarea",
-					"className": "form-control",
-					"placeholder": "Textarea Input",
-					"required": true,
+					"textarea": {
+						"name": "textarea",
+						"id": "textarea",
+						"className": "form-control",
+						"placeholder": "Textarea Input",
+						"required": true
+					},
 					"label": {
 						"text": "Textarea"
 					}
 				},
 				{
 					"type": "email",
-					"name": "email",
-					"id": "email",
-					"className": "form-control",
-					"placeholder": "Email Input",
-					"required": true,
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Email Input",
+						"required": true
+					},
 					"label": {
 						"text": "Email"
 					}
 				},
 				{
 					"type": "password",
-					"name": "password",
-					"id": "password",
-					"className": "form-control",
-					"placeholder": "Password Input",
-					"required": true,
+					"input": {
+						"name": "password",
+						"id": "password",
+						"className": "form-control",
+						"placeholder": "Password Input",
+						"required": true
+					},
 					"label": {
 						"text": "Password"
 					}
 				},		
 				{
 					"type": "select",
-					"name": "select",
-					"id": "select",
-					"className": "form-control",
-					"options": [
-						{
-						"value": "5",
-						"label": "Excellent"
-						},
-						{
-						"value": "4",
-						"label": "Good"
-						},
-						{
-						"value": "3",
-						"label": "Neutral"
-						},
-						{
-						"value": "2",
-						"label": "Poor"
-						},
-						{
-						"value": "1",
-						"label": "Very Poor"
-						}
-					],
-					"required": true,
+					"select": {
+						"name": "select",
+						"id": "select",
+						"className": "form-control",
+						"options": [
+							{
+							"value": "5",
+							"label": "Excellent"
+							},
+							{
+							"value": "4",
+							"label": "Good"
+							},
+							{
+							"value": "3",
+							"label": "Neutral"
+							},
+							{
+							"value": "2",
+							"label": "Poor"
+							},
+							{
+							"value": "1",
+							"label": "Very Poor"
+							}
+						],
+						"required": true
+					},
 					"label": {
 						"text": "Select"
 					}
 				},	
 				{
 					"type": "checkbox",
-					"name": "checkbox",
-					"id": "checkbox",
-					"className": "form-control",
-					"options": [
-						{
-						"value": "5",
-						"label": "Excellent"
-						},
-						{
-						"value": "4",
-						"label": "Good"
-						},
-						{
-						"value": "3",
-						"label": "Neutral"
-						},
-						{
-						"value": "2",
-						"label": "Poor"
-						},
-						{
-						"value": "1",
-						"label": "Very Poor"
-						}
-					],
-					"required": true,
+					"checkbox": {
+						"name": "checkbox",
+						"id": "checkbox",
+						"className": "form-control",
+						"options": [
+							{
+							"value": "5",
+							"label": "Excellent"
+							},
+							{
+							"value": "4",
+							"label": "Good"
+							},
+							{
+							"value": "3",
+							"label": "Neutral"
+							},
+							{
+							"value": "2",
+							"label": "Poor"
+							},
+							{
+							"value": "1",
+							"label": "Very Poor"
+							}
+						],
+						"required": true,
+					},
 					"label": {
 						"text": "Checkbox"
 					}
 				},
 				{
 					"type": "radio",
-					"name": "radio",
-					"id": "radio",
-					"className": "form-control",
-					"options": [
-						{
-						"value": "5",
-						"label": "Excellent"
-						},
-						{
-						"value": "4",
-						"label": "Good"
-						},
-						{
-						"value": "3",
-						"label": "Neutral"
-						},
-						{
-						"value": "2",
-						"label": "Poor"
-						},
-						{
-						"value": "1",
-						"label": "Very Poor"
-						}
-					],
-					"required": true,
+					"radio": {
+						"name": "radio",
+						"id": "radio",
+						"className": "form-control",
+						"options": [
+							{
+							"value": "5",
+							"label": "Excellent"
+							},
+							{
+							"value": "4",
+							"label": "Good"
+							},
+							{
+							"value": "3",
+							"label": "Neutral"
+							},
+							{
+							"value": "2",
+							"label": "Poor"
+							},
+							{
+							"value": "1",
+							"label": "Very Poor"
+							}
+						],
+						"required": true,
+					},
 					"label": {
 						"text": "Radio"
 					}
@@ -147,62 +161,41 @@ function App() {
 				// - *state* WIP
 				{
 					"type": "file",
-					"name": "file-upload",
-					"id": "file-upload",
-					"className": "form-control-file",
-					"required": true,
+					"file": {
+						"name": "file-upload",
+						"id": "file-upload",
+						"className": "form-control-file",
+						"required": true
+					},
 					"label": {
 						"text": "Choose File"
 					}
 				},
 				{
-					"type": "fieldset",
-					"title": "Fieldset",
-					"fields": [
-						{
-							"type": "file",
-							"name": "file-upload",
-							"id": "file-upload",
-							"className": "form-control-file",
-							"required": true,
-							"label": {
-								"text": "Choose File"
-							}
-						},
-						{
-							"type": "textarea",
-							"name": "textarea",
-							"id": "textarea",
-							"className": "form-control",
-							"placeholder": "Textarea Input",
-							"required": true,
-							"label": {
-								"text": "Textarea"
-							}
-						},
-					]
-				},
-				{
 					"type": "hidden",
-					"name": "hidden",
-					"id": "hidden",
-					"className": "form-control-file",
-					"required": true,
+					"hidden": {
+						"name": "hidden",
+						"id": "hidden",
+						"className": "form-control-file",
+						"required": true
+					},
 					"label": {
 						"text": "Hidden"
 					}
 				},
 				{
 					"type": "button",
-					"name": "button",
-					"id": "button",
-					"className": "btn btn-secondary",
-					"required": true,
+					"button": {
+						"name": "button",
+						"id": "button",
+						"className": "btn btn-secondary",
+						"required": true,
+						"value": "Button"
+					},
 					"label": {
 						"text": "Button",
 						"style": { "display": "none" }
-					},
-					"value": "Button"
+					}
 				}				
 				// - *image* WIP  				
 
