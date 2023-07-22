@@ -91,7 +91,7 @@ function App() {
 				},	
 				{
 					"type": "checkbox",
-					"checkbox": {
+					"input": {
 						"name": "checkbox",
 						"id": "checkbox",
 						"className": "form-control",
@@ -125,7 +125,7 @@ function App() {
 				},
 				{
 					"type": "radio",
-					"radio": {
+					"input": {
 						"name": "radio",
 						"id": "radio",
 						"className": "form-control",
@@ -161,7 +161,7 @@ function App() {
 				// - *state* WIP
 				{
 					"type": "file",
-					"file": {
+					"input": {
 						"name": "file-upload",
 						"id": "file-upload",
 						"className": "form-control-file",
@@ -173,7 +173,7 @@ function App() {
 				},
 				{
 					"type": "hidden",
-					"hidden": {
+					"input": {
 						"name": "hidden",
 						"id": "hidden",
 						"className": "form-control-file",
