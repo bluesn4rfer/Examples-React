@@ -1,10 +1,10 @@
 import React from 'react';
 
-function InputCheckbox({ checkbox, value, error, onChange: callback }) {
-	const { id, name, label, required, onChange, options, ...props } = checkbox;
+function InputCheckbox({ input, value, error, onChange: callback }) {
+	const { id, name, label, required, onChange, options, ...inputProps } = input;
 	const { text: labelText, ...labelProps } = label;
 
-	console.debug('Forms/views/InputCheckbox.js props = '+JSON.stringify(props));
+	console.debug('Forms/views/InputCheckbox.js inputProps = '+JSON.stringify(inputProps));
 
 	return (
 		<div className={required ? 'required' : null}>
@@ -12,8 +12,8 @@ function InputCheckbox({ checkbox, value, error, onChange: callback }) {
 
 			{options.map((option, index) => (
 				<div key={index}>
-					<input type="checkbox" id={id} name={name} value={option.value} />
-					<label for={id} >{option.label}</label>
+					<input type="checkbox" id={id} name={name} value={option.value} {...inputProps}/>
+					<label for={id}>{option.label}</label>
 				</div>
 			))}
 		{error && <p>{error}</p>}

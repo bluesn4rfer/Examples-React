@@ -15,13 +15,12 @@ import validateWeek from './utils/validateWeek';
 // VIEWS
 import InputText from './views/InputText';
 import InputTextarea from './views/InputTextarea';
-import InputSelectBox from './views/InputSelectBox';
-import InputCheckBox from './views/InputCheckbox';
+import InputSelect from './views/InputSelect';
+import InputCheckbox from './views/InputCheckbox';
 import InputRadio from './views/InputRadio';
 import InputFileUpload from './views/InputFileUpload';
 import InputHidden from './views/InputHidden';
 import FormButton from './views/FormButton';
-import FormImage from './views/FormImage';
 
 import FormReview from './views/FormReview';
 
@@ -195,8 +194,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	const getFieldFromData = (data) => {
 		console.log('Forms/Controller.js getFieldFromData() invoked');
 		console.debug('Forms/Controller.js getFieldFromData() data = '+JSON.stringify(data));
-		const { input, textarea, select, checkbox, radio, file, hidden, button, image } = data;
-		return input || textarea || select || checkbox || radio || file || hidden || button || image || null;
+		const { input, textarea, select, button } = data;
+		return input || textarea || select || button || null;
 	}
 
 	console.debug('Forms/Controller.js missingFields = '+JSON.stringify(missingFields));
@@ -242,19 +241,17 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 							case "password":
 								return <InputText key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "select":
-								return <InputSelectBox key={index} label={label} selectbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputSelect key={index} label={label} select={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
-								return <InputCheckBox key={index} checkbox={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputCheckbox key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "radio":
-								return <InputRadio key={index} radio={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputRadio key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "file":
-								return <InputFileUpload key={index} file={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputFileUpload key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "hidden":
-								return <InputHidden key={index} hidden={field} />;
+								return <InputHidden key={index} input={field} />;
 							case "button":
 								return <FormButton key={index} button={field} value={field.value} />;
-							case "image":
-								return <FormImage key={index} image={field} />
 							default:
 								return null;
 						}
