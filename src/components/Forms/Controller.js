@@ -243,11 +243,11 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 							case "select":
 								return <InputSelect key={index} label={label} select={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "checkbox": 
-								return <InputCheckbox key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputCheckbox key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "radio":
-								return <InputRadio key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputRadio key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "file":
-								return <InputFileUpload key={index} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+								return <InputFileUpload key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "hidden":
 								return <InputHidden key={index} input={field} />;
 							case "button":

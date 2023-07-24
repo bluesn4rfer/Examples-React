@@ -1,7 +1,7 @@
 import React from 'react';
 
-function InputCheckbox({ input, value, error, onChange: callback }) {
-	const { id, name, label, required, onChange, options, ...inputProps } = input;
+function InputCheckbox({ input, label, value, error, onChange: callback }) {
+	const { id, name, required, onChange, options, ...inputProps } = input;
 	const { text: labelText, ...labelProps } = label;
 
 	console.debug('Forms/views/InputCheckbox.js inputProps = '+JSON.stringify(inputProps));

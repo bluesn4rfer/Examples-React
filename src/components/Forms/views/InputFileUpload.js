@@ -1,10 +1,10 @@
 import React from 'react';
 
-function InputFileUpload({file, callback}){
+function InputFileUpload({ label, input, callback }){
     console.log('Forms/views/InputFileUpload.js InputFileUpload() invoked');
-    console.debug('Forms/views/InputFileUpload.js: InputFileUpload() button = '+JSON.stringify(file));
+    console.debug('Forms/views/InputFileUpload.js: InputFileUpload() input = '+JSON.stringify(input));
 
-    const {id, label = {}, type, value, onClick, error, required, ...props} = file;
+    const {id, type, value, onClick, error, required, ...inputProps} = input;
     const {text: labelText, ...labelProps} = label;
 
     return (
@@ -14,7 +14,7 @@ function InputFileUpload({file, callback}){
                 type='file'
                 id={id}
                 onClick={callback}
-                {...props}
+                {...inputProps}
                 value={value} 
             />
             {error && <p>{error}</p>}

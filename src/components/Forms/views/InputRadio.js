@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function InputRadio({ radio, value, error, callback }) {
-	const { id, label, required, onChange, options, ...props } = radio;
+function InputRadio({ label, input, value, error, callback }) {
+	const { id, required, onChange, options, ...props } = input;
 	const { text: labelText, ...labelProps } = label;
 
 	const [selectedOption, setSelectedOption] = useState('');
