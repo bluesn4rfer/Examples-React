@@ -1,23 +1,16 @@
 import React from 'react';
 
-function InputHidden({hidden, callback}){
+function InputHidden({ input }){
     console.log('Forms/views/InputHidden.js InputHidden() invoked');
-    console.debug('Forms/views/InputHidden.js: InputHidden() button = '+JSON.stringify(hidden));
+    console.debug('Forms/views/InputHidden.js: InputHidden() input = '+JSON.stringify(input));
 
-    const {id, label = {}, type, value, onClick, ...props} = hidden;
-    const {text: labelText, ...labelProps} = label;
+    const {type, ...inputProps} = input;
 
     return (
-        <>
-            <label htmlFor={id} {...labelProps}>{labelText}</label>
-            <input
-                type='hidden'
-                id={id}
-                onClick={callback}
-                {...props}
-                value={value} 
-            />
-        </>
+        <input
+            type='hidden'
+            {...inputProps}
+        />
     );
 };
 
