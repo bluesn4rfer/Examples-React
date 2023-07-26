@@ -5,63 +5,71 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "first-name",
-					"id": "first-name",
-					"className": "form-control",
-					"placeholder": "Enter your first name",
-					"required": true,
+					"input": {
+						"name": "first-name",
+						"id": "first-name",
+						"className": "form-control",
+						"placeholder": "Enter your first name",
+						"required": true
+					},
 					"label": {
 						"text": "First Name"
 					}
 				},
 				{
 					"type": "text",
-					"name": "last-name",
-					"id": "last-name",
-					"className": "form-control",
-					"placeholder": "Enter your last name",
-					"required": true,
+					"input": {
+						"name": "last-name",
+						"id": "last-name",
+						"className": "form-control",
+						"placeholder": "Enter your last name",
+						"required": true
+					},
 					"label": {
 						"text": "Last Name"
 					}
 				},
 				{
 					"type": "email",
-					"name": "email",
-					"id": "email",
-					"className": "form-control",
-					"placeholder": "Enter your email",
-					"required": true,
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Enter your email",
+						"required": true
+					},
 					"label": {
 						"text": "Email"
 					}
 				},
 				{
 					"type": "checkbox",
-					"name": "preferences",
-					"id": "preferences",
-					"className": "form-check-input",
+					"input": {
+						"name": "preferences",
+						"id": "preferences",
+						"className": "form-check-input",
+						"options": [
+							{
+							"value": "technology",
+							"label": "Technology"
+							},
+							{
+							"value": "fashion",
+							"label": "Fashion"
+							},
+							{
+							"value": "sports",
+							"label": "Sports"
+							},
+							{
+							"value": "music",
+							"label": "Music"
+							}
+						]
+					},
 					"label": {
 						"text": "Newsletter Preferences"
-					},
-					"options": [
-						{
-						"value": "technology",
-						"label": "Technology"
-						},
-						{
-						"value": "fashion",
-						"label": "Fashion"
-						},
-						{
-						"value": "sports",
-						"label": "Sports"
-						},
-						{
-						"value": "music",
-						"label": "Music"
-						}
-					]
+					}
 				}
 			]
 		}

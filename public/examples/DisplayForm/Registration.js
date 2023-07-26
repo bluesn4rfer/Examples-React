@@ -5,33 +5,39 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "first-name",
-					"id": "first-name",
-					"className": "form-control",
-					"placeholder": "Enter your first name",
-					"required": true,
+					"input": {
+						"name": "first-name",
+						"id": "first-name",
+						"className": "form-control",
+						"placeholder": "Enter your first name",
+						"required": true
+					},
 					"label": {
 						"text": "First Name"
 					}
 				},
 				{
 					"type": "text",
-					"name": "last-name",
-					"id": "last-name",
-					"className": "form-control",
-					"placeholder": "Enter your last name",
-					"required": true,
+					"input": {
+						"name": "last-name",
+						"id": "last-name",
+						"className": "form-control",
+						"placeholder": "Enter your last name",
+						"required": true
+					},
 					"label": {
 						"text": "Last Name"
 					}
 				},
 				{
 					"type": "email",
-					"name": "email",
-					"id": "email",
-					"className": "form-control",
-					"placeholder": "Enter your email",
-					"required": true,
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Enter your email",
+						"required": true
+					},
 					"label": {
 						"text": "Email"
 					}
@@ -43,33 +49,39 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "username",
-					"id": "username",
-					"className": "form-control",
-					"placeholder": "Enter your username",
-					"required": true,
+					"input": {
+						"name": "username",
+						"id": "username",
+						"className": "form-control",
+						"placeholder": "Enter your username",
+						"required": true
+					},
 					"label": {
 						"text": "Username"
 					}
 				},
 				{
 					"type": "password",
-					"name": "password",
-					"id": "password",
-					"className": "form-control",
-					"placeholder": "Enter your password",
-					"required": true,
+					"input": {
+						"name": "password",
+						"id": "password",
+						"className": "form-control",
+						"placeholder": "Enter your password",
+						"required": true
+					},
 					"label": {
 						"text": "Password"
 					}
 				},
 				{
 					"type": "password",
-					"name": "confirm-password",
-					"id": "confirm-password",
-					"className": "form-control",
-					"placeholder": "Confirm your password",
-					"required": true,
+					"input": {
+						"name": "confirm-password",
+						"id": "confirm-password",
+						"className": "form-control",
+						"placeholder": "Confirm your password",
+						"required": true
+					},
 					"label": {
 						"text": "Confirm Password"
 					}
@@ -81,22 +93,26 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "phone",
-					"id": "phone",
-					"className": "form-control",
-					"placeholder": "Enter your phone number",
-					"required": true,
+					"input": {
+						"name": "phone",
+						"id": "phone",
+						"className": "form-control",
+						"placeholder": "Enter your phone number",
+						"required": true
+					},
 					"label": {
 						"text": "Phone Number"
 					}
 				},
 				{
 					"type": "textarea",
-					"name": "address",
-					"id": "address",
-					"className": "form-control",
-					"placeholder": "Enter your address",
-					"required": true,
+					"input": {
+						"name": "address",
+						"id": "address",
+						"className": "form-control",
+						"placeholder": "Enter your address",
+						"required": true
+					},
 					"label": {
 						"text": "Address"
 					}

@@ -5,21 +5,25 @@ function App() {
 			"fields": [
 				{
 					"type": "file",
-					"name": "file-upload",
-					"id": "file-upload",
-					"className": "form-control-file",
-					"required": true,
+					"input": {
+						"name": "file-upload",
+						"id": "file-upload",
+						"className": "form-control-file",
+						"required": true
+					},
 					"label": {
 						"text": "Choose File"
 					}
 				},
 				{
 					"type": "textarea",
-					"name": "description",
-					"id": "description",
-					"className": "form-control",
-					"placeholder": "Enter a description for the file",
-					"required": false,
+					"input": {
+						"name": "description",
+						"id": "description",
+						"className": "form-control",
+						"placeholder": "Enter a description for the file",
+						"required": false
+					},
 					"label": {
 						"text": "File Description"
 					}

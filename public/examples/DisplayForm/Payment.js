@@ -5,44 +5,52 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "cardholder-name",
-					"id": "cardholder-name",
-					"className": "form-control",
-					"placeholder": "Enter cardholder's name",
-					"required": true,
+					"input": {
+						"name": "cardholder-name",
+						"id": "cardholder-name",
+						"className": "form-control",
+						"placeholder": "Enter cardholder's name",
+						"required": true
+					},
 					"label": {
 						"text": "Cardholder's Name"
 					}
 				},
 				{
 					"type": "text",
-					"name": "card-number",
-					"id": "card-number",
-					"className": "form-control",
-					"placeholder": "Enter card number",
-					"required": true,
+					"input": {
+						"name": "card-number",
+						"id": "card-number",
+						"className": "form-control",
+						"placeholder": "Enter card number",
+						"required": true
+					},
 					"label": {
 						"text": "Card Number"
 					}
 				},
 				{
 					"type": "text",
-					"name": "expiration-date",
-					"id": "expiration-date",
-					"className": "form-control",
-					"placeholder": "MM/YYYY",
-					"required": true,
+					"input": {
+						"name": "expiration-date",
+						"id": "expiration-date",
+						"className": "form-control",
+						"placeholder": "MM/YYYY",
+						"required": true
+					},
 					"label": {
 						"text": "Expiration Date"
 					}
 				},
 				{
 					"type": "text",
-					"name": "cvv",
-					"id": "cvv",
-					"className": "form-control",
-					"placeholder": "Enter CVV",
-					"required": true,
+					"input": {
+						"name": "cvv",
+						"id": "cvv",
+						"className": "form-control",
+						"placeholder": "Enter CVV",
+						"required": true
+					},
 					"label": {
 						"text": "CVV"
 					}

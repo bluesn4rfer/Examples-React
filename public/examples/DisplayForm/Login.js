@@ -9,22 +9,26 @@ function App(){
 			"fields": [
 				{
 					"type": "text",
-					"name": "username",
-					"id": "username",
-					"className": "form-control",
-					"placeholder": "Enter your username",
-					"required": true,
+					"input": {
+						"name": "username",
+						"id": "username",
+						"className": "form-control",
+						"placeholder": "Enter your username",
+						"required": true
+					},
 					"label": {
 						"text": "Username"
 					}
 				},
 				{
 					"type": "password",
-					"name": "password",
-					"id": "password",
-					"className": "form-control",
-					"placeholder": "Enter your password",
-					"required": true,
+					"input": {
+						"name": "password",
+						"id": "password",
+						"className": "form-control",
+						"placeholder": "Enter your password",
+						"required": true
+					},
 					"label": {
 						"text": "Password"
 					}

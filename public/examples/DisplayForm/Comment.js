@@ -4,37 +4,43 @@ function App() {
 			"title": "Comment Form",
 			"fields": [
 				{
-				"type": "text",
-				"name": "name",
-				"id": "name",
-				"className": "form-control",
-				"placeholder": "Enter your name",
-				"required": true,
-				"label": {
-					"text": "Name"
-				}
+					"type": "text",
+					"input": {
+						"name": "name",
+						"id": "name",
+						"className": "form-control",
+						"placeholder": "Enter your name",
+						"required": true
+					},
+					"label": {
+						"text": "Name"
+					}
 				},
 				{
-				"type": "email",
-				"name": "email",
-				"id": "email",
-				"className": "form-control",
-				"placeholder": "Enter your email",
-				"required": true,
-				"label": {
-					"text": "Email"
-				}
+					"type": "email",
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Enter your email",
+						"required": true,
+					},
+					"label": {
+						"text": "Email"
+					}
 				},
 				{
-				"type": "textarea",
-				"name": "comment",
-				"id": "comment",
-				"className": "form-control",
-				"placeholder": "Enter your comment",
-				"required": true,
-				"label": {
-					"text": "Comment"
-				}
+					"type": "textarea",
+					"textarea": {
+						"name": "comment",
+						"id": "comment",
+						"className": "form-control",
+						"placeholder": "Enter your comment",
+						"required": true,
+					},
+					"label": {
+						"text": "Comment"
+					}
 				}
 			]
 		}						
