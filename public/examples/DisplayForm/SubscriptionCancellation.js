@@ -5,33 +5,39 @@ function App() {
 			"fields": [
 				{
 					"type": "text",
-					"name": "name",
-					"id": "name",
-					"className": "form-control",
-					"placeholder": "Enter your name",
-					"required": true,
+					"input": {
+						"name": "name",
+						"id": "name",
+						"className": "form-control",
+						"placeholder": "Enter your name",
+						"required": true
+					},
 					"label": {
 						"text": "Name"
 					}
 				},
 				{
 					"type": "email",
-					"name": "email",
-					"id": "email",
-					"className": "form-control",
-					"placeholder": "Enter your email",
-					"required": true,
+					"input": {
+						"name": "email",
+						"id": "email",
+						"className": "form-control",
+						"placeholder": "Enter your email",
+						"required": true
+					},
 					"label": {
 						"text": "Email"
 					}
 				},
 				{
 					"type": "textarea",
-					"name": "reason",
-					"id": "reason",
-					"className": "form-control",
-					"placeholder": "Enter the reason for cancellation",
-					"required": true,
+					"textarea": {
+						"name": "reason",
+						"id": "reason",
+						"className": "form-control",
+						"placeholder": "Enter the reason for cancellation",
+						"required": true
+					},
 					"label": {
 						"text": "Reason for Cancellation"
 					}
