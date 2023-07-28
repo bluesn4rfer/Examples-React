@@ -1,7 +1,7 @@
 import React from 'react';
 
-function InputTextarea({textarea, value, callback}){
-    const { id, label = {}, required, onChange, ...props } = textarea;
+function InputTextarea({textarea, label, value, callback}){
+    const { id, required, onChange, ...props } = textarea;
     const { text: labelText, ...labelProps } = label;
 
     return (

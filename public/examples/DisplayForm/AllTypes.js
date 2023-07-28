@@ -94,7 +94,7 @@ function App() {
 					"input": {
 						"name": "checkbox",
 						"id": "checkbox",
-						"className": "form-control",
+						"className": "form-check-input",
 						"options": [
 							{
 							"value": "5",
