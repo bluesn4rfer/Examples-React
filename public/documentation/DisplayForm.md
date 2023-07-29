@@ -39,6 +39,8 @@ No additional nodejs modules are required for this component to work.
     - *image*    
 - **label** (object):
     - **text** (string):
+- **input** (object):
+- **select** (object):
 ## Usage
 ```
 import DisplayForm from './DisplayForm/Controller';
