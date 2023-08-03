@@ -40,6 +40,7 @@ No additional nodejs modules are required for this component to work.
 - **label** (object):
     - **text** (string):
 - **input** (object):
+- **textarea** (object):
 - **select** (object):
 ## Usage
 ```
