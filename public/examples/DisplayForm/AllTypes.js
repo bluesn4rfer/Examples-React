@@ -157,7 +157,18 @@ function App() {
 						"text": "Radio"
 					}
 				},				
-				// - *range* WIP
+				{
+					"type": "range",
+					"input": {
+						"name": "range",
+						"id": "range",
+						"className": "form-control-file",
+						"required": true
+					},
+					"label": {
+						"text": "Range"
+					}
+				},
 				// - *state* WIP
 				{
 					"type": "file",

@@ -18,6 +18,7 @@ import InputTextarea from './views/InputTextarea';
 import InputSelect from './views/InputSelect';
 import InputCheckbox from './views/InputCheckbox';
 import InputRadio from './views/InputRadio';
+import InputRange from './views/InputRange';
 import InputFileUpload from './views/InputFileUpload';
 import InputHidden from './views/InputHidden';
 import FormButton from './views/FormButton';
@@ -246,6 +247,8 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 								return <InputCheckbox key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "radio":
 								return <InputRadio key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
+							case "range":
+								return <InputRange key={index} label={label} input={field} min={data.min} max={data.max} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "file":
 								return <InputFileUpload key={index} label={label} input={field} value={formValues[field.name]} isInvalid={isInvalid} callback={handleInputChange} />;
 							case "hidden":
