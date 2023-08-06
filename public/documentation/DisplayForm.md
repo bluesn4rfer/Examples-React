@@ -31,7 +31,7 @@ No additional nodejs modules are required for this component to work.
     - *select*
     - *checkbox*
     - *radio*
-    - *range* WIP
+    - *range*
     - *state* WIP
     - *file*
     - *hidden*
