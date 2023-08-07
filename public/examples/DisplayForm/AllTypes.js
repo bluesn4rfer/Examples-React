@@ -207,9 +207,7 @@ function App() {
 						"text": "Button",
 						"style": { "display": "none" }
 					}
-				}				
-				// - *image* WIP  				
-
+				}						
 			]
 		}						
 	];
