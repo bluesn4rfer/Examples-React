@@ -17,9 +17,10 @@ No additional nodejs modules are required for this component to work.
     - **title** (string): Optional.  This is the title of the step.  EG: Contact Information
     - **fields** (array of objects): Required.  This is an array of field objects used in this step.
 - **useReview** (boolean): Optional.  Default is false.
-- **btnPrevious** (object): Optional.
-- **btnNext** (object): Optional.
-- **btnSubmit** (object): Optional.
+- **buttons** (object): Optional.
+    - **previous** (object): Optional.
+    - **next** (object): Optional.
+    - **submit** (object): Optional.
 - **callback** (function): Optional.
 
 #### Field Object
@@ -35,8 +36,7 @@ No additional nodejs modules are required for this component to work.
     - *state* WIP
     - *file*
     - *hidden*
-    - *button*
-    - *image*    
+    - *button* 
 - **label** (object):
     - **text** (string):
 - **input** (object):
@@ -94,14 +94,16 @@ function App(){
         }						
     ];
 
-    const btnSubmit" = {
-        "value": "Comment",
-        "id": "submit-button",
-        "class": "btn btn-primary"
+    const buttons = {
+        "submit": {
+            "value": "Comment",
+            "id": "submit-button",
+            "class": "btn btn-primary"
+        }
     };
 
     return(
-        <DisplayForm form={formData} btnSubmit={btnSubmit} />
+        <DisplayForm form={form} buttons={buttons} />
     );
 }
 
