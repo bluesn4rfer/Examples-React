@@ -107,21 +107,23 @@ function App() {
 		}
 	];
 
-	const btnPrevious = {
-		"value": "Previous",
-		"className": "btn btn-secondary"
-	};
+	const buttons = {
+		"previous": {
+			"value": "Previous",
+			"className": "btn btn-secondary"
+		},
+		"next": {
+			"value": "Next",
+			"className": "btn btn-primary"
+		},
+		"submit": {
+			"value": "Submit",
+			"id": "submit-button",
+			"className": "btn btn-primary"
+		}
+	}
 
-	const btnNext = {
-		"value": "Next",
-		"className": "btn btn-primary"
-	};
 
-	const btnSubmit = {
-		"value": "Submit",
-		"id": "submit-button",
-		"className": "btn btn-primary"
-	};
 
-	return <DisplayForm form={form} useReview={true} btnPrevious={btnPrevious} btnNext={btnNext} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} useReview={true} buttons={buttons} />;
 }

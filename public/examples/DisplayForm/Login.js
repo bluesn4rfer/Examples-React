@@ -37,10 +37,12 @@ function App(){
 		}
 	];
 	
-	const btnSubmit = {
-		"value": "Login",
-		"id": "login-button",
-		"className": "btn btn-primary"
+	const buttons = {
+		"submit": {
+			"value": "Login",
+			"id": "login-button",
+			"className": "btn btn-primary"
+		}
 	};  
 	
 	const handleSubmit = (values) => {
@@ -52,6 +54,6 @@ function App(){
 		return <div>Thank You</div>;
 	}
 	
-	return <DisplayForm form={form} btnSubmit={btnSubmit} callback={handleSubmit} />;
+	return <DisplayForm form={form} buttons={buttons} callback={handleSubmit} />;
 }
 
