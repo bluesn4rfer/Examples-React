@@ -46,11 +46,13 @@ function App() {
 		}			  
 	];
 	  
-	const btnSubmit = {
-		"value": "Cancel Subscription",
-		"id": "cancel-button",
-		"className": "btn btn-danger"
+	const buttons = {
+		"submit": {
+			"value": "Cancel Subscription",
+			"id": "cancel-button",
+			"className": "btn btn-danger"
+		}
 	};
 
-	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} buttons={buttons} />;
 }

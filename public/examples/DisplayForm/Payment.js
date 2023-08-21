@@ -59,10 +59,12 @@ function App() {
 		}		
 	];
 	  
-	const btnSubmit = {
-		"value": "Pay Now",
-		"id": "pay-button",
-		"className": "btn btn-primary"
+	const buttons = {
+		"submit": {
+			"value": "Pay Now",
+			"id": "pay-button",
+			"className": "btn btn-primary"
+		}
 	};
 
 	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
