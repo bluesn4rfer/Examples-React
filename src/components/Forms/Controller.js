@@ -27,7 +27,7 @@ import FormReview from './views/FormReview';
 
 import './forms.css';
 
-function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, btnSubmit = {}, callback }) {
+function DisplayForm({ form, useReview = false, buttons = {}, callback }) {
 	console.log('Forms/Controller.js DisplayForm() invoked');
 	
 	const [currentStep, setCurrentStep] = useState(0);
@@ -35,6 +35,12 @@ function DisplayForm({ form, useReview = false, btnPrevious = {}, btnNext = {}, 
 	const [showReview, setShowReview] = useState(false);
 	const [missingFields, setMissingFields] = useState([]);
 	const [invalidFields, setInvalidFields] = useState([]);
+
+	const {
+		next: btnNext = {}, 
+		previous: btnPrevious = {}, 
+		submit: btnSubmit = {}
+	} = buttons;
 
 	console.debug('Forms/Controller.js: form = '+JSON.stringify(form));
 	console.log('Forms/Controller.js: currentStep = '+currentStep);
