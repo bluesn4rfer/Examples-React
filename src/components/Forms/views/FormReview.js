@@ -11,11 +11,15 @@ function FormReview({form, values, setShowReview}){
                 return (    
                     <div key={'step'+stepIndex}>
                         <h3>{step.title}</h3>
-                        {step.fields.map((field, fieldIndex) => (
-                            <div key={'field'+fieldIndex}>
-                                <strong>{field.label.text}:</strong> {values[field.name]}
-                            </div>
-                        ))}
+                        {
+                            step.fields.map((field, fieldIndex) => {
+                                return (
+                                <div key={'field'+fieldIndex}>
+                                    <strong>{field.label.text}:</strong> {values[field.name]}
+                                </div>
+                                )
+                            })
+                        }
                     </div>
                 );
             })
