@@ -210,7 +210,7 @@ function DisplayForm({ form, useReview = false, buttons = {}, callback }) {
   return (
     <form onSubmit={handleSubmit}>
       	{showReview ? (
-         	<FormReview form={form} values={formValues} setShowReview={setShowReview} />
+         	<FormReview form={form} values={formValues} getFieldFromData={getFieldFromData} setShowReview={setShowReview} />
 		) : 
 		(
 			<>
