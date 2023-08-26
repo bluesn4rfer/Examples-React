@@ -18,9 +18,9 @@ No additional nodejs modules are required for this component to work.
     - **fields** (array of objects): Required.  This is an array of field objects used in this step.
 - **useReview** (boolean): Optional.  Default is false.
 - **buttons** (object): Optional.
-    - **previous** (object): Optional.
-    - **next** (object): Optional.
-    - **submit** (object): Optional.
+    - **previous** (object): Optional.  This object represents the previous button's properties
+    - **next** (object): Optional.  This object represents the next button's properties
+    - **submit** (object): Optional.  This object represents the submit button's properties
 - **callback** (function): Optional.
 
 #### Field Object
