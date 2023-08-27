@@ -162,7 +162,7 @@ function App() {
 					"input": {
 						"name": "range",
 						"id": "range",
-						"className": "form-control-file",
+						"className": "form-range",
 						"required": true
 					},
 					"label": {

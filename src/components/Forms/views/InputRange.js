@@ -1,7 +1,7 @@
 import React from 'react';
 
 function InputRange({
-	input = { id: '', type: 'text', error: null, required: false, onChange: () => {} },
+	input = { id: '', error: null, required: false, onChange: () => {} },
 	value = '',
 	label = { text: '', htmlFor: '' },
 	className = '',
@@ -26,7 +26,7 @@ function InputRange({
 			{required && <span>*</span>}
 		</label>
 		<input
-			type={type}
+			type="range"
 			id={id}
 			value={value}
 			onChange={handleChange}
