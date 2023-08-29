@@ -8,12 +8,14 @@ import MarkdownPreview from './components/MarkdownPreview/Controller';
 import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 import Collapsible from './components/Collapsible/Controller';
+import Json2Html from './components/Json2Html/Controller';
 
 import './ComponentPreview.css';
 
 function ComponentPreview() {
 	const componentMap = {
 		Collapsible,
+		Json2Html,
 		DisplayForm,
 		DisplayMenu
 	};

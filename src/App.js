@@ -92,7 +92,13 @@ function App({appState, ...props}) {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
 							link: (<Link to="/examples/Collapsible/Collapsible" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible</Link>)
-						}						
+						},
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/Json2Html/FormTest" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Json2Html</Link>)
+						}					
 					]
 				}
 			},			
