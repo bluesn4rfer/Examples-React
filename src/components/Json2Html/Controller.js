@@ -11,9 +11,15 @@ const Json2Html = ({ json }) => {
   console.debug('Json2Html isProps = ' + isProps);
 
   const props = isProps ? propsOrChildren : {};
-  const children = isProps ? [] : propsOrChildren.map((child, index) => (
-    <Json2Html key={index} json={child} />
-  ));
+  const children = isProps ? [] : (Array.isArray(propsOrChildren) ? propsOrChildren.map((child, index) => {
+    console.debug(`Json2Html processing child ${index}:`, child);
+    return <Json2Html key={index} json={child} />
+  }) : []);
+  
+  // const children = isProps ? [] : propsOrChildren.map((child, index) => {
+  //   console.debug(`Json2Html processing child ${index}:`, child);
+  //   return <Json2Html key={index} json={child} />;
+  // });
 
   return React.createElement(tagName, props, children);
 };
