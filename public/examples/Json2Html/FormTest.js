@@ -1,5 +1,6 @@
 function App(){
-    const json = {
+    const json = [
+      {
         "form": {
           "action": "/submit",
           "method": "post",
@@ -38,7 +39,8 @@ function App(){
             }
           ]
         }
-    };
+      }
+    ];
       
     return (<Json2Html json={json} />);
 }
