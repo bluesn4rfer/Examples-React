@@ -1,70 +1,37 @@
 import React from 'react';
 
 const Json2Html = ({ json }) => {
-  const transformJsonToElements = (json) => {
-    console.debug('Json2Html: Processing:', json);
-    json.map((tag) => {
-      const { children, ...tag } = ;
-      console.debug('Json2Html: tag = ', tag);
-      console.debug('json2Html: children = ', children);
-    });
+  function createElementFromJson(obj) {
+    // Check if the object is undefined or null
+    if (!obj) {
+      return null;
+    }
 
-    // const [tagName, propsOrChildren] = Object.entries(json)[0];
-    // const isProps = typeof propsOrChildren === 'object' && !Array.isArray(propsOrChildren);
+    // If the object is a string, return it as is (as text content)
+    if (typeof obj === 'string') {
+      return obj;
+    }
 
-    // if (isProps) {
-    //   console.debug('Json2Html: Creating element:', tagName, propsOrChildren);
-    //   return React.createElement(tagName, propsOrChildren, null);
-    // } else if (Array.isArray(propsOrChildren)) {
-    //   console.debug('Json2Html: Creating children for:', tagName, propsOrChildren);
-    //   const children = propsOrChildren.map((child, index) => {
-    //     const childTagName = Object.keys(child)[0]; // Get the tag name ("label", "input", etc.)
-    //     const childProps = Object.values(child)[0]; // Get the props for the child element
-    //     console.debug('Json2Html: Processing child:', child);
-    //     return (
-    //       <Json2Html key={index} json={{ [childTagName]: childProps }} />
-    //     );
-    //   });
-    //   console.debug('Json2Html: Creating element with children:', tagName, children);
-    //   return React.createElement(tagName, null, ...children);
-    // }
+    // Destructure the tag, props, and children from the JSON object
+    const { tag, props, children } = obj;
 
-    return null;
-  };
+    // Process children based on their type
+    let processedChildren;
+    if (Array.isArray(children)) {
+      processedChildren = children.map(child => createElementFromJson(child));
+    } else if (typeof children === 'string') {
+      processedChildren = children;
+    } else if (typeof children === 'object') {
+      processedChildren = createElementFromJson(children);
+    } else {
+      processedChildren = null;
+    }
 
-  const element = transformJsonToElements(json);
-  console.debug('Json2Html: Final element:', element);
+    // Create and return the React element
+    return React.createElement(tag, { ...props, key: Math.random() }, processedChildren);
+  }
 
-  return element;
-};
-
-// const Json2Html = ({ json }) => {
-//   const transformJsonToElements = (json) => {
-//     if (typeof json !== 'object' || json === null) {
-//       // Return the json if it's a primitive value
-//       return json;
-//     }
-
-//     return Object.entries(json).reduce((elements, [key, value], index) => {
-//       if (typeof value === 'object' && value !== null) {
-//         // Process objects recursively
-//         const childElements = transformJsonToElements(value);
-//         if (key === 'children') {
-//           // 'children' is a special key, append its processed elements
-//           return [...elements, ...childElements];
-//         } else {
-//           // Process as a normal tag with props and children
-//           const props = { ...value, key: index };
-//           return [...elements, React.createElement(key, props)];
-//         }
-//       } else {
-//         // Process primitives as text nodes
-//         return [...elements, value];
-//       }
-//     }, []);
-//   };
-
-//   return <>{transformJsonToElements(json)}</>;
-// };
+  return createElementFromJson(json);
+}
 
 export default Json2Html;
