@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-function DailyCalendar ({ events }) {
+function Daily ({ events }) {
     const hours = Array.from({ length: 24 }, (_, i) => i);
 
     // Function to get events for a particular hour
@@ -30,4 +30,4 @@ function DailyCalendar ({ events }) {
     );
 };
 
-export default DailyCalendar;
+export default Daily;

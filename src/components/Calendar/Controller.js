@@ -1,15 +1,15 @@
-import CalendarDaily from './views/CalendarDaily'
-import CalendarWeekly from './views/CalendarWeekly'
-import CalendarMonthly from './views/CalendarMonthly'
+import Daily from './views/Daily'
+import Weekly from './views/Weekly'
+import Monthly from './views/Monthly'
 
 function Calendar({ view = 'Monthly', ...props}){
     switch(view){
         case "Daily":
-            return <CalendarDaily {...props} />;
+            return <Daily {...props} />;
         case "Weekly":
-            return <CalendarWeekly {...props} />;
+            return <Weekly {...props} />;
         default:
-            return <CalendarMonthly {...props} />;
+            return <Monthly {...props} />;
     }
 }
 
