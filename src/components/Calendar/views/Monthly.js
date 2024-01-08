@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function Monthly({ events, year, month }){
+function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
     // Default to current month and year if not specified
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1; // getMonth() returns 0-11
@@ -29,6 +29,18 @@ function Monthly({ events, year, month }){
     return (
         <Container>
             <h1>Monthly Calendar - {displayYear}/{displayMonth}</h1>
+            <Row className="mb-4">
+                {onPrevMonth && (
+                    <Col>
+                        <Button onClick={onPrevMonth}>Previous Month</Button>
+                    </Col>
+                )}
+                {onNextMonth && (
+                    <Col className="text-right">
+                        <Button onClick={onNextMonth}>Next Month</Button>
+                    </Col>
+                )}
+            </Row>
             <Row>
                 {calendarDays.map((day, index) => (
                     <Col key={index} xs={6} md={2} lg={1} className="mb-4">
@@ -45,6 +57,6 @@ function Monthly({ events, year, month }){
             </Row>
         </Container>
     );
-};
+};    
 
 export default Monthly;
