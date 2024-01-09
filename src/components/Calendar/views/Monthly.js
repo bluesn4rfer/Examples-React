@@ -32,12 +32,12 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
             <Row className="mb-4">
                 {onPrevMonth && (
                     <Col>
-                        <Button onClick={onPrevMonth}>Previous Month</Button>
+                        <Button onClick={onPrevMonth}>Previous</Button>
                     </Col>
                 )}
                 {onNextMonth && (
                     <Col className="text-right">
-                        <Button onClick={onNextMonth}>Next Month</Button>
+                        <Button onClick={onNextMonth}>Next</Button>
                     </Col>
                 )}
             </Row>
