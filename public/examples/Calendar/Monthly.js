@@ -5,5 +5,13 @@ function App() {
         // More events...
     ];
 
-	return <Calendar view='Monthly' events={events} />;
+    const previousMonth = () => {
+        alert('Previous Month');
+    }
+
+    const nextMonth = () => {
+        alert('Next Month');
+    }
+
+	return <Calendar view='Monthly' events={events} onPrevMonth={previousMonth} onNextMonth={nextMonth} />;
 }
