@@ -1,13 +1,20 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function Mini({ events, year, month, onPrevMonth, onNextMonth }){
+function Mini({ year, month }){
     // Default to current month and year if not specified
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1; // getMonth() returns 0-11
 
     const displayYear = year || currentYear;
     const displayMonth = month || currentMonth;
+
+    // Array of month names
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"];
+
+    // Fetching the month name from the array
+    const monthName = monthNames[displayMonth - 1];
 
     const daysInMonth = new Date(displayYear, displayMonth, 0).getDate();
     const firstDayOfMonth = new Date(displayYear, displayMonth - 1, 1).getDay();
@@ -20,25 +27,24 @@ function Mini({ events, year, month, onPrevMonth, onNextMonth }){
     });
 
     return (
-        <Container>
-            <h1>Monthly Calendar - {displayYear}/{displayMonth}</h1>
+        <Container style={{maxWidth: '200px'}}>
+            
             <Row className="mb-4">
-                {onPrevMonth && (
-                    <Col>
-                        <Button onClick={onPrevMonth}>Previous</Button>
-                    </Col>
-                )}
-                {onNextMonth && (
-                    <Col className="text-right">
-                        <Button onClick={onNextMonth}>Next</Button>
-                    </Col>
-                )}
+                <Col>
+                    <h6>{monthName} {displayYear}</h6>
+                </Col>
+                <Col>
+                    <Button onClick={null}>&lt;</Button>
+                </Col>
+                <Col className="text-right">
+                    <Button onClick={null}>&gt;</Button>
+                </Col>
             </Row>
             <Row>
                 {calendarDays.map((day, index) => (
                     <Col key={index} xs={6} md={2} lg={1} className="mb-4">
                         <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
-                            {day && <div>{day}</div>}
+                            {day && <div><Button>{day}</Button></div>}
                         </div>
                     </Col>
                 ))}
