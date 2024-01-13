@@ -30,22 +30,18 @@ function Mini({ year, month }){
         <Container style={{maxWidth: '200px'}}>
             
             <Row className="mb-4">
-                <Col>
+                <Col xs={8} className='p-0'>
                     <h6>{monthName} {displayYear}</h6>
                 </Col>
-                <Col>
-                    <Button onClick={null}>&lt;</Button>
-                </Col>
-                <Col className="text-right">
-                    <Button onClick={null}>&gt;</Button>
+                <Col className="d-flex justify-content-end p-0">
+                    <button className='p-1' onClick={null}>&lt;</button>
+                    <button className='p-1' onClick={null}>&gt;</button>
                 </Col>
             </Row>
             <Row>
                 {calendarDays.map((day, index) => (
                     <Col key={index} xs={6} md={2} lg={1} className="mb-4">
-                        <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
-                            {day && <div><Button>{day}</Button></div>}
-                        </div>
+                        {day && <Button className='p-1'>{day}</Button>}
                     </Col>
                 ))}
             </Row>
