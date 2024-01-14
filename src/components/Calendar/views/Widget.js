@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function Mini({ year, month }){
+function Widget({ year, month }){
     // Default to current month and year if not specified
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth() + 1; // getMonth() returns 0-11
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-11
+    const currentDay = currentDate.getDate();
 
     const displayYear = year || currentYear;
     const displayMonth = month || currentMonth;
@@ -26,22 +28,27 @@ function Mini({ year, month }){
         return day > 0 ? day : null;
     });
 
+    // Function to determine if the day is 'today'
+    const isToday = (day) => {
+        return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
+    };    
+
     return (
-        <Container style={{maxWidth: '200px'}}>
-            
-            <Row className="mb-4">
+        <Container className='widget'>   
+            <Row className=''>
                 <Col xs={8} className='p-0'>
                     <h6>{monthName} {displayYear}</h6>
                 </Col>
-                <Col className="d-flex justify-content-end p-0">
-                    <button className='p-1' onClick={null}>&lt;</button>
-                    <button className='p-1' onClick={null}>&gt;</button>
+                <Col className='nav d-flex justify-content-end p-0'>
+                    <Button className='p-1' onClick={null}>&lt;</Button>
+                    &nbsp;
+                    <Button className='p-1' onClick={null}>&gt;</Button>
                 </Col>
             </Row>
             <Row>
                 {calendarDays.map((day, index) => (
-                    <Col key={index} xs={6} md={2} lg={1} className="mb-4">
-                        {day && <Button className='p-1'>{day}</Button>}
+                    <Col key={index} xs={6} md={2} lg={1} className='days'>
+                        {day && <Button className={`p-1 ${isToday(day) ? 'today' : ''}`}>{day}</Button>}
                     </Col>
                 ))}
             </Row>
@@ -49,4 +56,4 @@ function Mini({ year, month }){
     );
 };    
 
-export default Mini;
+export default Widget;

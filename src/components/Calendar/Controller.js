@@ -1,8 +1,10 @@
 import MenuBar from './views/MenuBar';
-import Mini from './views/Mini';
+import Widget from './views/Widget';
 import Daily from './views/Daily';
 import Weekly from './views/Weekly';
 import Monthly from './views/Monthly';
+
+import './Calendar.css';
 
 function Calendar({ view = 'Monthly', ...props}){
     const showView = (view) => {
@@ -20,7 +22,7 @@ function Calendar({ view = 'Monthly', ...props}){
         <div class="d-flex flex-column">
             <div><MenuBar /></div>
             <div class="d-flex flex-row">
-                <div><Mini /></div>
+                <div><Widget /></div>
                 <div>{showView(view)}</div>
             </div>
         </div>
