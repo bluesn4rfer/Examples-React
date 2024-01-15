@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function Widget({ year, month }){
+function Widget({ year, month, onMonthChange }){
     // Default to current month and year if not specified
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-11
     const currentDay = currentDate.getDate();
 
-    const displayYear = year || currentYear;
-    const displayMonth = month || currentMonth;
+    const [displayYear, setDisplayYear] = useState(year || currentYear);
+    const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
+
+    useEffect(() => {
+        // If year and month props change, update the internal state
+        if (year) setDisplayYear(year);
+        if (month) setDisplayMonth(month);
+    }, [year, month]);
 
     // Array of month names
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -33,6 +39,33 @@ function Widget({ year, month }){
         return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
     };    
 
+
+    // Function to navigate to the previous month
+    const previousMonth = () => {
+        setDisplayMonth(prevMonth => {
+            if (prevMonth === 1) {
+                setDisplayYear(prevYear => prevYear - 1);
+                return 12;
+            } else {
+                return prevMonth - 1;
+            }
+        });
+        if (onMonthChange) onMonthChange(displayYear, displayMonth - 1);
+    };
+
+    // Function to navigate to the next month
+    const nextMonth = () => {
+        setDisplayMonth(prevMonth => {
+            if (prevMonth === 12) {
+                setDisplayYear(prevYear => prevYear + 1);
+                return 1;
+            } else {
+                return prevMonth + 1;
+            }
+        });
+        if (onMonthChange) onMonthChange(displayYear, displayMonth + 1);
+    };
+
     return (
         <Container className='widget'>   
             <Row className=''>
@@ -40,9 +73,9 @@ function Widget({ year, month }){
                     <h6>{monthName} {displayYear}</h6>
                 </Col>
                 <Col className='nav d-flex justify-content-end p-0'>
-                    <Button className='p-1' onClick={null}>&lt;</Button>
+                    <Button className='p-1' onClick={previousMonth}>&lt;</Button>
                     &nbsp;
-                    <Button className='p-1' onClick={null}>&gt;</Button>
+                    <Button className='p-1' onClick={nextMonth}>&gt;</Button>
                 </Col>
             </Row>
             <Row>
