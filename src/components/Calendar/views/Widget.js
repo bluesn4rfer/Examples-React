@@ -79,9 +79,18 @@ function Widget({ year, month, onMonthChange }){
                 </Col>
             </Row>
             <Row>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>S</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>M</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>T</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>W</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>T</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>F</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>S</Col>
+            </Row>
+            <Row>
                 {calendarDays.map((day, index) => (
-                    <Col key={index} xs={6} md={2} lg={1} className='days'>
-                        {day && <Button className={`p-1 ${isToday(day) ? 'today' : ''}`}>{day}</Button>}
+                    <Col key={index} xs={6} md={2} lg={1} className='days d-flex justify-content-center'>
+                        {day && <Button className={`${isToday(day) ? 'today' : ''}`}>{day}</Button>}
                     </Col>
                 ))}
             </Row>

@@ -17,7 +17,6 @@
 }
 
 .widget .days .btn {
-    padding: 0.25em !important; /* Reduced padding and added !important */
     width: 1.5em !important;      /* Fixed width */
     height: 1.5em !important;     /* Fixed height */
     border-radius: .75em !important; /* Make circle (1/2 height & width)*/
