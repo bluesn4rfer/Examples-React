@@ -88,11 +88,29 @@ function Widget({ year, month, onMonthChange }){
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>S</Col>
             </Row>
             <Row>
-                {calendarDays.map((day, index) => (
-                    <Col key={index} xs={6} md={2} lg={1} className='days d-flex justify-content-center'>
+            {calendarDays.map((day, index) => {
+                const currentWeek = Math.floor((index + 1) / 7);
+                const nextMonthStartIndex = daysInMonth + firstDayOfMonth;
+                const isPreviousMonth = index < firstDayOfMonth;
+                const isNextMonth = index >= nextMonthStartIndex;
+                const isVisible = !isNextMonth || currentWeek === 0;
+
+                if((isPreviousMonth) || (isNextMonth)){
+                    return (
+                        <Col key={index} xs={6} md={2} lg={1} className="days d-flex justify-content-center">
+                        {<Button className={`${isToday(day) ? 'today' : ''}`}>{index}</Button>}
+                        </Col>
+                    );
+                }
+
+                return (
+                    isVisible && (
+                        <Col key={index} xs={6} md={2} lg={1} className="days d-flex justify-content-center">
                         {day && <Button className={`${isToday(day) ? 'today' : ''}`}>{day}</Button>}
-                    </Col>
-                ))}
+                        </Col>
+                    )
+                );
+            })}
             </Row>
         </Container>
     );
