@@ -26,7 +26,10 @@ function Widget({ year, month, onMonthChange }){
 
     const daysInMonth = new Date(displayYear, displayMonth, 0).getDate();
     const firstDayOfMonth = new Date(displayYear, displayMonth - 1, 1).getDay();
-    const totalCells = daysInMonth + firstDayOfMonth;
+    const lastDayOfMonthWeekday = new Date(displayYear, displayMonth - 1, daysInMonth).getDay();
+    const daysToAddFromNextMonth = 14 - lastDayOfMonthWeekday - 1; // "-1" because the last day itself counts
+    const totalCells = daysInMonth + firstDayOfMonth + daysToAddFromNextMonth;
+    
 
     // Create an array representing the days of the month
     const calendarDays = Array.from({ length: totalCells }, (_, i) => {
@@ -39,31 +42,32 @@ function Widget({ year, month, onMonthChange }){
         return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
     };    
 
-
-    // Function to navigate to the previous month
+     // Function to navigate to the previous month
     const previousMonth = () => {
         setDisplayMonth(prevMonth => {
+            const newMonth = prevMonth === 1 ? 12 : prevMonth - 1;
             if (prevMonth === 1) {
                 setDisplayYear(prevYear => prevYear - 1);
-                return 12;
-            } else {
-                return prevMonth - 1;
             }
+            if (onMonthChange) {
+                onMonthChange(prevMonth === 1 ? displayYear - 1 : displayYear, newMonth);
+            }
+            return newMonth;
         });
-        if (onMonthChange) onMonthChange(displayYear, displayMonth - 1);
     };
-
+    
     // Function to navigate to the next month
     const nextMonth = () => {
         setDisplayMonth(prevMonth => {
+            const newMonth = prevMonth === 12 ? 1 : prevMonth + 1;
             if (prevMonth === 12) {
                 setDisplayYear(prevYear => prevYear + 1);
-                return 1;
-            } else {
-                return prevMonth + 1;
             }
+            if (onMonthChange) {
+                onMonthChange(prevMonth === 12 ? displayYear + 1 : displayYear, newMonth);
+            }
+            return newMonth;
         });
-        if (onMonthChange) onMonthChange(displayYear, displayMonth + 1);
     };
 
     return (
@@ -79,36 +83,33 @@ function Widget({ year, month, onMonthChange }){
                 </Col>
             </Row>
             <Row>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>S</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>M</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>T</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>W</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>T</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>F</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>S</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Su</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Mo</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Tu</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>We</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Th</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Fr</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sa</Col>
             </Row>
             <Row>
             {calendarDays.map((day, index) => {
-                const currentWeek = Math.floor((index + 1) / 7);
-                const nextMonthStartIndex = daysInMonth + firstDayOfMonth;
                 const isPreviousMonth = index < firstDayOfMonth;
-                const isNextMonth = index >= nextMonthStartIndex;
-                const isVisible = !isNextMonth || currentWeek === 0;
+                const isNextMonth = index >= daysInMonth + firstDayOfMonth;
 
-                if((isPreviousMonth) || (isNextMonth)){
-                    return (
-                        <Col key={index} xs={6} md={2} lg={1} className="days d-flex justify-content-center">
-                        {<Button className={`${isToday(day) ? 'today' : ''}`}>{index}</Button>}
-                        </Col>
-                    );
+                let displayDay;
+                if (isPreviousMonth) {
+                    const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
+                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);
+                } else if (isNextMonth) {
+                    displayDay = index - daysInMonth - firstDayOfMonth + 1;
+                } else {
+                    displayDay = day;
                 }
 
                 return (
-                    isVisible && (
-                        <Col key={index} xs={6} md={2} lg={1} className="days d-flex justify-content-center">
-                        {day && <Button className={`${isToday(day) ? 'today' : ''}`}>{day}</Button>}
-                        </Col>
-                    )
+                    <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
+                        {displayDay && <Button className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'today' : ''}`}>{displayDay}</Button>}
+                    </Col>
                 );
             })}
             </Row>

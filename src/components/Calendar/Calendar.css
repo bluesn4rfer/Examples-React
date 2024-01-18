@@ -7,6 +7,10 @@
     height: 2em;
 }
 
+.widget .days.current-month .btn {
+    font-weight: bold;
+}
+
 .widget .nav .btn {
     padding: 0.25em !important; /* Reduced padding and added !important */
     width: 1.5em !important;      /* Fixed width */
