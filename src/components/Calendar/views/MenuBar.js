@@ -1,6 +1,9 @@
-function MenuBar(){
+function MenuBar({ year, monthName }){
+
     return (
-        <div>MenuBar</div>
+        <div>
+            <h1>{monthName} {year}</h1>
+        </div>
     );
 }
 
