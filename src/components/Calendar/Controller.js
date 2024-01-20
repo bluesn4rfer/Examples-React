@@ -31,23 +31,25 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     // Fetching the month name from the array
     const monthName = monthNames[displayMonth - 1];    
 
-    const showView = (view) => {
-        switch(view){
-            case "Daily":
-                return <Daily year={year} month={month} {...props} />;
-            case "Weekly":
-                return <Weekly year={year} month={month} {...props} />;
-            default:
-                return <Monthly year={year} month={month} {...props} />;
-        }
-    }
-
     return (
         <div class="d-flex flex-column">
-            <div><MenuBar year={year} monthName={monthName} /></div>
+            <div><MenuBar year={displayYear} monthName={monthName} /></div>
             <div class="d-flex flex-row">
                 <div><Widget /></div>
-                <div>{showView(view)}</div>
+                <div>
+                {
+                    (() => {
+                        switch(view){
+                            case "Daily":
+                                return <Daily year={displayYear} month={displayMonth} {...props} />;
+                            case "Weekly":
+                                return <Weekly year={displayYear} month={displayMonth} {...props} />;
+                            default:
+                                return <Monthly year={displayYear} month={displayMonth} {...props} />;
+                        }
+                    })()
+                }                    
+                </div>
             </div>
         </div>
     )
