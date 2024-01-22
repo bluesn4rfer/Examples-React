@@ -32,9 +32,9 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     const monthName = monthNames[displayMonth - 1];    
 
     return (
-        <div class="d-flex flex-column">
+        <div className="d-flex flex-column">
             <div><MenuBar year={displayYear} monthName={monthName} /></div>
-            <div class="d-flex flex-row">
+            <div className="d-flex flex-row">
                 <div><Widget /></div>
                 <div>
                 {
