@@ -17,12 +17,24 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     
     const [displayYear, setDisplayYear] = useState(year || currentYear);
     const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
+    const [displayView, setDisplayView] = useState(view);
 
     useEffect(() => {
         // If year and month props change, update the internal state
-        if (year) setDisplayYear(year);
-        if (month) setDisplayMonth(month);
+        if(year){
+            setDisplayYear(year);
+        }
+
+        if(month){
+            setDisplayMonth(month);
+        }
     }, [year, month]);
+
+    useEffect(() => {
+        if(view){
+            setDisplayView(view);
+        } 
+    }, [view])
 
     // Array of month names
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -31,18 +43,25 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     // Fetching the month name from the array
     const monthName = monthNames[displayMonth - 1];    
 
+    const onViewChange = (view) => {
+        if(view){
+            console.log('Calendar/Controller.js onViewChange: ', view)
+            setDisplayView(view);
+        }
+    }
+
     return (
         <div className="d-flex flex-column">
-            <div><MenuBar year={displayYear} monthName={monthName} /></div>
+            <div><MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} /></div>
             <div className="d-flex flex-row">
                 <div><Widget /></div>
                 <div>
                 {
                     (() => {
-                        switch(view){
-                            case "Daily":
+                        switch(displayView.toLowerCase()){
+                            case "daily":
                                 return <Daily year={displayYear} month={displayMonth} {...props} />;
-                            case "Weekly":
+                            case "weekly":
                                 return <Weekly year={displayYear} month={displayMonth} {...props} />;
                             default:
                                 return <Monthly year={displayYear} month={displayMonth} {...props} />;
