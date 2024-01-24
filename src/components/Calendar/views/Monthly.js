@@ -42,6 +42,15 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                 )}
             </Row>
             <Row>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sun</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Mon</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Tues</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Wed</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Thur</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Fri</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sat</Col>
+            </Row>            
+            <Row>
                 {calendarDays.map((day, index) => (
                     <Col key={index} xs={6} md={2} lg={1} className="mb-4">
                         <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
