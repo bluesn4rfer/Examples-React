@@ -28,19 +28,6 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
 
     return (
         <Container>
-            <h1>Monthly Calendar - {displayYear}/{displayMonth}</h1>
-            <Row className="mb-4">
-                {onPrevMonth && (
-                    <Col>
-                        <Button onClick={onPrevMonth}>Previous</Button>
-                    </Col>
-                )}
-                {onNextMonth && (
-                    <Col className="text-right">
-                        <Button onClick={onNextMonth}>Next</Button>
-                    </Col>
-                )}
-            </Row>
             <Row>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sun</Col>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Mon</Col>
