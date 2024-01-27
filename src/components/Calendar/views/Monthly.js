@@ -61,18 +61,33 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sat</Col>
             </Row>            
             <Row>
-                {calendarDays.map((day, index) => (
-                    <Col key={index} xs={6} md={2} lg={1} className="mb-4">
-                        <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
-                            {day && <div>{day}</div>}
-                            {day && getEventsForDay(day).map(event => (
-                                <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
-                                    {event.title}
-                                </div>
-                            ))}
-                        </div>
-                    </Col>
-                ))}
+                {calendarDays.map((day, index) => {
+                    const isPreviousMonth = index < firstDayOfMonth;
+                    const isNextMonth = index >= daysInMonth + firstDayOfMonth;
+
+                    let displayDay;
+                    if (isPreviousMonth) {
+                        const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
+                        displayDay = prevMonthDays - (firstDayOfMonth - index - 1);
+                    } else if (isNextMonth) {
+                        displayDay = index - daysInMonth - firstDayOfMonth + 1;
+                    } else {
+                        displayDay = day;
+                    }
+
+                    return (
+                        <Col key={index} xs={6} md={2} lg={1} className="mb-4">
+                            <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
+                                {displayDay && <div>{displayDay}</div>}
+                                {displayDay && getEventsForDay(day).map(event => (
+                                    <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
+                                        {event.title}
+                                    </div>
+                                ))}
+                            </div>
+                        </Col>
+                    )
+                })}
             </Row>
         </Container>
     );
