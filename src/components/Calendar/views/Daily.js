@@ -11,7 +11,6 @@ function Daily ({ events }) {
 
     return (
         <Container>
-            <h1>Daily Calendar</h1>
             {hours.map(hour => (
                 <Row key={hour} className="mb-2">
                     <Col>

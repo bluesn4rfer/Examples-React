@@ -12,7 +12,6 @@ function Weekly({ events }){
 
     return (
         <Container>
-            <h1>Weekly Calendar</h1>
             {daysOfWeek.map(day => (
                 <Row key={day}>
                     <Col>

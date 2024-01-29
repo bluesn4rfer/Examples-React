@@ -28,13 +28,19 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
     const firstDayOfMonth = new Date(displayYear, displayMonth - 1, 1).getDay();
     const lastDayOfMonthWeekday = new Date(displayYear, displayMonth - 1, daysInMonth).getDay();
     const daysToAddFromNextMonth = 14 - lastDayOfMonthWeekday - 1; // "-1" because the last day itself counts
-    const totalCells = daysInMonth + firstDayOfMonth + daysToAddFromNextMonth;
+    const totalRows = Math.ceil((daysInMonth + firstDayOfMonth) / 7);
+    const totalCells = totalRows * 7;    
+    //const totalCells = daysInMonth + firstDayOfMonth + daysToAddFromNextMonth;
     
 
     // Create an array representing the days of the month
+    // const calendarDays = Array.from({ length: totalCells }, (_, i) => {
+    //     const day = i - firstDayOfMonth + 1;
+    //     return day > 0 ? day : null;
+    // });
     const calendarDays = Array.from({ length: totalCells }, (_, i) => {
         const day = i - firstDayOfMonth + 1;
-        return day > 0 ? day : null;
+        return day > 0 && day <= daysInMonth ? day : null;
     });
 
     // Function to determine if the day is 'today'
@@ -49,8 +55,19 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                                       new Date(event.date).getFullYear() === displayYear);
     };
 
+    // Function to split calendar days into weeks
+    const splitIntoWeeks = (days) => {
+        const weeks = [];
+        for (let i = 0; i < days.length; i += 7) {
+            weeks.push(days.slice(i, i + 7));
+        }
+        return weeks;
+    };
+
+    const weeks = splitIntoWeeks(calendarDays);
+
     return (
-        <Container>
+        <Container className='calendar-monthly'>
             <Row>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sun</Col>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Mon</Col>
@@ -59,36 +76,43 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Thur</Col>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Fri</Col>
                 <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sat</Col>
-            </Row>            
-            <Row>
-                {calendarDays.map((day, index) => {
-                    const isPreviousMonth = index < firstDayOfMonth;
-                    const isNextMonth = index >= daysInMonth + firstDayOfMonth;
+            </Row>  
+            {weeks.map((week, weekIndex) => (
+                <Row key={weekIndex}>
+                    {week.map((day, dayIndex) => {          
+                    //{calendarDays.map((day, index) => {
+                        // const isPreviousMonth = index < firstDayOfMonth;
+                        // const isNextMonth = index >= daysInMonth + firstDayOfMonth;
 
-                    let displayDay;
-                    if (isPreviousMonth) {
-                        const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
-                        displayDay = prevMonthDays - (firstDayOfMonth - index - 1);
-                    } else if (isNextMonth) {
-                        displayDay = index - daysInMonth - firstDayOfMonth + 1;
-                    } else {
-                        displayDay = day;
-                    }
+                        // Determine if the day is from the previous or next month
+                        const isPreviousMonth = weekIndex === 0 && dayIndex < firstDayOfMonth;
+                        const isNextMonth = weekIndex === weeks.length - 1 && dayIndex > lastDayOfMonthWeekday;
 
-                    return (
-                        <Col key={index} xs={6} md={2} lg={1} className="mb-4">
-                            <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
-                                {displayDay && <div>{displayDay}</div>}
-                                {displayDay && getEventsForDay(day).map(event => (
-                                    <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
-                                        {event.title}
-                                    </div>
-                                ))}
-                            </div>
-                        </Col>
-                    )
-                })}
-            </Row>
+                        let displayDay;
+                        if (isPreviousMonth) {
+                            const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
+                            displayDay = prevMonthDays - (firstDayOfMonth - dayIndex - 1);
+                        } else if (isNextMonth) {
+                            displayDay = dayIndex - daysInMonth - firstDayOfMonth + 1;
+                        } else {
+                            displayDay = day;
+                        }
+
+                        return (
+                            <Col key={dayIndex} xs={6} md={2} lg={1} className="days">
+                                <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
+                                    {displayDay && <div>{displayDay}</div>}
+                                    {displayDay && getEventsForDay(day).map(event => (
+                                        <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
+                                            {event.title}
+                                        </div>
+                                    ))}
+                                </div>
+                            </Col>
+                        )
+                    })}
+                </Row>
+            ))}
         </Container>
     );
 };    
