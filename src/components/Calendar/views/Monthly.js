@@ -69,13 +69,13 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
     return (
         <Container className='calendar-monthly'>
             <Row>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sun</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Mon</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Tues</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Wed</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Thur</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Fri</Col>
-                <Col xs={6} md={2} lg={1} className='days d-flex justify-content-center'>Sat</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Sun</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Mon</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Tues</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Wed</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Thur</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Fri</Col>
+                <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Sat</Col>
             </Row>  
             {weeks.map((week, weekIndex) => (
                 <Row key={weekIndex}>
@@ -99,7 +99,7 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                         }
 
                         return (
-                            <Col key={dayIndex} xs={6} md={2} lg={1} className="days">
+                            <Col key={dayIndex} xs={6} md={2} lg={1} className="days d-flex flex-fill">
                                 <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
                                     {displayDay && <div>{displayDay}</div>}
                                     {displayDay && getEventsForDay(day).map(event => (

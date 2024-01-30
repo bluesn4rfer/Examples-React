@@ -55,7 +55,7 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
             <div><MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} /></div>
             <div className="d-flex flex-row">
                 <div><Widget /></div>
-                <div>
+                <div class='container'>
                 {
                     (() => {
                         switch(displayView.toLowerCase()){
