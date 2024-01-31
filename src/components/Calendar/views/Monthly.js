@@ -93,15 +93,15 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                             const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
                             displayDay = prevMonthDays - (firstDayOfMonth - dayIndex - 1);
                         } else if (isNextMonth) {
-                            displayDay = dayIndex - daysInMonth - firstDayOfMonth + 1;
+                            displayDay = (weekIndex * 7) + dayIndex - daysInMonth - firstDayOfMonth + 1;
                         } else {
                             displayDay = day;
                         }
 
                         return (
-                            <Col key={dayIndex} xs={6} md={2} lg={1} className="days d-flex flex-fill">
-                                <div style={{ minHeight: "100px", border: "1px solid #ddd" }}>
-                                    {displayDay && <div>{displayDay}</div>}
+                            <Col key={dayIndex} xs={6} md={2} lg={1} className="days d-flex flex-fill p-0">
+                                <div className="d-flex flex-fill" style={{ minHeight: "100px" }}>
+                                    {displayDay && <div className="p-1">{displayDay}</div>}
                                     {displayDay && getEventsForDay(day).map(event => (
                                         <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
                                             {event.title}
