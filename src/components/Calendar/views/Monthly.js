@@ -67,7 +67,7 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
     const weeks = splitIntoWeeks(calendarDays);
 
     return (
-        <Container className='calendar-monthly'>
+        <div className='calendar-monthly'>
             <Row>
                 <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Sun</Col>
                 <Col xs={6} md={2} lg={1} className='days d-flex flex-fill justify-content-center'>Mon</Col>
@@ -113,7 +113,7 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                     })}
                 </Row>
             ))}
-        </Container>
+        </div>
     );
 };    
 

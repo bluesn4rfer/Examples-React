@@ -1,3 +1,7 @@
+.calendar-view {
+    width: 100%;
+}
+
 .calendar-monthly .days {
     border: 1px solid #ddd;
 }
