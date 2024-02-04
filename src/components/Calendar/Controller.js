@@ -32,7 +32,7 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
 
     useEffect(() => {
         if(view){
-            setDisplayView(view);
+            setDisplayView(view.toLowerCase());
         } 
     }, [view])
 
@@ -50,15 +50,45 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
         }
     }
 
+    const btnPrevious = () => {
+        switch(displayView){
+            case "daily":
+                alert('Previous Day');
+                break;
+            case "weekly":
+                alert('Previous Week');
+                break;
+            default:
+                alert('Previous Month');
+        }
+    }
+
+    const btnNext = () => {
+        switch(displayView){
+            case "daily":
+                alert('Next Day');
+                break;
+            case "weekly":
+                alert('Next Week');
+                break;
+            default:
+                alert('Next Month');
+        }
+    }
+
+    const btnToday = () => {
+        alert('Today');
+    }
+
     return (
         <div className="d-flex flex-column">
-            <div><MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} /></div>
+            <div><MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} /></div>
             <div className="d-flex flex-row">
                 <div><Widget /></div>
                 <div class='calendar-view'>
                 {
                     (() => {
-                        switch(displayView.toLowerCase()){
+                        switch(displayView){
                             case "daily":
                                 return <Daily year={displayYear} month={displayMonth} {...props} />;
                             case "weekly":
