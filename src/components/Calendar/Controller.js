@@ -53,26 +53,36 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     const btnPrevious = () => {
         switch(displayView){
             case "daily":
-                alert('Previous Day');
+                const prevDay = new Date(displayYear, displayMonth - 1, currentDay - 1);
+                setDisplayYear(prevDay.getFullYear());
+                setDisplayMonth(prevDay.getMonth() + 1);
                 break;
             case "weekly":
                 alert('Previous Week');
                 break;
             default:
-                alert('Previous Month');
+                let newYear = displayMonth === 1 ? displayYear - 1 : displayYear;
+                let newMonth = displayMonth === 1 ? 12 : displayMonth - 1;
+                setDisplayYear(newYear);
+                setDisplayMonth(newMonth);
         }
     }
 
     const btnNext = () => {
         switch(displayView){
             case "daily":
-                alert('Next Day');
+                const nextDay = new Date(displayYear, displayMonth - 1, currentDay + 1);
+                setDisplayYear(nextDay.getFullYear());
+                setDisplayMonth(nextDay.getMonth() + 1);
                 break;
             case "weekly":
                 alert('Next Week');
                 break;
             default:
-                alert('Next Month');
+                let newYear = displayMonth === 12 ? displayYear + 1 : displayYear;
+                let newMonth = displayMonth === 12 ? 1 : displayMonth + 1;
+                setDisplayYear(newYear);
+                setDisplayMonth(newMonth);
         }
     }
 
