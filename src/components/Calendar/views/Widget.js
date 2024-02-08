@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 function Widget({ year, month, onMonthChange }){
     // Default to current month and year if not specified
@@ -71,7 +71,7 @@ function Widget({ year, month, onMonthChange }){
     };
 
     return (
-        <Container className='widget'>   
+        <div className='widget'>   
             <Row className=''>
                 <Col xs={8} className='p-0'>
                     <h6>{monthName} {displayYear}</h6>
@@ -113,7 +113,7 @@ function Widget({ year, month, onMonthChange }){
                 );
             })}
             </Row>
-        </Container>
+        </div>
     );
 };    
 

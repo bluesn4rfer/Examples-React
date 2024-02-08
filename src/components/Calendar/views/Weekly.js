@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
     // Parse the provided date string or today's date to a Date object
@@ -29,7 +29,7 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
             <Row>
             {daysOfWeek.map(day => (
                 <Col key={day}>
-                    <h2>{day}</h2>
+                    <h2 className='theme-primary'>{day}</h2>
                     {hours.map(hour => (
                         <Row key={`${day}-${hour}`} className="mb-2">
                             <Col>

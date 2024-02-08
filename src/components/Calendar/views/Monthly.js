@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
     // Default to current month and year if not specified
