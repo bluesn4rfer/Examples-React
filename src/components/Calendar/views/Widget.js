@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
-function Widget({ year, month, onMonthChange }){
+function Widget({ year, month, onMonthChange, onDayClick }){
     // Default to current month and year if not specified
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -106,9 +106,16 @@ function Widget({ year, month, onMonthChange }){
                     displayDay = day;
                 }
 
+                const handleClick = () => {
+                    // Only trigger callback for current month days
+                    if (!isPreviousMonth && !isNextMonth && onDayClick) {
+                        onDayClick(displayYear, displayMonth, displayDay);
+                    }
+                };
+
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
-                        {displayDay && <Button className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'today' : ''}`}>{displayDay}</Button>}
+                        {displayDay && <Button onClick={handleClick} className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'today' : ''}`}>{displayDay}</Button>}
                     </Col>
                 );
             })}
