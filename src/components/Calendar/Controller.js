@@ -90,10 +90,14 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
         alert('Today');
     }
 
+    const changeDate = (year, month, day) => {
+        alert('Change Date: ' + month + '/' + day + '/' + year);
+    }
+
     return (
         <div className="d-flex flex-column px-2">
             <div className="d-flex flex-row">
-                <div><Widget /></div>
+                <div><Widget onDayClick={changeDate} /></div>
                 <div class='calendar-view'>
                     <MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
                 {
