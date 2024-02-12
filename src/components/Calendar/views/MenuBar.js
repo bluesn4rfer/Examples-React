@@ -9,14 +9,14 @@ function MenuBar({ year, monthName, onViewChange = () => {}, btnToday = () => {}
                 <Col className='p-0'>
                     <h1 className='m-0 text-nowrap'>{monthName} {year}</h1>
                 </Col>
-                <Col className='p-0'>
+                <Col className='p-0 d-flex justify-content-center'>
                     <Button onClick={btnToday} className='ms-0'>Today</Button>
                     &nbsp;
                     <Button onClick={btnPrevious}>&lt;</Button>
                     &nbsp;
                     <Button onClick={btnNext}>&gt;</Button>
                 </Col>
-                <Col className='d-flex justify-content-end'>
+                <Col className='p-0 d-flex justify-content-end'>
                     <select onChange={(e) => onViewChange(e.target.value)}>
                         <option value='daily'>Daily</option>
                         <option value='weekly'>Weekly</option>
