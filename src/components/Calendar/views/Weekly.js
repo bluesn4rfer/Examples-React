@@ -11,13 +11,16 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
     const daysOfWeek = Array.from({ length: 7 }, (_, i) => {
         const date = new Date(startDate);
         date.setDate(startDate.getDate() + i);
-        return `${date.toLocaleString('en-us', { weekday: 'short' })} ${date.getDate()}`;
+        return {
+            day: date.toLocaleString('en-us', { weekday: 'short' }),
+            date: date.getDate(),
+        };
     });
 
     const hours = Array.from({ length: 24 }, (_, i) => i);
 
-    const getEventsForHourAndDay = (hour, day) => {
-        const dayIndex = daysOfWeek.findIndex(d => d.startsWith(day.split(' ')[0]));
+    const getEventsForHourAndDay = (hour, { day, date }) => {
+        const dayIndex = daysOfWeek.findIndex(d => d.day === day);
         const eventDate = new Date(startDate);
         eventDate.setDate(startDate.getDate() + dayIndex);
         const eventDateString = eventDate.toISOString().split('T')[0];
@@ -27,11 +30,14 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
     return (
         <div className='calendar-weekly'>
             <Row>
-            {daysOfWeek.map(day => (
-                <Col key={day}>
-                    <h2 className='theme-primary'>{day}</h2>
+            {daysOfWeek.map(({ day, date }) => (
+                <Col key={`${day}-${date}`} className="border border-1">
+                    <div className='theme-primary row'>
+                        <div className='d-flex justify-content-center'>{day}</div>
+                        <div className='d-flex justify-content-center'>{date}</div>
+                    </div>
                     {hours.map(hour => (
-                        <Row key={`${day}-${hour}`} className="mb-2">
+                        <Row key={`${day}-${hour}`}>
                             <Col>
                                 <div style={{ border: "1px solid #ddd", minHeight: "60px", padding: "10px" }}>
                                     <div>{`${hour}:00`}</div>

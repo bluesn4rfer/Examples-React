@@ -97,8 +97,8 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     return (
         <div className="d-flex flex-column px-2">
             <div className="d-flex flex-row">
-                <div className='p-4'><Widget onDayClick={changeDate} /></div>
-                <div class='calendar-view p-4'>
+                <div className='px-4'><Widget onDayClick={changeDate} /></div>
+                <div class='calendar-view px-4'>
                     <MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
                 {
                     (() => {
