@@ -39,7 +39,7 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
                     {hours.map(hour => (
                         <Row key={`${day}-${hour}`}>
                             <Col>
-                                <div style={{ border: "1px solid #ddd", minHeight: "60px", padding: "10px" }}>
+                                <div style={{ minHeight: "45px" }}>
                                     <div>{`${hour}:00`}</div>
                                     {getEventsForHourAndDay(hour, day.split(' ')[0]).map(event => (
                                         <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
