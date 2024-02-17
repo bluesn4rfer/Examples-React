@@ -33,7 +33,7 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
     return (
         <div className='calendar-weekly'>
             <Row className="align-items-end">
-                <Col className="border border-1" style={{ maxWidth: '50px' }}>
+                <Col className="border border-1" style={{ maxWidth: '80px' }}>
                     {/* Leave the first cell empty to align with the day headers */}
                     <div style={{ minHeight: "45px" }}></div>
                 </Col>
@@ -48,7 +48,7 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
                 ))}
             </Row>
             <Row>
-                <Col className="border border-1" style={{ maxWidth: '50px' }}>
+                <Col className="border border-1 text-nowrap" style={{ maxWidth: '80px' }}>
                     {/* Time labels in 12-hour format */}
                     {hours.map(hour => (
                         <div key={hour} style={{ minHeight: "45px" }}>
