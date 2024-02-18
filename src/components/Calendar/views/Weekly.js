@@ -48,7 +48,7 @@ function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
                 ))}
             </Row>
             <Row>
-                <Col className="border border-1 text-nowrap" style={{ maxWidth: '80px' }}>
+                <Col className="border border-1 text-end text-nowrap" style={{ maxWidth: '80px' }}>
                     {/* Time labels in 12-hour format */}
                     {hours.map(hour => (
                         <div key={hour} style={{ minHeight: "45px" }}>
