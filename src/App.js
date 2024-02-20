@@ -103,19 +103,7 @@ function App({appState, ...props}) {
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
-							link: (<Link to="/examples/Calendar/Daily" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Calendar - Daily</Link>)
-						},
-						{
-							style: {
-								borderBottom: '2px solid var(--bs-secondary-hover)'
-							},
-							link: (<Link to="/examples/Calendar/Weekly" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Calendar - Weekly</Link>)
-						},
-						{
-							style: {
-								borderBottom: '2px solid var(--bs-secondary-hover)'
-							},
-							link: (<Link to="/examples/Calendar/Monthly" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Calendar - Monthly</Link>)
+							link: (<Link to="/examples/Calendar/Demo" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Calendar</Link>)
 						}											
 					]
 				}
