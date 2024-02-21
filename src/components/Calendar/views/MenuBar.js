@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function MenuBar({ year, monthName, onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
+function MenuBar({ year, monthName, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
 
     return (
         <Container className='m-0 p-0'>
@@ -17,7 +17,7 @@ function MenuBar({ year, monthName, onViewChange = () => {}, btnToday = () => {}
                     <Button onClick={btnNext}>&gt;</Button>
                 </Col>
                 <Col className='p-0 d-flex justify-content-end'>
-                    <select onChange={(e) => onViewChange(e.target.value)}>
+                    <select value={view} onChange={(e) => onViewChange(e.target.value)}>
                         <option value='daily'>Daily</option>
                         <option value='weekly'>Weekly</option>
                         <option value='monthly'>Monthly</option>
