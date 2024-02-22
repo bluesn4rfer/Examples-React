@@ -8,7 +8,7 @@ import Monthly from './views/Monthly';
 
 import './Calendar.css';
 
-function Calendar({ view = 'Monthly', year, month, ...props}){
+function Calendar({ view = 'monthly', year, month, ...props}){
     // Default to current month and year if not specified
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -17,7 +17,7 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
     
     const [displayYear, setDisplayYear] = useState(year || currentYear);
     const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
-    const [displayView, setDisplayView] = useState(view);
+    const [displayView, setDisplayView] = useState(view.toLowerCase());
 
     useEffect(() => {
         // If year and month props change, update the internal state
@@ -99,7 +99,7 @@ function Calendar({ view = 'Monthly', year, month, ...props}){
             <div className="d-flex flex-row">
                 <div className='px-4'><Widget onDayClick={changeDate} /></div>
                 <div class='calendar-view px-4'>
-                    <MenuBar year={displayYear} monthName={monthName} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
+                    <MenuBar year={displayYear} monthName={monthName} view={displayView} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
                 {
                     (() => {
                         switch(displayView){
