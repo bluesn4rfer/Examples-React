@@ -104,6 +104,12 @@ function App({appState, ...props}) {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
 							link: (<Link to="/examples/Calendar/Demo" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Calendar</Link>)
+						},
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/Charts/Demo" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Charts</Link>)
 						}											
 					]
 				}

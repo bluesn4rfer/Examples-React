@@ -8,6 +8,7 @@ import MarkdownPreview from './components/MarkdownPreview/Controller';
 import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 import Calendar from './components/Calendar/Controller';
+import Charts from './components/Charts/Controller';
 import Collapsible from './components/Collapsible/Controller';
 import Json2Html from './components/Json2Html/Controller';
 
@@ -16,6 +17,7 @@ import './ComponentPreview.css';
 function ComponentPreview() {
 	const componentMap = {
 		Calendar,
+		Charts,
 		Collapsible,
 		Json2Html,
 		DisplayForm,
