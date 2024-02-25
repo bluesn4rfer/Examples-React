@@ -7,8 +7,14 @@ const App = () => {
   
     return (
       <div style={{ width: '60%', margin: '0 auto' }}>
-        <h2>My Responsive Pie Chart</h2>
-        <Charts data={chartData} />
+        <div>
+            <h2>My Responsive Pie Chart</h2>
+            <Charts data={chartData} />
+        </div>
+        <div>
+            <h2>My Responsive Donut Chart</h2>
+            <Charts type='donut' data={chartData} />
+        </div>
       </div>
     );
 };
