@@ -15,6 +15,10 @@ const App = () => {
             <h2>My Responsive Donut Chart</h2>
             <Charts type='donut' data={chartData} />
         </div>
+        <div>
+            <h2>Monthly Sales</h2>
+            <Charts type='bar' data={chartData} />
+        </div>
       </div>
     );
 };
