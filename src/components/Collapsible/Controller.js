@@ -7,13 +7,19 @@ const ParentContext = createContext();
 function Collapsible({ children, direction = 'up', id, className = '', autoClose = true }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-	const handleClickOutside = (event) => {
-		console.log('Collapsible/Controller.js handleClickOutside() invoked');
-		if(autoClose === true){	
-			console.log('Collapsible/Controller.js setting isCollapsed true');
-			setIsCollapsed(true);
-		}
-	};
+	useEffect(() => {
+		const handleDocumentClick = (event) => {
+			if (!document.getElementById(id)?.contains(event.target) && autoClose) {
+				setIsCollapsed(true);
+			}
+		};
+		
+		document.addEventListener('mousedown', handleDocumentClick);
+		
+		return () => {
+			document.removeEventListener('mousedown', handleDocumentClick);
+		};
+	}, [id, autoClose]);
 
   const handleTitleClick = () => {
     setIsCollapsed(!isCollapsed);
@@ -33,7 +39,6 @@ function Collapsible({ children, direction = 'up', id, className = '', autoClose
     <div
 		id={`${id}`}
 		tabIndex="0"
-		onBlur={handleClickOutside}
       	className={`${className} d-flex ${directionClass[direction] ? directionClass[direction] : ''}`}
     >
 		{children}
