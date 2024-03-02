@@ -96,44 +96,10 @@ const Content = ({ id, children, className = '', onMouseDown, ...props}) => {
 			}
 		};
 
-	//   const handleLinkClick = (setIsCollapsed) => {
-	// 	console.log('Collapsible/Controller.js handleLinkClick() invoked');
-	// 	// Trigger the parent's onBlur event
-	// 	// const parentElement = document.getElementById(`${id}Details`).parentElement;
-	// 	// parentElement.dispatchEvent(new FocusEvent('blur'));
-	// 	setIsCollapsed(true);
-	//   };
-	
-	//   // Attach click event listeners to the links
-	//   useEffect(() => {
-	// 	const linkElements = document.querySelectorAll(`#${parentId}Content a`);
-	// 	linkElements.forEach((linkElement) => {
-	// 		if (linkElement.classList.contains('exclude-collapse')) {
-	// 			return;
-	// 		}
-
-	// 	  	linkElement.addEventListener('click', () => handleLinkClick(setIsCollapsed));
-	// 	});
-	
-	// 	// Cleanup the event listeners when the component unmounts
-	// 	return () => {
-	// 	  linkElements.forEach((linkElement) => {
-	// 		linkElement.removeEventListener('click', () => handleLinkClick(setIsCollapsed));
-	// 	  });
-	// 	};
-	//   }, [parentId, setIsCollapsed]);
-
-	// const handleMouseDown = (event) => {
-	// 	console.log('Collapsible/Controller.js Content handleMouseDown() invoked');
-	// 	event.preventDefault();
-	// 	event.stopPropagation();		
-	// }
-
 	return (
 		<div
 			id={`${parentId}Content`}
 			onClick={handleContentClick}		
-			//onMouseDown={handleMouseDown}
 			className={`${className} ${directionClass[direction] || ''} ${isCollapsed ? 'collapsed' : 'show'}`}
 			{...props}
 			style={{width: width, height: height}}
