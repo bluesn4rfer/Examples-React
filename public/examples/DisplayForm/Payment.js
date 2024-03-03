@@ -67,5 +67,5 @@ function App() {
 		}
 	};
 
-	return <DisplayForm form={form} btnSubmit={btnSubmit} />;
+	return <DisplayForm form={form} buttons={buttons} />;
 }
