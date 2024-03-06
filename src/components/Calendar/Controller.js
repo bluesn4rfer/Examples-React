@@ -91,7 +91,8 @@ function Calendar({ view = 'monthly', year, month, ...props}){
     }
 
     const changeDate = (year, month, day) => {
-        alert('Change Date: ' + month + '/' + day + '/' + year);
+        setDisplayYear(year);
+        setDisplayMonth(month);
     }
 
     return (
