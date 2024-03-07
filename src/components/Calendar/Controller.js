@@ -8,7 +8,7 @@ import Monthly from './views/Monthly';
 
 import './Calendar.css';
 
-function Calendar({ view = 'monthly', year, month, ...props}){
+function Calendar({ view = 'monthly', year, month, day, ...props}){
     // Default to current month and year if not specified
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -17,6 +17,7 @@ function Calendar({ view = 'monthly', year, month, ...props}){
     
     const [displayYear, setDisplayYear] = useState(year || currentYear);
     const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
+    const [displayDay, setDisplayDay] = useState(day || currentDay);
     const [displayView, setDisplayView] = useState(view.toLowerCase());
 
     useEffect(() => {
