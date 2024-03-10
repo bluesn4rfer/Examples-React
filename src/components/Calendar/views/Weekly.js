@@ -1,8 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-function Weekly({ events, date = new Date().toISOString().split('T')[0] }) {
-    let startDate = new Date(date);
+function Weekly({ events, year, month, day }) {
+    console.debug('Calendar/views/Weekly.js month = ', month);
+    console.debug('Calendar/views/Weekly.js day = ', day);
+    console.debug('Calendar/views/Weekly.js year = ', year);
+
+    let startDate = new Date(year, month - 1, day);
     startDate.setDate(startDate.getDate() - startDate.getDay());
 
     const daysOfWeek = Array.from({ length: 7 }, (_, i) => {

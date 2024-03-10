@@ -106,11 +106,11 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
                     (() => {
                         switch(displayView){
                             case "daily":
-                                return <Daily year={displayYear} month={displayMonth} {...props} />;
+                                return <Daily year={displayYear} month={displayMonth} day={displayDay} {...props} />;
                             case "weekly":
-                                return <Weekly year={displayYear} month={displayMonth} {...props} />;
+                                return <Weekly year={displayYear} month={displayMonth} day={displayDay} {...props} />;
                             default:
-                                return <Monthly year={displayYear} month={displayMonth} {...props} />;
+                                return <Monthly year={displayYear} month={displayMonth} day={displayDay} {...props} />;
                         }
                     })()
                 }                    
