@@ -29,7 +29,12 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
         if(month){
             setDisplayMonth(month);
         }
-    }, [year, month]);
+
+        if(day){
+            setDisplayDay(day);
+        }
+        
+    }, [year, month, day]);
 
     useEffect(() => {
         if(view){
@@ -94,6 +99,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
     const changeDate = (year, month, day) => {
         setDisplayYear(year);
         setDisplayMonth(month);
+        setDisplayDay(day);
     }
 
     return (
