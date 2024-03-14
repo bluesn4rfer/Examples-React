@@ -93,7 +93,9 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
     }
 
     const btnToday = () => {
-        alert('Today');
+        setDisplayYear(currentYear);
+        setDisplayMonth(currentMonth);
+        setDisplayDay(currentDay);
     }
 
     const changeDate = (year, month, day) => {
