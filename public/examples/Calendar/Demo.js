@@ -1,5 +1,13 @@
 function App() {
-
+    // Utility function to generate event dates
+    const generateEventDates = (year, month) => {
+        return eventsTemplate.map(event => {
+            const date = new Date(year, month, event.day, 0, 0, 0);
+            const dateString = date.toISOString().split('T')[0];
+            return { ...event, date: dateString };
+        });
+    };
+    
     const events = [
         { id: 1, title: "Meeting", date: "2024-06-03", startTime: "09:00", endTime: "10:00" },
         { id: 2, title: "Doctor's Appointment", date: "2024-06-15", startTime: "08:00", endTime: "09:00" },
