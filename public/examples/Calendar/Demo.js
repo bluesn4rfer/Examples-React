@@ -1,14 +1,17 @@
 function App() {
-    // Utility function to generate event dates
-    const generateEventDates = (year, month) => {
-        return eventsTemplate.map(event => {
-            const date = new Date(year, month, event.day, 0, 0, 0);
-            const dateString = date.toISOString().split('T')[0];
+    // Utility function to generate event dates for a specific month and year
+    const generateEventDates = (events, year, month) => {
+        return events.map(event => {
+            const originalDate = new Date(event.date);
+            const day = originalDate.getDate();
+            const date = new Date(year, month, day);
+            const dateString = date.toISOString().split('T')[0]; // Converts to 'YYYY-MM-DD' format
             return { ...event, date: dateString };
         });
     };
-    
-    const events = [
+
+    // Template for your events with day of the month instead of specific dates
+    const eventsTemplate = [
         { id: 1, title: "Meeting", date: "2024-06-03", startTime: "09:00", endTime: "10:00" },
         { id: 2, title: "Doctor's Appointment", date: "2024-06-15", startTime: "08:00", endTime: "09:00" },
         { id: 3, title: "Workshop: Digital Marketing", date: "2024-06-03", startTime: "11:00", endTime: "13:00" },
@@ -31,6 +34,12 @@ function App() {
         { id: 20, title: "Quarterly Review Meeting", date: "2024-06-22", startTime: "14:00", endTime: "16:00" }
         // More events...
     ];
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth(); // 0-indexed (0 is January, 11 is December)
+
+    const events = generateEventDates(eventsTemplate, currentYear, currentMonth);
     
     const previousMonth = () => {
         alert('Previous Month');
