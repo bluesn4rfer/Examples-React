@@ -10,7 +10,7 @@ function App() {
         });
     };
 
-    // Template for your events with day of the month instead of specific dates
+    // Template for your events
     const eventsTemplate = [
         { id: 1, title: "Meeting", date: "2024-06-03", startTime: "09:00", endTime: "10:00" },
         { id: 2, title: "Doctor's Appointment", date: "2024-06-15", startTime: "08:00", endTime: "09:00" },
