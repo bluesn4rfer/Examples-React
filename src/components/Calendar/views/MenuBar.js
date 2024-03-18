@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 function MenuBar({ year, monthName, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
 
     return (
-        <Container className='m-0 p-0'>
+        <div className='m-0 p-0'>
             <Row>
                 <Col className='p-0'>
                     <h1 className='m-0 text-nowrap'>{monthName} {year}</h1>
@@ -24,7 +24,7 @@ function MenuBar({ year, monthName, view = 'monthly', onViewChange = () => {}, b
                     </select>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 }
 
