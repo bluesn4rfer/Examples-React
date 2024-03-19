@@ -100,11 +100,11 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
 
                         return (
                             <Col key={dayIndex} xs={6} md={2} lg={1} className="days d-flex flex-fill p-0">
-                                <div className="d-flex flex-fill" style={{ minHeight: "100px" }}>
+                                <div className="d-flex flex-fill overflow-hidden" style={{ minHeight: "100px" }}>
                                     {displayDay && <div className="p-1">{displayDay}</div>}
                                     <div className='d-flex flex-fill flex-column'>
                                     {displayDay && getEventsForDay(day).map(event => (
-                                        <div key={event.id} style={{ background: "#f0f0f0", margin: "5px 0" }}>
+                                        <div key={event.id} className="text-nowrap overflow-hidden" style={{ background: "#f0f0f0", margin: "5px 0" }}>
                                             {event.title}
                                         </div>
                                     ))}
