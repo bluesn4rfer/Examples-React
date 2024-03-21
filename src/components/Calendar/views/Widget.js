@@ -115,7 +115,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
 
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
-                        {displayDay && <Button onClick={handleClick} className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'today' : ''}`}>{displayDay}</Button>}
+                        {displayDay && <Button onClick={handleClick} className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'today' : ''} ${isPreviousMonth || isNextMonth ? 'btn-secondary' : ''}`}>{displayDay}</Button>}
                     </Col>
                 );
             })}

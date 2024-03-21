@@ -2,6 +2,15 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 function Daily ({ events, year, month, day }) {
+    // Create a new Date object
+    const date = new Date(year, month - 1, day); // Adjust month - 1 because JavaScript months are 0-indexed
+
+    // Array of week days
+    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    // Get the day of the week
+    const dayOfWeek = weekDays[date.getDay()];
+
     const hours = Array.from({ length: 24 }, (_, i) => i);
 
     // Function to get events for a particular hour
@@ -11,6 +20,7 @@ function Daily ({ events, year, month, day }) {
 
     return (
         <div>
+            <div>{dayOfWeek}</div>
             <div>{day}</div>
             <div className="p-0 m-0">
                 {hours.map(hour => (

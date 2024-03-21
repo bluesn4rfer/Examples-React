@@ -47,7 +47,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
                         "July", "August", "September", "October", "November", "December"];
 
     // Fetching the month name from the array
-    const monthName = monthNames[displayMonth - 1];    
+    const monthName = monthNames[displayMonth - 1];
 
     const onViewChange = (view) => {
         if(view){
