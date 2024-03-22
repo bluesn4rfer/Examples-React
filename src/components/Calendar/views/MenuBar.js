@@ -1,8 +1,11 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
-function MenuBar({ year, monthName, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
+import getMonthName from '../utils/getMonthName';
 
+function MenuBar({ year, month, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
+    const monthName = getMonthName(month);
+    
     return (
         <div className='m-0 p-0'>
             <Row>

@@ -1,15 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-function Daily ({ events, year, month, day }) {
-    // Create a new Date object
-    const date = new Date(year, month - 1, day); // Adjust month - 1 because JavaScript months are 0-indexed
+import getDayOfWeek from '../utils/getDayOfWeek';
 
-    // Array of week days
-    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    
+function Daily ({ events, year, month, day }) {  
     // Get the day of the week
-    const dayOfWeek = weekDays[date.getDay()];
+    const dayOfWeek = getDayOfWeek(year, month, day);
 
     const hours = Array.from({ length: 24 }, (_, i) => i);
 

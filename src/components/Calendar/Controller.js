@@ -40,14 +40,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
         if(view){
             setDisplayView(view.toLowerCase());
         } 
-    }, [view])
-
-    // Array of month names
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"];
-
-    // Fetching the month name from the array
-    const monthName = monthNames[displayMonth - 1];
+    }, [view]);
 
     const onViewChange = (view) => {
         if(view){
@@ -66,7 +59,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
             case "weekly":
                 alert('Previous Week');
                 break;
-            default:
+            default: // monthly
                 let newYear = displayMonth === 1 ? displayYear - 1 : displayYear;
                 let newMonth = displayMonth === 1 ? 12 : displayMonth - 1;
                 setDisplayYear(newYear);
@@ -84,7 +77,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
             case "weekly":
                 alert('Next Week');
                 break;
-            default:
+            default: // monthly
                 let newYear = displayMonth === 12 ? displayYear + 1 : displayYear;
                 let newMonth = displayMonth === 12 ? 1 : displayMonth + 1;
                 setDisplayYear(newYear);
@@ -109,7 +102,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
             <div className="d-flex flex-row">
                 <div className='px-4'><Widget onDayClick={changeDate} year={displayYear} month={displayMonth} day={displayDay} /></div>
                 <div className='calendar-view px-4'>
-                    <MenuBar year={displayYear} monthName={monthName} view={displayView} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
+                    <MenuBar year={displayYear} month={displayMonth} view={displayView} onViewChange={onViewChange} btnToday={btnToday} btnPrevious={btnPrevious} btnNext={btnNext} />
                 {
                     (() => {
                         switch(displayView){
