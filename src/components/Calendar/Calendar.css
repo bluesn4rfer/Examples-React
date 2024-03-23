@@ -36,8 +36,3 @@
     justify-content: center;    /* Center horizontally */
     align-items: center;        /* Center vertically */
 }
-
-.widget .today {
-    background-color: red !important;
-    color: white;
-}

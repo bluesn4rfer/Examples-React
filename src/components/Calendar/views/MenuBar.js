@@ -3,11 +3,11 @@ import { Row, Col, Button } from 'react-bootstrap';
 
 import getMonthName from '../utils/getMonthName';
 
-function MenuBar({ year, month, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
+function MenuBar({ className, year, month, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
     const monthName = getMonthName(month);
-    
+
     return (
-        <div className='m-0 p-0'>
+        <div className={className}>
             <Row>
                 <Col className='p-0'>
                     <h1 className='m-0 text-nowrap'>{monthName} {year}</h1>
@@ -20,7 +20,7 @@ function MenuBar({ year, month, view = 'monthly', onViewChange = () => {}, btnTo
                     <Button onClick={btnNext}>&gt;</Button>
                 </Col>
                 <Col className='p-0 d-flex justify-content-end'>
-                    <select value={view} onChange={(e) => onViewChange(e.target.value)}>
+                    <select className="form-select" style={{ maxWidth: "125px" }} value={view} onChange={(e) => onViewChange(e.target.value)}>
                         <option value='daily'>Daily</option>
                         <option value='weekly'>Weekly</option>
                         <option value='monthly'>Monthly</option>

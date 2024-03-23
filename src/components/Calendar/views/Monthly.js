@@ -104,7 +104,7 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
                                     {displayDay && <div className="p-1">{displayDay}</div>}
                                     <div className='d-flex flex-fill flex-column'>
                                     {displayDay && getEventsForDay(day).map(event => (
-                                        <div key={event.id} className="text-nowrap overflow-hidden" style={{ background: "#f0f0f0", margin: "5px 0" }}>
+                                        <div key={event.id} className="text-nowrap overflow-hidden mt-0 mb-1 mx-0" style={{ background: "#f0f0f0" }}>
                                             {event.title}
                                         </div>
                                     ))}
