@@ -107,8 +107,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 }
 
                 const handleClick = () => {
-                    // Only trigger callback for current month days
-                    if (!isPreviousMonth && !isNextMonth && onDayClick) {
+                    if (onDayClick) {
                         onDayClick(displayYear, displayMonth, displayDay);
                     }
                 };
