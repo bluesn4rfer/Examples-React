@@ -70,6 +70,16 @@ function Widget({ year, month, onMonthChange, onDayClick }){
         });
     };
 
+    const handleClick = (year, month, day) => {
+        console.debug('Widget: handleClick() year = ', year);
+        console.debug('Widget: handleClick() month = ', month);
+        console.debug('Widget: handleClick() day = ', day);
+
+        if (onDayClick) {
+            onDayClick(year, month, day);
+        }
+    };
+
     return (
         <div className='widget'>   
             <Row className=''>
@@ -106,15 +116,13 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                     displayDay = day;
                 }
 
-                const handleClick = () => {
-                    if (onDayClick) {
-                        onDayClick(displayYear, displayMonth, displayDay);
-                    }
-                };
-
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
-                        {displayDay && <Button onClick={handleClick} className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${isPreviousMonth || isNextMonth ? 'btn-secondary' : ''}`}>{displayDay}</Button>}
+                        {displayDay && <Button 
+                            onClick={() => handleClick(displayYear, displayMonth, displayDay)} 
+                            className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${isPreviousMonth || isNextMonth ? 'btn-secondary' : ''}`}
+                            >{displayDay}</Button>
+                        }
                     </Col>
                 );
             })}

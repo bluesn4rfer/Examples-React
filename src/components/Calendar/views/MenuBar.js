@@ -4,6 +4,9 @@ import { Row, Col, Button } from 'react-bootstrap';
 import getMonthName from '../utils/getMonthName';
 
 function MenuBar({ className, year, month, view = 'monthly', onViewChange = () => {}, btnToday = () => {}, btnPrevious = () => {}, btnNext = () => {} }){
+    console.debug('MenuBar invoked');
+    console.debug('MenuBar: month = ', month);
+    
     const monthName = getMonthName(month);
 
     return (
