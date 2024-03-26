@@ -109,17 +109,43 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 let displayDay;
                 if (isPreviousMonth) {
                     const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
-                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);
+                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);                    
                 } else if (isNextMonth) {
                     displayDay = index - daysInMonth - firstDayOfMonth + 1;
                 } else {
                     displayDay = day;
                 }
 
+                let btnDay = displayDay;
+                let btnMonth = displayMonth;
+                let btnYear = displayYear;
+
+                if(isPreviousMonth){ 
+                    if(btnMonth - 1 === 0){
+                        btnMonth = 12;
+                        btnYear -= 1;
+                    }
+                    else{
+                        btnMonth -= 1;
+                    }
+                }
+
+                if(isNextMonth){ 
+                    if(btnMonth + 1 === 13){
+                        btnMonth = 1;
+                        btnYear += 1;
+                    }
+                    else{
+                        btnMonth += 1;
+                    } 
+                }
+
+
+
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
                         {displayDay && <Button 
-                            onClick={() => handleClick(displayYear, displayMonth, displayDay)} 
+                            onClick={() => handleClick(btnYear, btnMonth, btnDay)} 
                             className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${isPreviousMonth || isNextMonth ? 'btn-secondary' : ''}`}
                             >{displayDay}</Button>
                         }
