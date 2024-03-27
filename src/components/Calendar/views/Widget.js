@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
 function Widget({ year, month, onMonthChange, onDayClick }){
+    const {currentYear, currentMonth, currentDay} = useMemo(() => {
+        const currentDate = new Date();
+        return {
+            currentYear: currentDate.getFullYear(),
+            currentMonth: currentDate.getMonth() + 1,
+            currentDay: currentDate.getDate(),
+        };
+    }, []);
+    
     // Default to current month and year if not specified
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-11
-    const currentDay = currentDate.getDate();
-
     const [displayYear, setDisplayYear] = useState(year || currentYear);
     const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
 
@@ -18,18 +22,21 @@ function Widget({ year, month, onMonthChange, onDayClick }){
     }, [year, month]);
 
     // Array of month names
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"];
+    const monthNames = useMemo(() => ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"], []);
 
-    // Fetching the month name from the array
-    const monthName = monthNames[displayMonth - 1];
+    const { monthName, daysInMonth, firstDayOfMonth, daysToAddFromNextMonth, totalCells } = useMemo(() => {
+        // Fetching the month name from the array
+        const monthName = monthNames[displayMonth - 1];
 
-    const daysInMonth = new Date(displayYear, displayMonth, 0).getDate();
-    const firstDayOfMonth = new Date(displayYear, displayMonth - 1, 1).getDay();
-    const lastDayOfMonthWeekday = new Date(displayYear, displayMonth - 1, daysInMonth).getDay();
-    const daysToAddFromNextMonth = 14 - lastDayOfMonthWeekday - 1; // "-1" because the last day itself counts
-    const totalCells = daysInMonth + firstDayOfMonth + daysToAddFromNextMonth;
-    
+        const daysInMonth = new Date(displayYear, displayMonth, 0).getDate();
+        const firstDayOfMonth = new Date(displayYear, displayMonth - 1, 1).getDay();
+        const lastDayOfMonthWeekday = new Date(displayYear, displayMonth - 1, daysInMonth).getDay();
+        const daysToAddFromNextMonth = 14 - lastDayOfMonthWeekday - 1;
+        const totalCells = daysInMonth + firstDayOfMonth + daysToAddFromNextMonth;
+
+        return { monthName, daysInMonth, firstDayOfMonth, daysToAddFromNextMonth, totalCells };
+    }, [monthNames, displayYear, displayMonth]);    
 
     // Create an array representing the days of the month
     const calendarDays = Array.from({ length: totalCells }, (_, i) => {
@@ -70,7 +77,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
         });
     };
 
-    const handleClick = (year, month, day) => {
+    const handleClick = useCallback((year, month, day) => {
         console.debug('Widget: handleClick() year = ', year);
         console.debug('Widget: handleClick() month = ', month);
         console.debug('Widget: handleClick() day = ', day);
@@ -78,7 +85,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
         if (onDayClick) {
             onDayClick(year, month, day);
         }
-    };
+    }, [onDayClick]);
 
     return (
         <div className='widget'>   
