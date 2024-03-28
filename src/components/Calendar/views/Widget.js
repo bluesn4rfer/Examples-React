@@ -148,12 +148,12 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 }
 
 
+                const dayClass = `days ${isCurrentMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
 
                 return (
-                    <Col key={index} xs={6} md={2} lg={1} className={`days ${isPreviousMonth || isNextMonth ? '' : 'current-month'} d-flex justify-content-center`}>
+                    <Col key={index} xs={6} md={2} lg={1} className={dayClass}>
                         {displayDay && <Button 
                             onClick={() => handleClick(btnYear, btnMonth, btnDay)} 
-                            className={`${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${isPreviousMonth || isNextMonth ? 'btn-secondary' : ''}`}
                             >{displayDay}</Button>
                         }
                     </Col>
