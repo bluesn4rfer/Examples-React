@@ -148,14 +148,15 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 }
 
 
-                const dayClass = `days ${isCurrentMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
+                const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
+                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''}`;
 
                 return (
-                    <Col key={index} xs={6} md={2} lg={1} className={dayClass}>
-                        {displayDay && <Button 
+                    <Col key={index} xs={6} md={2} lg={1} className={dayClass}>                        
+                        <Button 
+                            className={btnClass}
                             onClick={() => handleClick(btnYear, btnMonth, btnDay)} 
-                            >{displayDay}</Button>
-                        }
+                        >{displayDay}</Button>                        
                     </Col>
                 );
             })}
