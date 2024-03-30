@@ -113,40 +113,32 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 const isPreviousMonth = index < firstDayOfMonth;
                 const isNextMonth = index >= daysInMonth + firstDayOfMonth;
 
-                let displayDay;
-                if (isPreviousMonth) {
-                    const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
-                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);                    
-                } else if (isNextMonth) {
-                    displayDay = index - daysInMonth - firstDayOfMonth + 1;
-                } else {
-                    displayDay = day;
-                }
-
-                let btnDay = displayDay;
                 let btnMonth = displayMonth;
                 let btnYear = displayYear;
 
-                if(isPreviousMonth){ 
+                let displayDay;
+                if (isPreviousMonth) {
+                    const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
+                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);  
                     if(btnMonth - 1 === 0){
                         btnMonth = 12;
                         btnYear -= 1;
                     }
                     else{
                         btnMonth -= 1;
-                    }
-                }
-
-                if(isNextMonth){ 
+                    }                                      
+                } else if (isNextMonth) {
+                    displayDay = index - daysInMonth - firstDayOfMonth + 1;
                     if(btnMonth + 1 === 13){
                         btnMonth = 1;
                         btnYear += 1;
                     }
                     else{
                         btnMonth += 1;
-                    } 
+                    }                     
+                } else {
+                    displayDay = day;
                 }
-
 
                 const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
                 const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''}`;
