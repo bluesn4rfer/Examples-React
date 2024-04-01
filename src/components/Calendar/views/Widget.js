@@ -113,8 +113,8 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 const isPreviousMonth = index < firstDayOfMonth;
                 const isNextMonth = index >= daysInMonth + firstDayOfMonth;
 
-                const btnMonth = displayMonth;
-                const btnYear = displayYear;
+                let btnMonth = displayMonth;
+                let btnYear = displayYear;
 
                 let displayDay;
                 if (isPreviousMonth) {
@@ -140,7 +140,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                     displayDay = day;
                 }
 
-                const  btnDay = displayDay;
+                let btnDay = displayDay;
 
                 const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
                 const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''}`;
