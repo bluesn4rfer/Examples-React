@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
-function Widget({ year, month, onMonthChange, onDayClick }){
+function Widget({ year, month, day, onMonthChange, onDayClick }){
     const {currentYear, currentMonth, currentDay} = useMemo(() => {
         const currentDate = new Date();
         return {
@@ -47,7 +47,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
     // Function to determine if the day is 'today'
     const isToday = (day) => {
         return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
-    };    
+    };
 
      // Function to navigate to the previous month
     const previousMonth = () => {
@@ -143,7 +143,7 @@ function Widget({ year, month, onMonthChange, onDayClick }){
                 let btnDay = displayDay;
 
                 const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
-                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''}`;
+                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${day === displayDay ? 'btn-success' : ''}`;
 
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={dayClass}>                        
