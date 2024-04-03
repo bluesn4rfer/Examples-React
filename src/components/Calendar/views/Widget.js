@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 
-function Widget({ year, month, day, onMonthChange, onDayClick }){
+function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange, onDayClick }){
     const {currentYear, currentMonth, currentDay} = useMemo(() => {
         const currentDate = new Date();
         return {
@@ -12,14 +12,14 @@ function Widget({ year, month, day, onMonthChange, onDayClick }){
     }, []);
     
     // Default to current month and year if not specified
-    const [displayYear, setDisplayYear] = useState(year || currentYear);
-    const [displayMonth, setDisplayMonth] = useState(month || currentMonth);
+    const [displayYear, setDisplayYear] = useState(propYear || currentYear);
+    const [displayMonth, setDisplayMonth] = useState(propMonth || currentMonth);
 
     useEffect(() => {
         // If year and month props change, update the internal state
-        if (year) setDisplayYear(year);
-        if (month) setDisplayMonth(month);
-    }, [year, month]);
+        if (propYear) setDisplayYear(propYear);
+        if (propMonth) setDisplayMonth(propMonth);
+    }, [propYear, propMonth]);
 
     // Array of month names
     const monthNames = useMemo(() => ["January", "February", "March", "April", "May", "June",
@@ -46,6 +46,10 @@ function Widget({ year, month, day, onMonthChange, onDayClick }){
 
     // Function to determine if the day is 'today'
     const isToday = (day) => {
+        return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
+    };
+
+    const isSelected = (day) => {
         return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
     };
 
@@ -143,7 +147,7 @@ function Widget({ year, month, day, onMonthChange, onDayClick }){
                 let btnDay = displayDay;
 
                 const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
-                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-success' : ''} ${day === displayDay ? 'btn-success' : ''}`;
+                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-info' : ''} ${isSelected(displayDay)? 'btn-success' : ''}`;
 
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={dayClass}>                        
