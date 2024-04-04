@@ -14,12 +14,14 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
     // Default to current month and year if not specified
     const [displayYear, setDisplayYear] = useState(propYear || currentYear);
     const [displayMonth, setDisplayMonth] = useState(propMonth || currentMonth);
+    const [displayDay, setDisplayDay] = useState(propDay || currentDay);
 
     useEffect(() => {
         // If year and month props change, update the internal state
         if (propYear) setDisplayYear(propYear);
         if (propMonth) setDisplayMonth(propMonth);
-    }, [propYear, propMonth]);
+        if (propDay) setDisplayMonth(propDay);
+    }, [propYear, propMonth, propDay]);
 
     // Array of month names
     const monthNames = useMemo(() => ["January", "February", "March", "April", "May", "June",
@@ -45,12 +47,12 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
     });
 
     // Function to determine if the day is 'today'
-    const isToday = (day) => {
-        return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
+    const isToday = (year, month, day) => {
+        return year === currentYear && month === currentMonth && day === currentDay;
     };
 
-    const isSelected = (day) => {
-        return displayYear === currentYear && displayMonth === currentMonth && day === currentDay;
+    const isSelected = (year, month, day) => {
+        return year === displayYear && month === displayMonth && day === displayDay;
     };
 
      // Function to navigate to the previous month
@@ -119,11 +121,11 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
 
                 let btnMonth = displayMonth;
                 let btnYear = displayYear;
+                let btnDay = day;
 
-                let displayDay;
                 if (isPreviousMonth) {
                     const prevMonthDays = new Date(displayYear, displayMonth - 1, 0).getDate();
-                    displayDay = prevMonthDays - (firstDayOfMonth - index - 1);  
+                    btnDay = prevMonthDays - (firstDayOfMonth - index - 1);  
                     if(btnMonth - 1 === 0){
                         btnMonth = 12;
                         btnYear -= 1;
@@ -132,7 +134,7 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
                         btnMonth -= 1;
                     }                                      
                 } else if (isNextMonth) {
-                    displayDay = index - daysInMonth - firstDayOfMonth + 1;
+                    btnDay = index - daysInMonth - firstDayOfMonth + 1;
                     if(btnMonth + 1 === 13){
                         btnMonth = 1;
                         btnYear += 1;
@@ -141,20 +143,18 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
                         btnMonth += 1;
                     }                     
                 } else {
-                    displayDay = day;
+                    btnDay = day;
                 }
 
-                let btnDay = displayDay;
-
                 const dayClass = `days ${!isPreviousMonth && !isNextMonth ? 'current-month' : 'other-month'} d-flex justify-content-center`;
-                const btnClass = `${isToday(displayDay) && !isPreviousMonth && !isNextMonth ? 'btn-info' : ''} ${isSelected(displayDay)? 'btn-success' : ''}`;
+                const btnClass = `${isToday(btnYear, btnMonth, btnDay) ? 'btn-info' : ''} ${isSelected(btnYear, btnMonth, btnDay)? 'btn-success' : ''}`;
 
                 return (
                     <Col key={index} xs={6} md={2} lg={1} className={dayClass}>                        
                         <Button 
                             className={btnClass}
                             onClick={() => handleClick(btnYear, btnMonth, btnDay)} 
-                        >{displayDay}</Button>                        
+                        >{btnDay}</Button>                        
                     </Col>
                 );
             })}
