@@ -18,6 +18,7 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
 
     useEffect(() => {
         // If year and month props change, update the internal state
+        console.log('propYear = ', propYear, ' propMonth = ', propMonth, ' propDay = ', propDay);
         if (propYear) setDisplayYear(propYear);
         if (propMonth) setDisplayMonth(propMonth);
         if (propDay) setDisplayMonth(propDay);
@@ -29,6 +30,7 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
 
     const { monthName, daysInMonth, firstDayOfMonth, daysToAddFromNextMonth, totalCells } = useMemo(() => {
         // Fetching the month name from the array
+        console.log('displayYear = ', displayYear, 'displayMonth = ', displayMonth);
         const monthName = monthNames[displayMonth - 1];
 
         const daysInMonth = new Date(displayYear, displayMonth, 0).getDate();

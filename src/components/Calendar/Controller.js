@@ -92,6 +92,7 @@ function Calendar({ view = 'monthly', year, month, day, ...props}){
     }
 
     const changeDate = (year, month, day) => {
+        console.log('changeDate: year = ', year, ' month = ', month, ' day = ', day);
         setDisplayYear(year);
         setDisplayMonth(month);
         setDisplayDay(day);
