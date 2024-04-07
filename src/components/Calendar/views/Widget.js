@@ -21,7 +21,7 @@ function Widget({ year: propYear, month: propMonth, day: propDay, onMonthChange,
         console.log('propYear = ', propYear, ' propMonth = ', propMonth, ' propDay = ', propDay);
         if (propYear) setDisplayYear(propYear);
         if (propMonth) setDisplayMonth(propMonth);
-        if (propDay) setDisplayMonth(propDay);
+        if (propDay) setDisplayDay(propDay);
     }, [propYear, propMonth, propDay]);
 
     // Array of month names
