@@ -45,6 +45,18 @@ function App({appState, ...props}) {
 					className: 'dropdown-menu theme-secondary border-0 p-0 m-0',
 					links: [
 						{
+							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Menus</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Views</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Forms</a>)
+						},
+						{
+							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Icons</a>)
+						},
+						{
 							link: (<a id='ShowThemeSelector' href="javascript:void(0)" className='btn btn-lg btn-secondary my-0 w-100 text-start' onClick={() => setShowThemeSelector(true)}>Change Theme</a>)
 						}
 					]
