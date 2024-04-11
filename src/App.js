@@ -8,6 +8,8 @@ import DisplayMenu from './components/Menus/Controller';
 import ComponentsMenu from './ComponentsMenu';
 import ComponentPreview from './ComponentPreview';
 
+import Page from './components/Pages/Controller';
+
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
@@ -243,6 +245,7 @@ function App({appState, ...props}) {
 				<Route path="/" element={<ComponentPreview key='welcome' />} />
 				<Route path="/examples/:component/:example/:mode?" element={<ComponentPreview />} />
 				<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
+				<Route path="/page/:page" element={<Page />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 			</div>
