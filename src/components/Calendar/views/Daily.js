@@ -11,7 +11,14 @@ function Daily ({ events, year, month, day }) {
 
     // Function to get events for a particular hour
     const getEventsForHour = (hour) => {
-        return events.filter(event => event.startTime <= hour && event.endTime > hour);
+        return events.filter(event => {
+            // Extract the hour part from startTime and endTime
+            const startHour = parseInt(event.startTime.split(':')[0], 10);
+            const endHour = parseInt(event.endTime.split(':')[0], 10);
+
+            // Compare the integer hour with startHour and endHour
+            return startHour <= hour && endHour > hour;
+        });
     };
 
     return (
