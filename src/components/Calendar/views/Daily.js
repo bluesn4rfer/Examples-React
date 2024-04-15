@@ -4,6 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 import getDayOfWeek from '../utils/getDayOfWeek';
 
 function Daily ({ events, year, month, day }) {  
+    // Format the date from year, month, day
+    const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
     // Get the day of the week
     const dayOfWeek = getDayOfWeek(year, month, day);
 
@@ -16,8 +19,8 @@ function Daily ({ events, year, month, day }) {
             const startHour = parseInt(event.startTime.split(':')[0], 10);
             const endHour = parseInt(event.endTime.split(':')[0], 10);
 
-            // Compare the integer hour with startHour and endHour
-            return startHour <= hour && endHour > hour;
+            // Check if the event's date matches the component's date and the hour matches
+            return event.date === formattedDate && startHour <= hour && endHour > hour;
         });
     };
 
