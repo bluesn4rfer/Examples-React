@@ -50,9 +50,15 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
 
     // Function to get events for a particular day
     const getEventsForDay = (day) => {
-        return events.filter(event => new Date(event.date).getDate() === day &&
-                                      new Date(event.date).getMonth() + 1 === displayMonth &&
-                                      new Date(event.date).getFullYear() === displayYear);
+        console.log('Monthly getEventsForDay() day = ', day);
+        const dayEvents = events.filter(event => {
+            console.log('event.date = ', event.date);
+            const eventDate = new Date(event.date);
+            console.log('Monthly getEventsForDay() eventDay = ', eventDate.getDate());
+            return eventDate.getDate() === day && eventDate.getMonth() + 1 === displayMonth && eventDate.getFullYear() === displayYear
+        });
+        console.log('Monthly getEventsForDay() dayEvents[] = ', dayEvents);
+        return dayEvents;
     };
 
     // Function to split calendar days into weeks

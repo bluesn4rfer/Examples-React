@@ -49,5 +49,6 @@ function App() {
         alert('Next Month');
     }
 
+    console.log('events: ', events);
 	return <Calendar view='Monthly' events={events} onPrevMonth={previousMonth} onNextMonth={nextMonth} />;
 }
