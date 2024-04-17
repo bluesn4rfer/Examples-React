@@ -54,8 +54,7 @@ function Monthly({ events, year, month, onPrevMonth, onNextMonth }){
         const dayEvents = events.filter(event => {
             console.log('event.date = ', event.date);
             const eventDate = new Date(event.date);
-            console.log('Monthly getEventsForDay() eventDay = ', eventDate.getDate());
-            return eventDate.getDate() === day && eventDate.getMonth() + 1 === displayMonth && eventDate.getFullYear() === displayYear
+            return eventDate.getUTCDate() === day && eventDate.getUTCMonth() + 1 === displayMonth && eventDate.getUTCFullYear() === displayYear
         });
         console.log('Monthly getEventsForDay() dayEvents[] = ', dayEvents);
         return dayEvents;
