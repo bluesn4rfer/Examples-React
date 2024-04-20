@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -7,16 +10,21 @@ import MarkdownPreview from './components/MarkdownPreview/Controller';
 
 import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
-import Calendar from './components/Calendar/Controller';
+//import Calendar from './components/Calendar/Controller';
+
 import Charts from './components/Charts/Controller';
 import Collapsible from './components/Collapsible/Controller';
 import Json2Html from './components/Json2Html/Controller';
 
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './ComponentPreview.css';
 
 function ComponentPreview() {
 	const componentMap = {
 		Calendar,
+		momentLocalizer,
+		moment,
+		Container, Row, Col, // bootstrap
 		Charts,
 		Collapsible,
 		Json2Html,
