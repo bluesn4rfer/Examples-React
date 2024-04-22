@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -21,10 +21,10 @@ import './ComponentPreview.css';
 
 function ComponentPreview() {
 	const componentMap = {
-		Calendar,
-		momentLocalizer,
+		useState, // react
+		Calendar, momentLocalizer, // react-big-calendar
 		moment,
-		Container, Row, Col, // bootstrap
+		Container, Row, Col, Form, Button, // bootstrap
 		Charts,
 		Collapsible,
 		Json2Html,
@@ -41,7 +41,7 @@ function ComponentPreview() {
 			setFile('/examples/'+component+'/'+example+'.js');
 		}
 		setDoc('/documentation/'+component+'.md');
-	}, [component, example]);
+	}, [file, component, example]);
 
 	const [code, setCode] = useState(null);
 	const [updateCode, setUpdateCode] = useState(null);

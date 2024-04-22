@@ -1,10 +1,9 @@
-//*******************/
-// REQUIRED IMPORTS */
-//*******************/
-//import { Calendar, momentLocalizer } from 'react-big-calendar';
-//import moment from 'moment';
-//import 'react-big-calendar/lib/css/react-big-calendar.css';
-//import { Container, Row, Col } from 'react-bootstrap';
+/*
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { Container, Row, Col } from 'react-bootstrap';
+*/
 
 const localizer = momentLocalizer(moment);
 
