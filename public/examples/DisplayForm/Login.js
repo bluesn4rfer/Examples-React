@@ -1,5 +1,3 @@
-const { useState } = React;
-
 function App(){
 	const [showThankYou, setShowThankYou] = useState(null);
 
