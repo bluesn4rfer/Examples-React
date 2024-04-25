@@ -33,7 +33,11 @@ function App({ events }) {
                 <Col xs={3}>
                     <Form.Group>
                         <Form.Label>Select Date</Form.Label>
-                        <Form.Control type="date" onChange={handleDateChange} value={moment(date).format('YYYY-MM-DD')} />
+                        <DatePicker
+                            selected={date}
+                            onChange={date => setDate(date)}
+                            inline // This makes the date picker always visible
+                        />
                     </Form.Group>
                     <Button onClick={goToBack}>Back</Button>
                     <Button onClick={goToNext}>Next</Button>

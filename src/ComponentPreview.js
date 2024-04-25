@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -25,6 +26,7 @@ function ComponentPreview() {
 		Calendar, momentLocalizer, // react-big-calendar
 		moment,
 		Container, Row, Col, Form, Button, // bootstrap
+		DatePicker, // react-datepicker
 		Charts,
 		Collapsible,
 		Json2Html,
