@@ -45,9 +45,15 @@ const eventsTemplate = [
     // More events...
 ];
 
-function App({ events }) {
+function App() {
     const [date, setDate] = useState(new Date());
     const [view, setView] = useState('month');
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth(); // 0-indexed (0 is January, 11 is December)
+
+    const [events] = useState(generateEventDates(eventsTemplate, currentYear, currentMonth));
 
     const handleDateChange = (event) => {
         const [year, month, day] = event.target.value.split('-');
