@@ -54,7 +54,8 @@ function App() {
     const currentMonth = today.getMonth(); // 0-indexed (0 is January, 11 is December)
 
     const [events] = useState(generateEventDates(eventsTemplate, currentYear, currentMonth));
-
+    console.log('Calendar App events = ', events);
+    
     const handleDateChange = (event) => {
         const [year, month, day] = event.target.value.split('-');
         const utcDate = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day)));
