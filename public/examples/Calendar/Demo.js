@@ -175,30 +175,18 @@ function App() {
         setDate(utcDate);
     };
 
-    const goToBack = () => {
-        const newDate = moment(date).subtract(1, view).toDate();
-        setDate(newDate);
-    };
-
-    const goToNext = () => {
-        const newDate = moment(date).add(1, view).toDate();
-        setDate(newDate);
-    };
-
     return (
         <Container fluid>
             <Row>
                 <Col xs={3}>
                     <Form.Group>
-                        <Form.Label>Select Date</Form.Label>
+                        <Form.Label className='d-none'>Select Date</Form.Label>
                         <DatePicker
                             selected={date}
                             onChange={date => setDate(date)}
                             inline // This makes the date picker always visible
                         />
                     </Form.Group>
-                    <Button onClick={goToBack}>Back</Button>
-                    <Button onClick={goToNext}>Next</Button>
                 </Col>
                 <Col>
                     <Calendar
