@@ -154,7 +154,127 @@ const eventsTemplate = [
         "title": "Quarterly Review Meeting",
         "start": "2024-06-22T14:00:00",
         "end": "2024-06-22T16:00:00"
-    }
+    },
+    {
+        "id": 1,
+        "title": "Meeting",
+        "start": "2024-06-03T09:00:00",
+        "end": "2024-06-03T10:00:00"
+    },
+    {
+        "id": 2,
+        "title": "Workshop: Digital Marketing",
+        "start": "2024-06-03T11:00:00",
+        "end": "2024-06-03T13:00:00"
+    },
+    {
+        "id": 3,
+        "title": "Yoga Class",
+        "start": "2024-06-04T07:00:00",
+        "end": "2024-06-04T08:00:00"
+    },
+    {
+        "id": 4,
+        "title": "Team Lunch",
+        "start": "2024-06-05T12:00:00",
+        "end": "2024-06-05T13:30:00"
+    },
+    {
+        "id": 5,
+        "title": "Webinar: Future of AI",
+        "start": "2024-06-06T15:00:00",
+        "end": "2024-06-06T16:30:00"
+    },
+    {
+        "id": 6,
+        "title": "Anniversary Dinner",
+        "start": "2024-06-07T19:00:00",
+        "end": "2024-06-07T21:00:00"
+    },
+    {
+        "id": 7,
+        "title": "Parent-Teacher Conference",
+        "start": "2024-06-08T10:00:00",
+        "end": "2024-06-08T11:00:00"
+    },
+    {
+        "id": 8,
+        "title": "Networking Event",
+        "start": "2024-06-09T18:00:00",
+        "end": "2024-06-09T20:00:00"
+    },
+    {
+        "id": 9,
+        "title": "Concert: The Lumineers",
+        "start": "2024-06-10T20:00:00",
+        "end": "2024-06-10T23:00:00"
+    },
+    {
+        "id": 10,
+        "title": "Flight to New York",
+        "start": "2024-06-11T09:00:00",
+        "end": "2024-06-11T12:00:00"
+    },
+    {
+        "id": 11,
+        "title": "Vacation in New York",
+        "start": "2024-06-12T00:00:00",
+        "end": "2024-06-12T23:59:00"
+    },
+    {
+        "id": 12,
+        "title": "Doctor's Appointment",
+        "start": "2024-06-15T08:00:00",
+        "end": "2024-06-15T09:00:00"
+    },
+    {
+        "id": 13,
+        "title": "Dentist Appointment",
+        "start": "2024-06-15T10:30:00",
+        "end": "2024-06-15T11:30:00"
+    },
+    {
+        "id": 14,
+        "title": "Return Flight from New York",
+        "start": "2024-06-16T13:00:00",
+        "end": "2024-06-16T16:00:00"
+    },
+    {
+        "id": 15,
+        "title": "Book Club Meeting",
+        "start": "2024-06-17T17:00:00",
+        "end": "2024-06-17T18:30:00"
+    },
+    {
+        "id": 16,
+        "title": "Gym Membership Renewal",
+        "start": "2024-06-18T10:00:00",
+        "end": "2024-06-18T10:30:00"
+    },
+    {
+        "id": 17,
+        "title": "Software Update",
+        "start": "2024-06-19T22:00:00",
+        "end": "2024-06-19T23:00:00"
+    },
+    {
+        "id": 18,
+        "title": "Car Service Appointment",
+        "start": "2024-06-20T08:00:00",
+        "end": "2024-06-20T10:00:00"
+    },
+    {
+        "id": 19,
+        "title": "Coffee with Mentor",
+        "start": "2024-06-21T16:00:00",
+        "end": "2024-06-21T17:00:00"
+    },
+    {
+        "id": 20,
+        "title": "Quarterly Review Meeting",
+        "start": "2024-06-22T14:00:00",
+        "end": "2024-06-22T16:00:00"
+    }    
     // Add more events as needed...
 ];
 
