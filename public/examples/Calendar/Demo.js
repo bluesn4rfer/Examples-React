@@ -29,7 +29,7 @@ const generateEventDates = (events, year, month) => {
         const newEndDate = new Date(year, month, endDay);
         const newEndDateTime = newEndDate.toISOString().split('T')[0] + 'T' + endTime;
 
-        return { ...event, start: newStartDateTime, end: newEndDateTime };
+        return { ...event, start: new Date(newStartDateTime), end: new Date(newEndDateTime) };
     });
 };
 
