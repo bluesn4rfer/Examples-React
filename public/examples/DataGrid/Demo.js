@@ -1,6 +1,8 @@
+/*
 import React from 'react';
 import DataGrid from 'react-data-grid';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-data-grid/dist/react-data-grid.css';
+*/
 
 const columns = [
   { key: 'id', name: 'ID' },
@@ -33,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default MyGrid;

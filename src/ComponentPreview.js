@@ -5,6 +5,7 @@ import moment from 'moment';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DataGrid from 'react-data-grid';
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -28,6 +29,7 @@ function ComponentPreview() {
 		moment,
 		Container, Row, Col, Form, Button, // bootstrap
 		DatePicker, // react-datepicker
+		DataGrid, // react-data-grid
 		Charts,
 		Collapsible,
 		Json2Html,
