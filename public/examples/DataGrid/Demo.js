@@ -1,37 +1,29 @@
 /*
 import React from 'react';
-import DataGrid from 'react-data-grid';
-import 'react-data-grid/dist/react-data-grid.css';
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, necessary for styling
+import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 */
 
-const columns = [
-  { key: 'id', name: 'ID' },
-  { key: 'title', name: 'Title' },
-  { key: 'count', name: 'Count' }
-];
-
-const rows = [
-  { id: 1, title: 'Row 1', count: 20 },
-  { id: 2, title: 'Row 2', count: 30 },
-  { id: 3, title: 'Row 3', count: 40 }
-];
-
 function App() {
-  return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col">
-          <DataGrid 
-            columns={columns}
-            rows={rows}
-            defaultColumnOptions={{
-              sortable: true,
-              resizable: true
-            }}
-            className="fill-grid"
-          />
+    const [rowData] = React.useState([
+        { make: "Toyota", model: "Celica", price: 35000 },
+        { make: "Ford", model: "Mondeo", price: 32000 },
+        { make: "Porsche", model: "Boxster", price: 72000 }
+    ]);
+
+    const [columnDefs] = React.useState([
+        { field: 'make' },
+        { field: 'model' },
+        { field: 'price' }
+    ]);
+
+    return (
+        <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+            <AgGridReact
+                rowData={rowData}
+                columnDefs={columnDefs}>
+            </AgGridReact>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

@@ -5,7 +5,9 @@ import moment from 'moment';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import DataGrid from 'react-data-grid';
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, necessary for styling
+import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 
 import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
@@ -29,7 +31,7 @@ function ComponentPreview() {
 		moment,
 		Container, Row, Col, Form, Button, // bootstrap
 		DatePicker, // react-datepicker
-		DataGrid, // react-data-grid
+		AgGridReact, // ag-grid-react
 		Charts,
 		Collapsible,
 		Json2Html,
