@@ -7,7 +7,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 
 function App() {
 	const gridRef = React.useRef();
-	
+
 	const [columnDefs] = React.useState([
 		{ field: 'make', sortable: true, filter: true, checkboxSelection: true, editable: true },
 		{ field: 'model', sortable: true, filter: true, editable: true },
@@ -31,7 +31,7 @@ function App() {
     };
 
 	return (
-		<div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+		<div className="ag-theme-alpine">
             <AgGridReact
                 ref={gridRef}
                 rowData={rowData}
