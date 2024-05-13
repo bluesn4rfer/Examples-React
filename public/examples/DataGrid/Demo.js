@@ -18,6 +18,7 @@ function App() {
 		{ make: "Toyota", model: "Celica", price: 35000 },
 		{ make: "Ford", model: "Mondeo", price: 32000 },
 		{ make: "Porsche", model: "Boxster", price: 72000 }
+		{ make: "BMW", model: "335i", price: 43400 }
 	]);
 
     const defaultColDef = {
