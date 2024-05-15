@@ -1,25 +1,20 @@
 /*
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, necessary for styling
-import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
 */
 
 function App() {
-	const gridRef = React.useRef();
+    const gridRef = useRef();
 
-	const [columnDefs] = React.useState([
-		{ field: 'make', sortable: true, filter: true, checkboxSelection: true, editable: true },
-		{ field: 'model', sortable: true, filter: true, editable: true },
-		{ field: 'price', sortable: true, filter: true, editable: true }
-	]);
+    const [columnDefs] = useState([
+        { field: 'make', sortable: true, filter: true, checkboxSelection: true, editable: true },
+        { field: 'model', sortable: true, filter: true, editable: true },
+        { field: 'price', sortable: true, filter: true, editable: true }
+    ]);
 
-	const [rowData] = React.useState([
-		{ make: "Toyota", model: "Celica", price: 35000 },
-		{ make: "Ford", model: "Mondeo", price: 32000 },
-		{ make: "Porsche", model: "Boxster", price: 72000 }
-		{ make: "BMW", model: "335i", price: 43400 }
-	]);
+    const [rowData, setRowData] = useState([]);
 
     const defaultColDef = {
         flex: 1,
@@ -31,8 +26,45 @@ function App() {
         gridRef.current = params.api;
     };
 
-	return (
-		<div className="ag-theme-alpine">
+    // Function to fetch data from a JSON file URL
+    const fetchData = async () => {
+        try {
+            const response = await fetch('/data/cars.json'); 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+        }
+    };
+
+    // Function to process the data
+    const processData = data => {
+        let processedData = [];
+        data.forEach(make => {
+            make.models.forEach(model => {
+                model.variants.forEach(variant => {
+                    processedData.push({
+                        make: make.make,
+                        model: model.model,
+                        price: variant.price
+                    });
+                });
+            });
+        });
+        return processedData;
+    };
+
+    // Effect to fetch and set data on load
+    useEffect(() => {
+        fetchData().then(data => {
+            setRowData(processData(data));
+        });
+    }, []);
+
+    return (
+        <div className="ag-theme-alpine" style={{ height: 600, width: '100%' }}>
             <AgGridReact
                 ref={gridRef}
                 rowData={rowData}
@@ -45,6 +77,6 @@ function App() {
                 enableRangeSelection={true}
                 domLayout='autoHeight'
             />
-		</div>
-	);
+        </div>
+    );
 }

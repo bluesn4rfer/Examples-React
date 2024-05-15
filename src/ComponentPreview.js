@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -26,7 +26,7 @@ import './ComponentPreview.css';
 
 function ComponentPreview() {
 	const componentMap = {
-		useState, // react
+		useRef, useEffect, useState, // react
 		Calendar, momentLocalizer, // react-big-calendar
 		moment,
 		Container, Row, Col, Form, Button, // bootstrap
