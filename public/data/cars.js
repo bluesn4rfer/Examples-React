@@ -149,6 +149,20 @@
                 ]
             },
             {
+                "model": "5 Series",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 248,
+                        "torque": 258,
+                        "fuelType": "Gasoline",
+                        "price": 54000
+                    }
+                ]
+            },
+            {
                 "model": "X5",
                 "variants": [
                     {
@@ -161,7 +175,35 @@
                         "price": 59000
                     }
                 ]
+            },
+            {
+                "model": "X3",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 248,
+                        "torque": 258,
+                        "fuelType": "Gasoline",
+                        "price": 43000
+                    }
+                ]
+            },
+            {
+                "model": "M4",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 473,
+                        "torque": 406,
+                        "fuelType": "Gasoline",
+                        "price": 71000
+                    }
+                ]
             }
         ]
-    }
+    }    
 ]
