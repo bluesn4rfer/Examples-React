@@ -1,0 +1,722 @@
+[
+    {
+        "make": "Toyota",
+        "models": [
+            {
+                "model": "Camry",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 203,
+                        "torque": 184,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 301,
+                        "torque": 267,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    }
+                ]
+            },
+            {
+                "model": "Corolla",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.8L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 139,
+                        "torque": 126,
+                        "fuelType": "Gasoline",
+                        "price": 20000
+                    }
+                ]
+            },
+            {
+                "model": "RAV4",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 203,
+                        "torque": 184,
+                        "fuelType": "Gasoline",
+                        "price": 26000
+                    }
+                ]
+            },
+            {
+                "model": "Highlander",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 295,
+                        "torque": 263,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    }
+                ]
+            },
+            {
+                "model": "Tacoma",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.7L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 159,
+                        "torque": 180,
+                        "fuelType": "Gasoline",
+                        "price": 26000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 278,
+                        "torque": 265,
+                        "fuelType": "Gasoline",
+                        "price": 33000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Ford",
+        "models": [
+            {
+                "model": "F-150",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.3L",
+                        "engineType": "V6",
+                        "horsepower": 290,
+                        "torque": 265,
+                        "fuelType": "Gasoline",
+                        "price": 29000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.7L",
+                        "engineType": "V6 EcoBoost",
+                        "horsepower": 325,
+                        "torque": 400,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    }
+                ]
+            },
+            {
+                "model": "Mustang",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.3L",
+                        "engineType": "4-cylinder EcoBoost",
+                        "horsepower": 310,
+                        "torque": 350,
+                        "fuelType": "Gasoline",
+                        "price": 27000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "5.0L",
+                        "engineType": "V8",
+                        "horsepower": 450,
+                        "torque": 410,
+                        "fuelType": "Gasoline",
+                        "price": 36000
+                    }
+                ]
+            },
+            {
+                "model": "Explorer",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.3L",
+                        "engineType": "4-cylinder EcoBoost",
+                        "horsepower": 300,
+                        "torque": 310,
+                        "fuelType": "Gasoline",
+                        "price": 33000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "V6 EcoBoost",
+                        "horsepower": 400,
+                        "torque": 415,
+                        "fuelType": "Gasoline",
+                        "price": 52000
+                    }
+                ]
+            },
+            {
+                "model": "Escape",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "3-cylinder turbo",
+                        "horsepower": 181,
+                        "torque": 190,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 250,
+                        "torque": 280,
+                        "fuelType": "Gasoline",
+                        "price": 29000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Honda",
+        "models": [
+            {
+                "model": "Civic",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 158,
+                        "torque": 138,
+                        "fuelType": "Gasoline",
+                        "price": 21000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 174,
+                        "torque": 162,
+                        "fuelType": "Gasoline",
+                        "price": 23000
+                    }
+                ]
+            },
+            {
+                "model": "Accord",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 192,
+                        "torque": 192,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 252,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 31000
+                    }
+                ]
+            },
+            {
+                "model": "CR-V",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 190,
+                        "torque": 179,
+                        "fuelType": "Gasoline",
+                        "price": 26000
+                    }
+                ]
+            },
+            {
+                "model": "Pilot",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 280,
+                        "torque": 262,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    }
+                ]
+            },
+            {
+                "model": "Odyssey",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 280,
+                        "torque": 262,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Chevrolet",
+        "models": [
+            {
+                "model": "Silverado",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "4.3L",
+                        "engineType": "V6",
+                        "horsepower": 285,
+                        "torque": 305,
+                        "fuelType": "Gasoline",
+                        "price": 29000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "5.3L",
+                        "engineType": "V8",
+                        "horsepower": 355,
+                        "torque": 383,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    }
+                ]
+            },
+            {
+                "model": "Malibu",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 160,
+                        "torque": 184,
+                        "fuelType": "Gasoline",
+                        "price": 23000
+                    }
+                ]
+            },
+            {
+                "model": "Equinox",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 170,
+                        "torque": 203,
+                        "fuelType": "Gasoline",
+                        "price": 24000
+                    }
+                ]
+            },
+            {
+                "model": "Tahoe",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "5.3L",
+                        "engineType": "V8",
+                        "horsepower": 355,
+                        "torque": 383,
+                        "fuelType": "Gasoline",
+                        "price": 49000
+                    }
+                ]
+            },
+            {
+                "model": "Camaro",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 275,
+                        "torque": 295,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "6.2L",
+                        "engineType": "V8",
+                        "horsepower": 455,
+                        "torque": 455,
+                        "fuelType": "Gasoline",
+                        "price": 37000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Kia",
+        "models": [
+            {
+                "model": "Telluride",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.8L",
+                        "engineType": "V6",
+                        "horsepower": 291,
+                        "torque": 262,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    }
+                ]
+            },
+            {
+                "model": "Sorento",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 281,
+                        "torque": 311,
+                        "fuelType": "Gasoline",
+                        "price": 29000
+                    }
+                ]
+            },
+            {
+                "model": "Sportage",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.4L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 181,
+                        "torque": 175,
+                        "fuelType": "Gasoline",
+                        "price": 24000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 240,
+                        "torque": 260,
+                        "fuelType": "Gasoline",
+                        "price": 27000
+                    }
+                ]
+            },
+            {
+                "model": "Forte",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 147,
+                        "torque": 132,
+                        "fuelType": "Gasoline",
+                        "price": 18000
+                    }
+                ]
+            },
+            {
+                "model": "Stinger",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 300,
+                        "torque": 311,
+                        "fuelType": "Gasoline",
+                        "price": 34000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.3L",
+                        "engineType": "V6 twin-turbo",
+                        "horsepower": 365,
+                        "torque": 376,
+                        "fuelType": "Gasoline",
+                        "price": 40000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Dodge",
+        "models": [
+            {
+                "model": "Charger",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.6L",
+                        "engineType": "V6",
+                        "horsepower": 292,
+                        "torque": 260,
+                        "fuelType": "Gasoline",
+                        "price": 30000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "5.7L",
+                        "engineType": "V8 HEMI",
+                        "horsepower": 370,
+                        "torque": 395,
+                        "fuelType": "Gasoline",
+                        "price": 37000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "6.4L",
+                        "engineType": "V8 HEMI",
+                        "horsepower": 485,
+                        "torque": 475,
+                        "fuelType": "Gasoline",
+                        "price": 42000
+                    }
+                ]
+            },
+            {
+                "model": "Challenger",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.6L",
+                        "engineType": "V6",
+                        "horsepower": 305,
+                        "torque": 268,
+                        "fuelType": "Gasoline",
+                        "price": 29000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "5.7L",
+                        "engineType": "V8 HEMI",
+                        "horsepower": 375,
+                        "torque": 410,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "6.4L",
+                        "engineType": "V8 HEMI",
+                        "horsepower": 485,
+                        "torque": 475,
+                        "fuelType": "Gasoline",
+                        "price": 40000
+                    }
+                ]
+            },
+            {
+                "model": "Durango",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.6L",
+                        "engineType": "V6",
+                        "horsepower": 293,
+                        "torque": 260,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "5.7L",
+                        "engineType": "V8 HEMI",
+                        "horsepower": 360,
+                        "torque": 390,
+                        "fuelType": "Gasoline",
+                        "price": 43000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Volkswagen",
+        "models": [
+            {
+                "model": "Golf",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.4L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 147,
+                        "torque": 184,
+                        "fuelType": "Gasoline",
+                        "price": 23000
+                    }
+                ]
+            },
+            {
+                "model": "Tiguan",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 184,
+                        "torque": 221,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    }
+                ]
+            },
+            {
+                "model": "Passat",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 174,
+                        "torque": 206,
+                        "fuelType": "Gasoline",
+                        "price": 24000
+                    }
+                ]
+            },
+            {
+                "model": "Atlas",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 235,
+                        "torque": 258,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.6L",
+                        "engineType": "V6",
+                        "horsepower": 276,
+                        "torque": 266,
+                        "fuelType": "Gasoline",
+                        "price": 35000
+                    }
+                ]
+            },
+            {
+                "model": "Jetta",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "1.4L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 147,
+                        "torque": 184,
+                        "fuelType": "Gasoline",
+                        "price": 19000
+                    }
+                ]
+            }
+        ]
+    },    
+    {
+        "make": "BMW",
+        "models": [
+            {
+                "model": "3 Series",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 255,
+                        "torque": 295,
+                        "fuelType": "Gasoline",
+                        "price": 41000
+                    }
+                ]
+            },
+            {
+                "model": "5 Series",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 248,
+                        "torque": 258,
+                        "fuelType": "Gasoline",
+                        "price": 54000
+                    }
+                ]
+            },
+            {
+                "model": "X5",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 335,
+                        "torque": 330,
+                        "fuelType": "Gasoline",
+                        "price": 59000
+                    }
+                ]
+            },
+            {
+                "model": "X3",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 248,
+                        "torque": 258,
+                        "fuelType": "Gasoline",
+                        "price": 43000
+                    }
+                ]
+            },
+            {
+                "model": "M4",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 473,
+                        "torque": 406,
+                        "fuelType": "Gasoline",
+                        "price": 71000
+                    }
+                ]
+            }
+        ]
+    }    
+]
