@@ -643,7 +643,302 @@
                 ]
             }
         ]
-    },    
+    },
+    {
+        "make": "Nissan",
+        "models": [
+            {
+                "model": "Altima",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 188,
+                        "torque": 180,
+                        "fuelType": "Gasoline",
+                        "price": 24000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder VC-Turbo",
+                        "horsepower": 248,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 30000
+                    }
+                ]
+            },
+            {
+                "model": "Rogue",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 181,
+                        "torque": 181,
+                        "fuelType": "Gasoline",
+                        "price": 26000
+                    }
+                ]
+            },
+            {
+                "model": "Sentra",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 149,
+                        "torque": 146,
+                        "fuelType": "Gasoline",
+                        "price": 20000
+                    }
+                ]
+            },
+            {
+                "model": "Pathfinder",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.5L",
+                        "engineType": "V6",
+                        "horsepower": 284,
+                        "torque": 259,
+                        "fuelType": "Gasoline",
+                        "price": 33000
+                    }
+                ]
+            },
+            {
+                "model": "Leaf",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineType": "Electric",
+                        "horsepower": 147,
+                        "torque": 236,
+                        "fuelType": "Electric",
+                        "price": 32000
+                    },
+                    {
+                        "year": 2021,
+                        "engineType": "Electric",
+                        "horsepower": 214,
+                        "torque": 250,
+                        "fuelType": "Electric",
+                        "price": 38000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Hyundai",
+        "models": [
+            {
+                "model": "Elantra",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 147,
+                        "torque": 132,
+                        "fuelType": "Gasoline",
+                        "price": 20000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "1.6L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 201,
+                        "torque": 195,
+                        "fuelType": "Gasoline",
+                        "price": 25000
+                    }
+                ]
+            },
+            {
+                "model": "Sonata",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 191,
+                        "torque": 181,
+                        "fuelType": "Gasoline",
+                        "price": 24000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "1.6L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 180,
+                        "torque": 195,
+                        "fuelType": "Gasoline",
+                        "price": 28000
+                    }
+                ]
+            },
+            {
+                "model": "Tucson",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 187,
+                        "torque": 178,
+                        "fuelType": "Gasoline",
+                        "price": 23000
+                    }
+                ]
+            },
+            {
+                "model": "Santa Fe",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder",
+                        "horsepower": 191,
+                        "torque": 181,
+                        "fuelType": "Gasoline",
+                        "price": 27000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "2.5L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 277,
+                        "torque": 311,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    }
+                ]
+            },
+            {
+                "model": "Palisade",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.8L",
+                        "engineType": "V6",
+                        "horsepower": 291,
+                        "torque": 262,
+                        "fuelType": "Gasoline",
+                        "price": 32000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "make": "Mercedes-Benz",
+        "models": [
+            {
+                "model": "C-Class",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 255,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 41000
+                    }
+                ]
+            },
+            {
+                "model": "E-Class",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 255,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 54000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 362,
+                        "torque": 369,
+                        "fuelType": "Gasoline",
+                        "price": 62000
+                    }
+                ]
+            },
+            {
+                "model": "S-Class",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 429,
+                        "torque": 384,
+                        "fuelType": "Gasoline",
+                        "price": 94000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "4.0L",
+                        "engineType": "V8 biturbo",
+                        "horsepower": 496,
+                        "torque": 516,
+                        "fuelType": "Gasoline",
+                        "price": 110000
+                    }
+                ]
+            },
+            {
+                "model": "GLC",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 255,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 43000
+                    }
+                ]
+            },
+            {
+                "model": "GLE",
+                "variants": [
+                    {
+                        "year": 2021,
+                        "engineSize": "2.0L",
+                        "engineType": "4-cylinder turbo",
+                        "horsepower": 255,
+                        "torque": 273,
+                        "fuelType": "Gasoline",
+                        "price": 54000
+                    },
+                    {
+                        "year": 2021,
+                        "engineSize": "3.0L",
+                        "engineType": "6-cylinder turbo",
+                        "horsepower": 362,
+                        "torque": 369,
+                        "fuelType": "Gasoline",
+                        "price": 62000
+                    }
+                ]
+            }
+        ]
+    },                
     {
         "make": "BMW",
         "models": [
