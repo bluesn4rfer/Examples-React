@@ -6,7 +6,9 @@
   "dependencies": {
     "@babel/runtime": "^7.24.5",
     "@babel/standalone": "^7.24.5",
+    "@codemirror/comment": "^0.19.1",
     "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/matchbrackets": "^0.19.4",
     "@codemirror/state": "^6.4.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.6",

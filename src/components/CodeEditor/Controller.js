@@ -1,80 +1,93 @@
-import React, { useRef, useEffect } from 'react';
-
+import React, { useRef, useEffect, useReducer } from 'react';
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
-import { keymap } from '@codemirror/view';
-import { defaultKeymap } from '@codemirror/commands';
+import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
+import { defaultKeymap, indentWithTab } from '@codemirror/commands';
+import { javascript } from '@codemirror/lang-javascript'; // syntax highlighting for JavaScript
+import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
+import { closeBrackets, autocompletion, completionKeymap } from '@codemirror/autocomplete';
+import { bracketMatching } from '@codemirror/matchbrackets';
+import { commentKeymap } from '@codemirror/comment';
 
-function CodeEditor({code, onChange, updateCode, ...props}) {
+// Define light and dark themes
+const lightTheme = EditorView.theme({
+  '&': {
+    color: 'black',
+    backgroundColor: '#f5f5f5'
+  },
+  '.cm-content': {
+    caretColor: '#000000'
+  }
+}, { dark: false });
+
+const darkTheme = EditorView.theme({
+  '&': {
+    color: 'white',
+    backgroundColor: '#1e1e1e'
+  },
+  '.cm-content': {
+    caretColor: '#ffffff'
+  }
+}, { dark: true });
+
+function CodeEditor({ code, onChange, theme = 'dark', ...props }) {
   const editor = useRef(null);
   const editorViewRef = useRef(null);
-  const codeRef = useRef(code);
-  const onChangeRef = useRef(onChange);
+
+  const [editorState, dispatch] = useReducer((state, action) => {
+    switch (action.type) {
+      case 'init':
+        return { ...state, editorView: action.editorView };
+      case 'updateCode':
+        if (state.editorView) {
+          state.editorView.dispatch({
+            changes: { from: 0, to: state.editorView.state.doc.length, insert: action.updateCode }
+          });
+        }
+        return state;
+      default:
+        throw new Error('Unhandled action');
+    }
+  }, {});
 
   useEffect(() => {
-    codeRef.current = code;
-  }, [code]);
-
-  useEffect(() => {
-    onChangeRef.current = onChange;
-  }, [onChange]);
-
-
-  useEffect(() => {
-    // CodeMirror Extension: update code in store
     const onUpdate = EditorView.updateListener.of((view) => {
-        onChangeRef.current(view.state.doc.toString());
+      onChange(view.state.doc.toString());
     });
-    
-    const editorTheme = EditorView.theme({}, { dark: true });
 
-    const codeMirrorOptions = {
-      doc: codeRef.current,
-      lineNumbers: true,
-      lineWrapping: true,
-      width: '100%',
-      autoCloseBrackets: true,
-      cursorScrollMargin: 48,
-      indentUnit: 2,
-      tabSize: 2,
-      styleActiveLine: true,
-      viewportMargin: 99,
-      extensions: [
-        basicSetup,
-        keymap.of(defaultKeymap),
-        onUpdate,
-        editorTheme
-      ],
-    };
+    const extensions = [
+      basicSetup,
+      keymap.of([...defaultKeymap, indentWithTab]),
+      javascript(), // Adds JavaScript syntax highlighting
+      highlightActiveLine(),
+      highlightSpecialChars(),
+      bracketMatching(),
+      closeBrackets(),
+      autocompletion(), // Enables autocomplete feature
+      highlightSelectionMatches(),
+      keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
+      onUpdate,
+      theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
+    ];
 
-    const startState = EditorState.create(codeMirrorOptions);
+    const startState = EditorState.create({
+      doc: code,
+      extensions: extensions
+    });
 
-    editorViewRef.current = new EditorView({
+    const editorView = new EditorView({
       state: startState,
-      parent: editor.current,
+      parent: editor.current
     });
+
+    dispatch({ type: 'init', editorView });
 
     return () => {
-      editorViewRef.current.destroy();
+      editorView.destroy();
     };
-  }, []);
-
-  useEffect(() => {
-    const editorView = editorViewRef.current;
-    if(editorView.state && editorView.state.doc && updateCode){
-      console.debug('CodeEditor/Controller.js updateCode = '+updateCode);
-      editorView.dispatch({
-        changes: {
-            from: 0,
-            to: editorView.state.doc.length,
-            insert: updateCode
-        }
-      });
-    }
-
-  }, [updateCode]);
+  }, [theme]); // Reinitialize the editor if the theme prop changes
 
   return <div ref={editor} {...props} />;
-};
+}
 
 export default CodeEditor;
