@@ -30,7 +30,7 @@ const darkTheme = EditorView.theme({
   }
 }, { dark: true });
 
-function CodeEditor({ code, onChange, theme = 'dark', ...props }) {
+function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
   const editor = useRef(null);
   const editorViewRef = useRef(null);
 
@@ -39,7 +39,7 @@ function CodeEditor({ code, onChange, theme = 'dark', ...props }) {
       case 'init':
         return { ...state, editorView: action.editorView };
       case 'updateCode':
-        if (state.editorView) {
+        if (state.editorView && action.updateCode !== undefined) {
           state.editorView.dispatch({
             changes: { from: 0, to: state.editorView.state.doc.length, insert: action.updateCode }
           });
