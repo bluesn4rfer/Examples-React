@@ -33,59 +33,75 @@ const darkTheme = EditorView.theme({
 function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
   const editor = useRef(null);
   const editorViewRef = useRef(null);
+  const codeRef = useRef(code);
+  const onChangeRef = useRef(onChange);
 
-  const [editorState, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case 'init':
-        return { ...state, editorView: action.editorView };
-      case 'updateCode':
-        if (state.editorView && action.updateCode !== undefined) {
-          state.editorView.dispatch({
-            changes: { from: 0, to: state.editorView.state.doc.length, insert: action.updateCode }
-          });
+  useEffect(() => {
+    codeRef.current = code;
+  }, [code]);
+
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
+  useEffect(() => {
+    const editorView = editorViewRef.current;
+    if(editorView.state && editorView.state.doc && updateCode){
+      console.debug('CodeEditor/Controller.js updateCode = '+updateCode);
+      editorView.dispatch({
+        changes: {
+            from: 0,
+            to: editorView.state.doc.length,
+            insert: updateCode
         }
-        return state;
-      default:
-        throw new Error('Unhandled action');
+      });
     }
-  }, {});
+
+  }, [updateCode]);
 
   useEffect(() => {
     const onUpdate = EditorView.updateListener.of((view) => {
-      onChange(view.state.doc.toString());
+      onChangeRef.current(view.state.doc.toString());
     });
 
-    const extensions = [
-      basicSetup,
-      keymap.of([...defaultKeymap, indentWithTab]),
-      javascript(), // Adds JavaScript syntax highlighting
-      highlightActiveLine(),
-      highlightSpecialChars(),
-      bracketMatching(),
-      closeBrackets(),
-      autocompletion(), // Enables autocomplete feature
-      highlightSelectionMatches(),
-      keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
-      onUpdate,
-      theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
-    ];
+    const codeMirrorOptions = {
+      doc: codeRef.current,
+      lineNumbers: true,
+      lineWrapping: true,
+      width: '100%',
+      autoCloseBrackets: true,
+      cursorScrollMargin: 48,
+      indentUnit: 2,
+      tabSize: 2,
+      styleActiveLine: true,
+      viewportMargin: 99,
+      extensions: [
+        basicSetup,
+        keymap.of([...defaultKeymap, indentWithTab]),
+        javascript(), // Adds JavaScript syntax highlighting
+        highlightActiveLine(),
+        highlightSpecialChars(),
+        bracketMatching(),
+        closeBrackets(),
+        autocompletion(), // Enables autocomplete feature
+        highlightSelectionMatches(),
+        keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
+        onUpdate,
+        theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
+      ],
+    };    
 
-    const startState = EditorState.create({
-      doc: code,
-      extensions: extensions
-    });
+    const startState = EditorState.create(codeMirrorOptions);
 
-    const editorView = new EditorView({
+    editorViewRef.current = new EditorView({
       state: startState,
       parent: editor.current
     });
 
-    dispatch({ type: 'init', editorView });
-
     return () => {
-      editorView.destroy();
+      editorViewRef.current.destroy();
     };
-  }, [theme]); // Reinitialize the editor if the theme prop changes
+  }, []); 
 
   return <div ref={editor} {...props} />;
 }
