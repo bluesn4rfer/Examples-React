@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useReducer } from 'react';
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
-import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
+//import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 import { javascript } from '@codemirror/lang-javascript'; // syntax highlighting for JavaScript
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
 import { closeBrackets, autocompletion, completionKeymap } from '@codemirror/autocomplete';
-import { bracketMatching } from '@codemirror/matchbrackets';
-import { commentKeymap } from '@codemirror/comment';
+//import { bracketMatching } from '@codemirror/matchbrackets';
+//import { commentKeymap } from '@codemirror/comment';
 
 // Define light and dark themes
 const lightTheme = EditorView.theme({
@@ -46,7 +46,7 @@ function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
 
   useEffect(() => {
     const editorView = editorViewRef.current;
-    if(editorView.state && editorView.state.doc && updateCode){
+    if(editorView?.state && editorView.state.doc && updateCode){
       console.debug('CodeEditor/Controller.js updateCode = '+updateCode);
       editorView.dispatch({
         changes: {
@@ -77,15 +77,15 @@ function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
       viewportMargin: 99,
       extensions: [
         basicSetup,
-        keymap.of([...defaultKeymap, indentWithTab]),
+        //keymap.of([...defaultKeymap, indentWithTab]),
         javascript(), // Adds JavaScript syntax highlighting
-        highlightActiveLine(),
-        highlightSpecialChars(),
-        bracketMatching(),
+        //highlightActiveLine(),
+        //highlightSpecialChars(),
+        //bracketMatching(),
         closeBrackets(),
         autocompletion(), // Enables autocomplete feature
         highlightSelectionMatches(),
-        keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
+        //keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
         onUpdate,
         theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
       ],
