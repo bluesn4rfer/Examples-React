@@ -6,8 +6,8 @@ import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 import { javascript } from '@codemirror/lang-javascript'; // syntax highlighting for JavaScript
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
 import { closeBrackets, autocompletion, completionKeymap } from '@codemirror/autocomplete';
-//import { bracketMatching } from '@codemirror/matchbrackets';
-//import { commentKeymap } from '@codemirror/comment';
+import { bracketMatching } from '@codemirror/language';
+import { commentKeymap } from '@codemirror/commands';
 
 // Define light and dark themes
 const lightTheme = EditorView.theme({
@@ -81,7 +81,7 @@ function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
         javascript(), // Adds JavaScript syntax highlighting
         //highlightActiveLine(),
         //highlightSpecialChars(),
-        //bracketMatching(),
+        bracketMatching(),
         closeBrackets(),
         autocompletion(), // Enables autocomplete feature
         highlightSelectionMatches(),

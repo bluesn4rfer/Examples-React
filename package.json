@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/runtime": "^7.24.5",
     "@babel/standalone": "^7.24.5",
+    "@codemirror/commands": "^6.5.0",
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/state": "^6.4.1",
     "@testing-library/jest-dom": "^6.4.5",
