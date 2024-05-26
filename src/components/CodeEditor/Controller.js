@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useReducer } from 'react';
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
-//import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
+import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
 import { defaultKeymap, indentWithTab } from '@codemirror/commands';
 import { javascript } from '@codemirror/lang-javascript'; // syntax highlighting for JavaScript
 import { searchKeymap, highlightSelectionMatches } from '@codemirror/search';
@@ -17,7 +17,15 @@ const lightTheme = EditorView.theme({
   },
   '.cm-content': {
     caretColor: '#000000'
-  }
+  },
+  ".cm-matchingBracket": {
+    backgroundColor: "#BDD5FA",
+    color: "#000000"
+  },
+  ".cm-nonmatchingBracket": {
+    backgroundColor: "#FF9DA6",
+    color: "#000000"
+  }  
 }, { dark: false });
 
 const darkTheme = EditorView.theme({
@@ -27,6 +35,14 @@ const darkTheme = EditorView.theme({
   },
   '.cm-content': {
     caretColor: '#ffffff'
+  },
+  ".cm-matchingBracket": {
+    backgroundColor: "#BDD5FA",
+    color: "#000000"
+  },
+  ".cm-nonmatchingBracket": {
+    backgroundColor: "#FF9DA6",
+    color: "#000000"
   }
 }, { dark: true });
 
