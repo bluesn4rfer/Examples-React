@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useReducer } from 'react';
+import React, { useState, useRef, useEffect, useReducer } from 'react';
 import { basicSetup, EditorView } from 'codemirror';
 import { EditorState } from '@codemirror/state';
 import { keymap, highlightActiveLine, highlightSpecialChars } from '@codemirror/view';
@@ -12,7 +12,8 @@ import { commentKeymap } from '@codemirror/commands';
 import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
 
-function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
+function CodeEditor({ code, onChange, updateCode, theme: initTheme = 'dark', ...props }) {
+  const [theme, setTheme] = useState(initTheme);
   const editor = useRef(null);
   const editorViewRef = useRef(null);
   const codeRef = useRef(code);
@@ -83,7 +84,11 @@ function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
     return () => {
       editorViewRef.current.destroy();
     };
-  }, []); 
+  }, [theme]); 
+
+  const toggleTheme = () => {
+    setTheme(current => current === 'dark' ? 'light' : 'dark');
+  };
 
   return (
     <div {...props}>
@@ -93,7 +98,7 @@ function CodeEditor({ code, onChange, updateCode, theme = 'dark', ...props }) {
           type="checkbox"
           id="darkModeSwitch"
           checked={theme === 'dark'}
-          //onChange={toggleTheme}
+          onChange={toggleTheme}
         />
         <label className="form-check-label" htmlFor="darkModeSwitch">Dark Mode</label>
       </div>
