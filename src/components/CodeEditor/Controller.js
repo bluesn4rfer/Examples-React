@@ -9,8 +9,8 @@ import { closeBrackets, autocompletion, completionKeymap } from '@codemirror/aut
 import { bracketMatching } from '@codemirror/language';
 import { commentKeymap } from '@codemirror/commands';
 
-import { lightTheme } from './themes/light';
-import { darkTheme } from './themes/dark';
+import { lightTheme, lightSyntaxHighlighting } from './themes/light';
+import { darkTheme, darkSyntaxHighlighting } from './themes/dark';
 
 function CodeEditor({ code, onChange, updateCode, theme: initTheme = 'dark', ...props }) {
   const [theme, setTheme] = useState(initTheme);
@@ -70,6 +70,7 @@ function CodeEditor({ code, onChange, updateCode, theme: initTheme = 'dark', ...
         highlightSelectionMatches(),
         //keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
         onUpdate,
+        theme === 'dark' ? darkSyntaxHighlighting : lightSyntaxHighlighting,
         theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
       ],
     };    
