@@ -1,4 +1,5 @@
 import { EditorView } from "@codemirror/view";
+import { HighlightStyle, tags } from "@lezer/highlight";
 
 export const darkTheme = EditorView.theme({
   "&": {
@@ -29,3 +30,15 @@ export const darkTheme = EditorView.theme({
   ".cm-activeLine": { backgroundColor: "#2c313c" }, // Active line background
   ".cm-selectionMatch": { backgroundColor: "#676767" } // Search matches
 }, { dark: true });
+
+export const darkSyntaxHighlighting = HighlightStyle.define([
+  { tag: tags.keyword, color: "#c678dd" },  // Bright purple for keywords
+  { tag: tags.comment, color: "#5c6370" }, // Dim grey for comments, less distracting
+  { tag: tags.string, color: "#98c379" },  // Soft green for strings
+  { tag: tags.function(tags.variableName), color: "#61afef" }, // Bright blue for functions
+  { tag: tags.number, color: "#d19a66" },  // Soft orange for numbers
+  { tag: tags.className, color: "#e5c07b" }, // Yellow for classes
+  { tag: tags.typeName, color: "#e5c07b" },  // Same yellow for types
+  { tag: tags.operator, color: "#56b6c2" }, // Cyan for operators
+  { tag: tags.regexp, color: "#d19a66" }   // Same orange for regular expressions
+]);
