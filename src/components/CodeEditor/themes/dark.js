@@ -1,5 +1,6 @@
 import { EditorView } from "@codemirror/view";
-import { HighlightStyle, tags } from "@lezer/highlight";
+import { tags } from '@lezer/highlight'
+import { HighlightStyle } from '@codemirror/language'
 
 export const darkTheme = EditorView.theme({
   "&": {
