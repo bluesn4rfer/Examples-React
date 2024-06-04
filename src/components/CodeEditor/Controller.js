@@ -70,7 +70,7 @@ function CodeEditor({ code, onChange, updateCode, theme: initTheme = 'dark', ...
         highlightSelectionMatches(),
         //keymap.of([...searchKeymap, ...completionKeymap, ...commentKeymap]),
         onUpdate,
-        //theme === 'dark' ? darkSyntaxHighlighting : lightSyntaxHighlighting,
+        theme === 'dark' ? darkSyntaxHighlighting : lightSyntaxHighlighting,
         theme === 'dark' ? darkTheme : lightTheme // Toggle theme based on the 'theme' prop
       ],
     };    
