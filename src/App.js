@@ -72,6 +72,30 @@ function App({appState, ...props}) {
 		style: { width: '250px' },
 		links: [
 			{
+				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Bootstrap</a>),			
+				menu: {
+					id: 'menus-menu',
+					className: 'list-unstyled collapse show',
+					links: [
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to='/examples/Bootstrap/Accordion' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Accordion</Link>)
+						},
+						{
+							style: {
+								borderBottom: '2px solid var(--bs-secondary-hover)'
+							},
+							link: (<Link to="/examples/Bootstrap/DropDown" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Drop down</Link>)
+						},
+						{
+							link: (<Link to='/examples/Bootstrap/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
+						}
+					]
+				}
+			},			
+			{
 				link: (<a href='#menus-menu' className='d-block btn-primary list-unstyled collapsed text-decoration-none exclude-collapse' data-bs-toggle="collapse" aria-expanded="true"><i className='p-2 icon fa fa-bars' />Menus</a>),			
 				menu: {
 					id: 'menus-menu',
