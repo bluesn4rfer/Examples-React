@@ -81,14 +81,14 @@ function App({appState, ...props}) {
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
-							link: (<Link to='/examples/Bootstrap/Accordion' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Accordion</Link>)
+							link: (<Link to="/examples/Bootstrap/DropDown" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Drop down</Link>)
 						},
 						{
 							style: {
 								borderBottom: '2px solid var(--bs-secondary-hover)'
 							},
-							link: (<Link to="/examples/Bootstrap/DropDown" className='d-block py-1 px-2 btn-secondary text-decoration-none'>Drop down</Link>)
-						},
+							link: (<Link to='/examples/Bootstrap/Navbar' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Navbar</Link>)
+						},						
 						{
 							link: (<Link to='/examples/Bootstrap/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
 						}
