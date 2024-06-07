@@ -90,7 +90,7 @@ function App({appState, ...props}) {
 							link: (<Link to='/examples/Bootstrap/Navbar' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Navbar</Link>)
 						},						
 						{
-							link: (<Link to='/examples/Bootstrap/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
+							link: (<Link to='/examples/Bootstrap/Nav' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Nav</Link>)
 						}
 					]
 				}
