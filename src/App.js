@@ -94,7 +94,10 @@ function App({appState, ...props}) {
 						},
 						{
 							link: (<Link to='/examples/Bootstrap/ItemVariants' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Item Variants</Link>)
-						}						
+						},
+						{
+							link: (<Link to='/examples/Bootstrap/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
+						}							
 					]
 				}
 			},			
