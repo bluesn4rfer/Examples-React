@@ -97,7 +97,10 @@ function App({appState, ...props}) {
 						},
 						{
 							link: (<Link to='/examples/Bootstrap/Tabs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Tabs</Link>)
-						}							
+						},
+						{
+							link: (<Link to='/examples/Bootstrap/Pagination' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Pagination</Link>)
+						}													
 					]
 				}
 			},			

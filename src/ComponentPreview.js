@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import { Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AgGridReact } from 'ag-grid-react';
@@ -29,7 +29,7 @@ function ComponentPreview() {
 		useRef, useEffect, useState, // react
 		Calendar, momentLocalizer, // react-big-calendar
 		moment,
-		Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, // bootstrap
+		Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination, // bootstrap
 		DatePicker, // react-datepicker
 		AgGridReact, // ag-grid-react
 		Charts,
