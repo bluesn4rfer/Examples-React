@@ -103,7 +103,10 @@ function App({appState, ...props}) {
 						},
 						{
 							link: (<Link to='/examples/Bootstrap/Breadcrumbs' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Breadcrumbs</Link>)
-						}													
+						},
+						{
+							link: (<Link to='/examples/Bootstrap/Sidebar' className='d-block py-1 px-2 btn-secondary text-decoration-none'>Sidebar</Link>)
+						}												
 					]
 				}
 			},			
