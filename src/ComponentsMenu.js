@@ -24,32 +24,39 @@ const componentsMenu = {
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
-						href: '/examples/Bootstrap/Navbar'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Navbar
+						href: '/examples/Bootstrap/Navbar',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Navbar')
 					},						
 					{
-						href: '/examples/Bootstrap/Nav'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Nav
+						href: '/examples/Bootstrap/Nav',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Nav')
 					},
 					{
-						href: '/examples/Bootstrap/ItemVariants'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Item Variants
+						href: '/examples/Bootstrap/ItemVariants',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Item Variants')
 					},
 					{
-						href: '/examples/Bootstrap/Tabs'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Tabs
+						href: '/examples/Bootstrap/Tabs',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Tabs')
 					},
 					{
-						href: '/examples/Bootstrap/Pagination'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Pagination
+						href: '/examples/Bootstrap/Pagination',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Pagination')
 					},
 					{
-						href: '/examples/Bootstrap/Breadcrumbs'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Breadcrumbs
+						href: '/examples/Bootstrap/Breadcrumbs',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Breadcrumbs')
 					},
 					{
-						href: '/examples/Bootstrap/Sidebar'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Sidebar
+						href: '/examples/Bootstrap/Sidebar',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Sidebar')
 					}												
 				]
 			}
@@ -64,19 +71,22 @@ const componentsMenu = {
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
-						href: '/examples/DisplayMenu/Accordion'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Accordion
+						href: '/examples/DisplayMenu/Accordion',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Accordion')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
-						href: "/examples/DisplayMenu/DropDown"
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Drop down
+						href: "/examples/DisplayMenu/DropDown",
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Drop down')
 					},
 					{
-						href: '/examples/DisplayMenu/Tabs'
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Tabs
+						href: '/examples/DisplayMenu/Tabs',
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Tabs')
 					}
 				]
 			}
@@ -92,35 +102,40 @@ const componentsMenu = {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/examples/Collapsible/Collapsible",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Collapsible
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Collapsible')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/examples/Json2Html/FormTest",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Json2Html
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Json2Html')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/examples/DataGrid/Demo",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Data Grid
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Data Grid')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/examples/Calendar/Demo",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Calendar
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Calendar')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/examples/Charts/Demo",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Charts
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Charts')
 					}											
 				]
 			}
@@ -136,88 +151,101 @@ const componentsMenu = {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/AllTypes',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>All Field Types
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('All Field Types')
 					},
 					{ 
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/ContactUs',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Contact Us
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Contact Us')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Login',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Login
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Login')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Registration',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Registration
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Registration')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Survey',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Survey
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Survey')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Newsletter',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Newsletter Sign-up
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Newsletter Sign-up')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Payment',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Payment
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Payment')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/FileUpload',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>File Upload
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('File Upload')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Feedback',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Feedback
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Feedback')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/Comment',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Comment
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Comment')
 					},
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/RSVP',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>RSVP
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('RSVP')
 					},						
 					{
 						style: {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: '/examples/DisplayForm/PasswordReset',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Password Reset
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Password Reset')
 					},
 					{
 						href: '/examples/DisplayForm/SubscriptionCancellation',
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Subscription Cancellation
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Subscription Cancellation')
 					}
 				]
 			} 
@@ -233,7 +261,8 @@ const componentsMenu = {
 							borderBottom: '2px solid var(--bs-secondary-hover)'
 						},
 						href: "/icons/FontAwesome",
-						className: 'd-block py-1 px-2 btn-secondary text-decoration-none'>Font Awesome
+						className: 'd-block py-1 px-2 btn-secondary text-decoration-none',
+						children: ('Font Awesome')
 					}
 				]
 			}
