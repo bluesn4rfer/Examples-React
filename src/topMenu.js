@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
-export const topMenu = {
+const topMenu = {
     className: 'list-unstyled',
     links: [
         {
@@ -30,10 +30,10 @@ export const topMenu = {
     ]
 };
 
-function TopMenu({menuData}) {
+export function TopMenu() {
     return (
-        <DropdownButton id="dropdown-basic-button" title={dropdownMenuData.title}>
-          {dropdownMenuData.items.map(item => (
+        <DropdownButton id="dropdown-basic-button" title={topMenu.title}>
+          {topMenu.items.map(item => (
             <Dropdown.Item key={item.id} href={item.href}>
               {item.label}
             </Dropdown.Item>
