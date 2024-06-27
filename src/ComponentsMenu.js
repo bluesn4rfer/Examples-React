@@ -66,10 +66,10 @@ function ComponentsMenu() {
 	  <Accordion defaultActiveKey="0" className="border-primary list-unstyled" style={{ width: '300px' }}>
 		{componentsMenu.links.map((menu, index) => (
 		  <Card key={index}>
-			<Accordion.Toggle as={Card.Header} eventKey={index.toString()}>
+			<Accordion.Header as={Card.Header} eventKey={index.toString()}>
 			  {menu.title}
-			</Accordion.Toggle>
-			<Accordion.Collapse eventKey={index.toString()}>
+			</Accordion.Header>
+			<Accordion.Body eventKey={index.toString()}>
 			  <Card.Body>
 				<ListGroup variant="flush">
 				  {menu.items.map((item, idx) => (
@@ -79,7 +79,7 @@ function ComponentsMenu() {
 				  ))}
 				</ListGroup>
 			  </Card.Body>
-			</Accordion.Collapse>
+			</Accordion.Body>
 		  </Card>
 		))}
 	  </Accordion>
