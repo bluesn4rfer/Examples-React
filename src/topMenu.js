@@ -26,7 +26,7 @@ const topMenu = [
 
 export function TopMenu() {
     return (
-        <DropdownButton id="dropdown-basic-button" title={<i className='icon fa fa-bars' />}>
+        <DropdownButton id="topmenu" variant="secondary" title={<i className='fs-5 icon fa fa-bars' />}>
           {topMenu.map(item => (
             <Dropdown.Item key={item.id} href={item.href}>
               {item.label}
