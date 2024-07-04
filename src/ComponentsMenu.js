@@ -69,10 +69,8 @@ function ComponentsMenu() {
   };
 
   return (
-    <div className='sidebar'>
-      <button className="menu-button" onClick={toggleSidebar}>
-        MENU
-      </button>
+    <div className="sidebar h-100 p-0 fs-3 text-decoration-none text-uppercase vtext">
+      <button className="menu-button btn-primary h-100 w-100" onClick={toggleSidebar}>EXAMPLES</button>
       <Collapse in={isOpen}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
           {componentsMenu.links.map((menu, index) => (
