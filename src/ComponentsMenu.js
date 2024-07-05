@@ -70,7 +70,7 @@ function ComponentsMenu() {
 
   return (
     <div className="sidebar h-100 p-0 fs-3 text-decoration-none text-uppercase vtext">
-      <button className="menu-button btn-primary h-100 w-100" onClick={toggleSidebar}>EXAMPLES</button>
+      <button className="menu-button btn-primary h-100 w-100 text-start" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
           {componentsMenu.links.map((menu, index) => (
