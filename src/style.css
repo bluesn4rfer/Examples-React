@@ -17,22 +17,18 @@ html, body {
 	width: 0px !important;
 }
 
-.collapsible-content {
-	transition: width 1s ease, height 0.3s ease, opacity 0.3s ease;
+.horizontal-collapsible-content {
+	transition: width 1s ease, opacity 0.3s ease;
 	overflow: hidden;
 }
 
-.collapsing {
+.horizontal-collapsible-content.collapsing {
 	height: auto;
 	width: 0px !important;
 	overflow: hidden;
 }
 
-.collapse.show {
-	display: block;
-}
-
-.collapsible-content:not(.show) {
+.horizontal-collapsible-content:not(.show) {
     display: block !important;
 	width: 0px !important;
 }
