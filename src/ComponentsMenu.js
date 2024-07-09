@@ -69,7 +69,7 @@ function ComponentsMenu() {
   };
 
   return (
-    <div className="sidebar h-100 p-0 fs-3 text-decoration-none">
+    <div className="sidebar bg-secondary h-100 p-0 fs-3 text-decoration-none">
       <button className="menu-button btn-primary h-100 text-start text-uppercase vtext" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
