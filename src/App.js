@@ -1,9 +1,7 @@
 import { useLocalStorage } from './components/Hooks/useLocalStorage';
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-
-import DisplayMenu from './components/Menus/Controller';
+import { Routes, Route } from 'react-router-dom';
 
 import ComponentsMenu from './ComponentsMenu';
 import ComponentPreview from './ComponentPreview';

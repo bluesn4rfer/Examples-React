@@ -75,10 +75,11 @@ function ComponentsMenu() {
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
           {componentsMenu.links.map((menu, index) => (
             <Card key={index}>
-              <Accordion.Header as={Card.Header} eventKey={index.toString()}>
+              <Accordion.Item eventKey={index.toString()}>
+              <Accordion.Header>
                 {menu.title}
               </Accordion.Header>
-              <Accordion.Body eventKey={index.toString()}>
+              <Accordion.Body>
                 <Card.Body>
                   <ListGroup variant="flush">
                     {menu.items.map((item, idx) => (
@@ -89,6 +90,7 @@ function ComponentsMenu() {
                   </ListGroup>
                 </Card.Body>
               </Accordion.Body>
+              </Accordion.Item>
             </Card>
           ))}
         </Accordion>
