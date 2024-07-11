@@ -13,7 +13,6 @@ import CodeEditor from './components/CodeEditor/Controller';
 import CodePreview from './components/CodePreview/Controller';
 import MarkdownPreview from './components/MarkdownPreview/Controller';
 
-import DisplayMenu from './components/Menus/Controller';
 import DisplayForm from './components/Forms/Controller';
 //import Calendar from './components/Calendar/Controller';
 
@@ -35,8 +34,7 @@ function ComponentPreview() {
 		Charts,
 		Collapsible,
 		Json2Html,
-		DisplayForm,
-		DisplayMenu
+		DisplayForm
 	};
 
 	const { mode = 'preview', component = 'DisplayForm', example = 'Login' } = useParams();
@@ -158,8 +156,10 @@ function ComponentPreview() {
 	console.log('ComponentPreview.js mode = '+mode.toLowerCase());
  	return (
 		<div key={`${component}-${example}`} className='d-flex flex-column w-100'>
-			<div className="d-flex flex-row w-100 justify-content-center border-3 border-bottom border-primary"><DisplayMenu menu={tabsMenu} /></div>
-			{/* {showView()} */}
+			<div className="d-flex flex-row w-100 justify-content-center border-3 border-bottom border-primary">
+				{/*<DisplayMenu menu={tabsMenu} />*/}
+			</div>
+
 			<div className="w-100 h-100 px-3" style={
 				{
 					display: mode.toLowerCase() === '' || mode.toLowerCase() === 'preview' ? 'block' : 'none',
