@@ -2,33 +2,7 @@ import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const topMenu = [
-    {
-        id: 'menus',
-        label: 'Menus',
-        href: '/menus',
-    },
-    {
-        id: 'views',
-        label: 'Views',
-        href: '/views',
-    },
-    {
-        id: 'forms',
-        label: 'Forms',
-        href: '/forms',
-    },
-    {
-        id: 'icons',
-        label: 'Icons',
-        href: '/icons',
-    },
-    {
-        id: 'change-theme',
-        label: 'Change Theme',
-        href: '/change-theme',
-    }
-];
+const topMenu = require('./TopMenu.json');
 
 export function TopMenu() {
     return (

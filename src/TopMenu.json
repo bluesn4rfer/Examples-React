@@ -1,0 +1,27 @@
+[
+    {
+        "id": "menus",
+        "label": "Menus",
+        "href": "/menus"
+    },
+    {
+        "id": "views",
+        "label": "Views",
+        "href": "/views"
+    },
+    {
+        "id": "forms",
+        "label": "Forms",
+        "href": "/forms"
+    },
+    {
+        "id": "icons",
+        "label": "Icons",
+        "href": "/icons"
+    },
+    {
+        "id": "change-theme",
+        "label": "Change Theme",
+        "href": "/change-theme"
+    }
+]
