@@ -45,7 +45,7 @@ function App({appState, ...props}) {
 		<Theme theme={theme} />
 		<div className='container-fluid position-fixed top-0 start-0 end-0 theme-primary shadow-sm d-flex flex-row m-0 p-0' style={{ zIndex: 200, height: '55px' }}>
 			<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'><h2 className='m-0'>Examples.BlueGunn.com</h2></div>
-			<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><TopMenu /></div>
+			<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><TopMenu setShowThemeSelector={setShowThemeSelector} /></div>
 		</div>
 		<div className='d-flex flex-shrink-1 position-fixed left-0 py-1' style={{ zIndex: 150, marginTop: '55px', height: 'calc(100vh - 95px)' }}><ComponentsMenu /></div>
 		<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
