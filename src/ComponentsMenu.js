@@ -11,6 +11,10 @@ function ComponentsMenu() {
     setIsOpen(!isOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+  
   return (
     <div className="sidebar bg-secondary h-100 p-0 text-decoration-none">
       <button className="menu-button btn-primary h-100 fs-3 text-start text-uppercase vtext" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
@@ -26,7 +30,7 @@ function ComponentsMenu() {
                 <Card.Body className="p-0 text-nowrap">
                   <ListGroup variant="flush">
                     {menu.items.map((item, idx) => (
-                      <ListGroup.Item action as={Link} to={item.href} key={idx}>
+                      <ListGroup.Item action as={Link} to={item.href} key={idx} onClick={handleLinkClick}>
                         {item.text}
                       </ListGroup.Item>
                     ))}
