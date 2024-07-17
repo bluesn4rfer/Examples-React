@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const topMenu = require('./TopMenu.json');
+const topMenu = require('./topMenu.json');
 
 export function TopMenu({ setShowThemeSelector }) {
     const handleSelect = (eventKey) => {

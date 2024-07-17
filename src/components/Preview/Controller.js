@@ -9,30 +9,28 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, necessary for styling
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 
-import CodeEditor from './components/CodeEditor/Controller';
-import CodePreview from './components/CodePreview/Controller';
-import MarkdownPreview from './components/MarkdownPreview/Controller';
+import CodeEditor from '../CodeEditor/Controller';
+import CodePreview from '../CodePreview/Controller';
+import MarkdownPreview from '../MarkdownPreview/Controller';
 
-import DisplayForm from './components/Forms/Controller';
-//import Calendar from './components/Calendar/Controller';
+import DisplayForm from '../Forms/Controller';
+//import Calendar from '../Calendar/Controller';
 
-import Charts from './components/Charts/Controller';
-import Collapsible from './components/Collapsible/Controller';
-import Json2Html from './components/Json2Html/Controller';
+import Charts from '../Charts/Controller';
+import Json2Html from '../Json2Html/Controller';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './ComponentPreview.css';
+import './preview.css';
 
 function ComponentPreview() {
 	const componentMap = {
 		useRef, useEffect, useState, // react
+		Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination, Breadcrumb, // bootstrap
 		Calendar, momentLocalizer, // react-big-calendar
 		moment,
-		Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination, Breadcrumb, // bootstrap
 		DatePicker, // react-datepicker
 		AgGridReact, // ag-grid-react
 		Charts,
-		Collapsible,
 		Json2Html,
 		DisplayForm
 	};

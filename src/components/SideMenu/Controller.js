@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const componentsMenu = require('./ComponentsMenu.json');
+const sideMenu = require('./sideMenu.json');
 
-function ComponentsMenu() {
+function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -20,7 +20,7 @@ function ComponentsMenu() {
       <button className="menu-button btn-primary h-100 fs-3 text-start text-uppercase vtext" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
-          {componentsMenu.links.map((menu, index) => (
+          {sideMenu.links.map((menu, index) => (
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
               <Accordion.Header>
@@ -46,4 +46,4 @@ function ComponentsMenu() {
   );
 }
 
-export default ComponentsMenu;
+export default SideMenu;
