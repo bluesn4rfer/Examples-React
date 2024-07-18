@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination, Breadcrumb } from 'react-bootstrap';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import { Container, Row, Col, Form, Button, Dropdown, DropdownButton, Navbar, Nav, NavDropdown, Tabs, Tab, Pagination, Breadcrumb } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AgGridReact } from 'ag-grid-react';
@@ -49,46 +49,6 @@ function ComponentPreview() {
 	const [code, setCode] = useState(null);
 	const [updateCode, setUpdateCode] = useState(null);
 	const [markdown, setMarkdown] = useState(null);
-
-	/* TOP TABS */
-	const tabsMenu = {
-		className: "d-flex m-0 list-unstyled",
-		links: [
-			{
-				className: !mode || mode.toLowerCase() === 'preview' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-				link: (
-					<Link
-					to={`/examples/${component}/${example}/preview`}
-					className="d-block px-3 text-decoration-none"
-					>
-					Preview
-					</Link>
-				)
-			},
-			{
-				className: mode.toLowerCase() === 'editor' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-				link: (
-					<Link
-					to={`/examples/${component}/${example}/editor`}
-					className="d-block px-3 text-decoration-none"
-					>
-					Editor
-					</Link>
-				)
-			},
-			{
-				className: mode.toLowerCase() === 'documentation' ? 'theme-primary rounded-top' : 'theme-secondary border-start border-top border-end border-1 border-primary rounded-top',
-				link: (
-					<Link
-					to={`/examples/${component}/${example}/documentation`}
-					className="d-block px-3 text-decoration-none"
-					>
-					Documentation
-					</Link>
-				)
-			}
-		]
-	};
 
 	/* CODE EDITOR | PREVIEW */
 	useEffect(() => {
@@ -155,7 +115,35 @@ function ComponentPreview() {
  	return (
 		<div key={`${component}-${example}`} className='d-flex flex-column w-100'>
 			<div className="d-flex flex-row w-100 justify-content-center border-3 border-bottom border-primary">
-				{/*<DisplayMenu menu={tabsMenu} />*/}
+				<Tabs defaultActiveKey="preview" id="uncontrolled-tab-example">
+        			<Tab key="preview" eventKey="preview" title="Preview">
+          				<div>PREVIEW</div>
+        			</Tab>
+					<Tab key="editor" eventKey="editor" title="Editor">
+          				<div>EDITOR</div>
+        			</Tab>
+					<Tab eventKey="documentation" title="Documentation" key="documentation">
+          				<div>DOCUMENTATION</div>
+        			</Tab>
+    			</Tabs>				
+				<Link
+					to={`/examples/${component}/${example}/preview`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Preview
+				</Link>
+				<Link
+					to={`/examples/${component}/${example}/editor`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Editor
+				</Link>
+				<Link
+					to={`/examples/${component}/${example}/documentation`}
+					className="d-block px-3 text-decoration-none"
+					>
+					Documentation
+				</Link>				
 			</div>
 
 			<div className="w-100 h-100 px-3" style={
