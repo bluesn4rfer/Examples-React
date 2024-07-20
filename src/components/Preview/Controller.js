@@ -118,12 +118,12 @@ function ComponentPreview() {
     return (
         <Container className='d-flex flex-column align-items-center'>
             <Row className="w-100 justify-content-center">
-                <Col xs={12} md={8} lg={6} className="text-center">
+                <Col xs={12} md={8} lg={6} className="w-100 text-center">
                     <Tabs
                         activeKey={activeTab}
                         onSelect={handleSelect}
                         id="controlled-tab-example"
-                        className="mb-3"
+                        className="mb-3 w-100 justify-content-center"
                         style={{ borderBottom: '2px solid #007bff' }}
                     >
                         <Tab eventKey="preview" title="Preview"></Tab>
