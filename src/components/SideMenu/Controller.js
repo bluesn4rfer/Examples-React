@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ const sideMenu = require('./sideMenu.json');
 
 function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -14,9 +15,22 @@ function SideMenu() {
   const handleLinkClick = () => {
     setIsOpen(false);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);  
   
   return (
-    <div className="sidebar bg-secondary h-100 p-0 text-decoration-none">
+    <div ref={menuRef} className="sidebar bg-secondary h-100 p-0 text-decoration-none">
       <button className="menu-button btn-primary h-100 fs-3 text-start text-uppercase vtext" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
