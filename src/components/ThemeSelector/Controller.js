@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { themes } from './Themes';
+import { themes } from '../../Themes';
 
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
