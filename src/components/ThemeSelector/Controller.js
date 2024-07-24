@@ -1,17 +1,20 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import { themes } from '../../Themes';
+import Button from 'react-bootstrap/Button';
+import { Box, Grid } from '@mui/material';
+import { themes } from '../../Themes'; // Adjust the import path accordingly
 
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
 
-  if(show === false){
+  if (!show) {
     return null;
   }
-  
+
   const changeTheme = (theme) => {
     console.log('Themes/Selector.js changeTheme() theme: ' + theme);
     setTheme(theme);
+    setShow(false);
   };
 
   const handleClose = () => {
@@ -19,44 +22,60 @@ function ThemeSelector(props) {
     setShow(false);
   };
 
-  const renderColorCircle = (theme) => {
-    console.log('Themes/Selector.js renderColorCircle() invoked');
-    console.debug('Themes/Selector.js renderColorCircle theme = ' + JSON.stringify(theme));
-
+  const renderColorPreview = (theme) => {
     return (
-    <div
-      key={theme.name}
-      className="m-3 d-flex align-items-center justify-content-center rounded-circle"
-      onClick={() => changeTheme(theme.name)}
-      style={{
-        cursor: 'pointer',
-        width: '10vmin',
-        height: '10vmin',
-        minWidth: '80px',
-        minHeight: '80px',
-        border: `3px solid ${theme.colors.primary.base}`,
-        background: `linear-gradient(135deg, ${theme.colors.primary.base} 50%, ${theme.colors.secondary.base} 50%)`,
-        fontWeight: 'bold',
-        color: theme.colors.primary.text
-      }}
-    >{theme.label}
-    </div>
+      <Box
+        key={theme.name}
+        onClick={() => changeTheme(theme.name)}
+        sx={{
+          cursor: 'pointer',
+          width: '100px',
+          height: '100px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '10px',
+          border: `3px solid ${theme.colors.primary.base}`,
+          '&:hover': {
+            backgroundColor: theme.colors.primary.hover,
+          },
+        }}
+      >
+        <Box
+          sx={{
+            width: '100%',
+            height: '50%',
+            backgroundColor: theme.colors.primary.base,
+          }}
+        />
+        <Box
+          sx={{
+            width: '100%',
+            height: '50%',
+            backgroundColor: theme.colors.secondary.base,
+          }}
+        />
+        <Box sx={{ marginTop: '5px', fontWeight: 'bold' }}>{theme.label}</Box>
+      </Box>
     );
-  }
+  };
 
   return (
     <Modal show={show} onHide={handleClose} centered>
-      <Modal.Header className="d-flex align-items-center justify-content-between m-0 px-3 py-2 theme-primary">
-        <Modal.Title className="m-0">CHOOSE THEME</Modal.Title>
-        <button className='btn btn-secondary' onClick={() => setShow(false)}><i className='icon fa fa-close' /></button>
+      <Modal.Header closeButton>
+        <Modal.Title>Choose Theme</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="m-0 p-2">
-        <div className="d-flex flex-wrap justify-content-center">
-          {themes.map((choice, index) => {
-              return renderColorCircle(choice);
-          })}
-        </div>
+      <Modal.Body>
+        <Grid container justifyContent="center">
+          {themes.map((choice) => renderColorPreview(choice))}
+        </Grid>
       </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 }
