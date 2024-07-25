@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Box, Grid } from '@mui/material';
-import { themes } from '../../Themes'; // Adjust the import path accordingly
+import themes from '../../Themes'; // Adjust the import path accordingly
 
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
