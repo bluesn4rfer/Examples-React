@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const brownTheme = createTheme({
+  name: 'brown',
+  label: 'Brown',  
   palette: {
     primary: {
       main: '#734922',

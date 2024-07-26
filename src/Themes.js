@@ -11,61 +11,17 @@ import whiteTheme from './themes/white';
 import yellowTheme from './themes/yellow';
 
 const themes = [
-    {
-        name: 'black',
-        label: 'Black',
-        theme: blackTheme
-    },
-    {
-        name: 'blue',
-        label: 'Blue',
-        theme: blueTheme
-    },
-    {
-        name: 'brown',
-        label: 'Brown',
-        theme: brownTheme
-    },
-    {
-        name: 'green',
-        label: 'Green',
-        theme: greenTheme
-    },
-    {
-        name: 'grey',
-        label: 'Grey',
-        theme: greyTheme
-    },
-    {
-        name: 'orange',
-        label: 'Orange',
-        theme: orangeTheme
-    },
-    {
-        name: 'pink',
-        label: 'Pink',
-        theme: pinkTheme
-    },
-    {
-        name: 'purple',
-        label: 'Purple',
-        theme: purpleTheme
-    },
-    {
-        name: 'red',
-        label: 'Red',
-        theme: redTheme
-    },
-    {
-        name: 'white',
-        label: 'White',
-        theme: whiteTheme
-    },
-    {
-        name: 'yellow',
-        label: 'Yellow',
-        theme: yellowTheme
-    }
+    blackTheme,
+    blueTheme,
+    brownTheme,
+    greenTheme,
+    greyTheme,
+    orangeTheme,
+    pinkTheme,
+    purpleTheme,
+    redTheme,
+    whiteTheme,
+    yellowTheme
 ];
 
 export default themes;

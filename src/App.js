@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import TopMenu from './components/TopMenu/Controller';
 import SideMenu from './components/SideMenu/Controller';
 
-import Preview from './components/Preview/Controller';
+import ComponentPreview from './components/ComponentPreview/Controller';
 import Page from './components/Pages/Controller';
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
@@ -52,8 +52,8 @@ function App({appState, ...props}) {
 			<div className='container-fluid position-absolute top-0 start-0 end-0 d-flex p-0 overflow-auto' style={{ zIndex: 100, marginTop: '55px', marginBottom: '40px', paddingLeft: '65px', minHeight: 'calc(100vh - 95px)' }}>
 				<div className='d-flex w-100 h-100 pt-1' style={{marginLeft: '60px', marginBottom: '40px'}}>
 				<Routes>
-					<Route path="/" element={<Preview key='welcome' />} />
-					<Route path="/examples/:component/:example/:mode?" element={<Preview />} />
+					<Route path="/" element={<ComponentPreview key='welcome' />} />
+					<Route path="/examples/:component/:example/:mode?" element={<ComponentPreview />} />
 					<Route path="/icons/FontAwesome" element={<FontAwesomeIcons />} />
 					<Route path="/page/:page" element={<Page />} />
 					<Route path="*" element={<PageNotFound />} />

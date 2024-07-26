@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const greyTheme = createTheme({
+  name: 'grey',
+  label: 'Grey',  
   palette: {
     primary: {
       main: '#333333',

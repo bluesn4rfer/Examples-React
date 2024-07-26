@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const pinkTheme = createTheme({
+  name: 'pink',
+  label: 'Pink',  
   palette: {
     primary: {
       main: '#FF4081',

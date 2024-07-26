@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const purpleTheme = createTheme({
+  name: 'purple',
+  label: 'Purple',  
   palette: {
     primary: {
       main: '#8A2BE2',

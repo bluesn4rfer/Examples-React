@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const orangeTheme = createTheme({
+  name: 'orange',
+  label: 'Orange',  
   palette: {
     primary: {
       main: '#FFA500',

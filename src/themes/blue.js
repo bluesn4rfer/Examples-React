@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const blueTheme = createTheme({
+  name: 'blue',
+  label: 'Blue',  
   palette: {
     primary: {
       main: '#0074D9',

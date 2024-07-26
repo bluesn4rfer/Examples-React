@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const whiteTheme = createTheme({
+  name: 'white',
+  label: 'White',  
   palette: {
     primary: {
       main: '#E0E0E0',

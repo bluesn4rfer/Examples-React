@@ -1,6 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
 const yellowTheme = createTheme({
+  name: 'yellow',
+  label: 'Yellow',  
   palette: {
     primary: {
       main: '#FFD700',
