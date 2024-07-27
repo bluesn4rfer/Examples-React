@@ -36,7 +36,7 @@ function ThemeSelector(props) {
           alignItems: 'center',
           justifyContent: 'center',
           margin: '10px',
-          border: `3px solid ${theme.palette.primary.base}`,
+          border: `3px solid ${theme.palette.primary.main}`,
           '&:hover': {
             backgroundColor: theme.palette.primary.hover,
           },
@@ -46,14 +46,14 @@ function ThemeSelector(props) {
           sx={{
             width: '100%',
             height: '50%',
-            backgroundColor: theme.palette.primary.base,
+            backgroundColor: theme.palette.primary.main,
           }}
         />
         <Box
           sx={{
             width: '100%',
             height: '50%',
-            backgroundColor: theme.palette.secondary.base,
+            backgroundColor: theme.palette.secondary.main,
           }}
         />
         <Box sx={{ marginTop: '5px', fontWeight: 'bold' }}>{theme.label}</Box>
