@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import themes from '../../Themes'; // Adjust the import path accordingly
 
 function ThemeSelector(props) {
@@ -29,34 +29,103 @@ function ThemeSelector(props) {
         onClick={() => changeTheme(theme.name)}
         sx={{
           cursor: 'pointer',
-          width: '100px',
-          height: '100px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: 'relative',
+          width: '140px',
+          height: '140px',
           margin: '10px',
-          border: `3px solid ${theme.palette.primary.main}`,
+          transition: 'transform 0.2s, background-color 0.2s',
           '&:hover': {
-            backgroundColor: theme.palette.primary.hover,
+            transform: 'scale(1.05)',
           },
         }}
       >
         <Box
           sx={{
-            width: '100%',
-            height: '50%',
+            position: 'absolute',
+            top: '0px',
+            left: '0px',
+            width: '100px',
+            height: '100px',
             backgroundColor: theme.palette.primary.main,
+            borderRadius: '10px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            display: 'flex',
+            flexDirection: 'column',
+            zIndex: 1,
           }}
-        />
+        >
+          <Box
+            sx={{
+              height: '20%',
+              backgroundColor: theme.palette.primary.dark,
+              borderTopLeftRadius: '10px',
+              borderTopRightRadius: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: theme.palette.primary.contrastText,
+              fontWeight: 'bold',
+            }}
+          >
+            <Typography variant="caption">Primary Title</Typography>
+          </Box>
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: theme.palette.primary.contrastText,
+            }}
+          >
+            <Typography variant="body2">Aa</Typography>
+          </Box>
+        </Box>
         <Box
           sx={{
-            width: '100%',
-            height: '50%',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            width: '100px',
+            height: '100px',
             backgroundColor: theme.palette.secondary.main,
+            borderRadius: '10px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            display: 'flex',
+            flexDirection: 'column',
+            zIndex: 0,
           }}
-        />
-        <Box sx={{ marginTop: '5px', fontWeight: 'bold' }}>{theme.label}</Box>
+        >
+          <Box
+            sx={{
+              height: '20%',
+              backgroundColor: theme.palette.secondary.dark,
+              borderTopLeftRadius: '10px',
+              borderTopRightRadius: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: theme.palette.secondary.contrastText,
+              fontWeight: 'bold',
+            }}
+          >
+            <Typography variant="caption">Secondary Title</Typography>
+          </Box>
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: theme.palette.secondary.contrastText,
+            }}
+          >
+            <Typography variant="body2">Aa</Typography>
+          </Box>
+        </Box>
+        <Typography variant="body2" sx={{ marginTop: '8px', fontWeight: 'bold', textAlign: 'center' }}>
+          {theme.label}
+        </Typography>
       </Box>
     );
   };
