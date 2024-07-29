@@ -30,8 +30,8 @@ function ThemeSelector(props) {
         sx={{
           cursor: 'pointer',
           position: 'relative',
-          width: '140px',
-          height: '140px',
+          width: '190px',
+          height: '220px',
           margin: '10px',
           transition: 'transform 0.2s, background-color 0.2s',
           '&:hover': {
@@ -42,10 +42,10 @@ function ThemeSelector(props) {
         <Box
           sx={{
             position: 'absolute',
-            top: '0px',
-            left: '0px',
-            width: '100px',
-            height: '100px',
+            top: '35px',
+            left: '25px',
+            width: '150px',
+            height: '150px',
             backgroundColor: theme.palette.primary.main,
             borderRadius: '10px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -67,7 +67,7 @@ function ThemeSelector(props) {
               fontWeight: 'bold',
             }}
           >
-            <Typography variant="caption">Primary Title</Typography>
+            <Typography variant="caption">Primary</Typography>
           </Box>
           <Box
             sx={{
@@ -84,10 +84,10 @@ function ThemeSelector(props) {
         <Box
           sx={{
             position: 'absolute',
-            top: '10px',
-            left: '10px',
-            width: '100px',
-            height: '100px',
+            top: '0px',
+            left: '0px',
+            width: '150px',
+            height: '150px',
             backgroundColor: theme.palette.secondary.main,
             borderRadius: '10px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -109,7 +109,7 @@ function ThemeSelector(props) {
               fontWeight: 'bold',
             }}
           >
-            <Typography variant="caption">Secondary Title</Typography>
+            <Typography variant="caption">Secondary</Typography>
           </Box>
           <Box
             sx={{
@@ -123,7 +123,7 @@ function ThemeSelector(props) {
             <Typography variant="body2">Aa</Typography>
           </Box>
         </Box>
-        <Typography variant="body2" sx={{ marginTop: '8px', fontWeight: 'bold', textAlign: 'center' }}>
+        <Typography variant="body2" sx={{ position: 'absolute', bottom: '10px', width: '100%', textAlign: 'center', fontWeight: 'bold' }}>
           {theme.label}
         </Typography>
       </Box>
