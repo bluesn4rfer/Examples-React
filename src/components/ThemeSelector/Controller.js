@@ -3,9 +3,14 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Box, Grid, Typography } from '@mui/material';
 import themes from '../../Themes'; // Adjust the import path accordingly
+import { useTheme } from '@mui/material/styles';
 
 function ThemeSelector(props) {
   const { show, setShow, setTheme } = props;
+  const curTheme = useTheme();
+
+    // Log the theme object to the console
+    console.log("Current theme:", JSON.stringify(curTheme));
 
   if (!show) {
     return null;
@@ -132,7 +137,12 @@ function ThemeSelector(props) {
 
   return (
     <Modal show={show} onHide={handleClose} centered>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton
+        style={{
+          backgroundColor: curTheme.palette.primary.main,
+          color: curTheme.palette.primary.contrastText
+        }}
+      >
         <Modal.Title>Choose Theme</Modal.Title>
       </Modal.Header>
       <Modal.Body>

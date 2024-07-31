@@ -1,6 +1,6 @@
 import { useLocalStorage } from './components/Hooks/useLocalStorage';
 import { connect } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // MENUS
