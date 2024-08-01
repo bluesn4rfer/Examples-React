@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
 
 const sideMenu = require('./sideMenu.json');
 
 function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const theme = useTheme();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -31,7 +33,13 @@ function SideMenu() {
   
   return (
     <div ref={menuRef} className="sidebar bg-secondary h-100 p-0 text-decoration-none">
-      <button className="menu-button btn-primary h-100 fs-3 text-start text-uppercase vtext" onClick={toggleSidebar}><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
+      <button onClick={toggleSidebar}
+        className="menu-button h-100 fs-3 text-start text-uppercase vtext" 
+        style={{
+          backgroundColor: theme.palette.primary.main,
+          color: theme.palette.primary.contrastText  
+        }}
+      ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
           {sideMenu.links.map((menu, index) => (

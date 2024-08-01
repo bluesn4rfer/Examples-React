@@ -26,9 +26,9 @@ export function TopMenu({ setShowThemeSelector }) {
         >
           {topMenu.map(item => (
             <Dropdown.Item as={Link} to={item.href} key={item.id} eventKey={item.label === 'Change Theme' ? 'themeSelector' : item.href}
-              style={{
-                backgroundColor: theme.palette.primary.main
-              }}
+              // style={{
+              //   backgroundColor: theme.palette.primary.main
+              // }}
             >
               {item.label}
             </Dropdown.Item>
