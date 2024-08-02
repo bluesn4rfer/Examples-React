@@ -55,7 +55,14 @@ function App({appState, ...props}) {
 				}}
 			>
 				<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'>
-					<Link to='/'><h2 className='m-0'>Examples.BlueGunn.com</h2></Link>
+					<Link to='/' className='text-decoration-none'>
+						<h2 className='m-0'
+							style={{
+								color: theme.palette.primary.contrastText
+							}}
+						>Examples.BlueGunn.com
+						</h2>
+					</Link>
 				</div>
 				<div className='d-flex flex-fill justify-content-end align-self-center pe-1 pe-md-3'><TopMenu setShowThemeSelector={setShowThemeSelector} /></div>
 			</div>
