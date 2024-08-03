@@ -150,11 +150,6 @@ function ThemeSelector(props) {
           {themes.map((choice) => renderColorPreview(choice))}
         </Grid>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 }

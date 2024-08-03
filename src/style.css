@@ -41,3 +41,13 @@ html, body {
 	max-width: 75%;
 	max-height: 75%;
 }
+
+.dropdown-menu {
+	display: block;
+    opacity: 0;
+    transition: opacity 1.0s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+}
