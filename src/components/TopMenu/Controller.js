@@ -30,8 +30,9 @@ export function TopMenu({ setShowThemeSelector }) {
             backgroundColor: theme.palette.secondary.main,
             color: theme.palette.secondary.contrastText
           }}
-          show={showDropdown}
+          show={true}
         >
+        <div className={`dropdown-menu-contents ${showDropdown ? 'show' : ''}`}>          
           {topMenu.map(item => (
             <Dropdown.Item as={Link} to={item.href} key={item.id} eventKey={item.label === 'Change Theme' ? 'themeSelector' : item.href}
               // style={{
@@ -41,6 +42,7 @@ export function TopMenu({ setShowThemeSelector }) {
               {item.label}
             </Dropdown.Item>
           ))}
+        </div>
         </DropdownButton>
     );
 }

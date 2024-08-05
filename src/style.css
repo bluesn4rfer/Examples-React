@@ -42,12 +42,17 @@ html, body {
 	max-height: 75%;
 }
 
-.dropdown-menu {
-	display: block;
+.dropdown-menu .dropdown-menu-contents {
+	display: none;
     opacity: 0;
-    transition: opacity 1.0s ease;
+	transition: opacity 1.0s ease;
+    max-height: 0; /* Collapse initially */
+    overflow: hidden; /* Prevent overflow */	
 }
 
-.dropdown-menu.show {
-    opacity: 1;
+.dropdown-menu .dropdown-menu-contents.show {
+	display: block;
+	opacity: 1;
+    max-height: 100%;
+    overflow: visible;
 }
