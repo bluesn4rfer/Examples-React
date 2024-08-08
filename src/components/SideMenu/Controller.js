@@ -37,7 +37,8 @@ function SideMenu() {
         className="menu-button h-100 fs-3 text-start text-uppercase vtext" 
         style={{
           backgroundColor: theme.palette.primary.main,
-          color: theme.palette.primary.contrastText  
+          borderColor: theme.palette.secondary.main,
+          color: theme.palette.primary.contrastText
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>

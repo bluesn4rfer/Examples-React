@@ -22,7 +22,10 @@ export function TopMenu({ setShowThemeSelector }) {
     };
 
     return (
-        <DropdownButton id="topmenu" variant="link" title={<i className='fs-5 icon fa fa-bars' />}
+        <DropdownButton 
+          id="topmenu" 
+          variant="link" 
+          title={<i className='fs-5 icon fa fa-bars' />}
           onSelect={handleSelect}
           onClick={toggleDropdown}
           className="rounded"

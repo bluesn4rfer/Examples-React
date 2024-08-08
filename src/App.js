@@ -88,7 +88,7 @@ function App({appState, ...props}) {
 				<div className='d-flex flex-fill justify-content-center align-self-center ps-3'>
 					<Link to='/' className='text-decoration-none'
 						style={{
-							color: theme.palette.primary.contrastText
+							color: theme.palette.secondary.contrastText
 						}}
 					>&copy; BlueGunn.com
 					</Link>
