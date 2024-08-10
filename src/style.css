@@ -56,10 +56,11 @@ html, body {
 	display: block;
 	visibility: hidden;
 	opacity: 0;
-	transition: opacity 1.0s ease;
+	transition: opacity 1.0s ease, visibility 0s 1.0s;
   }
   
 .dropdown-menu.show {
 	visibility: visible;
 	opacity: 1;
+	transition: opacity 1.0s ease, visibility 0s 0s;
 }
