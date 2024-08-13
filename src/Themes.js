@@ -14,12 +14,12 @@ import tealTheme from './themes/teal';
 import cyanTheme from './themes/cyan';
 import magentaTheme from './themes/magenta';
 import limeTheme from './themes/lime';
-import indigoTheme from './themes/indigo';
-import navyTheme from './themes/navy';
-import maroonTheme from './themes/maroon';
-import oliveTheme from './themes/olive';
-import coralTheme from './themes/coral';
-import beigeTheme from './themes/beige';
+// import indigoTheme from './themes/indigo';
+// import navyTheme from './themes/navy';
+// import maroonTheme from './themes/maroon';
+// import oliveTheme from './themes/olive';
+// import coralTheme from './themes/coral';
+// import beigeTheme from './themes/beige';
 
 const themes = [
     blackTheme,
@@ -36,13 +36,13 @@ const themes = [
     tealTheme,
     cyanTheme,
     magentaTheme,
-    limeTheme,
-    indigoTheme,
-    navyTheme,
-    maroonTheme,
-    oliveTheme,
-    coralTheme,
-    beigeTheme
+    limeTheme
+    // indigoTheme,
+    // navyTheme,
+    // maroonTheme,
+    // oliveTheme,
+    // coralTheme,
+    // beigeTheme
 ];
 
 export default themes;
