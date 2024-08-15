@@ -9,7 +9,6 @@ import blueTheme from './themes/blue';
 import purpleTheme from './themes/purple';
 import pinkTheme from './themes/pink';
 import brownTheme from './themes/brown';
-
 import tealTheme from './themes/teal';
 import cyanTheme from './themes/cyan';
 import magentaTheme from './themes/magenta';
@@ -17,9 +16,9 @@ import limeTheme from './themes/lime';
 import indigoTheme from './themes/indigo';
 import navyTheme from './themes/navy';
 import maroonTheme from './themes/maroon';
-// import oliveTheme from './themes/olive';
-// import coralTheme from './themes/coral';
-// import beigeTheme from './themes/beige';
+import oliveTheme from './themes/olive';
+import coralTheme from './themes/coral';
+import beigeTheme from './themes/beige';
 
 const themes = [
     blackTheme,
@@ -39,10 +38,10 @@ const themes = [
     limeTheme,
     indigoTheme,
     navyTheme,
-    maroonTheme//,
-    // oliveTheme,
-    // coralTheme,
-    // beigeTheme
+    maroonTheme,
+    oliveTheme,
+    coralTheme,
+    beigeTheme
 ];
 
 export default themes;
