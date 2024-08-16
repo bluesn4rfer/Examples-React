@@ -136,7 +136,7 @@ function ThemeSelector(props) {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered>
+    <Modal show={show} onHide={handleClose} centered    >
       <Modal.Header closeButton
         style={{
           backgroundColor: curTheme.palette.primary.main,
@@ -145,7 +145,12 @@ function ThemeSelector(props) {
       >
         <Modal.Title>Choose Theme</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body 
+        style={{
+          maxHeight: '70vh',
+          overflow: 'auto'
+        }}
+      >
         <Grid container justifyContent="center">
           {themes.map((choice) => renderColorPreview(choice))}
         </Grid>
