@@ -32,9 +32,9 @@ function SideMenu() {
   }, []);  
   
   return (
-    <div ref={menuRef} className="sidebar bg-secondary h-100 p-0 text-decoration-none">
+    <div ref={menuRef} className="sidebar h-100 p-0 text-decoration-none">
       <button onClick={toggleSidebar}
-        className="menu-button h-100 fs-3 text-start text-uppercase vtext" 
+        className="menu-button border rounded-end h-100 fs-3 text-start text-uppercase vtext" 
         style={{
           backgroundColor: theme.palette.primary.main,
           borderColor: theme.palette.secondary.main,
