@@ -17,6 +17,8 @@ import DisplayForm from '../Forms/Controller';
 import Charts from '../Charts/Controller';
 import Json2Html from '../Json2Html/Controller';
 
+import { useTheme } from '@mui/material/styles';
+
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './preview.css';
 
@@ -32,6 +34,8 @@ function ComponentPreview() {
 		Json2Html,
 		DisplayForm
 	};
+
+	const theme = useTheme();
 
 	const { mode = 'preview', component = 'DisplayForm', example = 'Login' } = useParams();
 	const [file, setFile] = useState(`/examples/${component}/${example}.js`);
@@ -124,7 +128,9 @@ function ComponentPreview() {
                         onSelect={handleSelect}
                         id="controlled-tab-example"
                         className="mb-3 w-100 justify-content-center"
-                        style={{ borderBottom: '2px solid #007bff' }}
+                        style={{ 
+							borderBottom: `2px solid ${theme.palette.primary.main}` 
+						}}
                     >
                         <Tab eventKey="preview" title="Preview"></Tab>
                         <Tab eventKey="editor" title="Editor"></Tab>
