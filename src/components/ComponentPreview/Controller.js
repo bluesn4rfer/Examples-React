@@ -120,7 +120,7 @@ function ComponentPreview() {
 
 	console.log('ComponentPreview.js mode = ' + activeTab);
     return (
-        <Container className='d-flex flex-column align-items-center'>
+        <div className='d-flex flex-column flex-fill align-items-center'>
             <Row className="w-100 justify-content-center">
                 <Col xs={12} md={8} lg={6} className="w-100 text-center">
                     <Tabs
@@ -152,7 +152,7 @@ function ComponentPreview() {
                     </div>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 }
 
