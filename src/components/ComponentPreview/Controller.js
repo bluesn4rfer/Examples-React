@@ -132,9 +132,27 @@ function ComponentPreview() {
 							borderBottom: `2px solid ${theme.palette.primary.main}` 
 						}}
                     >
-                        <Tab eventKey="preview" title="Preview"></Tab>
-                        <Tab eventKey="editor" title="Editor"></Tab>
-                        <Tab eventKey="documentation" title="Documentation"></Tab>
+                        <Tab eventKey="preview" title="Preview"
+							// style={{
+							// 	color: activeTab === 'preview' ? theme.palette.primary.main : theme.palette.text.secondary,
+							// 	backgroundColor: activeTab === 'preview' ? theme.palette.action.selected : 'transparent',
+							// 	borderBottom: activeTab === 'preview' ? `2px solid ${theme.palette.primary.main}` : 'none'
+							// }}						
+						></Tab>
+                        <Tab eventKey="editor" title="Editor"
+							// style={{
+							// 	color: activeTab === 'editor' ? theme.palette.primary.main : theme.palette.text.secondary,
+							// 	backgroundColor: activeTab === 'editor' ? theme.palette.action.selected : 'transparent',
+							// 	borderBottom: activeTab === 'editor' ? `2px solid ${theme.palette.primary.main}` : 'none'
+							// }}						
+						></Tab>
+                        <Tab eventKey="documentation" title="Documentation"
+							// style={{
+							// 	color: activeTab === 'documentation' ? theme.palette.primary.main : theme.palette.text.secondary,
+							// 	backgroundColor: activeTab === 'documentation' ? theme.palette.action.selected : 'transparent',
+							// 	borderBottom: activeTab === 'documentation' ? `2px solid ${theme.palette.primary.main}` : 'none'
+							// }}						
+						></Tab>
                     </Tabs>
                 </Col>
             </Row>
