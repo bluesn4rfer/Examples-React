@@ -34,16 +34,19 @@ function SideMenu() {
   return (
     <div ref={menuRef} className="sidebar h-100 p-0 text-decoration-none">
       <button onClick={toggleSidebar}
-        className="menu-button border rounded-end h-100 fs-3 text-start text-uppercase vtext" 
+        className="menu-button rounded-end h-100 fs-3 text-start text-uppercase vtext" 
         style={{
           backgroundColor: theme.palette.primary.main,
-          borderColor: theme.palette.secondary.main,
+          borderTop: `2px solid ${theme.palette.secondary.main}`,
+          borderBottom: `2px solid ${theme.palette.secondary.main}`,
+          borderLeft: `0px solid ${theme.palette.secondary.main}`,
+          borderRight: `2px solid ${theme.palette.secondary.main}`,
           color: theme.palette.primary.contrastText
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
-          {sideMenu.links.map((menu, index) => (
+          {sideMenu.map((menu, index) => (
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
               <Accordion.Header>

@@ -51,7 +51,8 @@ function App({appState, ...props}) {
 					zIndex: 200, 
 					height: '55px',
 					backgroundColor: theme.palette.primary.main,
-					color: theme.palette.primary.contrastText				
+					color: theme.palette.primary.contrastText,
+					borderBottom: `4px solid ${theme.palette.secondary.main}`
 				}}
 			>
 				<div className='d-flex flex-fill justify-content-start align-self-center ps-1 ps-md-3'>

@@ -37,6 +37,14 @@ function ComponentPreview() {
 
 	const theme = useTheme();
 
+	useEffect(() => {
+        document.documentElement.style.setProperty('--tab-text-color', theme.palette.text.secondary);
+        document.documentElement.style.setProperty('--tab-active-text-color', theme.palette.primary.main);
+        document.documentElement.style.setProperty('--tab-active-bg-color', theme.palette.action.selected);
+        document.documentElement.style.setProperty('--tab-active-border-color', theme.palette.primary.main);
+        document.documentElement.style.setProperty('--tab-hover-text-color', theme.palette.primary.dark);
+    }, [theme]);
+
 	const { mode = 'preview', component = 'DisplayForm', example = 'Login' } = useParams();
 	const [file, setFile] = useState(`/examples/${component}/${example}.js`);
 	const [doc, setDoc] = useState(`/documentation/${component}.md`);
@@ -122,7 +130,7 @@ function ComponentPreview() {
     return (
         <div className='d-flex flex-column flex-fill align-items-center'>
             <Row className="w-100 justify-content-center">
-                <Col xs={12} md={8} lg={6} className="w-100 text-center">
+                <Col xs={12} md={8} lg={6} className="w-100 text-center custom-tabs">
                     <Tabs
                         activeKey={activeTab}
                         onSelect={handleSelect}
@@ -132,27 +140,9 @@ function ComponentPreview() {
 							borderBottom: `2px solid ${theme.palette.primary.main}` 
 						}}
                     >
-                        <Tab eventKey="preview" title="Preview"
-							// style={{
-							// 	color: activeTab === 'preview' ? theme.palette.primary.main : theme.palette.text.secondary,
-							// 	backgroundColor: activeTab === 'preview' ? theme.palette.action.selected : 'transparent',
-							// 	borderBottom: activeTab === 'preview' ? `2px solid ${theme.palette.primary.main}` : 'none'
-							// }}						
-						></Tab>
-                        <Tab eventKey="editor" title="Editor"
-							// style={{
-							// 	color: activeTab === 'editor' ? theme.palette.primary.main : theme.palette.text.secondary,
-							// 	backgroundColor: activeTab === 'editor' ? theme.palette.action.selected : 'transparent',
-							// 	borderBottom: activeTab === 'editor' ? `2px solid ${theme.palette.primary.main}` : 'none'
-							// }}						
-						></Tab>
-                        <Tab eventKey="documentation" title="Documentation"
-							// style={{
-							// 	color: activeTab === 'documentation' ? theme.palette.primary.main : theme.palette.text.secondary,
-							// 	backgroundColor: activeTab === 'documentation' ? theme.palette.action.selected : 'transparent',
-							// 	borderBottom: activeTab === 'documentation' ? `2px solid ${theme.palette.primary.main}` : 'none'
-							// }}						
-						></Tab>
+                        <Tab eventKey="preview" title="Preview"	></Tab>
+                        <Tab eventKey="editor" title="Editor"></Tab>
+                        <Tab eventKey="documentation" title="Documentation"></Tab>
                     </Tabs>
                 </Col>
             </Row>

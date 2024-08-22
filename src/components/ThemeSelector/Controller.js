@@ -138,6 +138,7 @@ function ThemeSelector(props) {
   return (
     <Modal show={show} onHide={handleClose} centered    >
       <Modal.Header closeButton
+        className="ps-2 py-1"
         style={{
           backgroundColor: curTheme.palette.primary.main,
           color: curTheme.palette.primary.contrastText

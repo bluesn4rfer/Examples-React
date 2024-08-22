@@ -64,3 +64,21 @@ html, body {
 	opacity: 1;
 	transition: opacity 1.0s ease, visibility 0s 0s;
 }
+
+.custom-tabs .nav-tabs .nav-link {
+    color: var(--tab-text-color);
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.custom-tabs .nav-tabs .nav-link.active {
+    color: var(--tab-active-text-color);
+    background-color: var(--tab-active-bg-color);
+    border-bottom: 2px solid var(--tab-active-border-color);
+}
+
+.custom-tabs .nav-tabs .nav-link:hover {
+    color: var(--tab-hover-text-color);
+}
