@@ -68,7 +68,7 @@ html, body {
 .dropend {
 	display: block;
 	/* visibility: hidden; */
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 1.0s ease, visibility 0s 1.0s;
 }
 
