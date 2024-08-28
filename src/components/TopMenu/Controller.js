@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
@@ -8,6 +8,14 @@ const topMenu = require('./topMenu.json');
 export function TopMenu({ setShowThemeSelector }) {
     const theme = useTheme();
     const [showDropdown, setShowDropdown] = useState(false);
+
+	useEffect(() => {
+        document.documentElement.style.setProperty('--topmenu-text-color', theme.palette.secondary.contrastText);
+        document.documentElement.style.setProperty('--topmenu-active-text-color', theme.palette.secondary.main);
+        document.documentElement.style.setProperty('--topmenu-active-bg-color', theme.palette.secondary.light);
+        document.documentElement.style.setProperty('--topmenu-active-border-color', theme.palette.secondary.main);
+        document.documentElement.style.setProperty('--topmenu-hover-text-color', theme.palette.secondary.dark);
+    }, [theme]);
 
     const handleSelect = (eventKey) => {
         console.debug(`TopMenu.js handleSelect() eventKey: ${eventKey}`);
@@ -37,8 +45,14 @@ export function TopMenu({ setShowThemeSelector }) {
         >
             {topMenu.map(item => (
                 item.items ? (
-                    <Dropdown key={item.id} as="div" drop="end">
-                        <Dropdown.Toggle as={Link} to={item.href} eventKey={item.href}>
+                    <Dropdown key={item.id} as="div" drop="end"
+                        className="topmenu"
+                    >
+                        <Dropdown.Toggle 
+                            as={Link} 
+                            to={item.href} 
+                            eventKey={item.href}                          
+                        >
                             {item.label}
                         </Dropdown.Toggle>
                         <Dropdown.Menu>

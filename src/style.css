@@ -65,11 +65,17 @@ html, body {
 	transition: opacity 1.0s ease, visibility 0s 0s;
 }
 
-.dropend {
+.topmenu.dropend {
 	display: block;
 	/* visibility: hidden; */
 	opacity: 1;
 	transition: opacity 1.0s ease, visibility 0s 1.0s;
+	color: var(--topmenu-active-text-color);
+    background-color: var(--topmenu-active-bg-color);
+}
+
+.topmenu.dropend .dropdown-toggle{
+	color: var(--topmenu-active-text-color);
 }
 
 .custom-tabs .nav-tabs .nav-link {
