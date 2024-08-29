@@ -11,6 +11,8 @@ export function TopMenu({ setShowThemeSelector }) {
 
 	useEffect(() => {
         document.documentElement.style.setProperty('--topmenu-text-color', theme.palette.secondary.contrastText);
+        document.documentElement.style.setProperty('--topmenu-bg-color', theme.palette.secondary.main);
+        document.documentElement.style.setProperty('--topmenu-border-color', theme.palette.secondary.main);
         document.documentElement.style.setProperty('--topmenu-active-text-color', theme.palette.secondary.main);
         document.documentElement.style.setProperty('--topmenu-active-bg-color', theme.palette.secondary.light);
         document.documentElement.style.setProperty('--topmenu-active-border-color', theme.palette.secondary.main);
@@ -36,7 +38,7 @@ export function TopMenu({ setShowThemeSelector }) {
             title={<i className='fs-5 icon fa fa-bars' />}
             onSelect={handleSelect}
             onClick={toggleDropdown}
-            className="rounded"
+            className="topmenu rounded"
             style={{
                 backgroundColor: theme.palette.secondary.main,
                 color: theme.palette.secondary.contrastText
