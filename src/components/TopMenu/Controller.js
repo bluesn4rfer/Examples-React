@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
@@ -8,6 +8,7 @@ const topMenu = require('./topMenu.json');
 export function TopMenu({ setShowThemeSelector }) {
     const theme = useTheme();
     const [showDropdown, setShowDropdown] = useState(false);
+    const menuRef = useRef(null);
 
 	useEffect(() => {
         document.documentElement.style.setProperty('--topmenu-text-color', theme.palette.secondary.contrastText);
@@ -18,6 +19,19 @@ export function TopMenu({ setShowThemeSelector }) {
         document.documentElement.style.setProperty('--topmenu-active-border-color', theme.palette.secondary.main);
         document.documentElement.style.setProperty('--topmenu-hover-text-color', theme.palette.secondary.dark);
     }, [theme]);
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+          setShowDropdown(false);
+        }
+    };
+    
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);  
 
     const handleSelect = (eventKey) => {
         console.debug(`TopMenu.js handleSelect() eventKey: ${eventKey}`);
@@ -33,6 +47,7 @@ export function TopMenu({ setShowThemeSelector }) {
 
     return (
         <DropdownButton 
+            ref={menuRef}
             id="topmenu" 
             variant="link" 
             title={<i className='fs-5 icon fa fa-bars' />}

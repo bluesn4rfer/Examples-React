@@ -79,9 +79,18 @@ html, body {
 }
 
 .topmenu.dropend .dropdown-toggle{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
 	padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
 	color: var(--topmenu-text-color);
 	text-decoration: none;
+}
+
+.topmenu.dropend .dropdown-toggle::after {
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .custom-tabs .nav-tabs .nav-link {
