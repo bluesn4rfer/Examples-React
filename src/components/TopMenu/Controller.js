@@ -41,7 +41,9 @@ export function TopMenu({ setShowThemeSelector }) {
         }
     };
 
-    const toggleDropdown = () => {
+    const toggleDropdown = (event) => {
+        event.preventDefault();
+        event.stopPropagation(); // Prevent event from bubbling up to the document        
         setShowDropdown((prevState) => !prevState);
     };
 
