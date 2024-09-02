@@ -8,6 +8,7 @@ const topMenu = require('./topMenu.json');
 export function TopMenu({ setShowThemeSelector }) {
     const theme = useTheme();
     const [showDropdown, setShowDropdown] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
     const menuRef = useRef(null);
 
 	useEffect(() => {
@@ -23,6 +24,7 @@ export function TopMenu({ setShowThemeSelector }) {
     const handleClickOutside = (event) => {
         if (menuRef.current && !menuRef.current.contains(event.target)) {
           setShowDropdown(false);
+          setActiveDropdown(null);
         }
     };
     
@@ -39,12 +41,22 @@ export function TopMenu({ setShowThemeSelector }) {
             console.debug("TopMenu.js handleSelect() themeSelector invoked");
             setShowThemeSelector(true);
         }
+        setShowDropdown(false); // Close the dropdown after selection        
+        setActiveDropdown(null);
     };
 
     const toggleDropdown = (event) => {
         event.preventDefault();
         event.stopPropagation(); // Prevent event from bubbling up to the document        
         setShowDropdown((prevState) => !prevState);
+    };
+
+    const handleMouseEnter = (dropdownId) => {
+        setActiveDropdown(dropdownId);
+    };
+
+    const handleMouseLeave = () => {
+        setActiveDropdown(null);
     };
 
     return (
@@ -66,6 +78,9 @@ export function TopMenu({ setShowThemeSelector }) {
                 item.items ? (
                     <Dropdown key={item.id} as="div" drop="end"
                         className="topmenu"
+                        onMouseEnter={() => handleMouseEnter(item.id)}
+                        onMouseLeave={handleMouseLeave}
+                        show={activeDropdown === item.id}                        
                     >
                         <Dropdown.Toggle 
                             as={Link} 
