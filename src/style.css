@@ -75,7 +75,7 @@ html, body {
 	flex: 1 1 auto;
 	/* visibility: hidden; */
 	opacity: 1;
-	transition: opacity 1.0s ease, visibility 0s 1.0s;
+	transition: opacity 1.0s ease, visibility 0s 0s;
 }
 
 .topmenu.dropend .dropdown-toggle{
