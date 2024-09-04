@@ -49,14 +49,24 @@ function SideMenu() {
           {sideMenu.map((menu, index) => (
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
-              <Accordion.Header>
+              <Accordion.Header
+                style={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText
+                }}              
+              >
                 {menu.title}
               </Accordion.Header>
               <Accordion.Body className="p-0">
                 <Card.Body className="p-0 text-nowrap">
                   <ListGroup variant="flush">
                     {menu.items.map((item, idx) => (
-                      <ListGroup.Item action as={Link} to={item.href} key={idx} onClick={handleLinkClick}>
+                      <ListGroup.Item action as={Link} to={item.href} key={idx} onClick={handleLinkClick}
+                        style={{
+                          backgroundColor: theme.palette.secondary.main,
+                          color: theme.palette.secondary.contrastText
+                        }}
+                      >
                         {item.text}
                       </ListGroup.Item>
                     ))}
