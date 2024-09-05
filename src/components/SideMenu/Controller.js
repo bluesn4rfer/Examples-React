@@ -10,6 +10,16 @@ function SideMenu() {
   const menuRef = useRef(null);
   const theme = useTheme();
 
+	useEffect(() => {
+    document.documentElement.style.setProperty('--sidemenu-text-color', theme.palette.primary.contrastText);
+    document.documentElement.style.setProperty('--sidemenu-bg-color', theme.palette.primary.main);
+    document.documentElement.style.setProperty('--sidemenu-border-color', theme.palette.primary.main);
+    document.documentElement.style.setProperty('--sidemenu-active-text-color', theme.palette.primary.main);
+    document.documentElement.style.setProperty('--sidemenu-active-bg-color', theme.palette.primary.light);
+    document.documentElement.style.setProperty('--sidemenu-active-border-color', theme.palette.primary.main);
+    document.documentElement.style.setProperty('--sidemenu-hover-text-color', theme.palette.primary.dark);
+}, [theme]);
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -50,10 +60,7 @@ function SideMenu() {
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
               <Accordion.Header
-                style={{
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.contrastText
-                }}              
+                className='sidemenu'        
               >
                 {menu.title}
               </Accordion.Header>

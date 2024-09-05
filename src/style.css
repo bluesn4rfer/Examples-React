@@ -93,6 +93,11 @@ html, body {
     margin-right: 0;
 }
 
+.sidemenu .accordion-button{
+	color: var(--sidemenu-text-color);
+	background-color: var(--sidemenu-bg-color);
+}
+
 .custom-tabs .nav-tabs .nav-link {
     color: var(--tab-text-color);
     background-color: transparent;
