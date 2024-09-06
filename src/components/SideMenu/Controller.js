@@ -59,9 +59,7 @@ function SideMenu() {
           {sideMenu.map((menu, index) => (
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
-              <Accordion.Header
-                className='sidemenu'        
-              >
+              <Accordion.Header>
                 {menu.title}
               </Accordion.Header>
               <Accordion.Body className="p-0">
