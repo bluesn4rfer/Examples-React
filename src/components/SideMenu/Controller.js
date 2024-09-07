@@ -42,7 +42,7 @@ function SideMenu() {
   }, []);  
   
   return (
-    <div ref={menuRef} className="sidebar h-100 p-0 text-decoration-none">
+    <div ref={menuRef} className="sidebar border-2 h-100 p-0 text-decoration-none">
       <button onClick={toggleSidebar}
         className="menu-button rounded-end h-100 fs-3 text-start text-uppercase vtext" 
         style={{
