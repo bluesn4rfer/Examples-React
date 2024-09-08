@@ -55,7 +55,7 @@ function SideMenu() {
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
-        <Accordion defaultActiveKey="0" className="border-primary list-unstyled">
+        <Accordion defaultActiveKey="0" className="list-unstyled">
           {sideMenu.map((menu, index) => (
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
