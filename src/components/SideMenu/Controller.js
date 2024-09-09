@@ -13,6 +13,7 @@ function SideMenu() {
 	useEffect(() => {
     document.documentElement.style.setProperty('--sidemenu-text-color', theme.palette.primary.contrastText);
     document.documentElement.style.setProperty('--sidemenu-bg-color', theme.palette.primary.main);
+    document.documentElement.style.setProperty('--sidemenu-accordion-color', theme.palette.secondary.main);
     document.documentElement.style.setProperty('--sidemenu-border-color', theme.palette.primary.main);
     document.documentElement.style.setProperty('--sidemenu-active-text-color', theme.palette.primary.main);
     document.documentElement.style.setProperty('--sidemenu-active-bg-color', theme.palette.primary.light);
@@ -47,10 +48,10 @@ function SideMenu() {
         className="menu-button rounded-end h-100 fs-3 text-start text-uppercase vtext" 
         style={{
           backgroundColor: theme.palette.primary.main,
-          borderTop: `2px solid ${theme.palette.secondary.main}`,
-          borderBottom: `2px solid ${theme.palette.secondary.main}`,
-          borderLeft: `0px solid ${theme.palette.secondary.main}`,
-          borderRight: `2px solid ${theme.palette.secondary.main}`,
+          borderTop: `2px solid ${theme.palette.primary.main}`,
+          borderBottom: `2px solid ${theme.palette.primary.main}`,
+          borderLeft: `0px solid ${theme.palette.primary.main}`,
+          borderRight: `2px solid ${theme.palette.primary.main}`,
           color: theme.palette.primary.contrastText
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
