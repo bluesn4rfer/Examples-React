@@ -13,7 +13,7 @@ function SideMenu() {
 	useEffect(() => {
     document.documentElement.style.setProperty('--sidemenu-text-color', theme.palette.primary.contrastText);
     document.documentElement.style.setProperty('--sidemenu-bg-color', theme.palette.primary.main);
-    document.documentElement.style.setProperty('--sidemenu-accordion-color', theme.palette.secondary.main);
+    document.documentElement.style.setProperty('--sidemenu-accordion-color', theme.palette.secondary.light);
     document.documentElement.style.setProperty('--sidemenu-border-color', theme.palette.primary.main);
     document.documentElement.style.setProperty('--sidemenu-active-text-color', theme.palette.primary.main);
     document.documentElement.style.setProperty('--sidemenu-active-bg-color', theme.palette.primary.light);

@@ -108,6 +108,10 @@ html, body {
 	background-color: var(--sidemenu-bg-color);
 }
 
+.sidebar .list-group-item {
+	border-color: var(--sidemenu-border-color);
+}
+
 .custom-tabs .nav-tabs .nav-link {
     color: var(--tab-text-color);
     background-color: transparent;
