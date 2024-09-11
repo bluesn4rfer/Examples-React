@@ -103,6 +103,10 @@ html, body {
 	height: 100%;
 }
 
+.sidebar .accordion-item {
+	border: 0px solid #fff;
+}
+
 .sidebar .accordion-button{
 	color: var(--sidemenu-text-color);
 	background-color: var(--sidemenu-bg-color);
