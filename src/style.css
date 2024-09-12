@@ -112,6 +112,10 @@ html, body {
 	background-color: var(--sidemenu-bg-color);
 }
 
+.sidebar .card {
+	border: 0px solid #fff;
+}
+
 .sidebar .list-group-item {
 	border-color: var(--sidemenu-border-color);
 }
