@@ -110,8 +110,20 @@ html, body {
 .sidebar .accordion-button{
 	color: var(--sidemenu-text-color);
 	background-color: var(--sidemenu-bg-color);
+	border: 0px solid #fff;
 }
 
+.sidebar .accordion-item:first-of-type > .accordion-header .accordion-button {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	box-shadow: none;
+}
+
+.sidebar .accordion-item:first-of-type > .accordion-header .accordion-button:focus {
+	box-shadow: none;
+}
 .sidebar .card {
 	border: 0px solid #fff;
 }
