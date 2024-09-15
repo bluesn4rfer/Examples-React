@@ -42,6 +42,36 @@ function SideMenu() {
     };
   }, []);  
   
+  const renderSubItems = (subItems) => {
+    return (
+      <Accordion>
+        {subItems.map((subItem, subIdx) => (
+          <Accordion.Item eventKey={subIdx.toString()} key={subIdx}>
+            <Accordion.Header>{subItem.title}</Accordion.Header>
+            <Accordion.Body>
+              {subItem.href ? (
+                <ListGroup.Item
+                  action
+                  as={Link}
+                  to={subItem.href}
+                  onClick={handleLinkClick}
+                  style={{
+                    backgroundColor: theme.palette.secondary.main,
+                    color: theme.palette.secondary.contrastText,
+                  }}
+                >
+                  {subItem.text}
+                </ListGroup.Item>
+              ) : (
+                subItem.subItems && renderSubItems(subItem.subItems)
+              )}
+            </Accordion.Body>
+          </Accordion.Item>
+        ))}
+      </Accordion>
+    );
+  };
+
   return (
     <div ref={menuRef} className="sidebar border-2 h-100 p-0 text-decoration-none">
       <button onClick={toggleSidebar}
@@ -76,6 +106,7 @@ function SideMenu() {
                         {item.text}
                       </ListGroup.Item>
                     ))}
+                    {menu.subItems && renderSubItems(menu.subItems)}
                   </ListGroup>
                 </Card.Body>
               </Accordion.Body>
