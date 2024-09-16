@@ -63,7 +63,7 @@ function SideMenu() {
                   {subItem.text}
                 </ListGroup.Item>
               ) : (
-                subItem.subItems && renderSubItems(subItem.subItems)
+                subItem.items && renderSubItems(subItem.items)
               )}
             </Accordion.Body>
           </Accordion.Item>
@@ -96,17 +96,7 @@ function SideMenu() {
               <Accordion.Body className="p-0">
                 <Card.Body className="p-0 text-nowrap">
                   <ListGroup variant="flush">
-                    {menu.items.map((item, idx) => (
-                      <ListGroup.Item action as={Link} to={item.href} key={idx} onClick={handleLinkClick}
-                        style={{
-                          backgroundColor: theme.palette.secondary.main,
-                          color: theme.palette.secondary.contrastText
-                        }}
-                      >
-                        {item.text}
-                      </ListGroup.Item>
-                    ))}
-                    {menu.subItems && renderSubItems(menu.subItems)}
+                    {menu.items && renderSubItems(menu.items)}
                   </ListGroup>
                 </Card.Body>
               </Accordion.Body>
