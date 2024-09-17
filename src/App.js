@@ -16,7 +16,8 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // MATERIAL UI THEMES
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { CssVarsProvider, extendTheme } from 'mui-theme-css-vars';
+import { CssBaseline } from '@mui/material/CssBaseline';
 import ThemeSelector from './components/ThemeSelector/Controller';
 import themes from './Themes';
 
@@ -44,7 +45,7 @@ function App({appState, ...props}) {
 	const theme = themes.find(t => t.name === themeName) || themes.find(t => t.name === "blue");
 
 	return (
-		<ThemeProvider theme={theme}>
+		<CssVarsProvider theme={theme}>
 			<CssBaseline />
 			<div className='container-fluid position-fixed top-0 start-0 end-0 shadow-sm d-flex flex-row m-0 p-0' 
 				style={{ 
@@ -97,7 +98,7 @@ function App({appState, ...props}) {
 			</div>		
 		<ThemeSelector show={showThemeSelector} setShow={setShowThemeSelector} setTheme={setTheme} />
 		<button id="installButton" style={{ display: 'none' }}>Install</button>
-		</ThemeProvider>
+		</CssVarsProvider>
   	);
 }
 
