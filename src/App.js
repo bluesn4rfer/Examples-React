@@ -7,17 +7,19 @@ import { Routes, Route, Link } from 'react-router-dom';
 import TopMenu from './components/TopMenu/Controller';
 import SideMenu from './components/SideMenu/Controller';
 
+// PAGES
 import ComponentPreview from './components/ComponentPreview/Controller';
 import Page from './components/Pages/Controller';
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
 
+// BOOTSTRAP
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // MATERIAL UI THEMES
-import { CssVarsProvider, extendTheme } from 'mui-theme-css-vars';
-import { CssBaseline } from '@mui/material/CssBaseline';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import ThemeVariablesProvider from './components/ThemeVariablesProvider/ThemeVariablesProvider';
 import ThemeSelector from './components/ThemeSelector/Controller';
 import themes from './Themes';
 
@@ -45,8 +47,9 @@ function App({appState, ...props}) {
 	const theme = themes.find(t => t.name === themeName) || themes.find(t => t.name === "blue");
 
 	return (
-		<CssVarsProvider theme={theme}>
+		<ThemeProvider theme={theme}>
 			<CssBaseline />
+			<ThemeVariablesProvider />
 			<div className='container-fluid position-fixed top-0 start-0 end-0 shadow-sm d-flex flex-row m-0 p-0' 
 				style={{ 
 					zIndex: 200, 
@@ -98,7 +101,7 @@ function App({appState, ...props}) {
 			</div>		
 		<ThemeSelector show={showThemeSelector} setShow={setShowThemeSelector} setTheme={setTheme} />
 		<button id="installButton" style={{ display: 'none' }}>Install</button>
-		</CssVarsProvider>
+		</ThemeProvider>
   	);
 }
 

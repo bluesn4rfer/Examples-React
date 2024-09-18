@@ -114,9 +114,13 @@ html, body {
 }
 
 .sidebar .list-group .accordion-button{
-	color: var(--sidemenu-text-color);
-	background-color: red;
+	color: var(--theme-secondary-contrastText);
+	background-color: var(--theme-secondary-main);
 	border: 0px solid #fff;
+}
+
+.sidebar .list-group .accordion-body {
+	padding: 0px;
 }
 
 .sidebar .accordion-item:first-of-type > .accordion-header .accordion-button {
