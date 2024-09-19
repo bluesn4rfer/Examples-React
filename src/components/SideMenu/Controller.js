@@ -42,33 +42,68 @@ function SideMenu() {
     };
   }, []);  
   
-  const renderSubItems = (subItems) => {
+  // const renderSubItems = (subItems) => {
+  //   return (
+  //     <Accordion>
+  //       {subItems.map((subItem, subIdx) => (
+  //         <Accordion.Item eventKey={subIdx.toString()} key={subIdx}>
+  //           <Accordion.Header>{subItem.title}</Accordion.Header>
+  //           <Accordion.Body>
+  //             {subItem.href ? (
+  //               <ListGroup.Item
+  //                 action
+  //                 as={Link}
+  //                 to={subItem.href}
+  //                 onClick={handleLinkClick}
+  //                 style={{
+  //                   backgroundColor: theme.palette.secondary.main,
+  //                   color: theme.palette.secondary.contrastText,
+  //                 }}
+  //               >
+  //                 {subItem.text}
+  //               </ListGroup.Item>
+  //             ) : (
+  //               subItem.items && renderSubItems(subItem.items)
+  //             )}
+  //           </Accordion.Body>
+  //         </Accordion.Item>
+  //       ))}
+  //     </Accordion>
+  //   );
+  // };
+  
+  const renderSubItems = (subItems, parentIndex) => {
     return (
-      <Accordion>
+      <ListGroup variant="flush">
         {subItems.map((subItem, subIdx) => (
-          <Accordion.Item eventKey={subIdx.toString()} key={subIdx}>
-            <Accordion.Header>{subItem.title}</Accordion.Header>
-            <Accordion.Body>
-              {subItem.href ? (
-                <ListGroup.Item
-                  action
-                  as={Link}
-                  to={subItem.href}
-                  onClick={handleLinkClick}
-                  style={{
-                    backgroundColor: theme.palette.secondary.main,
-                    color: theme.palette.secondary.contrastText,
-                  }}
-                >
-                  {subItem.text}
-                </ListGroup.Item>
-              ) : (
-                subItem.items && renderSubItems(subItem.items)
-              )}
-            </Accordion.Body>
-          </Accordion.Item>
+          subItem.href ? (
+            <ListGroup.Item
+              action
+              as={Link}
+              to={subItem.href}
+              onClick={handleLinkClick}
+              key={subIdx}
+              style={{
+                backgroundColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.contrastText,
+              }}
+            >
+              {subItem.text}
+            </ListGroup.Item>
+          ) : (
+            subItem.items && (
+              <Accordion key={subIdx} className="mb-2">
+                <Accordion.Item eventKey={`${parentIndex}-${subIdx}`}>
+                  <Accordion.Header>{subItem.title}</Accordion.Header>
+                  <Accordion.Body>
+                    {renderSubItems(subItem.items, `${parentIndex}-${subIdx}`)}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            )
+          )
         ))}
-      </Accordion>
+      </ListGroup>
     );
   };
 
