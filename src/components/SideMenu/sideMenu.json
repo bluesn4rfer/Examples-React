@@ -18,14 +18,6 @@
     ]
   },
   {
-    "title": "Menus",
-    "items": [
-      { "href": "/examples/DisplayMenu/Accordion", "text": "Accordion" },
-      { "href": "/examples/DisplayMenu/DropDown", "text": "Drop down" },
-      { "href": "/examples/DisplayMenu/Tabs", "text": "Tabs" }
-    ]
-  },
-  {
     "title": "Views",
     "items": [
       { "href": "/examples/Collapsible/Collapsible", "text": "Collapsible" },

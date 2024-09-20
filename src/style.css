@@ -134,6 +134,11 @@ html, body {
 .sidebar .accordion-item:first-of-type > .accordion-header .accordion-button:focus {
 	box-shadow: none;
 }
+
+.sidebar .accordion .accordion-item .accordion .accordion-header > .accordion-button {
+	border-bottom: 2px solid var(--theme-primary-main);
+}
+
 .sidebar .card {
 	border: 0px solid #fff;
 }

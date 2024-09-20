@@ -71,7 +71,7 @@ function SideMenu() {
   //     </Accordion>
   //   );
   // };
-  
+
   const renderSubItems = (subItems, parentIndex) => {
     return (
       <ListGroup variant="flush">
@@ -92,7 +92,7 @@ function SideMenu() {
             </ListGroup.Item>
           ) : (
             subItem.items && (
-              <Accordion key={subIdx} className="mb-2">
+              <Accordion key={subIdx}>
                 <Accordion.Item eventKey={`${parentIndex}-${subIdx}`}>
                   <Accordion.Header>{subItem.title}</Accordion.Header>
                   <Accordion.Body>
