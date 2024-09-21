@@ -14,6 +14,19 @@
           { "href": "/examples/Bootstrap/Breadcrumbs", "text": "Breadcrumbs" },
           { "href": "/examples/Bootstrap/Sidebar", "text": "Sidebar" }
         ]
+      },
+      {
+        "title": "Menus",
+        "items": [
+          { "href": "/examples/Bootstrap/DropDown", "text": "Drop down" },
+          { "href": "/examples/Bootstrap/Navbar", "text": "Navbar" },
+          { "href": "/examples/Bootstrap/Nav", "text": "Nav" },
+          { "href": "/examples/Bootstrap/ItemVariants", "text": "Item Variants" },
+          { "href": "/examples/Bootstrap/Tabs", "text": "Tabs" },
+          { "href": "/examples/Bootstrap/Pagination", "text": "Pagination" },
+          { "href": "/examples/Bootstrap/Breadcrumbs", "text": "Breadcrumbs" },
+          { "href": "/examples/Bootstrap/Sidebar", "text": "Sidebar" }
+        ]
       }
     ]
   },

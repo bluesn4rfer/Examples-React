@@ -96,8 +96,8 @@ html, body {
 .sidebar .accordion{
 	box-sizing: border-box;
 	background-color: var(--sidemenu-accordion-color);
-	border-top: 2px solid var(--sidemenu-border-color);
-	border-bottom: 2px solid var(--sidemenu-border-color);
+	border-top: 0px solid var(--sidemenu-border-color);
+	border-bottom: 0px solid var(--sidemenu-border-color);
 	border-left: 0px solid var(--sidemenu-border-color);
 	border-right: 0px solid var(--sidemenu-border-color);
 	height: 100%;
