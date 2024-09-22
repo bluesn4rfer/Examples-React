@@ -123,6 +123,10 @@ html, body {
 	padding: 0px;
 }
 
+.sidebar .list-group .accordion-body .list-group {
+	border-bottom: 2px solid var(--theme-primary-main);
+}
+
 .sidebar .accordion-item:first-of-type > .accordion-header .accordion-button {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
