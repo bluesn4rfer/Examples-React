@@ -93,11 +93,11 @@ html, body {
     margin-right: 0;
 }
 
-.sidebar .accordion{
+.sidebar > .accordion{
 	box-sizing: border-box;
 	background-color: var(--sidemenu-accordion-color);
 	border-top: 0px solid var(--sidemenu-border-color);
-	border-bottom: 0px solid var(--sidemenu-border-color);
+	border-bottom: 4px solid var(--sidemenu-border-color);
 	border-left: 0px solid var(--sidemenu-border-color);
 	border-right: 0px solid var(--sidemenu-border-color);
 	height: 100%;

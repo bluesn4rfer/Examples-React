@@ -120,7 +120,7 @@ function SideMenu() {
           color: theme.palette.primary.contrastText
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
-      <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-hidden" style={{"width": "250px"}}>
+      <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-y-auto" style={{"width": "250px"}}>
         <Accordion defaultActiveKey="0" className="list-unstyled">
           {sideMenu.map((menu, index) => (
             <Card key={index}>
