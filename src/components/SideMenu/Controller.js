@@ -10,17 +10,6 @@ function SideMenu() {
   const menuRef = useRef(null);
   const theme = useTheme();
 
-	useEffect(() => {
-    document.documentElement.style.setProperty('--sidemenu-text-color', theme.palette.primary.contrastText);
-    document.documentElement.style.setProperty('--sidemenu-bg-color', theme.palette.primary.main);
-    document.documentElement.style.setProperty('--sidemenu-accordion-color', theme.palette.secondary.light);
-    document.documentElement.style.setProperty('--sidemenu-border-color', theme.palette.primary.main);
-    document.documentElement.style.setProperty('--sidemenu-active-text-color', theme.palette.primary.main);
-    document.documentElement.style.setProperty('--sidemenu-active-bg-color', theme.palette.primary.light);
-    document.documentElement.style.setProperty('--sidemenu-active-border-color', theme.palette.primary.main);
-    document.documentElement.style.setProperty('--sidemenu-hover-text-color', theme.palette.primary.dark);
-}, [theme]);
-
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -42,36 +31,6 @@ function SideMenu() {
     };
   }, []);  
   
-  // const renderSubItems = (subItems) => {
-  //   return (
-  //     <Accordion>
-  //       {subItems.map((subItem, subIdx) => (
-  //         <Accordion.Item eventKey={subIdx.toString()} key={subIdx}>
-  //           <Accordion.Header>{subItem.title}</Accordion.Header>
-  //           <Accordion.Body>
-  //             {subItem.href ? (
-  //               <ListGroup.Item
-  //                 action
-  //                 as={Link}
-  //                 to={subItem.href}
-  //                 onClick={handleLinkClick}
-  //                 style={{
-  //                   backgroundColor: theme.palette.secondary.main,
-  //                   color: theme.palette.secondary.contrastText,
-  //                 }}
-  //               >
-  //                 {subItem.text}
-  //               </ListGroup.Item>
-  //             ) : (
-  //               subItem.items && renderSubItems(subItem.items)
-  //             )}
-  //           </Accordion.Body>
-  //         </Accordion.Item>
-  //       ))}
-  //     </Accordion>
-  //   );
-  // };
-
   const renderSubItems = (subItems, parentIndex) => {
     return (
       <ListGroup variant="flush">

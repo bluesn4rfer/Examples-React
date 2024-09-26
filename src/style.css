@@ -96,10 +96,10 @@ html, body {
 .sidebar > .accordion{
 	box-sizing: border-box;
 	background-color: var(--sidemenu-accordion-color);
-	border-top: 0px solid var(--sidemenu-border-color);
-	border-bottom: 4px solid var(--sidemenu-border-color);
-	border-left: 0px solid var(--sidemenu-border-color);
-	border-right: 0px solid var(--sidemenu-border-color);
+	border-top: 0px solid var(--theme-primary-main);
+	border-bottom: 4px solid var(--theme-primary-main);
+	border-left: 0px solid var(--theme-primary-main);
+	border-right: 0px solid var(--theme-primary-main);
 	height: 100%;
 }
 
@@ -108,8 +108,8 @@ html, body {
 }
 
 .sidebar .accordion-button{
-	color: var(--sidemenu-text-color);
-	background-color: var(--sidemenu-bg-color);
+	color: var(--theme-primary-contrastText);
+	background-color: var(--theme-primary-main);
 	border: 0px solid #fff;
 }
 
@@ -148,7 +148,7 @@ html, body {
 }
 
 .sidebar .list-group-item {
-	border-color: var(--sidemenu-border-color);
+	border-color: var(--theme-primary-main);
 }
 
 .custom-tabs .nav-tabs .nav-link {
