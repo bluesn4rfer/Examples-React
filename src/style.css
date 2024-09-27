@@ -95,7 +95,7 @@ html, body {
 
 .sidebar > .accordion{
 	box-sizing: border-box;
-	background-color: var(--sidemenu-accordion-color);
+	background-color: var(--theme-secondary-light);
 	border-top: 0px solid var(--theme-primary-main);
 	border-bottom: 4px solid var(--theme-primary-main);
 	border-left: 0px solid var(--theme-primary-main);

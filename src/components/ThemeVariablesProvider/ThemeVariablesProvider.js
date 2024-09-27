@@ -10,8 +10,12 @@ const ThemeVariablesProvider = () => {
     // Map Material UI theme to CSS variables
     const themeVariables = {
       '--theme-primary-main': theme.palette.primary.main,
+      '--theme-primary-light': theme.palette.primary.light,
+      '--theme-primary-dark': theme.palette.primary.dark,
       '--theme-primary-contrastText': theme.palette.primary.contrastText,
       '--theme-secondary-main': theme.palette.secondary.main,
+      '--theme-secondary-light': theme.palette.secondary.light,
+      '--theme-secondary-dark': theme.palette.secondary.dark,
       '--theme-secondary-contrastText': theme.palette.secondary.contrastText,
       '--theme-background-default': theme.palette.background.default,
       '--theme-background-paper': theme.palette.background.paper,
