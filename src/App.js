@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 // MENUS
-import TopMenu from './components/TopMenu/Controller';
+import TopMenu from './components/TopMenu/TopMenu';
 import SideMenu from './components/SideMenu/Controller';
 
 // PAGES

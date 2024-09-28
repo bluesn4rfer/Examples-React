@@ -11,16 +11,6 @@ export function TopMenu({ setShowThemeSelector }) {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const menuRef = useRef(null);
 
-	useEffect(() => {
-        document.documentElement.style.setProperty('--topmenu-text-color', theme.palette.secondary.contrastText);
-        document.documentElement.style.setProperty('--topmenu-bg-color', theme.palette.secondary.main);
-        document.documentElement.style.setProperty('--topmenu-border-color', theme.palette.secondary.main);
-        document.documentElement.style.setProperty('--topmenu-active-text-color', theme.palette.secondary.main);
-        document.documentElement.style.setProperty('--topmenu-active-bg-color', theme.palette.secondary.light);
-        document.documentElement.style.setProperty('--topmenu-active-border-color', theme.palette.secondary.main);
-        document.documentElement.style.setProperty('--topmenu-hover-text-color', theme.palette.secondary.dark);
-    }, [theme]);
-
     const handleClickOutside = (event) => {
         if (menuRef.current && !menuRef.current.contains(event.target)) {
           setShowDropdown(false);

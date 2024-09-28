@@ -66,14 +66,13 @@ html, body {
 }
 
 .topmenu .dropdown-menu{
-	color: var(--topmenu-text-color);
-	background-color: var(--topmenu-bg-color);
+	color: var(--theme-secondary-contrastText);
+	background-color: var(--theme-secondary-main);
 }
 
 .topmenu.dropend {
 	display: flex;
 	flex: 1 1 auto;
-	/* visibility: hidden; */
 	opacity: 1;
 	transition: opacity 1.0s ease, visibility 0s 0s;
 }
@@ -84,7 +83,7 @@ html, body {
 	align-items: center;
 	justify-content: space-between;
 	padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
-	color: var(--topmenu-text-color);
+	color: var(--theme-primary-contrastText);
 	text-decoration: none;
 }
 
