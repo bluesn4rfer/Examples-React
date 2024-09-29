@@ -8,7 +8,7 @@ import TopMenu from './components/TopMenu/TopMenu';
 import SideMenu from './components/SideMenu/Controller';
 
 // PAGES
-import ComponentPreview from './components/ComponentPreview/Controller';
+import ComponentPreview from './components/ComponentPreview/ComponentPreview';
 import Page from './components/Pages/Controller';
 import PageNotFound from './PageNotFound';
 import FontAwesomeIcons from './FontAwesomeIcons';
