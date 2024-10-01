@@ -1,14 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 
 const sideMenu = require('./sideMenu.json');
 
 function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
-  const theme = useTheme();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -43,8 +41,8 @@ function SideMenu() {
               onClick={handleLinkClick}
               key={subIdx}
               style={{
-                backgroundColor: theme.palette.secondary.main,
-                color: theme.palette.secondary.contrastText,
+                backgroundColor: 'var(--theme-secondary-main)',
+                color: 'var(--theme-secondary-contrastText)',
               }}
             >
               {subItem.text}
@@ -71,12 +69,12 @@ function SideMenu() {
       <button onClick={toggleSidebar}
         className="menu-button rounded-end h-100 fs-3 text-start text-uppercase vtext" 
         style={{
-          backgroundColor: theme.palette.primary.main,
-          borderTop: `2px solid ${theme.palette.primary.main}`,
-          borderBottom: `2px solid ${theme.palette.primary.main}`,
-          borderLeft: `0px solid ${theme.palette.primary.main}`,
-          borderRight: `2px solid ${theme.palette.primary.main}`,
-          color: theme.palette.primary.contrastText
+          backgroundColor: 'var(--theme-primary-main)',
+          borderTop: '2px solid var(--theme-primary-main)',
+          borderBottom: '2px solid var(--theme-primary-main)',
+          borderLeft: '0px solid var(--theme-primary-main)',
+          borderRight: '2px solid var(--theme-primary-main)',
+          color: 'var(--theme-primary-contrastText)'
         }}
       ><i class="py-2 icon fa fa-cogs" style={{"transform": "rotate(90deg)"}} />EXAMPLES</button>
       <Collapse in={isOpen} className="float-start horizontal-collapsible-content overflow-y-auto" style={{"width": "250px"}}>
