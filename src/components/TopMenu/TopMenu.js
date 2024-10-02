@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 
 const topMenu = require('./topMenu.json');
 
 export function TopMenu({ setShowThemeSelector }) {
-    const theme = useTheme();
     const [showDropdown, setShowDropdown] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const menuRef = useRef(null);
@@ -59,8 +57,8 @@ export function TopMenu({ setShowThemeSelector }) {
             onClick={toggleDropdown}
             className="topmenu rounded"
             style={{
-                backgroundColor: theme.palette.secondary.main,
-                color: theme.palette.secondary.contrastText
+                backgroundColor: 'var(--theme-secondary-main)',
+                color: 'var(--theme-secondary-contrastText)'
             }}
             show={showDropdown}
         >
