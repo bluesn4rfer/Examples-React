@@ -9,9 +9,9 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, necessary for styling
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 
-import CodeEditor from '../CodeEditor/Controller';
-import CodePreview from '../CodePreview/Controller';
-import MarkdownPreview from '../MarkdownPreview/Controller';
+import CodeEditor from '../CodeEditor/CodeEditor';
+import CodePreview from '../CodePreview/CodePreview';
+import MarkdownPreview from '../MarkdownPreview/MarkdownPreview';
 
 import DisplayForm from '../Forms/Controller';
 import Charts from '../Charts/Controller';
