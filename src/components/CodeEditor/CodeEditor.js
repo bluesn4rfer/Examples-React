@@ -93,16 +93,21 @@ function CodeEditor({ code, onChange, updateCode, theme: initTheme = 'dark', ...
 
   return (
     <div {...props}>
-      <div className="form-check form-switch">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          id="darkModeSwitch"
-          checked={theme === 'dark'}
-          onChange={toggleTheme}
-        />
-        <label className="form-check-label" htmlFor="darkModeSwitch">Dark Mode</label>
+      <div class="editor-toolbar d-flex">
+        <span className="form-check form-switch">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="darkModeSwitch"
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+          />
+          <label className="form-check-label" htmlFor="darkModeSwitch">Dark Mode</label>
+        </span>
+        <span class="syntax-mode">JavaScript</span>
+        <span class="line-count">Line: 1</span>
       </div>
+
       <div ref={editor} />
     </div>
   );
