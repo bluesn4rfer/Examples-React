@@ -5,7 +5,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 // MENUS
 import TopMenu from './components/TopMenu/TopMenu';
-import SideMenu from './components/SideMenu/Controller';
+import SideMenu from './components/SideMenu/SideMenu';
 
 // PAGES
 import ComponentPreview from './components/ComponentPreview/ComponentPreview';
