@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const sideMenu = require('./sideMenu.json');
+const mainMenu = require('../../menu.json');
+const menuCustomizations = require('./sideMenu.json');
 
 function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [sideMenu, setSideMenu] = useState();
   const menuRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -21,6 +23,10 @@ function SideMenu() {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    
+  }, []);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);

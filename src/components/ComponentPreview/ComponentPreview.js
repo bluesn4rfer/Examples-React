@@ -11,7 +11,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 
 import CodeEditor from '../CodeEditor/CodeEditor';
 import CodePreview from '../CodePreview/CodePreview';
-import MarkdownPreview from '../MarkdownPreview/MarkdownPreview';
+import MarkdownViewer from '../MarkdownViewer/MarkdownViewer';
 
 import DisplayForm from '../Forms/Controller';
 import Charts from '../Charts/Controller';
@@ -156,7 +156,7 @@ function ComponentPreview() {
                         <CodeEditor code={code} onChange={handleCodeChange} updateCode={updateCode} className='w-100' />
                     </div>
                     <div className="w-100 h-100 px-3" style={{ display: activeTab === 'documentation' ? 'block' : 'none', animation: activeTab === "documentation" ? "fade-in 0.5s ease-in-out" : "" }}>
-                        <MarkdownPreview markdown={markdown} className='w-100' />
+                        <MarkdownViewer markdown={markdown} className='w-100' />
                     </div>
                 </Col>
             </Row>
