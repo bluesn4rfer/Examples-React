@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Collapse, Accordion, Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import mergeMenus from '../../utils/mergeMenus';
 
 const mainMenu = require('../../menu.json');
 const menuCustomizations = require('./sideMenu.json');
 
 function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const [sideMenu, setSideMenu] = useState();
+  const [sideMenu, setSideMenu] = useState([]);
   const menuRef = useRef(null);
 
   const toggleSidebar = () => {
@@ -25,7 +26,7 @@ function SideMenu() {
   };
 
   useEffect(() => {
-    
+    setSideMenu(mergeMenus(mainMenu, menuCustomizations));
   }, []);
 
   useEffect(() => {
