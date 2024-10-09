@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import mergeMenus from '../../utils/mergeMenus';
 
-const topMenu = require('./topMenu.json');
+const mainMenu = require('../../menu.json');
+const menuCustomizations = require('./topMenu.json');
 
 export function TopMenu({ setShowThemeSelector }) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [topMenu, setTopMenu] = useState([]);
     const menuRef = useRef(null);
 
     const handleClickOutside = (event) => {
@@ -16,13 +19,6 @@ export function TopMenu({ setShowThemeSelector }) {
         }
     };
     
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);  
-
     const handleSelect = (eventKey) => {
         console.debug(`TopMenu.js handleSelect() eventKey: ${eventKey}`);
         if (eventKey === 'themeSelector') {
@@ -46,6 +42,17 @@ export function TopMenu({ setShowThemeSelector }) {
     const handleMouseLeave = () => {
         setActiveDropdown(null);
     };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);    
+
+    useEffect(() => {
+        setTopMenu(mergeMenus(menuCustomizations, mainMenu));
+    }, []);
 
     return (
         <DropdownButton 
