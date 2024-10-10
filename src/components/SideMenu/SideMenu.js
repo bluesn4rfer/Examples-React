@@ -52,13 +52,13 @@ function SideMenu() {
                 color: 'var(--theme-secondary-contrastText)',
               }}
             >
-              {subItem.text}
+              {subItem.label}
             </ListGroup.Item>
           ) : (
             subItem.items && (
               <Accordion key={subIdx}>
                 <Accordion.Item eventKey={`${parentIndex}-${subIdx}`}>
-                  <Accordion.Header>{subItem.title}</Accordion.Header>
+                  <Accordion.Header>{subItem.label}</Accordion.Header>
                   <Accordion.Body>
                     {renderSubItems(subItem.items, `${parentIndex}-${subIdx}`)}
                   </Accordion.Body>
@@ -90,7 +90,7 @@ function SideMenu() {
             <Card key={index}>
               <Accordion.Item eventKey={index.toString()}>
               <Accordion.Header>
-                {menu.title}
+                {menu.label}
               </Accordion.Header>
               <Accordion.Body className="p-0">
                 <Card.Body className="p-0 text-nowrap">

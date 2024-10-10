@@ -3,7 +3,7 @@ export default function mergeMenus(mainMenu, customMenu) {
   
     customMenu.forEach(customSection => {
       const existingSectionIndex = mergedMenu.findIndex(
-        mainSection => mainSection.title === customSection.title
+        mainSection => mainSection.label === customSection.label
       );
   
       if (existingSectionIndex >= 0) {
