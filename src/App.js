@@ -1,5 +1,4 @@
 import { useLocalStorage } from './components/Hooks/useLocalStorage';
-import { connect } from 'react-redux';
 import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
@@ -27,19 +26,7 @@ import 'font-awesome/css/font-awesome.css';
 
 import './style.css';
 
-
-
-const mapStateToProps = state => ({
-	appState: state,
-});
-  
-const mapDispatchToProps = dispatch => ({
-	// increment: () => dispatch({ type: 'INCREMENT' }),
-	// decrement: () => dispatch({ type: 'DECREMENT' }),
-	//updatePage: (page) => dispatch({ type: 'UPDATE_STATE', component: 'App', payload: {page: page} })
-});
-
-function App({appState, ...props}) {
+export default function App({...props}) {
 	const [themeName, setTheme] = useLocalStorage("theme","blue");
 	const [showThemeSelector, setShowThemeSelector] = useState(false);
 
@@ -105,4 +92,3 @@ function App({appState, ...props}) {
   	);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
