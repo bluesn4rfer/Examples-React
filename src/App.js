@@ -19,7 +19,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 // MATERIAL UI THEMES
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import ThemeVariablesProvider from './components/ThemeVariablesProvider/ThemeVariablesProvider';
-import ThemeSelector from './components/ThemeSelector/Controller';
+import ThemeSelector from './components/ThemeSelector/ThemeSelector';
 import themes from './Themes';
 
 import 'font-awesome/css/font-awesome.css';
