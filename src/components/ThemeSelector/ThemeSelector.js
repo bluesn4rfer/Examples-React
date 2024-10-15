@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import { Box, Grid, Typography } from '@mui/material';
 import themes from '../../Themes';
 import { useTheme } from '@mui/material/styles';
