@@ -18,19 +18,45 @@
         ]
       },
       {
-        "id": "bootstrap_menus2",
-        "label": "Menus",
+        "id": "bootstrap_forms",
+        "label": "Forms",
         "items": [
-          { "href": "/examples/Bootstrap/DropDown", "label": "Drop down" },
-          { "href": "/examples/Bootstrap/Navbar", "label": "Navbar" },
-          { "href": "/examples/Bootstrap/Nav", "label": "Nav" },
-          { "href": "/examples/Bootstrap/ItemVariants", "label": "Item Variants" },
-          { "href": "/examples/Bootstrap/Tabs", "label": "Tabs" },
-          { "href": "/examples/Bootstrap/Pagination", "label": "Pagination" },
-          { "href": "/examples/Bootstrap/Breadcrumbs", "label": "Breadcrumbs" },
-          { "href": "/examples/Bootstrap/Sidebar", "label": "Sidebar" }
+          { "href": "/examples/Bootstrap/DropDown", "label": "Form Controls" },
+          { "href": "/examples/Bootstrap/Navbar", "label": "Input Groups" },
+          { "href": "/examples/Bootstrap/Nav", "label": "Form Validation" },
+          { "href": "/examples/Bootstrap/ItemVariants", "label": "Floating Labels" }
         ]
-      }
+      },
+      {
+        "id": "bootstrap_buttons",
+        "label": "Buttons & Alerts",
+        "items": [
+          { "href": "/examples/Bootstrap/DropDown", "label": "Form Controls" },
+          { "href": "/examples/Bootstrap/Navbar", "label": "Input Groups" },
+          { "href": "/examples/Bootstrap/Nav", "label": "Form Validation" },
+          { "href": "/examples/Bootstrap/ItemVariants", "label": "Floating Labels" }
+        ]
+      },
+      {
+        "id": "bootstrap_modals",
+        "label": "Modals & Overlays",
+        "items": [
+          { "href": "/examples/Bootstrap/DropDown", "label": "Form Controls" },
+          { "href": "/examples/Bootstrap/Navbar", "label": "Input Groups" },
+          { "href": "/examples/Bootstrap/Nav", "label": "Form Validation" },
+          { "href": "/examples/Bootstrap/ItemVariants", "label": "Floating Labels" }
+        ]
+      },
+      {
+        "id": "bootstrap_cards",
+        "label": "Cards & Containers",
+        "items": [
+          { "href": "/examples/Bootstrap/DropDown", "label": "Form Controls" },
+          { "href": "/examples/Bootstrap/Navbar", "label": "Input Groups" },
+          { "href": "/examples/Bootstrap/Nav", "label": "Form Validation" },
+          { "href": "/examples/Bootstrap/ItemVariants", "label": "Floating Labels" }
+        ]
+      }      
     ]
   },
   {
